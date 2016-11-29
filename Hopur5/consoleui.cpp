@@ -31,18 +31,30 @@ void ConsoleUI::runUI()
 
         if(input == "add")
         {
+            cout << "I'm here"<< endl;
+            Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+            Process* doStuff = new Process(*db);
             //todo
         }
         else if(input == "edit")
         {
+            cout << "I'm here"<< endl;
+            Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+            Process* doStuff = new Process(*db);
             //todo
         }
         else if(input == "search")
         {
+            cout << "I'm here"<< endl;
+            Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+            Process* doStuff = new Process(*db);
             //todo
         }
         else if(input == "delete")
         {
+            cout << "I'm here"<< endl;
+            Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+            Process* doStuff = new Process(*db);
             //todo
         }
         else if(input == "exit")
@@ -50,6 +62,10 @@ void ConsoleUI::runUI()
             cout << "Thank you, have a nice day!" << endl;
             cout << endl;
             exitUI = true;
+        }
+        else
+        {
+            cout << "Wrong input Moron!!!" << endl;
         }
     }while(!exitUI)
 }
