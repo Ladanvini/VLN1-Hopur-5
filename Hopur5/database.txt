@@ -1,16 +1,19 @@
 Name: Tony Hoar
+Sex: m
 BirthYear: 1934
 DeathYear: 0
 Contribution: "QuickSort Algorithm"
 TuringAwardYear: 1980
 #
 Name: Ada Lovelace
+Sex: f
 BirthYear: 1815
 DeathYear: 1852
 Contribution: "First programmer ever"
 TuringAwardYear: 0
 #
 Name: Charles Babbage
+Sex: m
 BirthYear: 1791
 DeathYear: 1871
 Contribution: "The father of computing"
