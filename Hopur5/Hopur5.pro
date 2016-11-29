@@ -12,12 +12,14 @@ TEMPLATE = app
 SOURCES += main.cpp \
     database.cpp \
     person.cpp \
-    process.cpp
+    process.cpp \
+    consoleui.cpp
 
 HEADERS += \
     database.h \
     person.h \
-    process.h
+    process.h \
+    consoleui.h
 
 DISTFILES += \
     database \
