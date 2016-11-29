@@ -6,10 +6,10 @@ Process::Process(Database _db){
    people = _db.getList();
    // person = NULL;
 }
-void Process::create(string name, string age, string sex, string birth, string death, string contribution, string turingYear)
+void Process::create(string name, string age, char sex, string birth, string death, string contribution, string turingYear)
 {
-    Person p = new Person(name, age, sex, birth, death, contribution, turingYear);
-    people.push_back(p);
+    Person* p = new Person(name, age, sex, birth, death, contribution, turingYear);
+    people.push_back(*p);
 
     db.update(people);
 }
@@ -47,7 +47,7 @@ vector<Person> Process::searchBySex(char sex)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).geSex() == sex)
+        if(people.at(i).getSex() == sex)
         {
             result.push_back(people.at(i));
         }
@@ -55,20 +55,7 @@ vector<Person> Process::searchBySex(char sex)
 
     return result;
 }
-vector<Person> Process::searchByBirth(string birth)
-{
-    vector<Person> result;
 
-    for(size_t i = 0; i < people.size(); i++)
-    {
-        if(people.at(i).getBirth() == birth)
-        {
-            result.push_back(people.at(i));
-        }
-    }
-
-    return result;
-}
 vector<Person> Process::searchByDeath(string death)
 {
     vector<Person> result;

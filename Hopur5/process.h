@@ -10,14 +10,14 @@ private:
     Person person;
 public:
     Process(Database _db);
-    void create(string name, string age, string sex, string birth, string death, string contribution, string turingYear);
-    void searchByName(string name);
-    void searchByAge(string age);
-    void searchBySex(char sex);
-    void searchByBirth(string birth);
-    void searchByDeath(string death);
-    void searchByContribution(string contribution);
-    void searchByTuring(string turing);
+    void create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
+    vector<Person> searchByName(string name);
+    vector<Person> searchByAge(string age);
+    vector<Person> searchBySex(char sex);
+    vector<Person> searchByBirth(string birth);
+    vector<Person> searchByDeath(string death);
+    vector<Person> searchByContribution(string contribution);
+    vector<Person> searchByTuring(string turing);
     // Sort
     // Edit
 
