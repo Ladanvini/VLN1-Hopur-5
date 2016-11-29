@@ -4,7 +4,7 @@ Person::Person()
 {
     name = "";
     age = 0;
-    sex = '';
+    sex = ' ';
     birth = 0;
     death = 0;
     contribution = "";

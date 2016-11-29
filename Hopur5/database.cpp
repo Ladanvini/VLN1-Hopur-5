@@ -12,17 +12,17 @@ Database::Database(string dbFile)
     vector<char> strstr;
     ifstream fin;
     cout << "hi";
-    fin.open("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+    fin.open("/Users/alexandrawinther/Desktop/VLN1-Hopur-5/Hopur5/database.txt");
     if(fin.is_open())
         cout << "fucking success!" << endl;
     else
         cout << "fucking fail :(";
 
-    char str;
-    fin.get(str);
+    char* str = new char[512];
+    fin.getline(str, 255);
     cout << str << endl;
 
-
+/*
     while(str != '$'){
         strstr.push_back(str);
         cout << str << endl;
@@ -31,6 +31,7 @@ Database::Database(string dbFile)
     fin.close();
     for(int i=0; i<strstr.size(); i++)
         cout<< strstr.at(i);
+*/
 }
 Person Database::getPerson()
 {
