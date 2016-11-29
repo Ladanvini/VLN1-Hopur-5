@@ -2,9 +2,9 @@
 
 
 Process::Process(Database _db){
-    //db = _db;
-    //people = _db.getList();
-    //person = NULL;
+   db = _db;
+   people = _db.getList();
+   // person = NULL;
 }
 // Create
 // Search

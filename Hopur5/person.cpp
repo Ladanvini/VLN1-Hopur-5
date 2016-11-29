@@ -25,7 +25,7 @@ Person::Person(string name, string age, char sex, string birth, string death, st
     _death = death;
     _contribution = contribution;
     _turingYear = truringYear;
-    turing = true;
+    _turing = true;
 }
 void Person::showPerson(){
     cout << "NAME: " << this->_name << endl;

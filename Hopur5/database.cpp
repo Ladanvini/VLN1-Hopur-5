@@ -13,7 +13,7 @@ Database::Database(string dbFile)
     vector<string> strstr;
     ifstream fin;
 
-    fin.open("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+    fin.open(dbFile);
     if(fin.is_open())
         cout << "fucking success!" << endl;
     else
@@ -154,19 +154,25 @@ Database::Database(string dbFile)
 
 
     }
-    for(int i=0; i<people.size(); i++){
-        cout << "----  " << i <<"  ----"<< endl;
-        people.at(i).showPerson();
 
-    }
+
+
 }
 /*Person Database::getPerson()
 {
 
 }
-
+*/
 vector<Person> Database::getList()
 {
+/*    for(int i=0; i<people.size(); i++){
+        cout << "----  " << i <<"  ----"<< endl;
+        people.at(i).showPerson();
+    }
+  */
+  return people;
+}
+void Database::update(vector<Person> peeps){
+    people = peeps;
 
-}*/
-
+}

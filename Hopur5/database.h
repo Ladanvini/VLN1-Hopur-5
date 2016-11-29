@@ -15,6 +15,7 @@ public:
     Database(string dbFile);
     Person getPerson();
     vector<Person> getList();
+    void update(vector<Person> peeps);
 };
 
 #endif // DATABASE_H
