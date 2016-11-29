@@ -13,7 +13,7 @@ Database::Database(string dbFile)
     vector<string> strstr;
     ifstream fin;
 
-    fin.open("\Users\Notandi\Documents\Skóli\HR\Verklegt 1\VLN1-Hopur-5\Hopur5");
+    fin.open("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
     if(fin.is_open())
         cout << "fucking success!" << endl;
     else
@@ -33,9 +33,10 @@ Database::Database(string dbFile)
     string name;
     char sex;
     string birth;
-    int death;
+    string death;
     string cont;
-    int ty;
+    string contribution;
+    string ty;
     for(int i=0; i<strstr.size(); i++){
         line = strstr.at(i);
         while(i<strstr.size() && strstr.at(i) != "#"){
