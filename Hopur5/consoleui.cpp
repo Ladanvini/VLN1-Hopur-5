@@ -23,7 +23,7 @@ void ConsoleUI::runUI()
         cout << "Edit" << endl;
         cout << "Search" << endl;
         cout << "Delete" << endl;
-        cout << "Exit" << \n << endl;
+        cout << "Exit" << endl;
 
         cin >> input;
 
@@ -67,5 +67,5 @@ void ConsoleUI::runUI()
         {
             cout << "Wrong input Moron!!!" << endl;
         }
-    }while(!exitUI)
+    }while(!exitUI);
 }
