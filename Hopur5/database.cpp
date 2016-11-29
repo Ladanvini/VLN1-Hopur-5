@@ -165,11 +165,11 @@ Database::Database(string dbFile)
 */
 vector<Person> Database::getList()
 {
-/*    for(int i=0; i<people.size(); i++){
+    /*for(int i=0; i<people.size(); i++){
         cout << "----  " << i <<"  ----"<< endl;
         people.at(i).showPerson();
-    }
-  */
+    }*/
+
   return people;
 }
 void Database::update(vector<Person> peeps){
