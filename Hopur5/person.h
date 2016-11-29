@@ -8,17 +8,17 @@ using namespace std;
 class Person
 {
 private:
-    string name;
-    string age;
-    char sex;
-    string birth;
-    string death;
-    string contribution;
-    string turingYear;
-    bool turing;
+    string _name;
+    string _age;
+    char _sex;
+    string _birth;
+    string _death;
+    string _contribution;
+    string _turingYear;
+    bool _turing;
 public:
     Person();
-    Person(string _name, string _age, char _sex, string _birth, string _death, string _contribution, string _truringYear);
+    Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear);
     void showPerson();
 };
 
