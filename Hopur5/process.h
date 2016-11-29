@@ -17,7 +17,7 @@ public:
     vector<Person> searchByBirth(string birth);
     vector<Person> searchByDeath(string death);
     vector<Person> searchByContribution(string contribution);
-    vector<Person> searchByTuring(string turing);
+    vector<Person> searchByTuring(bool flag);
     // Sort
     // Edit
 

@@ -26,7 +26,7 @@ public:
     string getBirth(){ return _birth; }
     string getDeath(){ return _death; }
     string getContribution() { return _contribution; }
-    string getTuring() { return _turingYear; }
+    bool getTuring() { return _turing; }
 
 };
 

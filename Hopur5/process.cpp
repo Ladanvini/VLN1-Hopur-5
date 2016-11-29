@@ -1,5 +1,6 @@
 #include "process.h"
-
+#include <iostream>
+using namespace std;
 
 Process::Process(Database _db){
    db = _db;
@@ -19,8 +20,9 @@ vector<Person> Process::searchByName(string name)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getName() == name)
+        if((people.at(i).getName()).find(name) != std::string::npos)
         {
+
             result.push_back(people.at(i));
         }
     }
@@ -33,7 +35,7 @@ vector<Person> Process::searchByAge(string age)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getAge() == age)
+        if((people.at(i).getAge()).find(age) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -47,7 +49,7 @@ vector<Person> Process::searchBySex(char sex)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getSex() == sex)
+        if(people.at(i).getSex() == (sex))
         {
             result.push_back(people.at(i));
         }
@@ -62,7 +64,7 @@ vector<Person> Process::searchByDeath(string death)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getDeath() == death)
+        if((people.at(i).getDeath()).find(death) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -76,7 +78,7 @@ vector<Person> Process::searchByBirth(string birth)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getBirth() == birth)
+        if((people.at(i).getBirth()).find(birth) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -90,7 +92,7 @@ vector<Person> Process::searchByContribution(string contribution)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getContribution() == contribution)
+        if((people.at(i).getContribution()).find(contribution) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -98,13 +100,13 @@ vector<Person> Process::searchByContribution(string contribution)
 
     return result;
 }
-vector<Person> Process::searchByTuring(string turing)
+vector<Person> Process::searchByTuring(bool flag)
 {
     vector<Person> result;
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if(people.at(i).getTuring() == turing)
+        if((people.at(i).getTuring()) == flag)
         {
             result.push_back(people.at(i));
         }
