@@ -10,8 +10,14 @@ private:
     Person person;
 public:
     Process(Database _db);
-    // Create
-    // Search
+    void create(string name, string age, string sex, string birth, string death, string contribution, string turingYear);
+    void searchByName(string name);
+    void searchByAge(string age);
+    void searchBySex(char sex);
+    void searchByBirth(string birth);
+    void searchByDeath(string death);
+    void searchByContribution(string contribution);
+    void searchByTuring(string turing);
     // Sort
     // Edit
 
