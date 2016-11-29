@@ -9,24 +9,25 @@ Database::Database(){
 
 Database::Database(string dbFile)
 {
-    vector<string> strstr;
+    vector<char> strstr;
     ifstream fin;
     cout << "hi";
     fin.open("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
-    if(!fin.fail())
-        cout << "fucking success!";
+    if(fin.is_open())
+        cout << "fucking success!" << endl;
     else
         cout << "fucking fail :(";
 
-    string str;
-    getline(fin, str);
+    char str;
+    fin.get(str);
+    cout << str << endl;
 
-/*    while(str != "$"){
+
+    while(str != '$'){
         strstr.push_back(str);
         cout << str << endl;
-        getline(fin, str);
+        fin.get(str);
     }
-*/
     fin.close();
     for(int i=0; i<strstr.size(); i++)
         cout<< strstr.at(i);
