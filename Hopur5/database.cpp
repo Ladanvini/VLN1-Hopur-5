@@ -1,6 +1,7 @@
 #include "database.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;
 Database::Database(){
@@ -12,7 +13,7 @@ Database::Database(string dbFile)
     vector<string> strstr;
     ifstream fin;
 
-    fin.open("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+    fin.open("\Users\Notandi\Documents\Skóli\HR\Verklegt 1\VLN1-Hopur-5\Hopur5");
     if(fin.is_open())
         cout << "fucking success!" << endl;
     else
@@ -84,8 +85,57 @@ Database::Database(string dbFile)
             }
 
             cout << birth << endl;
+
+//death
             line = strstr.at(i);
             i++;
+            count = 0;
+            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+                count ++;
+            }
+            count++;
+
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
+                death = "";
+                death = death + line[count];
+
+                count++;
+            }
+            cout << death << endl;
+
+//contribution
+            line = strstr.at(i);
+            i++;
+            count = 0;
+            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+                count ++;
+            }
+            count++;
+
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
+                contribution = line[count];
+
+                count++;
+            }
+            cout << contribution << endl;
+
+//turing award year
+
+            line = strstr.at(i);
+            i++;
+            count = 0;
+            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+                count ++;
+            }
+            count++;
+
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
+                ty = "";
+                ty = ty + line[count];
+
+                count++;
+            }
+            cout << ty << endl;
         }
 
 
