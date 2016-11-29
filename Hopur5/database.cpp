@@ -9,10 +9,10 @@ Database::Database(){
 
 Database::Database(string dbFile)
 {
-    vector<char> strstr;
+    vector<string> strstr;
     ifstream fin;
-    cout << "hi";
-    fin.open("/Users/alexandrawinther/Desktop/VLN1-Hopur-5/Hopur5/database.txt");
+
+    fin.open("database.txt");
     if(fin.is_open())
         cout << "fucking success!" << endl;
     else
@@ -20,20 +20,25 @@ Database::Database(string dbFile)
 
     char* str = new char[512];
     fin.getline(str, 255);
-    cout << str << endl;
 
-/*
-    while(str != '$'){
-        strstr.push_back(str);
-        cout << str << endl;
-        fin.get(str);
+
+    while(str != "$" && !fin.eof()){
+
+        strstr.push_back(string(str));
+//cout << str << endl;
+        fin.getline(str, 255);
     }
+    for(int i=0; i< strstr.size(); i++)
+        cout << strstr.at(i) << endl;
     fin.close();
-    for(int i=0; i<strstr.size(); i++)
-        cout<< strstr.at(i);
+ /*   while(!strstr.empty()){
+        string s = strstr.at(strstr.size()-1);
+        strstr.pop_back();
+        cout << s << endl;
+    }
 */
 }
-Person Database::getPerson()
+/*Person Database::getPerson()
 {
 
 }
@@ -41,5 +46,5 @@ Person Database::getPerson()
 vector<Person> Database::getList()
 {
 
-}
+}*/
 

@@ -20,4 +20,5 @@ HEADERS += \
     process.h
 
 DISTFILES += \
-    database
+    database \
+    database.txt
