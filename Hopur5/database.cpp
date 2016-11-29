@@ -39,23 +39,24 @@ Database::Database(string dbFile)
     string ty;
     for(int i=0; i<strstr.size(); i++){
         line = strstr.at(i);
-        while(i<strstr.size() && strstr.at(i) != "#"){
- //namw
+        while(i<strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$"){
+ //name
             int count = 0;
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
                 count ++;
             }
             count++;
-
+            name = "";
             while(i<strstr.size() && line[count] != '\n' && count < line.size()){
 
                 name = name + line[count];
                 count++;
             }
-            cout << name << endl;
+            //cout <<"name " << i <<" " << name << endl;
 //Sex
-            line = strstr.at(i);
             i++;
+            line = strstr.at(i);
+
             count = 0;
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
                 count ++;
@@ -66,10 +67,11 @@ Database::Database(string dbFile)
                 sex = line[count];
                 count++;
             }
-            cout << sex << endl;
+            //cout <<"Sex: " <<i << " " << sex << endl;
 //Birth
-            line = strstr.at(i);
+
             i++;
+            line = strstr.at(i);
             count = 0;
 
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
@@ -77,69 +79,84 @@ Database::Database(string dbFile)
             }
             count++;
 
-
+            birth ="";
             while(i<strstr.size() && line[count] != '\n' && count < line.size()){
-                birth ="";
+
                 birth = birth + line[count];
 
                 count++;
             }
 
-            cout << birth << endl;
+            //cout << i << " birthyear: " <<birth << endl;
 
 //death
-            line = strstr.at(i);
+
             i++;
+            line = strstr.at(i);
             count = 0;
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
                 count ++;
             }
             count++;
-
+            death = "";
             while(i<strstr.size() && line[count] != '\n' && count < line.size()){
-                death = "";
+
                 death = death + line[count];
 
                 count++;
             }
-            cout << death << endl;
+            //cout << "deathyear: " << death << endl;
 
 //contribution
-            line = strstr.at(i);
+
             i++;
+            line = strstr.at(i);
             count = 0;
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
                 count ++;
             }
             count++;
+            //cout << "count: " << count << endl;
+
+            contribution = "";
 
             while(i<strstr.size() && line[count] != '\n' && count < line.size()){
-                contribution = line[count];
-
+                contribution = contribution + line[count];
                 count++;
+
             }
-            cout << contribution << endl;
+            //cout <<"contribution: " << contribution << endl;
 
 //turing award year
 
-            line = strstr.at(i);
+
             i++;
+            line = strstr.at(i);
             count = 0;
             while(i<strstr.size() && line[count] != ':' && count < line.size()){
                 count ++;
             }
             count++;
-
+            ty = "";
             while(i<strstr.size() && line[count] != '\n' && count < line.size()){
-                ty = "";
+
                 ty = ty + line[count];
 
                 count++;
             }
-            cout << ty << endl;
+            //cout <<"turing year: " <<ty << endl;
+            i++;
+            string age = "";
+            Person* p = new Person(name, age, sex, birth, death, contribution, ty);
+            people.push_back(*p);
         }
 
 
+
+    }
+    for(int i=0; i<people.size(); i++){
+        cout << "----  " << i <<"  ----"<< endl;
+        people.at(i).showPerson();
 
     }
 }

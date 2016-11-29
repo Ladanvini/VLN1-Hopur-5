@@ -9,19 +9,17 @@ class Person
 {
 private:
     string name;
-    int age;
+    string age;
     char sex;
-    int birth;
-    int death;
+    string birth;
+    string death;
     string contribution;
-    int turingYear;
+    string turingYear;
     bool turing;
 public:
     Person();
-    Person(string _name, int _age, char _sex, int _birth);
-    Person(string _name, int _age, char _sex, int _birth, int _death);
-    Person(string _name, int _age, char _sex, int _birth, int _death, string _contribution);
-    Person(string _name, int _age, char _sex, int _birth, int _death, string _contribution, int _truringYear);
+    Person(string _name, string _age, char _sex, string _birth, string _death, string _contribution, string _truringYear);
+    void showPerson();
 };
 
 #endif // PERSON_H
