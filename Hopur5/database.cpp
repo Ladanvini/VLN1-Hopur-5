@@ -1,9 +1,12 @@
-#include "database.h"
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "database.h"
 
 using namespace std;
+
 Database::Database(){
 
 }

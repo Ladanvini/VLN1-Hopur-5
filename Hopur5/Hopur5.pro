@@ -10,17 +10,17 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
+    consoleui.cpp \
     database.cpp \
     person.cpp \
-    process.cpp \
-    consoleui.cpp
-
-HEADERS += \
-    database.h \
-    person.h \
-    process.h \
-    consoleui.h
+    appservice.cpp
 
 DISTFILES += \
     database \
     database.txt
+
+HEADERS += \
+    consoleui.h \
+    database.h \
+    person.h \
+    appservice.h

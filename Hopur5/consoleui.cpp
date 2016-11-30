@@ -1,10 +1,11 @@
-#include "consoleui.h"
 #include <iostream>
 #include <algorithm>
 #include <string>
 
-using namespace std;
+#include "consoleui.h"
+#include "appservice.h"
 
+using namespace std;
 
 ConsoleUI::ConsoleUI()
 {
@@ -70,7 +71,7 @@ void ConsoleUI::runUI()
         }
         else if(input == "edit")
         {
-            cout << "I'm edit"<< endl;
+            cout << "I'm here"<< endl;
             //todo
         }
         else if(input == "search")
@@ -80,7 +81,7 @@ void ConsoleUI::runUI()
         }
         else if(input == "delete")
         {
-            cout << "I'm deletin your ass!!!"<< endl;
+            cout << "I'm here"<< endl;
             //todo
         }
         else if(input == "exit")

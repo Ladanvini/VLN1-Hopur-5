@@ -1,13 +1,14 @@
 #include <QCoreApplication>
 #include <iostream>
-//#include "process.h"
+
 #include "consoleui.h"
 
+using namespace std;
 
 int main(int argc, char *argv[])
 {
      ConsoleUI ui;
-     ui.runUI();
+  //   ui.runUI();
 
 
 //    QCoreApplication a(argc, argv);

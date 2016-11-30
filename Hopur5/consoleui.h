@@ -1,6 +1,7 @@
 #ifndef CONSOLEUI_H
 #define CONSOLEUI_H
-#include "process.h"
+
+#include <string>
 
 class ConsoleUI
 {
@@ -9,7 +10,7 @@ private:
 public:
     ConsoleUI();
 
-    string tolower();
+    std::string tolower();
 
     void searchMenu();
 
