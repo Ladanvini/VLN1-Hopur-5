@@ -7,7 +7,7 @@ using namespace std;
 
 Person::Person()
 {
-    /*
+
     _name = "";
     _age = "";
     _sex = ' ';
@@ -16,11 +16,11 @@ Person::Person()
     _contribution = "";
     _turingYear = "";
     _turing = false;
-*/
+
 }
 
 Person::Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear){
-/*
+
     _name = name;
     _age = age;
     _sex = sex;
@@ -32,7 +32,7 @@ Person::Person(string name, string age, char sex, string birth, string death, st
         _turing = false;
     else
         _turing = true;
-        */
+
 }
 void Person::showPerson(){
     /*

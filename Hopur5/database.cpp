@@ -1,12 +1,10 @@
+#include "database.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include <string>
-#include <vector>
-
-#include "database.h"
 
 using namespace std;
-
 Database::Database(){
 
 }
@@ -15,7 +13,7 @@ Database::Database(string dbFile)
 {
     vector<string> strstr;
     ifstream fin;
-
+    _dbFile = dbFile;
     fin.open(dbFile);
     if(fin.is_open())
         cout << "fucking success!" << endl;
@@ -26,7 +24,7 @@ Database::Database(string dbFile)
     fin.getline(str, 255);
 
 
-    while(str != "$" && !fin.eof()){
+    while(!fin.eof()){
 
         strstr.push_back(string(str));
 //cout << str << endl;
@@ -40,6 +38,7 @@ Database::Database(string dbFile)
     string cont;
     string contribution;
     string ty;
+    string age;
     for(int i=0; i<strstr.size(); i++){
         line = strstr.at(i);
         while(i<strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$"){
@@ -56,7 +55,20 @@ Database::Database(string dbFile)
                 count++;
             }
             //cout <<"name " << i <<" " << name << endl;
-//Sex
+            i++;
+            line = strstr.at(i);
+            count = 0;
+            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+                count ++;
+            }
+            count++;
+            age = "";
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
+
+                age = age + line[count];
+                count++;
+            }
+ //Sex
             i++;
             line = strstr.at(i);
 
@@ -176,6 +188,48 @@ vector<Person> Database::getList()
   return people;
 }
 void Database::update(vector<Person> peeps){
-    people = peeps;
+    vector<string> names;
+    vector<Person> sorted;
+    for(int i=0; i<peeps.size(); i++)
+        names.push_back(peeps.at(i).getName());
 
+    std::sort(names.begin(), names.end());
+
+    for(int i=0; i<names.size(); i++){
+        for(int j=0; j<peeps.size(); j++)
+            if(names.at(i) == peeps.at(j).getName())
+                sorted.push_back(peeps.at(j));
+    }
+
+
+    people = sorted;
+    //writeToDB();
+}
+void Database::writeToDB(Person p){
+    cout<< "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa" << endl;
+    ofstream fout(_dbFile, ios::app);
+    //fout.open(_dbFile);
+    string name = "Name: ";
+    string age = "Age: ";
+    string sex = "Sex: ";
+    string birth = "BirthYear: ";
+    string death = "DeathYear: ";
+    string contribution = "Contribution: ";
+    string turingYear = "TuringAwardYear: ";
+    string end = "#\n";
+    string all = "";
+
+        name = name + p.getName() + '\n';
+        age = age + p.getAge() + '\n';
+        sex = sex + p.getSex() + '\n';
+        birth = birth + p.getBirth() + '\n';
+        death = death + p.getDeath() + '\n';
+        contribution = contribution + p.getContribution() + '\n';
+        turingYear = turingYear + p.getTuringYear() + '\n';
+        all = all + name + age + sex + birth + death + contribution + turingYear + end;
+
+
+
+    fout << all;
+    fout.close();
 }

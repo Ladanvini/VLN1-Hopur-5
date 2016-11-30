@@ -16,6 +16,7 @@ void Process::create(string name, string age, char sex, string birth, string dea
     people.push_back(*p);
 
     db.update(people);
+    db.writeToDB(*p);
 }
 //####################SEARCH###################//
 vector<Person> Process::searchByName(string name)
