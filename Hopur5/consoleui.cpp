@@ -12,18 +12,21 @@ ConsoleUI::ConsoleUI()
 
 }
 
-string tolower(string& inputString)
+/*string tolower(string& inputString)
 {
-        std::transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
+        #include <algorithm>
+        #include <string>
+
+        transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
         //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
         //Link to where the code is originally displayed
-}
+}*/
 
 string inputHandling()
 {
     string input = " ";
     cin >> input;
-    tolower(input);
+    transform(input.begin(), input.end(), input.begin(), ::tolower);
     return input;
 }
 

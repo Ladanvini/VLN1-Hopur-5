@@ -10,9 +10,9 @@ private:
 public:
     ConsoleUI();
 
-    string inputHandling();
+    inputHandling();
 
-    std::string tolower();
+    //string tolower();
 
     void searchMenu();
 
