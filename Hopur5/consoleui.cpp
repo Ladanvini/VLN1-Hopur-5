@@ -1,7 +1,7 @@
 #include "consoleui.h"
-#include <string>
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -11,11 +11,11 @@ ConsoleUI::ConsoleUI()
 
 }
 
-string tolower(string inputString)
+/*string tolower(string inputString)
 {
     return transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
 }
-
+*/
 void ConsoleUI::searchMenu()
 {
     string input = "";
@@ -34,11 +34,11 @@ void ConsoleUI::searchMenu()
 
         cin >> input;
 
-        transform(input.begin(), input.end(), input.begin(), ::tolower);
+     //   transform(input.begin(), input.end(), input.begin(), ::tolower);
         //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
         //Link to where the code is originally displayed
         //Add to its own function
-    }while(!exitMenu)
+    }while(!exitMenu);
 }
 
 
@@ -46,10 +46,10 @@ void ConsoleUI::runUI()
 {
     string input = " ";
     bool exitUI = false;
-
-    Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+    cout << "Im running!" << endl;
+    Database* db = new Database("/Users/alexandrawinther/Desktop/VLN1-Hopur-5/Hopur5/database.txt");
     Process* doStuff = new Process(*db);
-
+    // DATABASE HAS TO BE IN CORRECT PLACE OR MENU NO WORK, ASSHOLES
     do
     {
         cout << "Please input one of these commands: " << endl;
@@ -61,11 +61,11 @@ void ConsoleUI::runUI()
 
         cin >> input;
 
-        transform(input.begin(), input.end(), input.begin(), ::tolower);
+       std::transform(input.begin(), input.end(), input.begin(), ::tolower);
 
         if(input == "add")
         {
-            cout << "I'm here"<< endl;
+            cout << "I'm add"<< endl;
             //todo
         }
         else if(input == "edit")
