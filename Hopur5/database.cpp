@@ -14,10 +14,11 @@ Database::Database(string dbFile)
     ifstream fin;
     _dbFile = dbFile;
     fin.open(dbFile);
+
     if(fin.is_open())
-        cout << "fucking success!" << endl;
+        cout << "success!" << endl;
     else
-        cout << "fucking fail :(";
+        cerr << "failed oppening :( " << dbFile << endl;
 
     char* str = new char[512];
     fin.getline(str, 255);

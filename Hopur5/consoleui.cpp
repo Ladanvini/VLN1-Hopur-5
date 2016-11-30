@@ -6,6 +6,10 @@
 #include "appservice.h"
 
 using namespace std;
+ ConsoleUI::ConsoleUI()
+ {
+
+ }
 
 ConsoleUI::ConsoleUI(Process p)
 {

@@ -7,13 +7,15 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
- //    ConsoleUI ui;
-   //  ui.runUI();
+     //ConsoleUI ui;
+     //ui.runUI();
 
 
     QCoreApplication a(argc, argv);
+
+    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
     cout << "I'm here"<< endl;
-    Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/Hopur5/database.txt");
+    Database* db = new Database(path);
     Process* doStuff = new Process(*db);
    // vector<Person> sbyname = doStuff->searchByName("Hoar");
    // vector<Person> sbyage = doStuff->searchByAge("");

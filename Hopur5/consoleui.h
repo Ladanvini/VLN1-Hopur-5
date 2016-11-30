@@ -10,6 +10,7 @@ private:
     Process _fuck;
 
 public:
+    ConsoleUI();
     ConsoleUI(Process p);
 
     string inputHandling();
