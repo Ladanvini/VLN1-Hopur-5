@@ -1,5 +1,6 @@
 #include "process.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 Process::Process(Database _db){
@@ -14,6 +15,7 @@ void Process::create(string name, string age, char sex, string birth, string dea
 
     db.update(people);
 }
+//####################SEARCH###################//
 vector<Person> Process::searchByName(string name)
 {
     vector<Person> result;
@@ -57,7 +59,6 @@ vector<Person> Process::searchBySex(char sex)
 
     return result;
 }
-
 vector<Person> Process::searchByDeath(string death)
 {
     vector<Person> result;
@@ -115,6 +116,35 @@ vector<Person> Process::searchByTuring(bool flag)
     return result;
 }
 
-// Sort
-// Edit
+//####################Sort#####################//
+
+vector<Person> Process::sortByName(){
+    vector<string> names;
+    vector<Person> sorted;
+    for(int i=0; i<people.size(); i++)
+        names.push_back(people.at(i).getName());
+
+    std::sort(names.begin(), names.end());
+
+    for(int i=0; i<names.size(); i++){
+        for(int j=0; j<people.size(); j++)
+            if(names.at(i) == people.at(j).getName())
+                sorted.push_back(people.at(j));
+    }
+
+
+    cout << endl;
+    return sorted;
+
+
+}
+vector<Person> sortByAge(string age){}
+vector<Person> sortBySex(char sex){}
+vector<Person> sortByBirth(string birth){}
+vector<Person> sortByDeath(string death){}
+vector<Person> sortByContribution(string contribution){}
+vector<Person> sortByTuring(bool flag){}
+
+
+//####################Edit####################//
 
