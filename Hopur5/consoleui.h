@@ -9,6 +9,10 @@ private:
 public:
     ConsoleUI();
 
+    string tolower();
+
+    void searchMenu();
+
     void runUI();
 };
 
