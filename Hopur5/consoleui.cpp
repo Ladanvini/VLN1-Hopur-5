@@ -12,11 +12,22 @@ ConsoleUI::ConsoleUI()
 
 }
 
-/*string tolower(string inputString)
+string tolower(string inputString)
 {
-    return transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
+    return std::transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
+        //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
+        //Link to where the code is originally displayed
 }
-*/
+
+string inputHandling()
+{
+    string input = " ";
+    cin >> input;
+    tolower(input);
+    return input;
+}
+
+
 void ConsoleUI::searchMenu()
 {
     string input = "";
@@ -33,12 +44,41 @@ void ConsoleUI::searchMenu()
         cout << "Contribution - Search by persons contribution" << endl;
         cout << "Turing - Search those that have won Turing award" << endl;
 
-        cin >> input;
+        input = inputHandling();
 
-     //   transform(input.begin(), input.end(), input.begin(), ::tolower);
-        //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
-        //Link to where the code is originally displayed
-        //Add to its own function
+        if(name)
+        {
+            cout << "Your name is not here" << endl;
+        }
+        else if(age)
+        {
+            cout << "too old" << endl;
+        }
+        else if(sex)
+        {
+            cout << "All the sex here" << endl;
+        }
+        else if(birth)
+        {
+            cout << "Not born yet" << endl;
+        }
+        else if(death)
+        {
+            cout << "Yup, definetly dead" << endl;
+        }
+        else if(contribution)
+        {
+            cout << "your contribution is Zero" << endl;
+        }
+        else if(turing)
+        {
+            cout << "congratz, you won!" << endl;
+        }
+        else
+        {
+            cout << "wrong input asshole!" << endl;
+        }
+
     }while(!exitMenu);
 }
 
@@ -60,7 +100,7 @@ void ConsoleUI::runUI()
         cout << "Delete" << endl;
         cout << "Exit" << endl;
 
-        cin >> input;
+        input = inputHandling();
 
        std::transform(input.begin(), input.end(), input.begin(), ::tolower);
 
@@ -81,7 +121,7 @@ void ConsoleUI::runUI()
         }
         else if(input == "delete")
         {
-            cout << "I'm here"<< endl;
+            cout << "I'm here to delet you"<< endl;
             //todo
         }
         else if(input == "exit")
