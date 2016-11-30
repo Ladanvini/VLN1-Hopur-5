@@ -70,7 +70,7 @@ void ConsoleUI::runUI()
         }
         else if(input == "edit")
         {
-            cout << "I'm here"<< endl;
+            cout << "I'm edit"<< endl;
             //todo
         }
         else if(input == "search")
@@ -80,7 +80,7 @@ void ConsoleUI::runUI()
         }
         else if(input == "delete")
         {
-            cout << "I'm here"<< endl;
+            cout << "I'm deletin your ass!!!"<< endl;
             //todo
         }
         else if(input == "exit")
