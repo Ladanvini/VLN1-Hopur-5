@@ -10,11 +10,7 @@ private:
 public:
     ConsoleUI();
 
-<<<<<<< HEAD
-    inputHandling();
-=======
-    std::string inputHandling();
->>>>>>> 8e94f357f68617c4a7d730ecb0db3adfea56dd63
+    string inputHandling();
 
     //string tolower();
 

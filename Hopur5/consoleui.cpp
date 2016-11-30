@@ -22,7 +22,7 @@ ConsoleUI::ConsoleUI()
         //Link to where the code is originally displayed
 }*/
 
-string inputHandling()
+string ConsoleUI::inputHandling()
 {
     string input = " ";
     cin >> input;
@@ -105,7 +105,7 @@ void ConsoleUI::runUI()
 
         input = inputHandling();
 
-       std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+      // std::transform(input.begin(), input.end(), input.begin(), ::tolower);
 
         if(input == "add")
         {
