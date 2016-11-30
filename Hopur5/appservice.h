@@ -16,6 +16,7 @@ private:
     vector<Person> people;
     Person person;
 public:
+    Process();
     Process(Database _db);
     string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
     vector<Person> searchByName(string name);
