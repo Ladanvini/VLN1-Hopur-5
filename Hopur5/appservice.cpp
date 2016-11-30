@@ -13,6 +13,13 @@ string Process::create(string name, string age, char sex, string birth, string d
 {
     Person* p = new Person(name, age, sex, birth, death, contribution, turingYear);
     bool flag = false;
+    if(
+            (age.size() > 3 || age.size()<1 || age == "0")
+            || (sex != 'm' && sex != 'f')
+            || (birth.size() < 4 || birth.size()>4)
+            || (death.size()>4 ||!(death.size()==4 || death.find("0") != std::string::npos))
+            )
+        return "unacceptable value in one of the fields\n";
 
     if(db.exists(*p)){
         flag = true;
