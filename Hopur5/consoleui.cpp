@@ -13,7 +13,7 @@ using namespace std;
 
 ConsoleUI::ConsoleUI(Process p)
 {
-    _fuck = p;
+    _process = p;
 }
 
 /*string tolower(string& inputString)
@@ -57,43 +57,43 @@ void ConsoleUI::searchMenu()
         {
             cout << "Your name is not here" << endl;
             input = inputHandling();
-            _fuck.searchByName(input);
+            _process.searchByName(input);
         }
         else if(input == "age")
         {
             cout << "too old" << endl;
             input = inputHandling();
-            _fuck.searchByAge(input);
+            _process.searchByAge(input);
         }
         else if(input == "sex")
         {
             cout << "All the sex here" << endl;
             input = inputHandling();
-            _fuck.searchBySex(input);
+            _process.searchBySex(input);
         }
         else if(input == "birth")
         {
             cout << "Not born yet" << endl;
             input = inputHandling();
-            _fuck.searchByBirth(input);
+            _process.searchByBirth(input);
         }
         else if(input == "death")
         {
             cout << "Yup, definetly dead" << endl;
             input = inputHandling();
-            _fuck.searchByDeath(input);
+            _process.searchByDeath(input);
         }
         else if(input == "contribution")
         {
             cout << "your contribution is Zero" << endl;
             input = inputHandling();
-            _fuck.searchByContribution(input);
+            _process.searchByContribution(input);
         }
         else if(input == "turing")
         {
             cout << "congratz, you won!" << endl;
             input = inputHandling();
-            _fuck.searchByTuring(input);
+            _process.searchByTuring(input);
         }
         else
         {
