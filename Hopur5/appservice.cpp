@@ -3,6 +3,10 @@
 #include <algorithm>
 using namespace std;
 
+Process::Process()
+{
+
+}
 Process::Process(Database _db){
    db = _db;
    people = _db.getList();
@@ -63,10 +67,10 @@ vector<Person> Process::searchByAge(string age)
 
     return result;
 }
-vector<Person> Process::searchBySex(char sex)
+vector<Person> Process::searchBySex(string _sex)
 {
     vector<Person> result;
-
+    char sex = _sex.at(0);
     for(size_t i = 0; i < people.size(); i++)
     {
         if(people.at(i).getSex() == (sex))
@@ -119,10 +123,18 @@ vector<Person> Process::searchByContribution(string contribution)
 
     return result;
 }
-vector<Person> Process::searchByTuring(bool flag)
+vector<Person> Process::searchByTuring(string _flag)
 {
     vector<Person> result;
-
+    bool flag;
+    if(_flag.find("yes") != std::string::npos)
+    {
+        flag = true;
+    }
+    else
+    {
+        flag = false;
+    }
     for(size_t i = 0; i < people.size(); i++)
     {
         if((people.at(i).getTuring()) == flag)

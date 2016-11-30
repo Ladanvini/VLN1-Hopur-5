@@ -21,11 +21,11 @@ public:
     string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
     vector<Person> searchByName(string name);
     vector<Person> searchByAge(string age);
-    vector<Person> searchBySex(char sex);
+    vector<Person> searchBySex(string _sex);
     vector<Person> searchByBirth(string birth);
     vector<Person> searchByDeath(string death);
     vector<Person> searchByContribution(string contribution);
-    vector<Person> searchByTuring(bool flag);
+    vector<Person> searchByTuring(string _flag);
     // Sort
     bool compareByName(const Person p1, const Person p2);
     vector<Person> sortByName();
