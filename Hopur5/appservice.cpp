@@ -1,8 +1,6 @@
+#include "appservice.h"
 #include <iostream>
 #include <algorithm>
-
-#include "appservice.h"
-
 using namespace std;
 
 Process::Process(Database _db){
@@ -10,13 +8,13 @@ Process::Process(Database _db){
    people = _db.getList();
    // person = NULL;
 }
+//####################ADD NEW###################//
 void Process::create(string name, string age, char sex, string birth, string death, string contribution, string turingYear)
 {
     Person* p = new Person(name, age, sex, birth, death, contribution, turingYear);
     people.push_back(*p);
 
     db.update(people);
-    db.writeToDB(*p);
 }
 //####################SEARCH###################//
 vector<Person> Process::searchByName(string name)
@@ -25,7 +23,7 @@ vector<Person> Process::searchByName(string name)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if((std::string(people.at(i).getName())).find(name) != std::string::npos)
+        if((people.at(i).getName()).find(name) != std::string::npos)
         {
 
             result.push_back(people.at(i));
@@ -40,7 +38,7 @@ vector<Person> Process::searchByAge(string age)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if((std::string(people.at(i).getAge())).find(age) != std::string::npos)
+        if((people.at(i).getAge()).find(age) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -68,7 +66,7 @@ vector<Person> Process::searchByDeath(string death)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if((std::string(people.at(i).getDeath())).find(death) != std::string::npos)
+        if((people.at(i).getDeath()).find(death) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -82,7 +80,7 @@ vector<Person> Process::searchByBirth(string birth)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if((std::string(people.at(i).getBirth())).find(birth) != std::string::npos)
+        if((people.at(i).getBirth()).find(birth) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -96,7 +94,7 @@ vector<Person> Process::searchByContribution(string contribution)
 
     for(size_t i = 0; i < people.size(); i++)
     {
-        if((std::string(people.at(i).getContribution())).find(contribution) != std::string::npos)
+        if((people.at(i).getContribution()).find(contribution) != std::string::npos)
         {
             result.push_back(people.at(i));
         }
@@ -155,7 +153,27 @@ vector<Person> Process::sortByAge(){
 
     return sorted;
 }
-vector<Person> Process::sortBySex(char sex){}
+vector<Person> Process::sortBySex(char sex){
+    vector<Person> result;
+
+    for(size_t i = 0; i < people.size(); i++)
+    {
+        if(people.at(i).getSex() == (sex))
+        {
+            result.push_back(people.at(i));
+        }
+    }
+
+    for(size_t i = 0; i < people.size(); i++)
+    {
+        if(people.at(i).getSex() != (sex))
+        {
+            result.push_back(people.at(i));
+        }
+    }
+
+    return result;
+}
 vector<Person> Process::sortByBirth(){
     vector<string> birth;
     vector<Person> sorted;
@@ -187,11 +205,28 @@ vector<Person> Process::sortByDeath(){
     }
 
     return sorted;
-
 }
-vector<Person> sortByContribution(string contribution){}
-vector<Person> sortByTuring(bool flag){}
+vector<Person> Process::sortByTuring (bool flag){
+    vector<Person> result;
+
+    for(size_t i = 0; i < people.size(); i++)
+    {
+        if((people.at(i).getTuring()) == flag)
+        {
+            result.push_back(people.at(i));
+        }
+    }
+    for(size_t i = 0; i < people.size(); i++)
+    {
+        if((people.at(i).getTuring()) != flag)
+        {
+            result.push_back(people.at(i));
+        }
+    }
+
+    return result;
+}
+
 
 
 //####################Edit####################//
-

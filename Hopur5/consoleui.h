@@ -2,7 +2,7 @@
 #define CONSOLEUI_H
 
 #include <string>
-
+using namespace std;
 class ConsoleUI
 {
 private:
@@ -10,7 +10,7 @@ private:
 public:
     ConsoleUI();
 
-    string inputHandling();
+    std::string inputHandling();
 
     std::string tolower();
 
