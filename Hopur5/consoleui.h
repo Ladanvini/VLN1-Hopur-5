@@ -7,7 +7,7 @@ class ConsoleUI
 {
 private:
 
-    Process _fuck;
+    Process _process;
 
 public:
     ConsoleUI(Process p);
