@@ -21,10 +21,10 @@ public:
     // Sort
     bool compareByName(const Person p1, const Person p2);
     vector<Person> sortByName();
-    vector<Person> sortByAge(string age);
+    vector<Person> sortByAge();
     vector<Person> sortBySex(char sex);
-    vector<Person> sortByBirth(string birth);
-    vector<Person> sortByDeath(string death);
+    vector<Person> sortByBirth();
+    vector<Person> sortByDeath();
     vector<Person> sortByContribution(string contribution);
     vector<Person> sortByTuring(bool flag);
 
