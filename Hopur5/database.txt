@@ -1,32 +1,24 @@
-Name: Tony Hoar
-Age: 82
-Sex: m
-BirthYear: 1934
-DeathYear: 0
-Contribution: "QuickSort Algorithm"
-TuringAwardYear: 1980
-#
-Name: Ada Lovelace
-Age: 37
+Name:     Ada Lovelace
+Age:     37
 Sex: f
-BirthYear: 1815
-DeathYear: 1852
-Contribution: "First programmer ever"
-TuringAwardYear: 0
+BirthYear:     1815
+DeathYear:     1852
+Contribution:     "First programmer ever"
+TuringAwardYear:     0
 #
-Name: Charles Babbage
-Age: 80
+Name:     Charles Babbage
+Age:     80
 Sex: m
-BirthYear: 1791
-DeathYear: 1871
-Contribution: "The father of computing"
-TuringAwardYear: 0
+BirthYear:     1791
+DeathYear:     1871
+Contribution:     "The father of computing"
+TuringAwardYear:     0
 #
-Name: Smari Looooovely <3 
-Age: 21
+Name:     Tony Hoar
+Age:     82
 Sex: m
-BirthYear: 1995
-DeathYear: 2016
-Contribution: being thought of when people go to the bathroom
-TuringAwardYear: 0
+BirthYear:     1934
+DeathYear:     0
+Contribution:     "QuickSort Algorithm"
+TuringAwardYear:     1980
 #

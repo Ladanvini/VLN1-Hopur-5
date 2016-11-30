@@ -19,6 +19,8 @@ public:
     vector<Person> getList();
     void update(vector<Person> peeps);
     void writeToDB(Person p);
+    bool exists(Person p);
+    void reWriteDb();
 };
 
 #endif // DATABASE_H

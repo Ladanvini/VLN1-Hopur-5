@@ -28,7 +28,8 @@ public:
     string getContribution() { return _contribution; }
     string getTuringYear() { return _turingYear; }
     bool getTuring() { return _turing; }
-
+    bool isSame(Person p);
+    friend bool operator==(const Person p, const Person p2);
 };
 
 #endif // PERSON_H

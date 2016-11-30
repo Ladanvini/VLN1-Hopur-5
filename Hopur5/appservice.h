@@ -17,7 +17,7 @@ private:
     Person person;
 public:
     Process(Database _db);
-    void create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
+    string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
     vector<Person> searchByName(string name);
     vector<Person> searchByAge(string age);
     vector<Person> searchBySex(char sex);
@@ -34,7 +34,7 @@ public:
     vector<Person> sortByDeath();
     vector<Person> sortByContribution(string contribution);
     vector<Person> sortByTuring(bool flag);
-
+    string deletePerson(Person p);
     vector<int> mergeSort(vector<int> arr, size_t begin, size_t end);
     vector<int> merge(vector<int> arr1, vector<int> arr2);
     // Edit

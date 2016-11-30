@@ -8,7 +8,6 @@ using namespace std;
 Database::Database(){
 
 }
-
 Database::Database(string dbFile)
 {
     vector<string> strstr;
@@ -35,7 +34,6 @@ Database::Database(string dbFile)
     char sex;
     string birth;
     string death;
-    string cont;
     string contribution;
     string ty;
     string age;
@@ -55,6 +53,8 @@ Database::Database(string dbFile)
                 count++;
             }
             //cout <<"name " << i <<" " << name << endl;
+
+//Age
             i++;
             line = strstr.at(i);
             count = 0;
@@ -161,7 +161,7 @@ Database::Database(string dbFile)
             }
             //cout <<"turing year: " <<ty << endl;
             i++;
-            string age = "";
+//            string age = "";
             Person* p = new Person(name, age, sex, birth, death, contribution, ty);
             people.push_back(*p);
         }
@@ -206,7 +206,7 @@ void Database::update(vector<Person> peeps){
     //writeToDB();
 }
 void Database::writeToDB(Person p){
-    cout<< "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa" << endl;
+
     ofstream fout(_dbFile, ios::app);
     //fout.open(_dbFile);
     string name = "Name: ";
@@ -228,6 +228,50 @@ void Database::writeToDB(Person p){
         turingYear = turingYear + p.getTuringYear() + '\n';
         all = all + name + age + sex + birth + death + contribution + turingYear + end;
 
+
+
+    fout << all;
+    fout.close();
+}
+bool Database::exists(Person p){
+
+    for(int i=0; i<people.size(); i++)
+    {
+        //cout << i << " ";
+        if(people.at(i) == (p))
+            return true;
+    }
+
+}
+void Database::reWriteDb(){
+    ofstream fout(_dbFile);
+    //fout.open(_dbFile);
+    string name = "Name: ";
+    string age = "Age: ";
+    string sex = "Sex: ";
+    string birth = "BirthYear: ";
+    string death = "DeathYear: ";
+    string contribution = "Contribution: ";
+    string turingYear = "TuringAwardYear: ";
+    string end = "#\n";
+    string all = "";
+    for(int i=0; i<people.size(); i++){
+        name = "Name: ";
+        name = name + people.at(i).getName() + '\n';
+        age = "Age: ";
+        age = age + people.at(i).getAge() + '\n';
+        sex = "Sex: ";
+        sex = sex + people.at(i).getSex() + '\n';
+        birth = "BirthYear: ";
+        birth = birth + people.at(i).getBirth() + '\n';
+        death = "DeathYear: ";
+        death = death + people.at(i).getDeath() + '\n';
+        contribution = "Contribution: ";
+        contribution = contribution + people.at(i).getContribution() + '\n';
+        turingYear = "TuringAwardYear: ";
+        turingYear = turingYear + people.at(i).getTuringYear() + '\n';
+        all = all + name + age + sex + birth + death + contribution + turingYear + end;
+    }
 
 
     fout << all;

@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
    // vector<Person> sbyage = doStuff->searchByAge("");
    // vector<Person> sbysex = doStuff->searchBySex('f');
    // vector<Person> sbyTuring = doStuff->searchByTuring(true);
-
-    doStuff->create("Smari Looooovely <3 ", "21", 'm', "1995", "2016", "being thought of when people go to the bathroom", "0");
+    cout << doStuff->create("Alexanders", "23", 'm', "1993", "0", "nothing", "0");
+    cout << doStuff->deletePerson(Person("Alexanders", "23", 'm', "1993", "0", "nothing", "0"));
 
 
  /*   for(int i=0; i<sbyTuring.size(); i++)

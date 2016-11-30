@@ -9,12 +9,22 @@ Process::Process(Database _db){
    // person = NULL;
 }
 //####################ADD NEW###################//
-void Process::create(string name, string age, char sex, string birth, string death, string contribution, string turingYear)
+string Process::create(string name, string age, char sex, string birth, string death, string contribution, string turingYear)
 {
     Person* p = new Person(name, age, sex, birth, death, contribution, turingYear);
+    bool flag = false;
+
+    if(db.exists(*p)){
+        flag = true;
+    }
+    if(flag){
+       return "Person already exists\n";
+    }
     people.push_back(*p);
 
     db.update(people);
+    db.writeToDB(*p);
+    return "Added successfully\n";
 }
 //####################SEARCH###################//
 vector<Person> Process::searchByName(string name)
@@ -228,5 +238,23 @@ vector<Person> Process::sortByTuring (bool flag){
 }
 
 
+//####################Delete####################//
+string Process::deletePerson(Person p){
+    bool flag = false;
+    for(int i=0; i<people.size(); i++)
+    {
+        if(people.at(i) == p){
+
+            people.erase(people.begin() + i);
+            flag = true;
+        }
+    }
+
+    db.update(people);
+    db.reWriteDb();
+    if(flag)
+        return "Erased successfully";
+    return "Person not found";
+}
 
 //####################Edit####################//
