@@ -12,9 +12,9 @@ ConsoleUI::ConsoleUI()
 
 }
 
-string tolower(string inputString)
+string tolower(string& inputString)
 {
-    return std::transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
+        std::transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
         //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
         //Link to where the code is originally displayed
 }
@@ -46,31 +46,31 @@ void ConsoleUI::searchMenu()
 
         input = inputHandling();
 
-        if(name)
+        if(input == "name")
         {
             cout << "Your name is not here" << endl;
         }
-        else if(age)
+        else if(input == "age")
         {
             cout << "too old" << endl;
         }
-        else if(sex)
+        else if(input == "sex")
         {
             cout << "All the sex here" << endl;
         }
-        else if(birth)
+        else if(input == "birth")
         {
             cout << "Not born yet" << endl;
         }
-        else if(death)
+        else if(input == "death")
         {
             cout << "Yup, definetly dead" << endl;
         }
-        else if(contribution)
+        else if(input == "contribution")
         {
             cout << "your contribution is Zero" << endl;
         }
-        else if(turing)
+        else if(input == "turing")
         {
             cout << "congratz, you won!" << endl;
         }
