@@ -5,9 +5,7 @@
 
 using namespace std;
 
-Person::Person()
-{
-
+Person::Person(){
     _name = "";
     _age = "";
     _sex = ' ';
@@ -16,11 +14,9 @@ Person::Person()
     _contribution = "";
     _turingYear = "";
     _turing = false;
-
 }
 
 Person::Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear){
-
     _name = name;
     _age = age;
     _sex = sex;
@@ -32,17 +28,16 @@ Person::Person(string name, string age, char sex, string birth, string death, st
         _turing = false;
     else
         _turing = true;
-
 }
+
 bool Person::isSame(Person p){
     cout << p.getName() << " != " << this->getName();
     return(     this->getName().find(p.getName()) != std::string::npos &&
                 this->getAge().find(p.getAge()) != std::string::npos &&
-                this->getBirth().find(p.getBirth()) != std::string::npos /*&&
-                this->getDeath() == p.getDeath() &&
-                this->getSex() == p.getSex()*/
+                this->getBirth().find(p.getBirth()) != std::string::npos
                 );
 }
+
 bool operator==(Person p, Person p2){
     if(p.getName().find(p2.getName()) != std::string::npos
             /*&& p.getAge().find(p2.getAge()) != std::string::npos*/
@@ -55,7 +50,6 @@ bool operator==(Person p, Person p2){
 }
 
 void Person::showPerson(){
-
     cout << "NAME: " << this->_name << endl;
     cout << "AGE: " << this->_age << endl;
     cout << "SEX: " << this->_sex << endl;
@@ -63,6 +57,5 @@ void Person::showPerson(){
     cout << "DEATH: " << this->_death << endl;
     cout << "CONTRIBUTION: " << this->_contribution << endl;
     cout << "TURINGYEAR: " << this->_turingYear << endl;
-
 }
 
