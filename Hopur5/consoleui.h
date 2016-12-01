@@ -18,6 +18,7 @@ public:
     void sortMenu();
     void createMenu();
     void runUI();
+    string unicorn();
 };
 
 #endif // CONSOLEUI_H

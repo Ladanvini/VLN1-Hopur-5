@@ -51,6 +51,9 @@ void ConsoleUI::searchMenu() {
             input = inputHandling();
             cout << _process.showPeople(_process.searchByName(input));
         }
+        else if(input == "unicorn"){
+            cout << unicorn();
+        }
         else if(input == "age") {
             cout << string(100, '\n');
             cout << "Please enter the age you want" << endl;
@@ -194,6 +197,7 @@ void ConsoleUI::runUI() {
         cout << "Search" << endl;
         cout << "Sort" << endl;
         cout << "Delete" << endl;
+        cout << "Unicorn" << endl;
         cout << "Exit" << endl;
 
         input = inputHandling();
@@ -201,6 +205,9 @@ void ConsoleUI::runUI() {
         if(input == "add") {
             cout << string(100, '\n');
             createMenu();
+        }
+        else if(input == "unicorn"){
+            cout << unicorn();
         }
         else if(input == "search") {
             cout << string(100, '\n');
@@ -233,4 +240,22 @@ void ConsoleUI::runUI() {
         }
 
     }while(!exitUI);
+}
+string ConsoleUI::unicorn(){
+    string uni = "";
+    uni = uni + "                   ." + '\n' +
+"                  /|" + '\n'+
+"                 /_|" + '\n'+
+"             (0)/__|__" + '\n'+
+"               |\/ (.) \\  " + '\n'     +
+"               | \/ \/ \/:> " + '\n'+
+"               |\/ \/ \/_/  " + '\n'+
+"              /\/ \/ | " + '\n'+
+" ____________/ \/ \/ | " + '\n'+
+"/ \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"| \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"|\/ \/_\/_\/_\/_\/_\/_\/ \/ | " + '\n'+
+"|_0|            |_0| " + '\n';
+
+    return uni;
 }
