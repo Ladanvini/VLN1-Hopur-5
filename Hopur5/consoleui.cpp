@@ -205,13 +205,12 @@ void ConsoleUI::runUI() {
     bool exitUI = false;
     //cout << "Im running!" << endl;
     string lowline = "--------------------------------------------------------------\n";
-
+    cout << "**************FAMOUS COMPUTER SCIENTISTS****************" << endl;
 
     do {
-        cout << "**************FAMOUS COMPUTER SCIENTISTS****************" << endl;
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
-        cout << "Display All" << endl;
+        cout << "Display" << endl;
         cout << "Add" << endl;
         cout << "Search" << endl;
         cout << "Sort" << endl;

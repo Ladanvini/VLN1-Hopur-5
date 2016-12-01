@@ -19,6 +19,7 @@ public:
     void createMenu();
     void runUI();
     string unicorn();
+    void displayList();
 };
 
 #endif // CONSOLEUI_H
