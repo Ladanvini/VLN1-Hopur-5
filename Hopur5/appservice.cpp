@@ -42,21 +42,30 @@ string Process::create(string name, string age, char sex, string birth, string d
 //####################SEARCH###################//
 
 vector<Person> Process::searchByName(string name) {
+    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    string _name = "";
+
     vector<Person> result;
 
     for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getName()).find(name) != std::string::npos) {
+
+        _name = people.at(i).getName();
+        transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+        if(_name.find(name) != std::string::npos) {
             result.push_back(people.at(i));
         }
     }
-
+    cout << "IN SEARCH BY NAME: " << result.size() << endl;
     return result;
 }
 vector<Person> Process::searchByAge(string age) {
     vector<Person> result;
-
+    string _age;
     for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getAge()).find(age) != std::string::npos) {
+        _age = (people.at(i).getAge());
+        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
+
+        if(_age.find(age) != std::string::npos) {
             result.push_back(people.at(i));
         }
     }
@@ -76,9 +85,11 @@ vector<Person> Process::searchBySex(string _sex) {
 }
 vector<Person> Process::searchByDeath(string death) {
     vector<Person> result;
-
+    string _death;
     for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getDeath()).find(death) != std::string::npos) {
+        death = people.at(i).getDeath();
+        transform(_death.begin(), _death.end(), _death.begin(), ::tolower);
+        if(_death.find(death) != std::string::npos) {
             result.push_back(people.at(i));
         }
     }
@@ -87,9 +98,11 @@ vector<Person> Process::searchByDeath(string death) {
 }
 vector<Person> Process::searchByBirth(string birth) {
     vector<Person> result;
-
+    string _birth;
     for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getBirth()).find(birth) != std::string::npos) {
+        _birth = people.at(i).getBirth();
+        transform(_birth.begin(), _birth.end(), _birth.begin(), ::tolower);
+        if(_birth.find(birth) != std::string::npos) {
             result.push_back(people.at(i));
         }
     }
@@ -98,9 +111,11 @@ vector<Person> Process::searchByBirth(string birth) {
 }
 vector<Person> Process::searchByContribution(string contribution) {
     vector<Person> result;
-
+    string _cont;
     for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getContribution()).find(contribution) != std::string::npos) {
+        _cont = people.at(i).getContribution();
+        transform(_cont.begin(), _cont.end(), _cont.begin(), ::tolower);
+        if(_cont.find(contribution) != std::string::npos) {
             result.push_back(people.at(i));
         }
     }
@@ -258,13 +273,18 @@ string Process::deletePerson(string _name, string birth) {
 //####################Showing#################//
 string Process::showPeople(vector<Person> results)
 {
+    cerr << "Show people!" << endl;
     string temp = "";
 
     for(unsigned int i = 0; i < results.size(); i++)
     {
+        cerr << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
         temp = temp + results.at(i).showPerson();
     }
-
+    if(results.size() == 0){
+        cerr<< "in IFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf" << endl;
+        temp = "name not found!\n";
+    }
     return temp;
 }
 
