@@ -266,8 +266,7 @@ string Process::deletePerson(string _name, string birth) {
         }
     }
 
-    if(flag)
-    {
+    if(flag) {
         db.update(people);
         db.reWriteDb();
         return "Erased successfully\n";
@@ -275,18 +274,18 @@ string Process::deletePerson(string _name, string birth) {
 
     return "Person not found\n";
 }
+
 //####################Showing#################//
-string Process::showPeople(vector<Person> results)
-{
+
+string Process::showPeople(vector<Person> results) {
 
     string temp = "";
 
-    for(unsigned int i = 0; i < results.size(); i++)
-    {
+    for(unsigned int i = 0; i < results.size(); i++) {
         temp = temp + "--------------------------------------------------------------\n";
         temp = temp + results.at(i).showPerson();
     }
-    if(results.size() == 0){
+    if(results.size() == 0) {
         temp = "#########################################################################\n";
         temp = temp + "No Results Found!\n";
     }
