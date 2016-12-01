@@ -41,7 +41,7 @@ void ConsoleUI::searchMenu() {
         cout << "Turing - Search those that have won Turing award" << endl;
         cout << "Back - Go back to the main menu" << endl;
 
-        cout << line << endl;
+        cout << lowline << endl;
 
         input = inputHandling();
 
@@ -246,7 +246,7 @@ void ConsoleUI::runUI() {
             cout << "Enter the person's birth year: \n";
             input = inputHandling();
             cout << _process.deletePerson(name, input) << endl;
-            cout << line << endl;
+            cout << lowline << endl;
         }
         else if(input == "exit") {
             //cout << string(100, '\n');
