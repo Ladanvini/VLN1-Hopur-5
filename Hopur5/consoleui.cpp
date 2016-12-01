@@ -109,7 +109,7 @@ void ConsoleUI::runUI()
     string input = " ";
     bool exitUI = false;
     cout << "Im running!" << endl;
-    Database* db = new Database("/Users/alexandrawinther/Desktop/VLN1-Hopur-5/Hopur5/database.txt");
+    Database* db = new Database("database.txt");
     Process* doStuff = new Process(*db);
     // DATABASE HAS TO BE IN CORRECT PLACE OR MENU NO WORK, ASSHOLES
     do
