@@ -164,14 +164,39 @@ void ConsoleUI::sortMenu()
     }while(!exitMenu);
 }
 
+void ConsoleUI::createMenu(){
+    string name;
+    string age;
+    string sex;
+    string birth;
+    string death;
+    string contribution;
+    string turing;
+
+    cout << "Enter Name: " << endl;
+    name = inputHandling();
+    cout << "Enter Age: " << endl;
+    age = inputHandling();
+    cout << "Enter Sex: " << endl;
+    sex = inputHandling();
+    cout << "Enter Birth: " << endl;
+    birth = inputHandling();
+    cout << "Enter Death: " << endl;
+    death = inputHandling();
+    cout << "Enter Contribution: " << endl;
+    contribution = inputHandling();
+    cout << "Enter Turing: " << endl;
+    turing = inputHandling();
+
+    char _sex = sex.at(0);
+    _process.create(name, age, _sex, birth, death, contribution, turing);
+}
 
 void ConsoleUI::runUI()
 {
     string input = " ";
     bool exitUI = false;
     cout << "Im running!" << endl;
-    Database* db = new Database("database.txt");
-    Process* doStuff = new Process(*db);
 
     do
     {
@@ -186,9 +211,7 @@ void ConsoleUI::runUI()
 
         if(input == "add")
         {
-            cout << "I'm add"<< endl;
-            input = inputHandling();
-            _process.create(input);
+            createMenu();
         }
         else if(input == "edit")
         {

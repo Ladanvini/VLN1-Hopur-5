@@ -18,6 +18,8 @@ public:
     //string tolower();
 
     void searchMenu();
+    void sortMenu();
+    void createMenu();
 
     void runUI();
 };

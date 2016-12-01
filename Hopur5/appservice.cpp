@@ -158,9 +158,9 @@ vector<Person> Process::sortByAge() {
 
     return sorted;
 }
-vector<Person> Process::sortBySex(char sex) {
+vector<Person> Process::sortBySex(string _sex) {
     vector<Person> result;
-
+    char sex = _sex.at(0);
     for(size_t i = 0; i < people.size(); i++) {
         if(people.at(i).getSex() == (sex)) {
             result.push_back(people.at(i));
@@ -209,9 +209,16 @@ vector<Person> Process::sortByDeath() {
 
     return sorted;
 }
-vector<Person> Process::sortByTuring (bool flag) {
+vector<Person> Process::sortByTuring (string _flag) {
     vector<Person> result;
 
+    bool flag;
+    if(_flag.find("yes") != std::string::npos) {
+        flag = true;
+    }
+    else {
+        flag = false;
+    }
     for(size_t i = 0; i < people.size(); i++) {
         if((people.at(i).getTuring()) == flag) {
             result.push_back(people.at(i));

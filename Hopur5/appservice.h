@@ -29,11 +29,11 @@ public:
     bool compareByName(const Person p1, const Person p2);
     vector<Person> sortByName();
     vector<Person> sortByAge();
-    vector<Person> sortBySex(char sex);
+    vector<Person> sortBySex(string _sex);
     vector<Person> sortByBirth();
     vector<Person> sortByDeath();
     vector<Person> sortByContribution(string contribution);
-    vector<Person> sortByTuring(bool flag);
+    vector<Person> sortByTuring(string _flag);
     string deletePerson(Person p);
     vector<int> mergeSort(vector<int> arr, size_t begin, size_t end);
     vector<int> merge(vector<int> arr1, vector<int> arr2);
