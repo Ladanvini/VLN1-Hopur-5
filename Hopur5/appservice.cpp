@@ -315,8 +315,8 @@ bool Process::numericStringCompare(const std::string& s1, const std::string& s2)
         else if(n2 < n1)
             return n2 < n1;
 
-        it1 = std::find_if(s1.begin(), s1.end(), checkIfDigit);
-        it2 = std::find_if(s2.begin(), s2.end(), checkIfDigit);
+//        it1 = std::find_if(s1.begin(), s1.end(), checkIfDigit);
+ //       it2 = std::find_if(s2.begin(), s2.end(), checkIfDigit);
     }
 
     return std::lexicographical_compare(it1, s1.end(), it2, s2.end());
