@@ -19,6 +19,7 @@ private:
 public:
     Process();
     Process(Database _db);
+    vector<Person> getList() { return people; }
     //Search
     string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
     vector<Person> searchByName(string name);

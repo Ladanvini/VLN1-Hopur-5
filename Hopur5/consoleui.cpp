@@ -208,7 +208,10 @@ void ConsoleUI::runUI() {
 
 
     do {
+        cout << "**************FAMOUS COMPUTER SCIENTISTS****************" << endl;
+        cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
+        cout << "Display All" << endl;
         cout << "Add" << endl;
         cout << "Search" << endl;
         cout << "Sort" << endl;
@@ -236,6 +239,10 @@ void ConsoleUI::runUI() {
             //cout << string(100, '\n');
             cout << lowline;
             sortMenu();
+        }
+        else if(input == "display") {
+            cout << lowline;
+            displayList();
         }
 
         else if(input == "delete") {
@@ -279,4 +286,7 @@ string ConsoleUI::unicorn(){
 "|_0|            |_0| " + '\n';
 
     return uni;
+}
+void ConsoleUI::displayList(){
+    cout << _process.showPeople(_process.getList());
 }
