@@ -11,7 +11,6 @@ Process::Process() {
 Process::Process(Database _db) {
    db = _db;
    people = _db.getList();
-   // person = NULL;
 }
 
 //####################ADD NEW###################//
@@ -260,7 +259,6 @@ string Process::deletePerson(string _name, string birth) {
 
     for(unsigned int i=0; i<people.size(); i++) {
         p_name = people.at(i).getName();
-        //transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
 
         if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos) {
             result = people.at(i);
@@ -319,8 +317,6 @@ bool Process::numericStringCompare(const std::string& s1, const std::string& s2)
         else if(n2 < n1)
             return n2 < n1;
 
-//        it1 = std::find_if(s1.begin(), s1.end(), checkIfDigit);
- //       it2 = std::find_if(s2.begin(), s2.end(), checkIfDigit);
     }
 
     return std::lexicographical_compare(it1, s1.end(), it2, s2.end());

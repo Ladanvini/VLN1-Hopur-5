@@ -40,7 +40,6 @@ bool Person::isSame(Person p) {
 
 bool operator==(Person p, Person p2){
     if(p.getName().find(p2.getName()) != std::string::npos
-            /*&& p.getAge().find(p2.getAge()) != std::string::npos*/
             && p.getBirth().find(p2.getBirth()) != std::string::npos
             && p.getDeath().find(p2.getDeath()) != std::string::npos
             && p.getSex() == p2.getSex())

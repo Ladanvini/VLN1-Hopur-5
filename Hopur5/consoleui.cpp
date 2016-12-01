@@ -46,65 +46,69 @@ void ConsoleUI::searchMenu() {
         input = inputHandling();
 
         if(input == "name") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Enter the name here: " << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByName(input));
         }
         else if(input == "unicorn"){
+            cout << lowline;
             cout << unicorn();
+            cout << lowline;
         }
         else if(input == "age") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Please enter the age you want" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByAge(input));
         }
         else if(input == "sex") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Please enter the gender" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchBySex(input));
         }
         else if(input == "birth") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Enter the birth year please" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByBirth(input));
         }
         else if(input == "death") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Enter the death year (0 if still alive)" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByDeath(input));
         }
         else if(input == "contribution") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Enter the contribution you're looking for" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByContribution(input));
         }
         else if(input == "turing") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "If you're looking for people who have won a turing award, enter yes, otherwise enter no" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.searchByTuring(input));
         }
         else if(input == "back"){
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
+            cout << lowline;
             exitMenu = true;
         }
         else {
+            cout << lowline;
             cout << "Wrong Input! Please try again." << endl;
+            cout << lowline;
         }
     }while(!exitMenu);
 }
@@ -118,55 +122,65 @@ void ConsoleUI::sortMenu() {
     do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Sort by persons name" << endl;
-//        cout << "Age - Sort by persons age" << endl;
         cout << "Sex - Sort by persons gender" << endl;
         cout << "Birth - Sort by persons birth year" << endl;
         cout << "Death - Sort by persons death year" << endl;
         cout << "Turing - Sort those that have won Turing award" << endl;
         cout << "Back - Back to main menu" << endl;
+
+        cout << lowline;
+
         input = inputHandling();
 
         if(input == "name") {
             cout << lowline;
             cout << "The list sorted alphabetically: " << endl;
+            cout << lowline;
             cout << _process.showPeople(_process.sortByName());
         }
         else if(input == "age") {
             cout << lowline;
             cout << "The list sorted by age of contribution: " << endl;
+            cout << lowline;
             cout << _process.showPeople(_process.sortByAge());
         }
         else if(input == "sex") {
             cout << lowline;
             cout << "Enter the gender you want the list to be sorted by" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.sortBySex(input));
         }
         else if(input == "birth") {
             cout << lowline;
             cout << "Sorted from eldest to youngest" << endl;
+            cout << lowline;
             cout << _process.showPeople(_process.sortByBirth());
         }
         else if(input == "death") {
             cout << lowline;
             cout << "Sorted by year died" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.sortByDeath());
         }
         else if(input == "turing") {
             cout << lowline;
             cout << "Sort by those who won turing award, input yes" << endl;
             input = inputHandling();
+            cout << lowline;
             cout << _process.showPeople(_process.sortByTuring(input));
         }
         else if(input == "back"){
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
-            exitMenu = true;
             cout << lowline;
+            exitMenu = true;
         }
         else {
+            cout << lowline;
             cout << "wrong input! Try again" << endl;
+            cout << lowline;
         }
 
     }while(!exitMenu);
@@ -221,21 +235,19 @@ void ConsoleUI::runUI() {
         input = inputHandling();
 
         if(input == "add") {
-            //cout << string(100, '\n');
             cout << lowline;
             createMenu();
         }
         else if(input == "unicorn"){
             cout << lowline;
             cout << unicorn();
+            cout << lowline;
         }
         else if(input == "search") {
-            //cout << string(100, '\n');
             cout << lowline;
             searchMenu();
         }
         else if(input == "sort") {
-            //cout << string(100, '\n');
             cout << lowline;
             sortMenu();
         }
@@ -245,7 +257,6 @@ void ConsoleUI::runUI() {
         }
 
         else if(input == "delete") {
-            //cout << string(100, '\n');
             string name;
             cout << lowline;
             cout << "Enter the person's name: \n";
@@ -256,7 +267,6 @@ void ConsoleUI::runUI() {
             cout << lowline << endl;
         }
         else if(input == "exit") {
-            //cout << string(100, '\n');
             cout << lowline;
             cout << "Thank you, have a nice day!" << endl;
             cout << lowline;

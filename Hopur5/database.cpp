@@ -10,7 +10,6 @@ Database::Database(){
 }
 
 Database::Database(string dbFile) {
-   // cout << dbFile << endl;
 
     vector<string> strstr;
     ifstream fin;
@@ -25,7 +24,6 @@ Database::Database(string dbFile) {
 
     while(!fin.eof()) {
         strstr.push_back(string(str));
-//cout << str << endl;
         fin.getline(str, 255);
     }
 
@@ -57,7 +55,6 @@ Database::Database(string dbFile) {
                 name = name + line[count];
                 count++;
             }
-            //cout <<"name " << i <<" " << name << endl;
 
 //Age
             i++;
@@ -91,7 +88,6 @@ Database::Database(string dbFile) {
                 sex = line[count];
                 count++;
             }
-            //cout <<"Sex: " <<i << " " << sex << endl;
 
 //Birth
             i++;
@@ -109,7 +105,6 @@ Database::Database(string dbFile) {
                 birth = birth + line[count];
                 count++;
             }
-            //cout << i << " birthyear: " <<birth << endl;
 
 //death
             i++;
@@ -127,7 +122,6 @@ Database::Database(string dbFile) {
                 death = death + line[count];
                 count++;
             }
-            //cout << "deathyear: " << death << endl;
 
 //contribution
             i++;
@@ -139,14 +133,12 @@ Database::Database(string dbFile) {
             }
 
             count++;
-            //cout << "count: " << count << endl;
             contribution = "";
 
             while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
                 contribution = contribution + line[count];
                 count++;
             }
-            //cout <<"contribution: " << contribution << endl;
 
 //turing award year
             i++;
@@ -165,26 +157,15 @@ Database::Database(string dbFile) {
                 count++;
             }
 
-            //cout <<"turing year: " <<ty << endl;
             i++;
-//            string age = "";
             Person* p = new Person(name, age, sex, birth, death, contribution, ty);
             people.push_back(*p);
         }
     }
 }
 
-/*Person Database::getPerson() {
-
-}
-*/
 
 vector<Person> Database::getList() {
-    /*for(int i=0; i<people.size(); i++) {
-        cout << "----  " << i <<"  ----"<< endl;
-        people.at(i).showPerson();
-    }*/
-
   return people;
 }
 
@@ -204,11 +185,9 @@ void Database::update(vector<Person> peeps) {
     }
 
     people = sorted;
-    //writeToDB();
 }
 void Database::writeToDB(Person p) {
     ofstream fout(_dbFile, ios::app);
-    //fout.open(_dbFile);
     string name = "Name: ";
     string age = "Age: ";
     string sex = "Sex: ";
@@ -234,7 +213,6 @@ void Database::writeToDB(Person p) {
 
 bool Database::exists(Person p) {
     for(unsigned int i=0; i<people.size(); i++) {
-        //cout << i << " ";
         if(people.at(i) == (p))
             return true;
     }
@@ -243,7 +221,6 @@ bool Database::exists(Person p) {
 
 void Database::reWriteDb() {
     ofstream fout(_dbFile);
-    //fout.open(_dbFile);
     string name = "Name: ";
     string age = "Age: ";
     string sex = "Sex: ";
