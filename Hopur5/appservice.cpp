@@ -55,7 +55,7 @@ vector<Person> Process::searchByName(string name) {
             result.push_back(people.at(i));
         }
     }
-    cout << "IN SEARCH BY NAME: " << result.size() << endl;
+
     return result;
 }
 vector<Person> Process::searchByAge(string age) {
@@ -87,7 +87,7 @@ vector<Person> Process::searchByDeath(string death) {
     vector<Person> result;
     string _death;
     for(size_t i = 0; i < people.size(); i++) {
-        death = people.at(i).getDeath();
+        _death = people.at(i).getDeath();
         transform(_death.begin(), _death.end(), _death.begin(), ::tolower);
         if(_death.find(death) != std::string::npos) {
             result.push_back(people.at(i));
@@ -253,9 +253,13 @@ vector<Person> Process::sortByTuring (string _flag) {
 
 string Process::deletePerson(string _name, string birth) {
     bool flag = false;
+    string p_name;
 
     for(unsigned int i=0; i<people.size(); i++) {
-        if(people.at(i).getName() == _name && people.at(i).getBirth() == birth){
+        p_name = people.at(i).getName();
+        transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+
+        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos){
             people.erase(people.begin() + i);
             flag = true;
         }
@@ -265,26 +269,27 @@ string Process::deletePerson(string _name, string birth) {
     {
         db.update(people);
         db.reWriteDb();
-        return "Erased successfully";
+        return "Erased successfully\n";
     }
 
-    return "Person not found";
+    return "Person not found\n";
 }
 //####################Showing#################//
 string Process::showPeople(vector<Person> results)
 {
-    cerr << "Show people!" << endl;
+
     string temp = "";
 
     for(unsigned int i = 0; i < results.size(); i++)
     {
-        cerr << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+        temp = temp + "--------------------------------------------------------------\n";
         temp = temp + results.at(i).showPerson();
     }
     if(results.size() == 0){
-        cerr<< "in IFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf" << endl;
-        temp = "name not found!\n";
+        temp = "#########################################################################\n";
+        temp = temp + "No Results Found!\n";
     }
+    temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
 

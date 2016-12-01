@@ -53,7 +53,7 @@ string Person::showPerson(){
     string temp = "";
 
     temp = temp + "NAME: " + this->_name + '\n';
-    temp = temp + "AGE: " + this->_age + '\n';
+    temp = temp + "AGE OF CONTRIBUTION: " + this->_age + '\n';
     temp = temp + "SEX: " + this->_sex + '\n';
     temp = temp + "BIRTH: " + this->_birth + '\n';
     temp = temp + "DEATH: " + this->_death + '\n';
