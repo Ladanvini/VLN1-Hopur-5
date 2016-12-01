@@ -46,49 +46,49 @@ void ConsoleUI::searchMenu() {
         input = inputHandling();
 
         if(input == "name") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Enter the name here: " << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByName(input));
         }
         else if(input == "age") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Please enter the age you want" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByAge(input));
         }
         else if(input == "sex") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Please enter the gender" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchBySex(input));
         }
         else if(input == "birth") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Enter the birth year please" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByBirth(input));
         }
         else if(input == "death") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Enter the death year (0 if still alive)" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByDeath(input));
         }
         else if(input == "contribution") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Enter the contribution you're looking for" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByContribution(input));
         }
         else if(input == "turing") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "If you're looking for people who have won a turing award, enter yes, otherwise enter no" << endl;
             input = inputHandling();
             cout << _process.showPeople(_process.searchByTuring(input));
         }
         else if(input == "back"){
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Thank you, taking you back to the main menu" << endl;
             exitMenu = true;
         }
@@ -199,22 +199,22 @@ void ConsoleUI::runUI() {
         input = inputHandling();
 
         if(input == "add") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             createMenu();
         }
         else if(input == "search") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
 
             searchMenu();
         }
         else if(input == "sort") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
 
             sortMenu();
         }
 
         else if(input == "delete") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
 
             cout << "Enter the person's name: \n";
             string name = inputHandling();
@@ -223,7 +223,7 @@ void ConsoleUI::runUI() {
             cout << _process.deletePerson(name, input);
         }
         else if(input == "exit") {
-            cout << string(100, \n);
+            cout << string(100, '\n');
             cout << "Thank you, have a nice day!" << endl;
             cout << endl;
             exitUI = true;
