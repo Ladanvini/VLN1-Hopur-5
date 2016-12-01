@@ -1,11 +1,13 @@
 #include "database.h"
+
 #include <fstream>
 #include <iostream>
 #include <algorithm>
 #include <string>
 
 using namespace std;
-Database::Database(){
+
+Database::Database() {
 
 }
 

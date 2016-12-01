@@ -13,6 +13,7 @@ ConsoleUI::ConsoleUI() {
 ConsoleUI::ConsoleUI(Process p) {
     _process = p;
 }
+
 //Takes input and puts them in lowercasing
 string ConsoleUI::inputHandling() {
     string input = " ";
@@ -23,6 +24,7 @@ string ConsoleUI::inputHandling() {
 
     return input;
 }
+
 //search
 void ConsoleUI::searchMenu() {
     string input = "";
@@ -99,7 +101,7 @@ void ConsoleUI::searchMenu() {
             cout << lowline;
             cout << _process.showPeople(_process.searchByTuring(input));
         }
-        else if(input == "back"){
+        else if(input == "back") {
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
             cout << lowline;
@@ -185,6 +187,7 @@ void ConsoleUI::sortMenu() {
 
     }while(!exitMenu);
 }
+
 //create option
 void ConsoleUI::createMenu() {
     string name;
@@ -213,6 +216,7 @@ void ConsoleUI::createMenu() {
     char _sex = sex.at(0);
     cout << _process.create(name, age, _sex, birth, death, contribution, turing);
 }
+
 //Main Menu
 void ConsoleUI::runUI() {
     string input = " ";
@@ -254,7 +258,6 @@ void ConsoleUI::runUI() {
             cout << lowline;
             displayList();
         }
-
         else if(input == "delete") {
             string name;
             cout << lowline;
@@ -279,8 +282,9 @@ void ConsoleUI::runUI() {
 
     }while(!exitUI);
 }
+
 //Fun Unicorn for the users
-string ConsoleUI::unicorn(){
+string ConsoleUI::unicorn() {
     string uni = "";
     uni = uni + "                   ." + '\n' +
 "                  /|" + '\n'+
@@ -298,7 +302,8 @@ string ConsoleUI::unicorn(){
 
     return uni;
 }
+
 //Display
-void ConsoleUI::displayList(){
+void ConsoleUI::displayList() {
     cout << _process.showPeople(_process.getList());
 }

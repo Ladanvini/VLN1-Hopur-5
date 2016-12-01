@@ -38,7 +38,7 @@ bool Person::isSame(Person p) {
                 );
 }
 
-bool operator==(Person p, Person p2){
+bool operator==(Person p, Person p2) {
     if(p.getName().find(p2.getName()) != std::string::npos
             && p.getBirth().find(p2.getBirth()) != std::string::npos
             && p.getDeath().find(p2.getDeath()) != std::string::npos
@@ -48,7 +48,7 @@ bool operator==(Person p, Person p2){
         return false;
 }
 
-string Person::showPerson(){
+string Person::showPerson() {
     string temp = "";
 
     temp = temp + "NAME: " + this->_name + '\n';

@@ -2,6 +2,7 @@
 #define CONSOLEUI_H
 
 #include "appservice.h"
+
 #include <string>
 
 using namespace std;
