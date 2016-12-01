@@ -235,20 +235,23 @@ vector<Person> Process::sortByTuring (string _flag) {
 
 //####################Delete####################//
 
-string Process::deletePerson(Person p) {
+string Process::deletePerson(string _name, string birth) {
     bool flag = false;
     for(int i=0; i<people.size(); i++) {
-        if(people.at(i) == p){
+        if(people.at(i).getName() == _name && people.at(i).getBirth() == birth){
 
             people.erase(people.begin() + i);
             flag = true;
         }
     }
 
-    db.update(people);
-    db.reWriteDb();
     if(flag)
+    {
+        db.update(people);
+        db.reWriteDb();
         return "Erased successfully";
+    }
+
     return "Person not found";
 }
 
