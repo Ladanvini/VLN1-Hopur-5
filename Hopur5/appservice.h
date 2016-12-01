@@ -3,14 +3,12 @@
 
 #include <string>
 #include <vector>
-
 #include "database.h"
 #include "person.h"
 
 using namespace std;
 
-class Process
-{
+class Process {
 private:
     Database db;
     vector<Person> people;
@@ -18,6 +16,7 @@ private:
 public:
     Process();
     Process(Database _db);
+    //Search
     string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
     vector<Person> searchByName(string name);
     vector<Person> searchByAge(string age);

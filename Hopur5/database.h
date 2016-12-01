@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Database
-{
+class Database {
 private:
     Person person;
     vector<Person> people;

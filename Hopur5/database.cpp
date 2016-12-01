@@ -8,8 +8,8 @@ using namespace std;
 Database::Database(){
 
 }
-Database::Database(string dbFile)
-{
+
+Database::Database(string dbFile) {
     vector<string> strstr;
     ifstream fin;
     _dbFile = dbFile;
@@ -23,13 +23,12 @@ Database::Database(string dbFile)
     char* str = new char[512];
     fin.getline(str, 255);
 
-
-    while(!fin.eof()){
-
+    while(!fin.eof()) {
         strstr.push_back(string(str));
 //cout << str << endl;
         fin.getline(str, 255);
     }
+
     string line = "";
     string name;
     char sex;
@@ -38,34 +37,36 @@ Database::Database(string dbFile)
     string contribution;
     string ty;
     string age;
-    for(int i=0; i<strstr.size(); i++){
+
+    for(int i=0; i<strstr.size(); i++) {
         line = strstr.at(i);
-        while(i<strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$"){
- //name
+        while(i<strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$") {
+//name
             int count = 0;
-            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+
+            while(i<strstr.size() && line[count] != ':' && count < line.size()) {
                 count ++;
             }
             count++;
             name = "";
-            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
 
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()) {
                 name = name + line[count];
                 count++;
             }
             //cout <<"name " << i <<" " << name << endl;
-
 //Age
             i++;
             line = strstr.at(i);
             count = 0;
-            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+
+            while(i<strstr.size() && line[count] != ':' && count < line.size()) {
                 count ++;
             }
             count++;
             age = "";
-            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
 
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()) {
                 age = age + line[count];
                 count++;
             }
@@ -74,12 +75,12 @@ Database::Database(string dbFile)
             line = strstr.at(i);
 
             count = 0;
-            while(i<strstr.size() && line[count] != ':' && count < line.size()){
+            while(i<strstr.size() && line[count] != ':' && count < line.size()) {
                 count ++;
             }
             count++;
 
-            while(i<strstr.size() && line[count] != '\n' && count < line.size()){
+            while(i<strstr.size() && line[count] != '\n' && count < line.size()) {
                 sex = line[count];
                 count++;
             }
