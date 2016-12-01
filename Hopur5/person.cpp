@@ -49,13 +49,17 @@ bool operator==(Person p, Person p2){
         return false;
 }
 
-void Person::showPerson(){
-    cout << "NAME: " << this->_name << endl;
-    cout << "AGE: " << this->_age << endl;
-    cout << "SEX: " << this->_sex << endl;
-    cout << "BIRTH: " << this->_birth << endl;
-    cout << "DEATH: " << this->_death << endl;
-    cout << "CONTRIBUTION: " << this->_contribution << endl;
-    cout << "TURINGYEAR: " << this->_turingYear << endl;
+string Person::showPerson(){
+    string temp = "";
+
+    temp = temp + "NAME: " + this->_name + '\n';
+    temp = temp + "AGE: " + this->_age + '\n';
+    temp = temp + "SEX: " + this->_sex + '\n';
+    temp = temp + "BIRTH: " + this->_birth + '\n';
+    temp = temp + "DEATH: " + this->_death + '\n';
+    temp = temp + "CONTRIBUTION: " + this->_contribution + '\n';
+    temp = temp + "TURINGYEAR: " + this->_turingYear + '\n';
+
+    return temp;
 }
 

@@ -240,6 +240,7 @@ bool Database::exists(Person p) {
         if(people.at(i) == (p))
             return true;
     }
+    return false;
 }
 
 void Database::reWriteDb() {

@@ -19,7 +19,7 @@ private:
 public:
     Person();
     Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear);
-    void showPerson();
+    string showPerson();
     string getName() { return _name; }
     string getAge() { return _age; }
     char getSex() { return _sex; }

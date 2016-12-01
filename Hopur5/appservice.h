@@ -36,6 +36,8 @@ public:
     //DELETE
     string deletePerson(string name, string birth);
     // Edit
+    // Showing
+    string showPeople(vector<Person> results);
 
 };
 
