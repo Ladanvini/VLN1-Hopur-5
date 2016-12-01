@@ -38,6 +38,7 @@ void ConsoleUI::searchMenu() {
         cout << "Death - Search by persons death year" << endl;
         cout << "Contribution - Search by persons contribution" << endl;
         cout << "Turing - Search those that have won Turing award" << endl;
+        cout << "Back - Go back to the main menu" << endl;
 
         input = inputHandling();
 
@@ -75,6 +76,10 @@ void ConsoleUI::searchMenu() {
             cout << "congratz, you won!" << endl;
             input = inputHandling();
             _process.searchByTuring(input);
+        }
+        else if(input == "back"){
+            cout << "Thank you, taking you back to main menu" << endl;
+            exitMenu = true;
         }
         else {
             cout << "wrong input asshole!" << endl;
