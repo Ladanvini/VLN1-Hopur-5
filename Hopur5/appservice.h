@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include "database.h"
-#include "person.h"
 
 using namespace std;
 

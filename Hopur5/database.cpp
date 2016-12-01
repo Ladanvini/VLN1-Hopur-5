@@ -10,6 +10,8 @@ Database::Database(){
 }
 
 Database::Database(string dbFile) {
+    cout << dbFile << endl;
+
     vector<string> strstr;
     ifstream fin;
     _dbFile = dbFile;

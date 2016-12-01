@@ -3,7 +3,7 @@
 #include <string>
 
 #include "consoleui.h"
-#include "appservice.h"
+
 
 using namespace std;
 
@@ -17,7 +17,7 @@ ConsoleUI::ConsoleUI(Process p) {
 
 string ConsoleUI::inputHandling() {
     string input = " ";
-    cin >> input;
+    getline(cin, input);
     transform(input.begin(), input.end(), input.begin(), ::tolower);
     //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
     //Link to where the code is originally displayed
