@@ -38,13 +38,13 @@ Database::Database(string dbFile) {
     string ty;
     string age;
 
-    for(int i = 0; i < strstr.size(); i++) {
+    for(unsigned int i = 0; i < strstr.size(); i++) {
         line = strstr.at(i);
 
         while(i < strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$") {
 
 //name
-            int count = 0;
+            unsigned int count = 0;
 
             while(i < strstr.size() && line[count] != ':' && count < line.size()) {
                 count ++;
@@ -191,13 +191,13 @@ vector<Person> Database::getList() {
 void Database::update(vector<Person> peeps) {
     vector<string> names;
     vector<Person> sorted;
-    for(int i=0; i<peeps.size(); i++)
+    for(unsigned int i=0; i<peeps.size(); i++)
         names.push_back(peeps.at(i).getName());
 
     std::sort(names.begin(), names.end());
 
-    for(int i=0; i<names.size(); i++) {
-        for(int j=0; j<peeps.size(); j++) {
+    for(unsigned int i=0; i<names.size(); i++) {
+        for(unsigned int j=0; j<peeps.size(); j++) {
             if(names.at(i) == peeps.at(j).getName())
                 sorted.push_back(peeps.at(j));
         }
@@ -233,7 +233,7 @@ void Database::writeToDB(Person p) {
 }
 
 bool Database::exists(Person p) {
-    for(int i=0; i<people.size(); i++) {
+    for(unsigned int i=0; i<people.size(); i++) {
         //cout << i << " ";
         if(people.at(i) == (p))
             return true;
@@ -253,7 +253,7 @@ void Database::reWriteDb() {
     string end = "#\n";
     string all = "";
 
-    for(int i=0; i<people.size(); i++) {
+    for(unsigned int i=0; i<people.size(); i++) {
         name = "Name: ";
         name = name + people.at(i).getName() + '\n';
         age = "Age: ";

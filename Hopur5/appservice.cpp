@@ -130,13 +130,13 @@ vector<Person> Process::searchByTuring(string _flag) {
 vector<Person> Process::sortByName() {
     vector<string> names;
     vector<Person> sorted;
-    for(int i = 0; i < people.size(); i++)
+    for(unsigned int i = 0; i < people.size(); i++)
         names.push_back(people.at(i).getName());
 
     std::sort(names.begin(), names.end());
 
-    for(int i = 0; i < names.size(); i++) {
-        for(int j = 0; j < people.size(); j++)
+    for(unsigned int i = 0; i < names.size(); i++) {
+        for(unsigned int j = 0; j < people.size(); j++)
             if(names.at(i) == people.at(j).getName())
                 sorted.push_back(people.at(j));
     }
@@ -146,13 +146,13 @@ vector<Person> Process::sortByName() {
 vector<Person> Process::sortByAge() {
     vector<string> ages;
     vector<Person> sorted;
-    for(int i = 0; i < people.size(); i++)
+    for(unsigned int i = 0; i < people.size(); i++)
         ages.push_back(people.at(i).getAge());
 
     std::sort(ages.begin(), ages.end());
 
-    for(int i = 0; i < ages.size(); i++) {
-        for(int j = 0; j < people.size(); j++)
+    for(unsigned int i = 0; i < ages.size(); i++) {
+        for(unsigned int j = 0; j < people.size(); j++)
             if(ages.at(i) == people.at(j).getAge())
                 sorted.push_back(people.at(j));
     }
@@ -179,13 +179,13 @@ vector<Person> Process::sortBySex(string _sex) {
 vector<Person> Process::sortByBirth() {
     vector<string> birth;
     vector<Person> sorted;
-    for(int i = 0; i < people.size(); i++)
+    for(unsigned int i = 0; i < people.size(); i++)
         birth.push_back(people.at(i).getBirth());
 
     std::sort(birth.begin(), birth.end());
 
-    for(int i = 0; i < birth.size(); i++) {
-        for(int j = 0; j < people.size(); j++) {
+    for(unsigned int i = 0; i < birth.size(); i++) {
+        for(unsigned int j = 0; j < people.size(); j++) {
             if(birth.at(i) == people.at(j).getBirth())
                 sorted.push_back(people.at(j));
         }
@@ -196,13 +196,13 @@ vector<Person> Process::sortByBirth() {
 vector<Person> Process::sortByDeath() {
     vector<string> death;
     vector<Person> sorted;
-    for(int i = 0; i < people.size(); i++)
+    for(unsigned int i = 0; i < people.size(); i++)
         death.push_back(people.at(i).getDeath());
 
     std::sort(death.begin(), death.end());
 
-    for(int i = 0; i < death.size(); i++) {
-        for(int j = 0; j < people.size(); j++) {
+    for(unsigned int i = 0; i < death.size(); i++) {
+        for(unsigned int j = 0; j < people.size(); j++) {
             if(death.at(i) == people.at(j).getDeath())
                 sorted.push_back(people.at(j));
         }
@@ -238,14 +238,9 @@ vector<Person> Process::sortByTuring (string _flag) {
 
 string Process::deletePerson(string _name, string birth) {
     bool flag = false;
-<<<<<<< HEAD
-    for(int i = 0; i < people.size(); i++) {
-        if(people.at(i) == p){
-=======
-    for(int i=0; i<people.size(); i++) {
-        if(people.at(i).getName() == _name && people.at(i).getBirth() == birth){
->>>>>>> 849be9e85ea7f57f59151dc5220ed25312dca23c
 
+    for(unsigned int i=0; i<people.size(); i++) {
+        if(people.at(i).getName() == _name && people.at(i).getBirth() == birth){
             people.erase(people.begin() + i);
             flag = true;
         }
