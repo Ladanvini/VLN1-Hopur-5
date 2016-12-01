@@ -255,5 +255,17 @@ string Process::deletePerson(string _name, string birth) {
 
     return "Person not found";
 }
+//####################Showing#################//
+string Process::showPeople(vector<Person> results)
+{
+    string temp = "";
+
+    for(unsigned int i = 0; i < results.size(); i++)
+    {
+        temp = temp + results.at(i).showPerson();
+    }
+
+    return temp;
+}
 
 //####################Edit####################//
