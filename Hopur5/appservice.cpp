@@ -260,7 +260,7 @@ string Process::deletePerson(string _name, string birth) {
         p_name = people.at(i).getName();
         transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
 
-        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos){
+        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos) {
             people.erase(people.begin() + i);
             flag = true;
         }
