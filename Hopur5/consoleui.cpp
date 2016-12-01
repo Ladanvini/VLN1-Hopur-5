@@ -16,21 +16,14 @@ ConsoleUI::ConsoleUI(Process p)
     _process = p;
 }
 
-/*string tolower(string& inputString)
-{
-        #include <algorithm>
-        #include <string>
-
-        transform(inputString.begin(), inputString.end(), inputString.begin(), ::tolower);
-        //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
-        //Link to where the code is originally displayed
-}*/
 
 string ConsoleUI::inputHandling()
 {
     string input = " ";
     cin >> input;
     transform(input.begin(), input.end(), input.begin(), ::tolower);
+    //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
+    //Link to where the code is originally displayed
     return input;
 }
 
@@ -109,9 +102,9 @@ void ConsoleUI::runUI()
     string input = " ";
     bool exitUI = false;
     cout << "Im running!" << endl;
-    Database* db = new Database("/Users/alexandrawinther/Desktop/VLN1-Hopur-5/Hopur5/database.txt");
+    Database* db = new Database("database.txt");
     Process* doStuff = new Process(*db);
-    // DATABASE HAS TO BE IN CORRECT PLACE OR MENU NO WORK, ASSHOLES
+
     do
     {
         cout << "Please input one of these commands: " << endl;
@@ -123,12 +116,11 @@ void ConsoleUI::runUI()
 
         input = inputHandling();
 
-      // std::transform(input.begin(), input.end(), input.begin(), ::tolower);
-
         if(input == "add")
         {
             cout << "I'm add"<< endl;
-            //todo
+            input = inputHandling();
+            _process.create(input);
         }
         else if(input == "edit")
         {
@@ -143,7 +135,8 @@ void ConsoleUI::runUI()
         else if(input == "delete")
         {
             cout << "I'm here to delet you"<< endl;
-            //todo
+            input = inputHandling();
+            _process.deletePerson();
         }
         else if(input == "exit")
         {
