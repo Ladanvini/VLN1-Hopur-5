@@ -13,7 +13,7 @@ ConsoleUI::ConsoleUI() {
 ConsoleUI::ConsoleUI(Process p) {
     _process = p;
 }
-
+//Takes input and puts them in lowercasing
 string ConsoleUI::inputHandling() {
     string input = " ";
     getline(cin, input);
@@ -23,7 +23,7 @@ string ConsoleUI::inputHandling() {
 
     return input;
 }
-
+//search
 void ConsoleUI::searchMenu() {
     string input = "";
     bool exitMenu = false;
@@ -185,7 +185,7 @@ void ConsoleUI::sortMenu() {
 
     }while(!exitMenu);
 }
-
+//create option
 void ConsoleUI::createMenu() {
     string name;
     string age;
@@ -213,24 +213,23 @@ void ConsoleUI::createMenu() {
     char _sex = sex.at(0);
     cout << _process.create(name, age, _sex, birth, death, contribution, turing);
 }
-
+//Main Menu
 void ConsoleUI::runUI() {
     string input = " ";
     bool exitUI = false;
-    //cout << "Im running!" << endl;
     string lowline = "--------------------------------------------------------------\n";
     cout << "**************FAMOUS COMPUTER SCIENTISTS****************" << endl;
 
     do {
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
-        cout << "Display" << endl;
-        cout << "Add" << endl;
-        cout << "Search" << endl;
-        cout << "Sort" << endl;
-        cout << "Delete" << endl;
-        cout << "Unicorn" << endl;
-        cout << "Exit" << endl;
+        cout << "Display - Displays the list of famous computer scientists" << endl;
+        cout << "Add - Adds a person to the list" << endl;
+        cout << "Search - Searches the list" << endl;
+        cout << "Sort - Displays the list sorted order from options" << endl;
+        cout << "Delete - Deletes a person from the list" << endl;
+        cout << "Unicorn - A unicorn" << endl;
+        cout << "Exit - End the programs run" << endl;
 
         input = inputHandling();
 
@@ -273,11 +272,14 @@ void ConsoleUI::runUI() {
             exitUI = true;
         }
         else {
+            cout << lowline;
             cout << "Wrong input!" << endl;
+            cout << lowline;
         }
 
     }while(!exitUI);
 }
+//Fun Unicorn for the users
 string ConsoleUI::unicorn(){
     string uni = "";
     uni = uni + "                   ." + '\n' +
@@ -296,6 +298,7 @@ string ConsoleUI::unicorn(){
 
     return uni;
 }
+//Display
 void ConsoleUI::displayList(){
     cout << _process.showPeople(_process.getList());
 }
