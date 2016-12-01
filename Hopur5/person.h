@@ -5,8 +5,7 @@
 
 using namespace std;
 
-class Person
-{
+class Person {
 private:
     string _name;
     string _age;
@@ -21,10 +20,10 @@ public:
     Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear);
     void showPerson();
     string getName() { return _name; }
-    string getAge() {return _age; }
-    char getSex(){ return _sex; }
-    string getBirth(){ return _birth; }
-    string getDeath(){ return _death; }
+    string getAge() { return _age; }
+    char getSex() { return _sex; }
+    string getBirth() { return _birth; }
+    string getDeath() { return _death; }
     string getContribution() { return _contribution; }
     string getTuringYear() { return _turingYear; }
     bool getTuring() { return _turing; }

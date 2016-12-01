@@ -144,12 +144,6 @@ void ConsoleUI::sortMenu()
             input = inputHandling();
             _process.sortByDeath();
         }
-        else if(input == "contribution")
-        {
-            cout << "your contribution is Zero" << endl;
-            input = inputHandling();
-            _process.sortByContribution(input);
-        }
         else if(input == "turing")
         {
             cout << "congratz, you won!" << endl;
@@ -225,9 +219,12 @@ void ConsoleUI::runUI()
         }
         else if(input == "delete")
         {
-            cout << "I'm here to delet you"<< endl;
+//            cout << "I'm here to delet you"<< endl;
+            cout << "Enter the person's name: \n";
+            string name = inputHandling();
+            cout << "Enter the person's birth year: \n";
             input = inputHandling();
-            _process.deletePerson();
+            _process.deletePerson(name, input);
         }
         else if(input == "exit")
         {

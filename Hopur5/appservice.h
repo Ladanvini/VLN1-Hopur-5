@@ -34,9 +34,8 @@ public:
     vector<Person> sortByDeath();
     vector<Person> sortByContribution(string contribution);
     vector<Person> sortByTuring(string _flag);
-    string deletePerson(Person p);
-    vector<int> mergeSort(vector<int> arr, size_t begin, size_t end);
-    vector<int> merge(vector<int> arr1, vector<int> arr2);
+    //DELETE
+    string deletePerson(string name, string birth);
     // Edit
 
 };
