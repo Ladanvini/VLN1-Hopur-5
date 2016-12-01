@@ -10,16 +10,14 @@ Database::Database(){
 }
 
 Database::Database(string dbFile) {
-    cout << dbFile << endl;
+   // cout << dbFile << endl;
 
     vector<string> strstr;
     ifstream fin;
     _dbFile = dbFile;
     fin.open(dbFile);
 
-    if(fin.is_open())
-        cout << "success!" << endl;
-    else
+    if(!fin.is_open())
         cerr << "failed oppening :( " << dbFile << endl;
 
     char* str = new char[512];

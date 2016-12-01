@@ -163,8 +163,9 @@ vector<Person> Process::sortByAge() {
     vector<string> ages;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
+    {
         ages.push_back(people.at(i).getAge());
-
+    }
     std::sort(ages.begin(), ages.end());
 
     for(unsigned int i = 0; i < ages.size(); i++) {
@@ -255,12 +256,14 @@ vector<Person> Process::sortByTuring (string _flag) {
 string Process::deletePerson(string _name, string birth) {
     bool flag = false;
     string p_name;
+    Person result;
 
     for(unsigned int i=0; i<people.size(); i++) {
         p_name = people.at(i).getName();
-        transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+        //transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
 
         if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos) {
+            result = people.at(i);
             people.erase(people.begin() + i);
             flag = true;
         }
@@ -269,10 +272,11 @@ string Process::deletePerson(string _name, string birth) {
     if(flag) {
         db.update(people);
         db.reWriteDb();
-        return "Erased successfully\n";
+        return result.showPerson() +
+                "Erased successfully\n";
     }
 
-    return "Person not found\n";
+    return "Person: \n" + result.getName() + "\n not found\n";
 }
 
 //####################Showing#################//

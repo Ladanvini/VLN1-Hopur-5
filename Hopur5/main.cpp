@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
     string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
-    cout << "I'm here"<< endl;
+    //cout << "I'm here"<< endl;
     Database* db = new Database(path);
     Process* doStuff = new Process(*db);
     ConsoleUI ui(*doStuff);

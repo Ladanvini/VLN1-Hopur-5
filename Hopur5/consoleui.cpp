@@ -32,7 +32,7 @@ void ConsoleUI::searchMenu() {
 
     do {
         cout << "Please enter one of these commands" << endl;
-        cout << "Name - Search by persons name" << endl;
+        cout << "Name - Search by persons name (Using correct capitalization of letters)" << endl;
         cout << "Age - Search by persons age of contribution" << endl;
         cout << "Sex - Search by persons gender" << endl;
         cout << "Birth - Search by persons birth year" << endl;
@@ -181,20 +181,20 @@ void ConsoleUI::createMenu() {
     string contribution;
     string turing;
 
-    cout << "Enter Name: " << endl;
-    name = inputHandling();
+    cout << "Enter Name (Using correct capitalization of letters): " << endl;
+    getline(cin, name);
     cout << "Enter The Age Of Contribution( 0 if unknown): " << endl;
-    age = inputHandling();
+    getline(cin, age);
     cout << "Enter Sex (m/f): " << endl;
-    sex = inputHandling();
+    getline(cin, sex);
     cout << "Enter Birth Year: " << endl;
-    birth = inputHandling();
+    getline(cin, birth);
     cout << "Enter Death Year (0 if still alive): " << endl;
-    death = inputHandling();
+    getline(cin, death);
     cout << "Enter Contribution: " << endl;
-    contribution = inputHandling();
+    getline(cin, contribution);
     cout << "Enter Turing Year (0 if unknown or not applicable): " << endl;
-    turing = inputHandling();
+    getline(cin, turing);
 
     char _sex = sex.at(0);
     cout << _process.create(name, age, _sex, birth, death, contribution, turing);
@@ -203,7 +203,7 @@ void ConsoleUI::createMenu() {
 void ConsoleUI::runUI() {
     string input = " ";
     bool exitUI = false;
-    cout << "Im running!" << endl;
+    //cout << "Im running!" << endl;
     string lowline = "--------------------------------------------------------------\n";
 
 
@@ -240,9 +240,10 @@ void ConsoleUI::runUI() {
 
         else if(input == "delete") {
             //cout << string(100, '\n');
+            string name;
             cout << lowline;
             cout << "Enter the person's name: \n";
-            string name = inputHandling();
+            getline(cin, name);
             cout << "Enter the person's birth year: \n";
             input = inputHandling();
             cout << _process.deletePerson(name, input) << endl;
