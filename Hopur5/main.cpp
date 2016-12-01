@@ -6,7 +6,10 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-
+/* ################ATTENTION################
+ * Please make sure the file database.txt is in the build folder of your project
+ * with relevance to the compiler you´re using
+*/
     QCoreApplication a(argc, argv);
 
     string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
