@@ -6,35 +6,30 @@
 #include "appservice.h"
 
 using namespace std;
- ConsoleUI::ConsoleUI()
- {
 
- }
+ConsoleUI::ConsoleUI() {
 
-ConsoleUI::ConsoleUI(Process p)
-{
+}
+
+ConsoleUI::ConsoleUI(Process p) {
     _process = p;
 }
 
-
-string ConsoleUI::inputHandling()
-{
+string ConsoleUI::inputHandling() {
     string input = " ";
     cin >> input;
     transform(input.begin(), input.end(), input.begin(), ::tolower);
     //https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/
     //Link to where the code is originally displayed
+
     return input;
 }
 
-
-void ConsoleUI::searchMenu()
-{
+void ConsoleUI::searchMenu() {
     string input = "";
     bool exitMenu = false;
 
-    do
-    {
+    do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Search by persons name" << endl;
         cout << "Age - Search by persons age" << endl;
@@ -46,63 +41,53 @@ void ConsoleUI::searchMenu()
 
         input = inputHandling();
 
-        if(input == "name")
-        {
+        if(input == "name") {
             cout << "Your name is not here" << endl;
             input = inputHandling();
             _process.searchByName(input);
         }
-        else if(input == "age")
-        {
+        else if(input == "age") {
             cout << "too old" << endl;
             input = inputHandling();
             _process.searchByAge(input);
         }
-        else if(input == "sex")
-        {
+        else if(input == "sex") {
             cout << "All the sex here" << endl;
             input = inputHandling();
             _process.searchBySex(input);
         }
-        else if(input == "birth")
-        {
+        else if(input == "birth") {
             cout << "Not born yet" << endl;
             input = inputHandling();
             _process.searchByBirth(input);
         }
-        else if(input == "death")
-        {
+        else if(input == "death") {
             cout << "Yup, definetly dead" << endl;
             input = inputHandling();
             _process.searchByDeath(input);
         }
-        else if(input == "contribution")
-        {
+        else if(input == "contribution") {
             cout << "your contribution is Zero" << endl;
             input = inputHandling();
             _process.searchByContribution(input);
         }
-        else if(input == "turing")
-        {
+        else if(input == "turing") {
             cout << "congratz, you won!" << endl;
             input = inputHandling();
             _process.searchByTuring(input);
         }
-        else
-        {
+        else {
             cout << "wrong input asshole!" << endl;
         }
-
     }while(!exitMenu);
 }
+
 //sortMenu
-void ConsoleUI::sortMenu()
-{
+void ConsoleUI::sortMenu() {
     string input = "";
     bool exitMenu = false;
 
-    do
-    {
+    do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Sort by persons name" << endl;
         cout << "Age - Sort by persons age" << endl;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Person::Person(){
+Person::Person() {
     _name = "";
     _age = "";
     _sex = ' ';
@@ -16,7 +16,7 @@ Person::Person(){
     _turing = false;
 }
 
-Person::Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear){
+Person::Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear) {
     _name = name;
     _age = age;
     _sex = sex;
@@ -24,13 +24,13 @@ Person::Person(string name, string age, char sex, string birth, string death, st
     _death = death;
     _contribution = contribution;
     _turingYear = truringYear;
-    if(truringYear.size()<4)
+    if(truringYear.size() < 4)
         _turing = false;
     else
         _turing = true;
 }
 
-bool Person::isSame(Person p){
+bool Person::isSame(Person p) {
     cout << p.getName() << " != " << this->getName();
     return(     this->getName().find(p.getName()) != std::string::npos &&
                 this->getAge().find(p.getAge()) != std::string::npos &&
