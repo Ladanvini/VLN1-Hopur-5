@@ -95,6 +95,74 @@ void ConsoleUI::searchMenu()
 
     }while(!exitMenu);
 }
+//sortMenu
+void ConsoleUI::sortMenu()
+{
+    string input = "";
+    bool exitMenu = false;
+
+    do
+    {
+        cout << "Please enter one of these commands" << endl;
+        cout << "Name - Sort by persons name" << endl;
+        cout << "Age - Sort by persons age" << endl;
+        cout << "Sex - Sort by persons gender" << endl;
+        cout << "Birth - Sort by persons birth year" << endl;
+        cout << "Death - Sort by persons death year" << endl;
+        cout << "Contribution - Sort by persons contribution" << endl;
+        cout << "Turing - Sort those that have won Turing award" << endl;
+
+        input = inputHandling();
+
+        if(input == "name")
+        {
+            cout << "Your name is not here" << endl;
+            input = inputHandling();
+            _process.sortByName();
+        }
+        else if(input == "age")
+        {
+            cout << "too old" << endl;
+            input = inputHandling();
+            _process.sortByAge();
+        }
+        else if(input == "sex")
+        {
+            cout << "All the sex here" << endl;
+            input = inputHandling();
+            _process.sortBySex(input);
+        }
+        else if(input == "birth")
+        {
+            cout << "Not born yet" << endl;
+            input = inputHandling();
+            _process.sortByBirth();
+        }
+        else if(input == "death")
+        {
+            cout << "Yup, definetly dead" << endl;
+            input = inputHandling();
+            _process.sortByDeath();
+        }
+        else if(input == "contribution")
+        {
+            cout << "your contribution is Zero" << endl;
+            input = inputHandling();
+            _process.sortByContribution(input);
+        }
+        else if(input == "turing")
+        {
+            cout << "congratz, you won!" << endl;
+            input = inputHandling();
+            _process.sortByTuring(input);
+        }
+        else
+        {
+            cout << "wrong input asshole!" << endl;
+        }
+
+    }while(!exitMenu);
+}
 
 
 void ConsoleUI::runUI()
