@@ -99,51 +99,44 @@ void ConsoleUI::sortMenu() {
 
         input = inputHandling();
 
-        if(input == "name")
-        {
+        if(input == "name") {
             cout << "Your name is not here" << endl;
             input = inputHandling();
             _process.sortByName();
         }
-        else if(input == "age")
-        {
+        else if(input == "age") {
             cout << "too old" << endl;
             input = inputHandling();
             _process.sortByAge();
         }
-        else if(input == "sex")
-        {
+        else if(input == "sex") {
             cout << "All the sex here" << endl;
             input = inputHandling();
             _process.sortBySex(input);
         }
-        else if(input == "birth")
-        {
+        else if(input == "birth") {
             cout << "Not born yet" << endl;
             input = inputHandling();
             _process.sortByBirth();
         }
-        else if(input == "death")
-        {
+        else if(input == "death") {
             cout << "Yup, definetly dead" << endl;
             input = inputHandling();
             _process.sortByDeath();
         }
-        else if(input == "turing")
-        {
+        else if(input == "turing") {
             cout << "congratz, you won!" << endl;
             input = inputHandling();
             _process.sortByTuring(input);
         }
-        else
-        {
+        else {
             cout << "wrong input asshole!" << endl;
         }
 
     }while(!exitMenu);
 }
 
-void ConsoleUI::createMenu(){
+void ConsoleUI::createMenu() {
     string name;
     string age;
     string sex;
@@ -171,14 +164,12 @@ void ConsoleUI::createMenu(){
     _process.create(name, age, _sex, birth, death, contribution, turing);
 }
 
-void ConsoleUI::runUI()
-{
+void ConsoleUI::runUI() {
     string input = " ";
     bool exitUI = false;
     cout << "Im running!" << endl;
 
-    do
-    {
+    do {
         cout << "Please input one of these commands: " << endl;
         cout << "Add" << endl;
         cout << "Edit" << endl;
@@ -188,22 +179,18 @@ void ConsoleUI::runUI()
 
         input = inputHandling();
 
-        if(input == "add")
-        {
+        if(input == "add") {
             createMenu();
         }
-        else if(input == "edit")
-        {
+        else if(input == "edit") {
             cout << "I'm here"<< endl;
             //todo
         }
-        else if(input == "search")
-        {
+        else if(input == "search") {
             cout << "Im in search motha facka!" << endl;
             searchMenu();
         }
-        else if(input == "delete")
-        {
+        else if(input == "delete") {
 //            cout << "I'm here to delet you"<< endl;
             cout << "Enter the person's name: \n";
             string name = inputHandling();
@@ -211,15 +198,14 @@ void ConsoleUI::runUI()
             input = inputHandling();
             _process.deletePerson(name, input);
         }
-        else if(input == "exit")
-        {
+        else if(input == "exit") {
             cout << "Thank you, have a nice day!" << endl;
             cout << endl;
             exitUI = true;
         }
-        else
-        {
+        else {
             cout << "Wrong input Moron!!!" << endl;
         }
+
     }while(!exitUI);
 }
