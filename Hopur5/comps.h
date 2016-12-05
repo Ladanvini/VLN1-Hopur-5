@@ -30,6 +30,8 @@ public:
 	void setType(string type);
 	void setBuilt(bool built);
     string showComputer();
+    //SearchComp
+
 };
 
 
