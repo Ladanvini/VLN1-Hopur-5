@@ -16,14 +16,14 @@ Process::Process(Database _db) {
 
 //####################ADD NEW###################//
 
-string Process::create(string name, string age, char sex, string birth, string death, string contribution, string turingYear) {
-    Person* p = new Person(name, age, sex, birth, death, contribution, turingYear);
+string Process::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
+    Person* p = new Person(id, name, age, sex, birth, death, contribution, turingYear);
     bool flag = false;
     if(
-            (age.size() > 3 || age.size() < 1 || age == "0")
+            (age>150 || age < 1)
             || (sex != 'm' && sex != 'f')
-            || (birth.size() < 4 || birth.size() > 4)
-            || (death.size() > 4 ||!(death.size() == 4 || death.find("0") != std::string::npos))
+            || (birth < 1000 || birth > 2016)
+            || (death > 2016 || (death != 0 && death < birth ))
             )
         return "unacceptable value in one of the fields\n";
 
@@ -164,13 +164,13 @@ vector<Person> Process::sortByAge() {
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
     {
-        ages.push_back(people.at(i).getAge());
+        ages.push_back(std::to_string(people.at(i).getAge()));
     }
     std::sort(ages.begin(), ages.end());
 
     for(unsigned int i = 0; i < ages.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++)
-            if(ages.at(i) == people.at(j).getAge())
+            if(ages.at(i) == std::to_string(people.at(j).getAge()))
                 sorted.push_back(people.at(j));
     }
 
@@ -194,7 +194,7 @@ vector<Person> Process::sortBySex(string _sex) {
     return result;
 }
 vector<Person> Process::sortByBirth() {
-    vector<string> birth;
+    vector<int> birth;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
         birth.push_back(people.at(i).getBirth());
@@ -211,7 +211,7 @@ vector<Person> Process::sortByBirth() {
     return sorted;
 }
 vector<Person> Process::sortByDeath() {
-    vector<string> death;
+    vector<int> death;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
         death.push_back(people.at(i).getDeath());
@@ -253,7 +253,7 @@ vector<Person> Process::sortByTuring (string _flag) {
 
 //####################Delete####################//
 
-string Process::deletePerson(string _name, string birth) {
+string Process::deletePerson(string _name, int birth) {
     bool flag = false;
     string p_name;
     Person result;
@@ -261,7 +261,7 @@ string Process::deletePerson(string _name, string birth) {
     for(unsigned int i=0; i<people.size(); i++) {
         p_name = people.at(i).getName();
 
-        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth().find(birth) != std::string::npos) {
+        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth() == birth ) {
             result = people.at(i);
             people.erase(people.begin() + i);
             flag = true;

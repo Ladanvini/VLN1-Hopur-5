@@ -10,26 +10,26 @@ CompService::CompService(Database db){
 
 }
 // Create
-string CompService::create(string name, string type, string yearBuilt, bool built){
+string CompService::create(int id, string name, string type, int yearBuilt, bool built){
 
-    Comps* newComputer = new Comps(name, type, yearBuilt, built);
+    Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
     bool flag = false;
 
     if(
-            (yearBuilt.size() > 4 ||!(yearBuilt.size() == 4 || yearBuilt.find("0") != std::string::npos))
+            (yearBuilt > 100 ||!(yearBuilt != 0 && yearBuilt < 2016 ))
             )
         return "unacceptable value in one of the fields\n";
 
-    if(db.exists(*newComputer)) {
+    if(_db.exists(*newComputer)) {
         flag = true;
     }
     if(flag) {
        return "Computer already exists\n";
     }
-    Computers.push_back(*newComputer);
+    computers.push_back(*newComputer);
 
-    db.update(computers);
-    db.writeToDB(*newComputer);
+    _db.update(computers);
+    _db.writeToDB(*newComputer);
     return "Added successfully\n";
 }
 
@@ -44,7 +44,7 @@ string CompService::create(string name, string type, string yearBuilt, bool buil
 
 
 */
-}
+
 
 //Search
 vector<Comps> searchByName(string name);

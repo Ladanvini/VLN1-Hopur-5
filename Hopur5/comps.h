@@ -6,7 +6,7 @@
 * Type of computer (Mechanical, Electronic, (ie those using transistors), etc.)
 * Was built or not?
 */
-#include "database.h"
+
 #include <string>
 using namespace std;
 
