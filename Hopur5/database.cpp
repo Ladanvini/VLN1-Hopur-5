@@ -49,7 +49,7 @@ Database::Database(QString dbName) {
         turing = query.value("pTuring").toBool();
 
 
-        people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
+        _people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 
 
@@ -69,170 +69,19 @@ Database::Database(QString dbName) {
         typeC = queryC.value("cType").toString();
         builtC = queryC.value("cBuilt").toBool();
         builtYearC = queryC.value("cBuiltYear").toInt();
+        _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
 
 
-    /*
-    vector<string> strstr;
-    ifstream fin;
-    _dbFile = dbFile;
-    fin.open(dbFile);
 
-    if(!fin.is_open())
-        cerr << "failed oppening :( " << dbFile << endl;
-
-    char* str = new char[512];
-    fin.getline(str, 255);
-
-    while(!fin.eof()) {
-        strstr.push_back(string(str));
-        fin.getline(str, 255);
-    }
-
-    string line = "";
-    string name;
-    char sex;
-    string birth;
-    string death;
-    string contribution;
-    string ty;
-    string age;
-
-    for(unsigned int i = 0; i < strstr.size(); i++) {
-        line = strstr.at(i);
-
-        while(i < strstr.size() && strstr.at(i) != "#" && strstr.at(i) != "$") {
-
-//name
-            unsigned int count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            name = "";
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                name = name + line[count];
-                count++;
-            }
-
-//Age
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            age = "";
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                age = age + line[count];
-                count++;
-            }
-
- //Sex
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                sex = line[count];
-                count++;
-            }
-
-//Birth
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            birth = "";
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                birth = birth + line[count];
-                count++;
-            }
-
-//death
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            death = "";
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                death = death + line[count];
-                count++;
-            }
-
-//contribution
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            contribution = "";
-
-            while(i < strstr.size() && line[count] != '\n' && count < line.size()) {
-                contribution = contribution + line[count];
-                count++;
-            }
-
-//turing award year
-            i++;
-            line = strstr.at(i);
-            count = 0;
-
-            while(i < strstr.size() && line[count] != ':' && count < line.size()) {
-                count ++;
-            }
-
-            count++;
-            ty = "";
-
-            while(i<strstr.size() && line[count] != '\n' && count < line.size()) {
-                ty = ty + line[count];
-                count++;
-            }
-
-            i++;
-            Person* p = new Person(name, age, sex, birth, death, contribution, ty);
-            people.push_back(*p);
-        }
-    }
-    */
 }
 //Returns a list of people in the database
 vector<Person> Database::getList() {
-  return people;
+  return _people;
 }
 //Returns a list of computers in the database
 vector<Comps> Database::getComputerList() {
-    return computers;
+    return _computers;
 }
 //Updates the vector of people
 void Database::update(vector<Person> peeps) {
@@ -250,8 +99,13 @@ void Database::update(vector<Person> peeps) {
         }
     }
 
-    people = sorted;
+    _people = sorted;
 }
+//Updates the vector computers.
+void updateCompDB(vector<Comps> comps) {
+
+}
+
 //Adds a new Person to the Database
 void Database::writeToDB(Person p) {
 
@@ -277,8 +131,8 @@ void Database::writeToDB(Person p) {
 }
 //Checks if the person exists in the people vector
 bool Database::exists(Person p) {
-    for(unsigned int i=0; i<people.size(); i++) {
-        if(people.at(i) == (p))
+    for(unsigned int i=0; i<_people.size(); i++) {
+        if(_people.at(i) == (p))
             return true;
     }
     return false;

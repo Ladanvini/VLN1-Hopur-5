@@ -15,9 +15,9 @@ class Database {
 private:
     QSqlDatabase _db;
     Person person;
-    vector<Person> people;
+    vector<Person> _people;
     string _dbFile;
-    vector<Comps> computers;
+    vector<Comps> _computers;
 public:
     Database();
     //Constructor opens connection and fills vectors from the database.
