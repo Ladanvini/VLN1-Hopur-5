@@ -173,8 +173,8 @@ string CompService::deleteComputers(string name, string type){
     }
 
     if(flag) {
-        _db.updateCompDB(computers);
-        _db.reWriteDb();
+        //_db.updateCompDB(computers);
+        //_db.reWriteDb();
         return result.showComputer() +
                 "Erased successfully\n";
     }
