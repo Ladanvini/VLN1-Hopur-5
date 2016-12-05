@@ -15,8 +15,6 @@ private:
     Database db;
     vector<Person> people;
     Person person;
-    bool checkIfDigit(char c);
-    bool numericStringCompare(const std::string& s1, const std::string& s2);
 public:
     Process();
     Process(Database _db);

@@ -296,37 +296,6 @@ string Process::showPeople(vector<Person> results) {
     return temp;
 }
 
-//####################Checking if string is a number#############################//
-
-bool Process::checkIfDigit(char c) {
-    return !std::isdigit(c);
-
-    //http://stackoverflow.com/questions/4622516/sorting-stdstrings-with-numbers-in-them
-}
-
-//###################Compering numeric strings##################//
-
-bool Process::numericStringCompare(const std::string& s1, const std::string& s2) {
-    std::string::const_iterator it1 = s1.begin(), it2 = s2.begin();
-
-    if (std::isdigit(s1[0]) && std::isdigit(s2[0])) {
-        int n1, n2;
-        std::stringstream ss(s1);
-        ss >> n1;
-        ss.clear();
-        ss.str(s2);
-        ss >> n2;
-
-        if (n1 < n2)
-            return n1 < n2;
-        else if(n2 < n1)
-            return n2 < n1;
-    }
-
-    return std::lexicographical_compare(it1, s1.end(), it2, s2.end());
-
-    //http://stackoverflow.com/questions/4622516/sorting-stdstrings-with-numbers-in-them
-}
 
 
 //####################Edit####################//
