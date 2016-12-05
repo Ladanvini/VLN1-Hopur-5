@@ -25,12 +25,12 @@ Database::Database(string dbFile) {
     query.exec("SELECT * FROM People");
 
     int id;
-    string name;
+    QString name;
     int age;
     int birthYear;
     int deathYear;
-    char sex;
-    string contribution;
+    QChar sex;
+    QString contribution;
     int turingYear;
     bool turing;
 
@@ -44,7 +44,8 @@ Database::Database(string dbFile) {
         turingYear = query.value("pTuringYear").toInt();
         turing = query.value("pTuring").toBool();
 
-        people.push_back(Person(id, name, sex, birthYear, deathYear, contribution, turingYear));
+
+        people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 
 
@@ -53,8 +54,8 @@ Database::Database(string dbFile) {
     queryC.exec("SELECT * FROM Computers");
 
     int idC;
-    string nameC;
-    string typeC;
+    QString nameC;
+    QString typeC;
     bool builtC;
     int builtYearC;
 
