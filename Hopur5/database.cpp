@@ -10,7 +10,7 @@ using namespace std;
 Database::Database() {
 
 }
-
+/*
 Database::Database(string dbFile) {
 
     vector<string> strstr;
@@ -165,7 +165,7 @@ Database::Database(string dbFile) {
         }
     }
 }
-
+*/
 
 vector<Person> Database::getList() {
   return people;
@@ -209,12 +209,12 @@ void Database::writeToDB(Person p) {
     string all = "";
 
     name = name + p.getName() + '\n';
-    age = age + p.getAge().toString() + '\n';
+    age = age + std::to_string(p.getAge()) + '\n';
     sex = sex + p.getSex() + '\n';
-    birth = birth + p.getBirth() + '\n';
-    death = death + p.getDeath() + '\n';
+    birth = birth + std::to_string(p.getBirth()) + '\n';
+    death = death + std::to_string(p.getDeath()) + '\n';
     contribution = contribution + p.getContribution() + '\n';
-    turingYear = turingYear + p.getTuringYear() + '\n';
+    turingYear = turingYear + std::to_string(p.getTuringYear()) + '\n';
     all = all + name + age + sex + birth + death + contribution + turingYear + end;
 
     fout << all;
@@ -245,20 +245,25 @@ void Database::reWriteDb() {
         name = "Name: ";
         name = name + people.at(i).getName() + '\n';
         age = "Age: ";
-        age = age + people.at(i).getAge() + '\n';
+        age = age + std::to_string(people.at(i).getAge()) + '\n';
         sex = "Sex: ";
         sex = sex + people.at(i).getSex() + '\n';
         birth = "BirthYear: ";
-        birth = birth + people.at(i).getBirth() + '\n';
+        birth = birth + std::to_string(people.at(i).getBirth()) + '\n';
         death = "DeathYear: ";
-        death = death + people.at(i).getDeath() + '\n';
+        death = death + std::to_string(people.at(i).getDeath()) + '\n';
         contribution = "Contribution: ";
         contribution = contribution + people.at(i).getContribution() + '\n';
         turingYear = "TuringAwardYear: ";
-        turingYear = turingYear + people.at(i).getTuringYear() + '\n';
+        turingYear = turingYear + std::to_string(people.at(i).getTuringYear()) + '\n';
         all = all + name + age + sex + birth + death + contribution + turingYear + end;
     }
 
     fout << all;
     fout.close();
+}
+void Database::reWriteCompDB(){}
+void Database::update(vector<Comps> comps){}
+void Database::writeToDB(Comps c){}
+bool Database::exists(Comps c){
 }

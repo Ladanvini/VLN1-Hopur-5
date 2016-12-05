@@ -1,6 +1,6 @@
 #ifndef COMPSERVICE_H
 #define COMPSERVICE_H
-#include "comps.h"
+#include "database.h"
 #include <vector>
 class CompService {
 private:
@@ -10,10 +10,10 @@ private:
 public:
     CompService();
     CompService(Database db);
-    vector<Person> getList() { return people; }
+
 
     // Create
-    string create(string name, string type, bool built);
+    string create(int id, string name, string type, int yearBuilt, bool built);
     //Search
     vector<Comps> searchByName(string name);
     vector<Comps> searchByType(string type);

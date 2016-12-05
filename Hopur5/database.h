@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "comps.h"
 
+#include "comps.h"
 #include "person.h"
 
 using namespace std;

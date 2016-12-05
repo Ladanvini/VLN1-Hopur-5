@@ -8,12 +8,12 @@ using namespace std;
 Person::Person() {
     _name = "";
     _id = 0;
-    _age = "";
+    _age = 0;
     _sex = ' ';
-    _birth = "";
-    _death = "";
+    _birth = 0;
+    _death = 0;
     _contribution = "";
-    _turingYear = "";
+    _turingYear = 0;
     _turing = false;
 }
 
@@ -35,15 +35,15 @@ Person::Person(int id, string name, int age, char sex, int birth, int death, str
 bool Person::isSame(Person p) {
     cout << p.getName() << " != " << this->getName();
     return(     this->getName().find(p.getName()) != std::string::npos &&
-                this->getAge().find(p.getAge()) != std::string::npos &&
-                this->getBirth().find(p.getBirth()) != std::string::npos
+                this->getAge() == (p.getAge()) &&
+                this->getBirth() == (p.getBirth())
                 );
 }
 
 bool operator==(Person p, Person p2) {
     if(p.getName().find(p2.getName()) != std::string::npos
-            && p.getBirth().find(p2.getBirth()) != std::string::npos
-            && p.getDeath().find(p2.getDeath()) != std::string::npos
+            && p.getBirth() == (p2.getBirth())
+            && p.getDeath() == (p2.getDeath())
             && p.getSex() == p2.getSex())
         return true;
     else
@@ -54,12 +54,12 @@ string Person::showPerson() {
     string temp = "";
 
     temp = temp + "NAME: " + this->_name + '\n';
-    temp = temp + "AGE OF CONTRIBUTION: " + this->_age + '\n';
+    temp = temp + "AGE OF CONTRIBUTION: " + std::to_string(this->_age) + '\n';
     temp = temp + "SEX: " + this->_sex + '\n';
-    temp = temp + "BIRTH: " + this->_birth + '\n';
-    temp = temp + "DEATH: " + this->_death + '\n';
+    temp = temp + "BIRTH: " + std::to_string(this->_birth) + '\n';
+    temp = temp + "DEATH: " + std::to_string(this->_death) + '\n';
     temp = temp + "CONTRIBUTION: " + this->_contribution + '\n';
-    temp = temp + "TURINGYEAR: " + this->_turingYear + '\n';
+    temp = temp + "TURINGYEAR: " + std::to_string(this->_turingYear) + '\n';
 
     return temp;
 }

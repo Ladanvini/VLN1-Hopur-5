@@ -22,7 +22,7 @@ public:
     Process(Database _db);
     vector<Person> getList() { return people; }
     //Search
-    string create(string name, string age, char sex, string birth, string death, string contribution, string turingYear);
+    string create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear);
     vector<Person> searchByName(string name);
     vector<Person> searchByAge(string age);
     vector<Person> searchBySex(string _sex);
@@ -40,7 +40,7 @@ public:
     vector<Person> sortByContribution(string contribution);
     vector<Person> sortByTuring(string _flag);
     //DELETE
-    string deletePerson(string name, string birth);
+    string deletePerson(string name, int birth);
     // Edit
     // Showing
     string showPeople(vector<Person> results);

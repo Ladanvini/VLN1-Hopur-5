@@ -5,7 +5,7 @@
 #include "consoleui.h"
 
 using namespace std;
-
+/*
 ConsoleUI::ConsoleUI() {
 
 }
@@ -197,6 +197,7 @@ void ConsoleUI::createMenu() {
     string death;
     string contribution;
     string turing;
+    int id;
 
     cout << "Enter Name (Using correct capitalization of letters): " << endl;
     getline(cin, name);
@@ -214,7 +215,7 @@ void ConsoleUI::createMenu() {
     getline(cin, turing);
 
     char _sex = sex.at(0);
-    cout << _process.create(name, age, _sex, birth, death, contribution, turing);
+    cout << _process.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 
 //Main Menu
@@ -307,3 +308,4 @@ string ConsoleUI::unicorn() {
 void ConsoleUI::displayList() {
     cout << _process.showPeople(_process.getList());
 }
+*/
