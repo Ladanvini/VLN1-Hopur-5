@@ -18,7 +18,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
      if((yearBuilt > 100 ||!(yearBuilt != 0 && yearBuilt < 2016 )))
         return "unacceptable value in one of the fields\n";
 
-        if(_db.exists(*newComputer)) {
+        if(_db.existsInCompDB(*newComputer)) {
             flag = true;
     }
     if(flag) {
@@ -26,8 +26,8 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     }
     computers.push_back(*newComputer);
 
-    _db.update(computers);
-    _db.writeToDB(*newComputer);
+    _db.updateCompDB(computers);
+    _db.writeToCompDB(*newComputer);
     return "Added successfully\n";
 }
 
@@ -157,7 +157,30 @@ vector<Comps> CompService::sortByBuilt() {
 
 }
 //DELETE
-string deleteComputers(string name, string type);
+string CompService::deleteComputers(string name, string type){
+    bool flag = false;
+    string c_name;
+    Comps result;
+
+    for(unsigned int i=0; i<computers.size(); i++) {
+        c_name = computers.at(i).getName();
+
+        if(c_name.find(name) != std::string::npos && computers.at(i).getType() == type ) {
+            result = computers.at(i);
+            computers.erase(computers.begin() + i);
+            flag = true;
+        }
+    }
+
+    if(flag) {
+        _db.updateCompDB(computers);
+        _db.reWriteDb();
+        return result.showComputer() +
+                "Erased successfully\n";
+    }
+
+    return "Person: \n" + result.getName() + "\n not found\n";
+}
 // Edit
 // Showing
 string showComputers(vector<Comps> results);

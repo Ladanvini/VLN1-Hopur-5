@@ -320,9 +320,9 @@ void Database::reWriteDb() {
     fout.close();
 }
 void Database::reWriteCompDB(){}
-void Database::update(vector<Comps> comps){
+void Database::updateCompDB(vector<Comps> comps){
 
 }
-void Database::writeToDB(Comps c){}
-bool Database::exists(Comps c){
+void Database::writeToCompDB(Comps c){}
+bool Database::existsInCompDB(Comps c){
 }

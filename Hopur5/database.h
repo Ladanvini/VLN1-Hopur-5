@@ -28,9 +28,9 @@ public:
     bool exists(Person p);
     void reWriteDb();
     void reWriteCompDB();
-    void update(vector<Comps> comps);
-    void writeToDB(Comps c);
-    bool exists(Comps c);
+    void updateCompDB(vector<Comps> comps);
+    void writeToCompDB(Comps c);
+    bool existsInCompDB(Comps c);
 
 };
 
