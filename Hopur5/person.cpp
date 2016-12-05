@@ -17,10 +17,10 @@ Person::Person() {
     _turing = false;
 }
 
-Person::Person(int id, string name, int age, char sex, int birth, int death, string contribution, int truringYear) {
+Person::Person(int id, string name, char sex, int birth, int death, string contribution, int truringYear) {
     _name = name;
     _id = id;
-    _age = age;
+//    _age = age;
     _sex = sex;
     _birth = birth;
     _death = death;
