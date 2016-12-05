@@ -51,7 +51,7 @@ vector<Comps> searchByName(string name);
 vector<Comps> searchByType(string type);
 vector<Comps> searchByBuilt(string contribution);
 // Sort
-vector<Comps> sortByName() {
+vector<Comps> CompService::sortByName() {
     vector<string> names;
     vector<Comps> sorted;
     for(unsigned int i = 0; i < computers.size(); i++)
@@ -67,7 +67,7 @@ vector<Comps> sortByName() {
 
     return sorted;
 }
-vector<Comps> sortByType() {
+vector<Comps> CompService::sortByType() {
     vector<string> types;
     vector<Comps> sorted;
     for(unsigned int i = 0; i < computers.size(); i++)
@@ -86,7 +86,7 @@ vector<Comps> sortByType() {
 }
 
 
-vector<Comps> sortByBuilt() {
+vector<Comps> CompService::sortByBuilt() {
     vector<string> builtComps;
     vector<Comps> sorted;
     for(unsigned int i = 0; i < computers.size(); i++)
