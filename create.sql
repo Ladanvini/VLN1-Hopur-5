@@ -16,6 +16,7 @@ CREATE TABLE People (
  pDeathYear INTEGER,
  pTuring BOOLEAN NOT NULL,
  pTuringYear INT
+ pContribution VARCHAR(1023)
  );
 
  DROP TABLE IF EXISTS P_C_con;
