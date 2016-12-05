@@ -170,6 +170,14 @@ Database::Database(string dbFile) {
 vector<Person> Database::getList() {
   return people;
 }
+vector<Comps> Database::getComputerList(){
+
+
+    return computers;
+
+
+
+}
 
 void Database::update(vector<Person> peeps) {
     vector<string> names;

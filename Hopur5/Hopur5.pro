@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     database.cpp \
     person.cpp \
     appservice.cpp \
-    comps.cpp
+    comps.cpp \
+    compservice.cpp
 
 DISTFILES += \
     database \
