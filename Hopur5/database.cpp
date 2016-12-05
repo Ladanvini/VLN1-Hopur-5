@@ -255,15 +255,22 @@ void Database::writeToDB(Person p) {
     _db.open();
 
     QSqlQuery query(_db);
+    string turingB;
+    if(p.getTuring())
+        turingB = "TRUE";
+    else
+        turingB = "FALSE";
 
-    query.exec("INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContributon, "
-               + "pTuringYear, pTuring )"
-               + "\n VALUES ( " + p.getId() + ", "
-               + p.getName() + ", " + p.getBirth()
-               + ", " + p.getDeath() + ", " + p.getSex()
-               + ", " + p.getContribution() + ", " + p.getTuringYear() + ", "
-               + p.getTuring() + " )"
-               ) ;
+    string stmnt;
+    stmnt = "INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContributon,"
+            " pTuringYear, pTuring )"
+            "\n VALUES ( " + std::to_string(p.getId()) + ", "
+                    + p.getName() + ", " + std::to_string(p.getBirth())
+                    + ", " + std::to_string(p.getDeath()) + ", " + p.getSex()
+                    + ", " + p.getContribution() + ", " + std::to_string(p.getTuringYear()) + ", "
+                    + turingB + " )";
+
+    query.exec(QString::fromStdString(stmnt));
 }
 
 bool Database::exists(Person p) {
