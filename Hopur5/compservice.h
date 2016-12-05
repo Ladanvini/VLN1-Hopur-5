@@ -1,7 +1,8 @@
 #ifndef COMPSERVICE_H
 #define COMPSERVICE_H
 #include "database.h"
-#include <vector>
+
+
 class CompService {
 private:
     Comps _comp;

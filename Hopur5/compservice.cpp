@@ -87,7 +87,7 @@ vector<Comps> CompService::sortByType() {
 
 
 vector<Comps> CompService::sortByBuilt() {
-    vector<string> builtComps;
+    vector<bool> builtComps;
     vector<Comps> sorted;
     for(unsigned int i = 0; i < computers.size(); i++)
         builtComps.push_back(computers.at(i).getBuilt());
