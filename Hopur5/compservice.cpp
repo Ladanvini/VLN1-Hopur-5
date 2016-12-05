@@ -179,8 +179,22 @@ string CompService::deleteComputers(string name, string type){
                 "Erased successfully\n";
     }
 
-    return "Person: \n" + result.getName() + "\n not found\n";
+    return "Computer: \n" + result.getName() + "\n not found\n";
 }
 // Edit
 // Showing
-string showComputers(vector<Comps> results);
+string showComputers(vector<Comps> results) {
+
+    string temp = "";
+
+    for(unsigned int i = 0; i < results.size(); i++) {
+        temp = temp + "--------------------------------------------------------------\n";
+        temp = temp + results.at(i).showComputer();
+    }
+    if(results.size() == 0) {
+        temp = "#########################################################################\n";
+        temp = temp + "No Results Found!\n";
+    }
+    temp =  temp + "--------------------------------------------------------------\n";
+    return temp;
+}
