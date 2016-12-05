@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     consoleui.cpp \
     database.cpp \
     person.cpp \
-    appservice.cpp
+    appservice.cpp \
+    comps.cpp
 
 DISTFILES += \
     database \
@@ -24,4 +25,5 @@ HEADERS += \
     database.h \
     person.h \
     appservice.h \
-    comps.h
+    comps.h \
+    compservice.h

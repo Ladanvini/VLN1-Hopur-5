@@ -6,16 +6,16 @@
 	string Comps::getType() {
 		return _type;
 	}
-	bool getBuilt() {
+    bool Comps::getBuilt() {
 		return _built;
 	}
-	void setName(string name) {
+    void Comps::setName(string name) {
 		_name = name;
 	}
-	void setType(string type) {
+    void Comps::setType(string type) {
 		_type = type;
 	}
-	void setBuilt(bool built) {
+    void Comps::setBuilt(bool built) {
 		_built = built;
 	}
 
