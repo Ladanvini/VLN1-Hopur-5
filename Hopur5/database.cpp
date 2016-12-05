@@ -10,6 +10,11 @@ using namespace std;
 Database::Database() {
 
 }
+/*Constructor, opens a connection and the database
+ * Gets the instances of people and adds it to vector people
+ * Gets instances of Computers and adds them to computers
+ * keeping all their attributes
+ */
 Database::Database(QString dbName) {
 
 
@@ -221,18 +226,15 @@ Database::Database(QString dbName) {
     }
     */
 }
+//Returns a list of people in the database
 vector<Person> Database::getList() {
   return people;
 }
+//Returns a list of computers in the database
 vector<Comps> Database::getComputerList() {
-
-
     return computers;
-
-
-
 }
-
+//Updates the vector of people
 void Database::update(vector<Person> peeps) {
     vector<string> names;
     vector<Person> sorted;
@@ -250,6 +252,7 @@ void Database::update(vector<Person> peeps) {
 
     people = sorted;
 }
+//Adds a new Person to the Database
 void Database::writeToDB(Person p) {
 
     _db.open();
@@ -272,7 +275,7 @@ void Database::writeToDB(Person p) {
 
     query.exec(QString::fromStdString(stmnt));
 }
-
+//Checks if the person exists in the people vector
 bool Database::exists(Person p) {
     for(unsigned int i=0; i<people.size(); i++) {
         if(people.at(i) == (p))
@@ -280,44 +283,12 @@ bool Database::exists(Person p) {
     }
     return false;
 }
-
-void Database::reWriteDb() {
-    ofstream fout(_dbFile);
-    string name = "Name: ";
-    string age = "Age: ";
-    string sex = "Sex: ";
-    string birth = "BirthYear: ";
-    string death = "DeathYear: ";
-    string contribution = "Contribution: ";
-    string turingYear = "TuringAwardYear: ";
-    string end = "#\n";
-    string all = "";
-
-    for(unsigned int i=0; i<people.size(); i++) {
-        name = "Name: ";
-        name = name + people.at(i).getName() + '\n';
-        age = "Age: ";
-        age = age + std::to_string(people.at(i).getAge()) + '\n';
-        sex = "Sex: ";
-        sex = sex + people.at(i).getSex() + '\n';
-        birth = "BirthYear: ";
-        birth = birth + std::to_string(people.at(i).getBirth()) + '\n';
-        death = "DeathYear: ";
-        death = death + std::to_string(people.at(i).getDeath()) + '\n';
-        contribution = "Contribution: ";
-        contribution = contribution + people.at(i).getContribution() + '\n';
-        turingYear = "TuringAwardYear: ";
-        turingYear = turingYear + std::to_string(people.at(i).getTuringYear()) + '\n';
-        all = all + name + age + sex + birth + death + contribution + turingYear + end;
-    }
-
-    fout << all;
-    fout.close();
-}
-void Database::reWriteCompDB() {}
+//Updates the computers vector
 void Database::updateCompDB(vector<Comps> comps) {
 
 }
+//Adds a new computer to the Database
 void Database::writeToCompDB(Comps c) {}
+//Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
 }

@@ -269,8 +269,8 @@ string Process::deletePerson(string _name, int birth) {
     }
 
     if(flag) {
-        db.update(people);
-        db.reWriteDb();
+        //db.update(people);
+        //db.reWriteDb();
         return result.showPerson() +
                 "Erased successfully\n";
     }
