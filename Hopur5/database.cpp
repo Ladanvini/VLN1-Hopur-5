@@ -10,9 +10,64 @@ using namespace std;
 Database::Database() {
 
 }
-/*
+
 Database::Database(string dbFile) {
 
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "computer_db.sqlite";
+    db.setDatabaseName(dbName);
+
+    db.open();
+
+    QSqlQuery query(db);
+
+    query.exec("SELECT * FROM People");
+
+    int id;
+    string name;
+    int age;
+    int birthYear;
+    int deathYear;
+    char sex;
+    string contribution;
+    int turingYear;
+    bool turing;
+
+    while(query.next()) {
+        id = query.value("PID").toInt();
+        name = query.value("pName").toString();
+        birthYear = query.value("pBirthYear").toInt();
+        deathYear = query.value("pDeathYear").toInt();
+        sex = query.value("pSex").toChar();
+        contribution = query.value("pContribution").toString();
+        turingYear = query.value("pTuringYear").toInt();
+        turing = query.value("pTuring").toBool();
+
+        people.push_back(Person(id, name, sex, birthYear, deathYear, contribution, turingYear));
+    }
+
+
+    QSqlQuery queryC(db);
+
+    queryC.exec("SELECT * FROM Computers");
+
+    int idC;
+    string nameC;
+    string typeC;
+    bool builtC;
+    int builtYearC;
+
+    while(queryC.next()) {
+        idC = queryC.value("cID").toInt();
+        nameC = queryC.value("cName").toString();
+        typeC = queryC.value("cType").toString();
+        builtC = queryC.value("cBuilt").toBool();
+        builtYearC = queryC.value("cBuiltYear").toInt();
+    }
+
+
+    /*
     vector<string> strstr;
     ifstream fin;
     _dbFile = dbFile;
@@ -164,8 +219,9 @@ Database::Database(string dbFile) {
             people.push_back(*p);
         }
     }
+    */
 }
-*/
+
 
 vector<Person> Database::getList() {
   return people;
@@ -263,7 +319,9 @@ void Database::reWriteDb() {
     fout.close();
 }
 void Database::reWriteCompDB(){}
-void Database::update(vector<Comps> comps){}
+void Database::update(vector<Comps> comps){
+
+}
 void Database::writeToDB(Comps c){}
 bool Database::exists(Comps c){
 }

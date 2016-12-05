@@ -19,7 +19,7 @@ private:
     bool _turing;
 public:
     Person();
-    Person(int id, string name, int age, char sex, int birth, int death, string contribution, int truringYear);
+    Person(int id, string name, char sex, int birth, int death, string contribution, int truringYear);
     string showPerson();
     string getName() { return _name; }
     int getAge() { return _age; }
