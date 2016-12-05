@@ -292,3 +292,13 @@ void Database::writeToCompDB(Comps c) {}
 //Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
 }
+//Deletes a person from the database.
+void delFromDB(Person p) {
+
+
+}
+
+//Deletes a computer from the database.
+void delFromCompDB(Comps c) {
+
+}

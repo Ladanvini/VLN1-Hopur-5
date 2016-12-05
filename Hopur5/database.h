@@ -20,18 +20,33 @@ private:
     vector<Comps> computers;
 public:
     Database();
+    //Constructor opens connection and fills vectors from the database.
     Database(QString dbFile);
-    Person getPerson();
+    //Returns list of computers from the database.
     vector<Comps> getComputerList();
+    //Returns list of people from the database.
     vector<Person> getList();
+    //Updates the vector people.
     void update(vector<Person> peeps);
+    //Updates the vector computers.
+    void updateCompDB(vector<Comps> comps);
+    //Adds a person to the database.
     void writeToDB(Person p);
+    //Adds a computer to the database.
+    void writeToCompDB(Comps c);
+    //Checks if the person already exists.
     bool exists(Person p);
+    //Checks if the computer already exists.
+    bool existsInCompDB(Comps c);
+    //Deletes a person from the database.
+    void delFromDB(Person p);
+    //Deletes a computer from the database.
+    void delFromCompDB(Comps c);
+
+    //TODO delete the following functions!
+
     void reWriteDb();
     void reWriteCompDB();
-    void updateCompDB(vector<Comps> comps);
-    void writeToCompDB(Comps c);
-    bool existsInCompDB(Comps c);
 
 };
 
