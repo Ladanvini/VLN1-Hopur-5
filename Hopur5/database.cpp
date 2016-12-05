@@ -209,7 +209,7 @@ void Database::writeToDB(Person p) {
     string all = "";
 
     name = name + p.getName() + '\n';
-    age = age + p.getAge() + '\n';
+    age = age + p.getAge().toString() + '\n';
     sex = sex + p.getSex() + '\n';
     birth = birth + p.getBirth() + '\n';
     death = death + p.getDeath() + '\n';

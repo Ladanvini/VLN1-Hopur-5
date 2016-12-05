@@ -14,14 +14,18 @@ class Comps{
 private:
     string _name;
     string _type;
+    int _yearBuilt;
     bool _built;
+    int _id;
 public:
     Comps ();
-    Comps(string name, string type, bool built);
+    Comps(int id, string name, string type, int yearBuilt, bool built);
 
 	string getName();
 	string getType();
 	bool getBuilt();
+    int getYearBuilt();
+    int getId();
 	void setName(string name);
 	void setType(string type);
 	void setBuilt(bool built);

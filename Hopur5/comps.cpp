@@ -3,17 +3,21 @@
     Comps::Comps(){
         _name = "";
         _type = "";
+        _yearBuilt = 0;
+        _id = 0;
         _built = false;
     }
 
-    Comps::Comps(string name, string type, bool built){
+    Comps::Comps(int id, string name, string type, int yearBuilt, bool built){
+        _id = id;
         _name = name;
         _type = type;
         _built = built;
+        _yearBuilt = yearBuilt;
     }
 
 	string Comps::getName() {
-		return _name;
+        return _name;
 	}
 	string Comps::getType() {
 		return _type;
@@ -21,6 +25,17 @@
     bool Comps::getBuilt() {
 		return _built;
 	}
+    int Comps::getId(){
+
+        return _id;
+
+    }
+    int Comps::getYearBuilt(){
+
+
+        return _yearBuilt;
+    }
+
     void Comps::setName(string name) {
 		_name = name;
 	}

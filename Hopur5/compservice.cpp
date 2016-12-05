@@ -10,10 +10,15 @@ CompService::CompService(Database db){
 
 }
 // Create
-string CompService::create(string name, string type, bool built){
+string CompService::create(string name, string type, string yearBuilt, bool built){
 
-    Comps* newComputer = new Comps(name, type, built);
+    Comps* newComputer = new Comps(name, type, yearBuilt, built);
     bool flag = false;
+
+    if(
+            (yearBuilt.size() > 4 ||!(yearBuilt.size() == 4 || yearBuilt.find("0") != std::string::npos))
+            )
+        return "unacceptable value in one of the fields\n";
 
     if(db.exists(*newComputer)) {
         flag = true;
@@ -32,29 +37,11 @@ string CompService::create(string name, string type, bool built){
 
 
 
-
     /*
 
     bool flag = false;
-    if(
-            (age.size() > 3 || age.size() < 1 || age == "0")
-            || (sex != 'm' && sex != 'f')
-            || (birth.size() < 4 || birth.size() > 4)
-            || (death.size() > 4 ||!(death.size() == 4 || death.find("0") != std::string::npos))
-            )
-        return "unacceptable value in one of the fields\n";
 
-    if(db.exists(*p)) {
-        flag = true;
-    }
-    if(flag) {
-       return "Person already exists\n";
-    }
-    people.push_back(*p);
 
-    db.update(people);
-    db.writeToDB(*p);
-    return "Added successfully\n";
 
 */
 }

@@ -9,24 +9,25 @@ using namespace std;
 class Person {
 private:
     string _name;
-    string _age;
+    int _id;
+    int _age;
     char _sex;
-    string _birth;
-    string _death;
+    int _birth;
+    int _death;
     string _contribution;
-    string _turingYear;
+    int _turingYear;
     bool _turing;
 public:
     Person();
-    Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear);
+    Person(int id, string name, int age, char sex, int birth, int death, string contribution, int truringYear);
     string showPerson();
     string getName() { return _name; }
-    string getAge() { return _age; }
+    int getAge() { return _age; }
     char getSex() { return _sex; }
-    string getBirth() { return _birth; }
-    string getDeath() { return _death; }
+    int getBirth() { return _birth; }
+    int getDeath() { return _death; }
     string getContribution() { return _contribution; }
-    string getTuringYear() { return _turingYear; }
+    int getTuringYear() { return _turingYear; }
     bool getTuring() { return _turing; }
     bool isSame(Person p);
     friend bool operator==(const Person p, const Person p2);

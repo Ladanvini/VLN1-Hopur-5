@@ -7,6 +7,7 @@ using namespace std;
 
 Person::Person() {
     _name = "";
+    _id = 0;
     _age = "";
     _sex = ' ';
     _birth = "";
@@ -16,15 +17,16 @@ Person::Person() {
     _turing = false;
 }
 
-Person::Person(string name, string age, char sex, string birth, string death, string contribution, string truringYear) {
+Person::Person(int id, string name, int age, char sex, int birth, int death, string contribution, int truringYear) {
     _name = name;
+    _id = id;
     _age = age;
     _sex = sex;
     _birth = birth;
     _death = death;
     _contribution = contribution;
     _turingYear = truringYear;
-    if(truringYear.size() < 4)
+    if(truringYear == 0)
         _turing = false;
     else
         _turing = true;
