@@ -4,13 +4,16 @@ CompService::CompService()
 {
 
 }
-CompService::CompService(Database db){
+
+CompService::CompService(Database db) {
     _db = db;
     computers = _db.getComputerList();
 
 }
+
 // Create
-string CompService::create(int id, string name, string type, int yearBuilt, bool built){
+
+string CompService::create(int id, string name, string type, int yearBuilt, bool built) {
 
     Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
     bool flag = false;
@@ -31,62 +34,50 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     return "Added successfully\n";
 }
 
-
-
 //Search
 
-vector<Comps> CompService::searchByName(string name){
+vector<Comps> CompService::searchByName(string name) {
 
-        transform(name.begin(), name.end(), name.begin(), ::tolower);
-        string _name = "";
+    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    string _name = "";
 
-        vector<Comps> result;
+    vector<Comps> result;
 
-        for(size_t i = 0; i < computers.size(); i++) {
-
-            _name = computers.at(i).getName();
-            transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
-            if(_name.find(name) != std::string::npos) {
+    for(size_t i = 0; i < computers.size(); i++) {
+        _name = computers.at(i).getName();
+        transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
+        if(_name.find(name) != std::string::npos) {
                 result.push_back(computers.at(i));
-            }
         }
-
-        return result;
     }
 
-
-    vector<Comps> CompService::searchById(int id){
-
-        vector<Comps> result;
-
-        for (size_t i = 0; i < computers.size(); i++){
-
-            if(id == computers.at(i).getId()){
-                result.push_back(computers.at(i));
-
-            }
+    return result;
+}
 
 
+vector<Comps> CompService::searchById(int id) {
+
+    vector<Comps> result;
+
+    for (size_t i = 0; i < computers.size(); i++) {
+        if(id == computers.at(i).getId()) {
+            result.push_back(computers.at(i));
         }
-
     }
+}
 
-    vector<Comps> CompService::searchByType(string type){
+vector<Comps> CompService::searchByType(string type) {
 
-        vector<Comps> result;
+    vector<Comps> result;
 
-        for(size_t i = 0; i < computers.size(); i++){
-
-            if(type == computers.at(i).getType()){
-
-                result.push_back(computers.at(i));
-            }
+    for(size_t i = 0; i < computers.size(); i++) {
+        if(type == computers.at(i).getType()) {
+            result.push_back(computers.at(i));
         }
-
-
-
     }
-vector<Comps> CompService::searchByBuilt(int yearBuilt){
+}
+
+vector<Comps> CompService::searchByBuilt(int yearBuilt) {
 
         vector<Comps> result;
 
