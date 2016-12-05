@@ -23,4 +23,5 @@ HEADERS += \
     consoleui.h \
     database.h \
     person.h \
-    appservice.h
+    appservice.h \
+    comps.h
