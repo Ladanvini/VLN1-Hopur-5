@@ -12,12 +12,16 @@ using namespace std;
 
 class Comps{
 private:
-    string name;
-    string type;
-    bool built;
+    string _name;
+    string _type;
+    bool _built;
 public:
-
-
+	string getName();
+	string getType();
+	bool getBuilt();
+	void setName(string name);
+	void setType(string type);
+	void setBuilt(bool built);
 };
 
 
