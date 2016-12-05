@@ -13,13 +13,14 @@ using namespace std;
 
 class Database {
 private:
+    QSqlDatabase _db;
     Person person;
     vector<Person> people;
     string _dbFile;
     vector<Comps> computers;
 public:
     Database();
-    Database(string dbFile);
+    Database(QString dbFile);
     Person getPerson();
     vector<Comps> getComputerList();
     vector<Person> getList();

@@ -10,17 +10,16 @@ using namespace std;
 Database::Database() {
 
 }
+Database::Database(QString dbName) {
 
-Database::Database(string dbFile) {
 
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "computer_db.sqlite";
-    db.setDatabaseName(dbName);
+    _db = QSqlDatabase::addDatabase("QSQLITE");
 
-    db.open();
+    _db.setDatabaseName(dbName);
 
-    QSqlQuery query(db);
+    _db.open();
+
+    QSqlQuery query(_db);
 
     query.exec("SELECT * FROM People");
 
@@ -49,7 +48,7 @@ Database::Database(string dbFile) {
     }
 
 
-    QSqlQuery queryC(db);
+    QSqlQuery queryC(_db);
 
     queryC.exec("SELECT * FROM Computers");
 
@@ -222,12 +221,10 @@ Database::Database(string dbFile) {
     }
     */
 }
-
-
 vector<Person> Database::getList() {
   return people;
 }
-vector<Comps> Database::getComputerList(){
+vector<Comps> Database::getComputerList() {
 
 
     return computers;
@@ -254,28 +251,19 @@ void Database::update(vector<Person> peeps) {
     people = sorted;
 }
 void Database::writeToDB(Person p) {
-    ofstream fout(_dbFile, ios::app);
-    string name = "Name: ";
-    string age = "Age: ";
-    string sex = "Sex: ";
-    string birth = "BirthYear: ";
-    string death = "DeathYear: ";
-    string contribution = "Contribution: ";
-    string turingYear = "TuringAwardYear: ";
-    string end = "#\n";
-    string all = "";
 
-    name = name + p.getName() + '\n';
-    age = age + std::to_string(p.getAge()) + '\n';
-    sex = sex + p.getSex() + '\n';
-    birth = birth + std::to_string(p.getBirth()) + '\n';
-    death = death + std::to_string(p.getDeath()) + '\n';
-    contribution = contribution + p.getContribution() + '\n';
-    turingYear = turingYear + std::to_string(p.getTuringYear()) + '\n';
-    all = all + name + age + sex + birth + death + contribution + turingYear + end;
+    _db.open();
 
-    fout << all;
-    fout.close();
+    QSqlQuery query(_db);
+
+    query.exec("INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContributon, "
+               + "pTuringYear, pTuring )"
+               + "\n VALUES ( " + p.getId() + ", "
+               + p.getName() + ", " + p.getBirth()
+               + ", " + p.getDeath() + ", " + p.getSex()
+               + ", " + p.getContribution() + ", " + p.getTuringYear() + ", "
+               + p.getTuring() + " )"
+               ) ;
 }
 
 bool Database::exists(Person p) {
@@ -319,10 +307,10 @@ void Database::reWriteDb() {
     fout << all;
     fout.close();
 }
-void Database::reWriteCompDB(){}
-void Database::updateCompDB(vector<Comps> comps){
+void Database::reWriteCompDB() {}
+void Database::updateCompDB(vector<Comps> comps) {
 
 }
-void Database::writeToCompDB(Comps c){}
-bool Database::existsInCompDB(Comps c){
+void Database::writeToCompDB(Comps c) {}
+bool Database::existsInCompDB(Comps c) {
 }

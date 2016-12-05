@@ -22,6 +22,7 @@ public:
     Person();
     Person(int id, string name, char sex, int birth, int death, string contribution, int truringYear);
     string showPerson();
+    int getId() { return _id; }
     string getName() { return _name; }
     int getAge() { return _age; }
     char getSex() { return _sex; }
