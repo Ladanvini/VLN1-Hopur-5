@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-class Comps{
+class Comps {
 private:
     string _name;
     string _type;
@@ -33,6 +33,5 @@ public:
     //SearchComp
 
 };
-
 
 #endif // COMPS_H
