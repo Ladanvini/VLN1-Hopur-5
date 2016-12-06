@@ -102,6 +102,7 @@ void Database::update(vector<Person> peeps) {
     _people = sorted;
 }
 //Updates the vector computers.
+<<<<<<< HEAD
 void updateCompDB(vector<Comps> comps) {
     vector<string> compNames;
     vector<Comps> sortedComps;
@@ -117,6 +118,10 @@ void updateCompDB(vector<Comps> comps) {
                 sortedComps.push_back(comps.at(j));
         }
     }
+=======
+void Database::updateCompDB(vector<Comps> comps) {
+    _computers = comps;
+>>>>>>> 5bdc24062a566c374b1a6412cdd50d84d3663b5e
 }
 
 //Adds a new Person to the Database
@@ -165,25 +170,26 @@ void Database::delFromDB(Person p) {
     _db.open();
 
     QSqlQuery query(_db);
-    string turingB;
-    if(p.getTuring())
-        turingB = "TRUE";
-    else
-        turingB = "FALSE";
 
     string stmnt;
-    stmnt = ("DELETE FROM People WHERE PID = "
-            + std::to_string(p.getId())
-            + " AND pName = " + p.getName()
-            + " AND pBirth = " + std::to_string(p.getBirth())
-            + " AND pDeath = " + std::to_string(p.getDeath())
-            + " AND pSex = " + p.getSex()
-             );
+    stmnt = "DELETE FROM People WHERE PID = "
+            + std::to_string(p.getId());
+
 
     query.exec(QString::fromStdString(stmnt));
 }
 
 //Deletes a computer from the database.
-void delFromCompDB(Comps c) {
+void Database::delFromCompDB(Comps c) {
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "DELETE FROM Computers WHERE CID = "
+            + std::to_string(c.getId());
+
+
+    query.exec(QString::fromStdString(stmnt));
 
 }
