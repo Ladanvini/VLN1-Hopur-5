@@ -157,11 +157,9 @@ void Database::writeToCompDB(Comps c) {
 
     string stmnt;
     stmnt = "INSERT INTO Computers ( cID, cName, cType, cBuilt, cBuiltYear,)"
-            "\n VALUES ( " + std::to_string(p.getId()) + ", "
-                    + p.getName() + ", " + std::to_string(p.getBirth())
-                    + ", " + std::to_string(p.getDeath()) + ", " + p.getSex()
-                    + ", " + p.getContribution() + ", " + std::to_string(p.getTuringYear()) + ", "
-                    + turingB + " )";
+            "\n VALUES ( " + std::to_string(c.getId()) + ", "
+                    + c.getName() + ", " + c.getType()
+                    + ", " + std::to_string(c.getBuilt()) + ", " + std::to_string(c.getYearBuilt()) + " )";
 
     query.exec(QString::fromStdString(stmnt));
 }
