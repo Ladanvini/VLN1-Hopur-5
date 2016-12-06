@@ -30,6 +30,18 @@ Person::Person(int id, string name, char sex, int birth, int death, string contr
         _turing = false;
     else
         _turing = true;
+
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+    //int currMonth = (now->tm_mon + 1);
+    //int currDay = now->tm_mday;
+
+
+    if(death == 0)
+        _age = currYear - birth;
+    else
+        _age = death - birth;
 }
 
 bool Person::isSame(Person p) {
@@ -52,7 +64,7 @@ bool operator==(Person p, Person p2) {
 
 string Person::showPerson() {
     string temp = "";
-
+    temp = temp + "ID: " + std::to_string(this->_id) + '\n';
     temp = temp + "NAME: " + this->_name + '\n';
     temp = temp + "AGE OF CONTRIBUTION: " + std::to_string(this->_age) + '\n';
     temp = temp + "SEX: " + this->_sex + '\n';

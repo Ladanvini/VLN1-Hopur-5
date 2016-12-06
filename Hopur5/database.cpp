@@ -56,7 +56,6 @@ Database::Database(QString dbName) {
         turing = query.value("pTuring").toBool();
 
 
-
         _people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 

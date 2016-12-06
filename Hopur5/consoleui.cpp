@@ -3,7 +3,7 @@
 #include <string>
 #include <ctime>
 
-//#define currYear 2016
+
 #include "consoleui.h"
 
 using namespace std;
@@ -231,14 +231,17 @@ void ConsoleUI::createMenu() {
     //int currMonth = (now->tm_mon + 1);
     //int currDay = now->tm_mday;
 
+
     if(death == 0)
         age = currYear - birth;
     else
         age = death - birth;
 
+
     int id = 0;
+
     char _sex = sex.at(0);
-//    cout << "DOUBLE SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEX" << _sex;
+
     cout << _process.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 

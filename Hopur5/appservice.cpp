@@ -33,6 +33,8 @@ string Process::create(int id, string name, int age, char sex, int birth, int de
     if(flag) {
        return "Person already exists\n";
     }
+
+    p->setId(people.size()+1);
     people.push_back(*p);
 
     db.update(people);

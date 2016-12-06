@@ -29,6 +29,7 @@ public:
     char getSex() { return _sex; }
     int getBirth() { return _birth; }
     int getDeath() { return _death; }
+    void setId(int id) { _id = id; }
     string getContribution() { return _contribution; }
     int getTuringYear() { return _turingYear; }
     bool getTuring() { return _turing; }
