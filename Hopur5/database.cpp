@@ -22,7 +22,14 @@ Database::Database(QString dbName) {
 
     _db.setDatabaseName(dbName);
 
-    _db.open();
+    if (!_db.open())
+       {
+          qDebug() << "Error: connection with database fail";
+       }
+       else
+       {
+          qDebug() << "Database: connection ok";
+       }
 
     QSqlQuery query(_db);
 

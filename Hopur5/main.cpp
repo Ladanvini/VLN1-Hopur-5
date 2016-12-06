@@ -10,14 +10,13 @@ int main(int argc, char *argv[]) {
  * Please make sure the file database.txt is in the build folder of your project
  * with relevance to the compiler you´re using
 */
-/*    QCoreApplication a(argc, argv);
+    QCoreApplication a(argc, argv);
 
-    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
-    Database* db = new Database(path);
+//    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
+    Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/create.sqlite");
     Process* doStuff = new Process(*db);
 
-    ConsoleUI ui(*doStuff);
-    ui.runUI();
-*/
+//    ConsoleUI ui(*doStuff);
+ //   ui.runUI();
     return 0;
 }

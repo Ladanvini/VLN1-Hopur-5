@@ -5,7 +5,7 @@
 #include "consoleui.h"
 
 using namespace std;
-/*
+
 ConsoleUI::ConsoleUI() {
 
 }
@@ -308,4 +308,4 @@ string ConsoleUI::unicorn() {
 void ConsoleUI::displayList() {
     cout << _process.showPeople(_process.getList());
 }
-*/
+
