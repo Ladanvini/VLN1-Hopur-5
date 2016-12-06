@@ -102,8 +102,8 @@ void Database::update(vector<Person> peeps) {
     _people = sorted;
 }
 //Updates the vector computers.
-void updateCompDB(vector<Comps> comps) {
-
+void Database::updateCompDB(vector<Comps> comps) {
+    _computers = comps;
 }
 
 //Adds a new Person to the Database
