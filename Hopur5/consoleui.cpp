@@ -1,7 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#define currYear 2016
+#include <ctime>
+
+//#define currYear 2016
 #include "consoleui.h"
 
 using namespace std;
@@ -222,6 +224,13 @@ void ConsoleUI::createMenu() {
     birth = stoi(birthstr);
     death = stoi(deathstr);
     turing = stoi(turingstr);
+
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+    //int currMonth = (now->tm_mon + 1);
+    //int currDay = now->tm_mday;
+
     if(death == 0)
         age = currYear - birth;
     else
