@@ -103,7 +103,20 @@ void Database::update(vector<Person> peeps) {
 }
 //Updates the vector computers.
 void updateCompDB(vector<Comps> comps) {
+    vector<string> compNames;
+    vector<Comps> sortedComps;
+    for(unsigned int i = 0; i < comps.size(); i++) {
+        compNames.push_back(comps.at(i).getName());
+    }
 
+    std::sort(compNames.begin(), compNames.end());
+
+    for(unsigned int i = 0; i < compNames.size(); i++) {
+        for(unsigned int j = 0; j < comps.size(); j++) {
+            if(compNames.at(i) == comps.at(j).getName())
+                sortedComps.push_back(comps.at(j));
+        }
+    }
 }
 
 //Adds a new Person to the Database
