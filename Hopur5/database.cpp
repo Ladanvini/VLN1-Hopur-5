@@ -149,7 +149,6 @@ bool Database::exists(Person p) {
     }
     return false;
 }
-
 //Adds a new computer to the Database
 void Database::writeToCompDB(Comps c) {
     _db.open();
@@ -190,7 +189,6 @@ void Database::delFromDB(Person p) {
 
     query.exec(QString::fromStdString(stmnt));
 }
-
 //Deletes a computer from the database.
 void Database::delFromCompDB(Comps c) {
     _db.open();
