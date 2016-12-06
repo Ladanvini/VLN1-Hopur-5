@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "consoleui.h"
+//#include "computerui.h"
 
 
 
@@ -21,8 +22,12 @@ int main(int argc, char *argv[]) {
 //    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
     Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/create.sqlite");
     Process* doStuff = new Process(*db);
+//    CompService* doStuff = new CompService(*db);
 
     ConsoleUI ui(*doStuff);
     ui.runUI();
+
+//    ComputerUI ui(*doStuff);
+//    ui.runCompUI();
     return 0;
 }

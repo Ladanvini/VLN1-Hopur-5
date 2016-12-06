@@ -257,7 +257,7 @@ void ConsoleUI::runUI() {
         cout << "Please input one of these commands: " << endl;
         cout << "Display - Displays the list of famous computer scientists" << endl;
         cout << "Add - Adds a person to the list" << endl;
-        cout << "Search - Searches the list" << endl;
+        cout << "Search - Searches for a person in the list" << endl;
         cout << "Sort - Displays the list sorted order from options" << endl;
         cout << "Delete - Deletes a person from the list" << endl;
         cout << "Unicorn - A unicorn" << endl;
