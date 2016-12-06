@@ -138,7 +138,7 @@ void Database::writeToDB(Person p) {
         turingB = "FALSE";
 
     string stmnt;
-    stmnt = "INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContributon,"
+    stmnt = "INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContribution,"
             " pTuringYear, pTuring )"
             "\n VALUES ( " + std::to_string(p.getId()) + ", "
                     + p.getName() + ", " + std::to_string(p.getBirth())
@@ -146,7 +146,12 @@ void Database::writeToDB(Person p) {
                     + ", " + p.getContribution() + ", " + std::to_string(p.getTuringYear()) + ", "
                     + turingB + " )";
 
-    query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else
+        qDebug() << "Could not execute query" << endl;
+
+    qDebug() << query.lastError();
 
     cout << _db.commit() << endl;
     _db.close();
