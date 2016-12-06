@@ -194,7 +194,7 @@ void ConsoleUI::sortMenu() {
 void ConsoleUI::createMenu() {
     string name;
     int age;
-    string agestr;
+    //string agestr;
     string sex;
     int birth;
     string birthstr;
@@ -203,7 +203,7 @@ void ConsoleUI::createMenu() {
     string contribution;
     int turing;
     string turingstr;
-    int id;
+   // int id;
 
     cout << "Enter Name (Using correct capitalization of letters): " << endl;
     getline(cin, name);
@@ -236,8 +236,9 @@ void ConsoleUI::createMenu() {
     else
         age = death - birth;
 
-
+    int id = 0;
     char _sex = sex.at(0);
+//    cout << "DOUBLE SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEX" << _sex;
     cout << _process.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 

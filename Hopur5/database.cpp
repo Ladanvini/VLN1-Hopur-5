@@ -56,6 +56,7 @@ Database::Database(QString dbName) {
         turing = query.value("pTuring").toBool();
 
 
+
         _people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 
@@ -140,11 +141,11 @@ void Database::writeToDB(Person p) {
     string stmnt;
     stmnt = "INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContribution,"
             " pTuringYear, pTuring )"
-            "\n VALUES ( " + std::to_string(p.getId()) + ", "
-                    + p.getName() + ", " + std::to_string(p.getBirth())
-                    + ", " + std::to_string(p.getDeath()) + ", " + p.getSex()
-                    + ", " + p.getContribution() + ", " + std::to_string(p.getTuringYear()) + ", "
-                    + turingB + " )";
+            "\n VALUES ( " + std::to_string(p.getId()) + ", '"
+                    + p.getName() + "' , " + std::to_string(p.getBirth())
+                    + ", " + std::to_string(p.getDeath()) + ", '" + p.getSex()
+                    + "', '" + p.getContribution() + "', " + std::to_string(p.getTuringYear()) + ", '"
+                    + turingB + "' )";
 
     if(query.exec(QString::fromStdString(stmnt)))
         qDebug() << query.executedQuery();

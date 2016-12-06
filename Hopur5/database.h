@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+//#include <QtSql>
 #include <QtSql>
 
 #include "comps.h"
