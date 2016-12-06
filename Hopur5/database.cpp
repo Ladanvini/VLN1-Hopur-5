@@ -152,25 +152,26 @@ void Database::delFromDB(Person p) {
     _db.open();
 
     QSqlQuery query(_db);
-    string turingB;
-    if(p.getTuring())
-        turingB = "TRUE";
-    else
-        turingB = "FALSE";
 
     string stmnt;
-    stmnt = ("DELETE FROM People WHERE PID = "
-            + std::to_string(p.getId())
-            + " AND pName = " + p.getName()
-            + " AND pBirth = " + std::to_string(p.getBirth())
-            + " AND pDeath = " + std::to_string(p.getDeath())
-            + " AND pSex = " + p.getSex()
-             );
+    stmnt = "DELETE FROM People WHERE PID = "
+            + std::to_string(p.getId());
+
 
     query.exec(QString::fromStdString(stmnt));
 }
 
 //Deletes a computer from the database.
-void delFromCompDB(Comps c) {
+void Database::delFromCompDB(Comps c) {
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "DELETE FROM Computers WHERE CID = "
+            + std::to_string(c.getId());
+
+
+    query.exec(QString::fromStdString(stmnt));
 
 }
