@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-
+#define currYear 2016
 #include "consoleui.h"
 
 using namespace std;
@@ -191,28 +191,42 @@ void ConsoleUI::sortMenu() {
 //create option
 void ConsoleUI::createMenu() {
     string name;
-    string age;
+    int age;
+    string agestr;
     string sex;
-    string birth;
-    string death;
+    int birth;
+    string birthstr;
+    int death;
+    string deathstr;
     string contribution;
-    string turing;
+    int turing;
+    string turingstr;
     int id;
 
     cout << "Enter Name (Using correct capitalization of letters): " << endl;
     getline(cin, name);
-    cout << "Enter The Age Of Contribution( 0 if unknown): " << endl;
-    getline(cin, age);
+//    cout << "Enter The Age Of Contribution( 0 if unknown): " << endl;
+//    getline(cin, agestr);
     cout << "Enter Sex (m/f): " << endl;
     getline(cin, sex);
     cout << "Enter Birth Year: " << endl;
-    getline(cin, birth);
+    getline(cin, birthstr);
     cout << "Enter Death Year (0 if still alive): " << endl;
-    getline(cin, death);
+    getline(cin, deathstr);
     cout << "Enter Contribution: " << endl;
     getline(cin, contribution);
     cout << "Enter Turing Year (0 if unknown or not applicable): " << endl;
-    getline(cin, turing);
+    getline(cin, turingstr);
+
+
+    birth = stoi(birthstr);
+    death = stoi(deathstr);
+    turing = stoi(turingstr);
+    if(death == 0)
+        age = currYear - birth;
+    else
+        age = death - birth;
+
 
     char _sex = sex.at(0);
     cout << _process.create(id, name, age, _sex, birth, death, contribution, turing);
@@ -266,7 +280,8 @@ void ConsoleUI::runUI() {
             getline(cin, name);
             cout << "Enter the person's birth year: \n";
             input = inputHandling();
-            cout << _process.deletePerson(name, input) << endl;
+            int birth = stoi(input);
+            cout << _process.deletePerson(name, birth) << endl;
             cout << lowline << endl;
         }
         else if(input == "exit") {

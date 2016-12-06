@@ -147,6 +147,9 @@ void Database::writeToDB(Person p) {
                     + turingB + " )";
 
     query.exec(QString::fromStdString(stmnt));
+
+    cout << _db.commit() << endl;
+    _db.close();
 }
 //Checks if the person exists in the people vector
 bool Database::exists(Person p) {
