@@ -28,7 +28,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     }
     computers.push_back(*newComputer);
 
-    _db.updateCompDB(computers);
+    //_db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
     return "Added successfully\n";
 }
