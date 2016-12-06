@@ -102,7 +102,6 @@ void Database::update(vector<Person> peeps) {
     _people = sorted;
 }
 //Updates the vector computers.
-<<<<<<< HEAD
 void updateCompDB(vector<Comps> comps) {
     vector<string> compNames;
     vector<Comps> sortedComps;
@@ -118,12 +117,7 @@ void updateCompDB(vector<Comps> comps) {
                 sortedComps.push_back(comps.at(j));
         }
     }
-=======
-void Database::updateCompDB(vector<Comps> comps) {
-    _computers = comps;
->>>>>>> 5bdc24062a566c374b1a6412cdd50d84d3663b5e
 }
-
 //Adds a new Person to the Database
 void Database::writeToDB(Person p) {
 
@@ -158,7 +152,19 @@ bool Database::exists(Person p) {
 
 //Adds a new computer to the Database
 void Database::writeToCompDB(Comps c) {
+    _db.open();
 
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "INSERT INTO Computers ( cID, cName, cType, cBuilt, cBuiltYear,)"
+            "\n VALUES ( " + std::to_string(p.getId()) + ", "
+                    + p.getName() + ", " + std::to_string(p.getBirth())
+                    + ", " + std::to_string(p.getDeath()) + ", " + p.getSex()
+                    + ", " + p.getContribution() + ", " + std::to_string(p.getTuringYear()) + ", "
+                    + turingB + " )";
+
+    query.exec(QString::fromStdString(stmnt));
 }
 //Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
