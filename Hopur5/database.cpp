@@ -166,6 +166,12 @@ void Database::writeToCompDB(Comps c) {
 }
 //Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
+    for (unsigned int i = 0 ; i < _computers.size(); i++)
+        if (_computers.at(i).getId() == c.getId()){
+            return true;
+}
+    return false;
+
 }
 //Deletes a person from the database.
 void Database::delFromDB(Person p) {
