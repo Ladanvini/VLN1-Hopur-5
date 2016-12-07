@@ -16,7 +16,9 @@ public:
 
     string connUtoC(Person p, vector<Comps> cv);
     string connCtoU(Comps c, vector<Person> pV);
-    string deleteConn(Comps c, Person p);
+    string deleteConn(string cIdstr, string pIdstr);
+    string addConnPtoC(string pID, vector<string> cIds);
+    string addConnCtoP(string cID, vector<string> pIds);
 };
 
 #endif // CONNECTIONSERVICE_H
