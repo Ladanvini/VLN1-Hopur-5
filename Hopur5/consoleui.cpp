@@ -48,6 +48,16 @@ string ConsoleUI::unicorn() {
     return uni;
 }
 
+string ConsoleUI::cORp(string name){
+    cout << "What do you want to "+ name +"?" << endl;
+    cout << "Person - To "+name+" a person" << endl;
+    cout << "Computer - To "+name+" a computer" << endl;
+    cout << "Back - To go back to main menu" << endl;
+    cout << "Input: ";
+
+    return inputHandling();
+}
+
 //Display
 void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
@@ -59,13 +69,7 @@ void ConsoleUI::searchMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    cout << "What do you want to search?" << endl;
-    cout << "Person - To search a person" << endl;
-    cout << "Computer - To search a computer" << endl;
-    cout << "Back - To go back to main menu" << endl;
-    cout << "Input: ";
-
-    input = inputHandling();
+    input = cORp("search");
 
     if(input  == "person") {
         cout << lowline;
@@ -443,7 +447,6 @@ void ConsoleUI::runUI() {
 
     }while(!exitUI);
 }
-
 
 //Comps**************************
 //*******************************

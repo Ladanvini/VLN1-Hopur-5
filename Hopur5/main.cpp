@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     appservice* doStuff = new appservice(*db);
     CompService* cs = new CompService(*db);
     ConsoleUI ui(*doStuff, *cs);
-   // ui.runUI();
-    ui.runUIComp();
+    ui.runUI();
+    //ui.runUIComp();
     return 0;
 }
