@@ -17,7 +17,11 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
     bool flag = false;
 
-    if(((yearBuilt < 100 && yearBuilt != 0) || yearBuilt > 2016))
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+
+    if(((yearBuilt < 100 && yearBuilt != 0) || yearBuilt > currYear))
         return "Unacceptable value for year built!\n";
     if(type.empty() || type.at(0) == ' ')
         return "Type was not accepted!\n";
