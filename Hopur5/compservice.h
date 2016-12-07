@@ -1,7 +1,7 @@
 #ifndef COMPSERVICE_H
 #define COMPSERVICE_H
-
 #include "database.h"
+
 
 class CompService {
 private:
