@@ -48,6 +48,7 @@ string ConsoleUI::unicorn() {
     return uni;
 }
 
+//Asking if one wants to work with Computers or People
 string ConsoleUI::cORp(string name) {
     string grammar = "";
 
@@ -71,6 +72,10 @@ void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
 }
 
+/*Question Menus**************
+ *****************************
+ *****************************
+*/
 void ConsoleUI::searchMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -130,7 +135,7 @@ void ConsoleUI::sortMenu() {
     }
     }while(!exitMenu);
 }
-//NEEDS FIXING!
+
 void ConsoleUI::createMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -162,6 +167,42 @@ void ConsoleUI::createMenu() {
     }while(!exitMenu);
 }
 
+
+void ConsoleUI::deleteMenu() {
+    string input = " ";
+    bool exitMenu = false;
+    string lowline = "--------------------------------------------------------------\n";
+
+    do {
+
+    input = cORp("delete");
+
+    if(input  == "person") {
+        cout << lowline;
+        deleteMenuPerson();
+    }
+    else if(input == "computer") {
+        cout << lowline;
+        //deleteMenuComp();
+    }
+    else if(input == "back") {
+        cout << lowline;
+        cout << "Thank you, taking you back to the main menu" << endl;
+        cout << lowline;
+        exitMenu = true;
+    }
+    else {
+        cout << lowline;
+        cout << "Wrong input!" << endl;
+        cout << lowline;
+    }
+    }while(!exitMenu);
+}
+
+
+/*Person*********************************
+ ****************************************
+*/
 //search person
 void ConsoleUI::searchMenuPerson() {
     string input = "";
@@ -380,6 +421,19 @@ void ConsoleUI::createMenuPerson() {
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 
+void ConsoleUI::deleteMenuPerson() {
+    string name = " ";
+    string input = " ";
+    string lowline = "--------------------------------------------------------------\n";
+    cout << "Enter the person's name: \n";
+    getline(cin, name);
+    cout << "Enter the person's birth year: \n";
+    input = inputHandling();
+    int birth = stoi(input);
+    cout << _appservice.deletePerson(name, birth) << endl;
+    cout << lowline << endl;
+}
+
 //Main Menu
 void ConsoleUI::runUI() {
     string input = " ";
@@ -390,11 +444,12 @@ void ConsoleUI::runUI() {
     do {
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
-        cout << "Display - Displays the list of famous computer scientists" << endl;
-        cout << "Add - Adds a person to the list" << endl;
-        cout << "Search - Searches the list" << endl;
-        cout << "Sort - Displays the list sorted order from options" << endl;
-        cout << "Delete - Deletes a person from the list" << endl;
+        cout << "Display - Displays the list of famous computer scientists\
+                 or famous computers" << endl;
+        cout << "Add - Adds a person or a computer to the database" << endl;
+        cout << "Search - Searches the database" << endl;
+        cout << "Sort - Displays the database sorted order from options" << endl;
+        cout << "Delete - Deletes a person or a computer from the list" << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
 
@@ -422,15 +477,8 @@ void ConsoleUI::runUI() {
             displayList();
         }
         else if(input == "delete") {
-            string name;
             cout << lowline;
-            cout << "Enter the person's name: \n";
-            getline(cin, name);
-            cout << "Enter the person's birth year: \n";
-            input = inputHandling();
-            int birth = stoi(input);
-            cout << _appservice.deletePerson(name, birth) << endl;
-            cout << lowline << endl;
+            deleteMenu();
         }
         else if(input == "exit") {
             cout << lowline;

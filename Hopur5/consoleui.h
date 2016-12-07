@@ -4,6 +4,7 @@
 #include "appservice.h"
 #include "compservice.h"
 
+
 #include <string>
 
 using namespace std;
@@ -24,10 +25,12 @@ public:
     void searchMenu();
     void sortMenu();
     void createMenu();
+    void deleteMenu();
 
     void searchMenuPerson();
     void sortMenuPerson();
     void createMenuPerson();
+    void deleteMenuPerson();
     void runUI();
 
 
