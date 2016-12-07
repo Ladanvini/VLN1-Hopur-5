@@ -28,19 +28,48 @@ string ConsoleUI::inputHandling() {
     return input;
 }
 
+//Fun Unicorn for the users
+string ConsoleUI::unicorn() {
+    string uni = "";
+    uni = uni + "                   ." + '\n' +
+"                  /|" + '\n'+
+"                 /_|" + '\n'+
+"             (0)/__|__" + '\n'+
+"               |\/ (.) \\  " + '\n'     +
+"               | \/ \/ \/:> " + '\n'+
+"               |\/ \/ \/_/  " + '\n'+
+"              /\/ \/ | " + '\n'+
+" ____________/ \/ \/ | " + '\n'+
+"/ \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"| \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"|\/ \/_\/_\/_\/_\/_\/_\/ \/ | " + '\n'+
+"|_0|            |_0| " + '\n';
+
+    return uni;
+}
+
+string ConsoleUI::cORp(string name){
+    cout << "What do you want to "+ name +"?" << endl;
+    cout << "Person - To "+name+" a person" << endl;
+    cout << "Computer - To "+name+" a computer" << endl;
+    cout << "Back - To go back to main menu" << endl;
+    cout << "Input: ";
+
+    return inputHandling();
+}
+
+//Display
+void ConsoleUI::displayList() {
+    cout << _appservice.showPeople(_appservice.getList());
+}
+
 void ConsoleUI::searchMenu() {
     string input = " ";
     bool exitMenu = false;
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    cout << "What do you want to search?" << endl;
-    cout << "Person - To search a person" << endl;
-    cout << "Computer - To search a computer" << endl;
-    cout << "Back - To go back to main menu" << endl;
-    cout << "Input: ";
-
-    input = inputHandling();
+    input = cORp("search");
 
     if(input  == "person") {
         cout << lowline;
@@ -418,35 +447,6 @@ void ConsoleUI::runUI() {
 
     }while(!exitUI);
 }
-
-//Fun Unicorn for the users
-string ConsoleUI::unicorn() {
-    string uni = "";
-    uni = uni + "                   ." + '\n' +
-"                  /|" + '\n'+
-"                 /_|" + '\n'+
-"             (0)/__|__" + '\n'+
-"               |\/ (.) \\  " + '\n'     +
-"               | \/ \/ \/:> " + '\n'+
-"               |\/ \/ \/_/  " + '\n'+
-"              /\/ \/ | " + '\n'+
-" ____________/ \/ \/ | " + '\n'+
-"/ \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
-"| \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
-"|\/ \/_\/_\/_\/_\/_\/_\/ \/ | " + '\n'+
-"|_0|            |_0| " + '\n';
-
-    return uni;
-}
-
-//Display
-void ConsoleUI::displayList() {
-    cout << _appservice.showPeople(_appservice.getList());
-}
-
-
-
-
 
 //Comps**************************
 //*******************************
