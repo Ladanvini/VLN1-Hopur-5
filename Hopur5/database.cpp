@@ -218,9 +218,27 @@ void Database::delFromCompDB(Comps c) {
 }
 // Add a connection with the given computer and person.
 
- void addToConsDB(Comps c, Person p){
+ void Database::addToConsDB(Comps c, Person p){
     _db.open();
 
+    QSqlQuery query(_db);
+
+    string stmnt;
+    "INSERT INTO P_C_con ( CID, PID)"
+                "\n VALUES ( " + std::to_string(c.getId()) + ", "
+                        +  std::to_string(p.getId()) + ") ";
+
+
+        if(query.exec(QString::fromStdString(stmnt)))
+            qDebug() << query.executedQuery();
+        else
+            qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+
+        cout << _db.commit() << endl;
+
+        _db.close();
 
 
  }
