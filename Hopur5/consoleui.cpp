@@ -48,6 +48,7 @@ string ConsoleUI::unicorn() {
     return uni;
 }
 
+//Asking if one wants to work with Computers or People
 string ConsoleUI::cORp(string name) {
     string grammar = "";
 
@@ -71,6 +72,10 @@ void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
 }
 
+/*Question Menus**************
+ *****************************
+ *****************************
+*/
 void ConsoleUI::searchMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -130,7 +135,7 @@ void ConsoleUI::sortMenu() {
     }
     }while(!exitMenu);
 }
-//NEEDS FIXING!
+
 void ConsoleUI::createMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -162,6 +167,9 @@ void ConsoleUI::createMenu() {
     }while(!exitMenu);
 }
 
+/*Person*********************************
+ ****************************************
+*/
 //search person
 void ConsoleUI::searchMenuPerson() {
     string input = "";
@@ -390,11 +398,12 @@ void ConsoleUI::runUI() {
     do {
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
-        cout << "Display - Displays the list of famous computer scientists" << endl;
-        cout << "Add - Adds a person to the list" << endl;
-        cout << "Search - Searches the list" << endl;
-        cout << "Sort - Displays the list sorted order from options" << endl;
-        cout << "Delete - Deletes a person from the list" << endl;
+        cout << "Display - Displays the list of famous computer scientists\
+                 or famous computers" << endl;
+        cout << "Add - Adds a person or a computer to the database" << endl;
+        cout << "Search - Searches the database" << endl;
+        cout << "Sort - Displays the database sorted order from options" << endl;
+        cout << "Delete - Deletes a person or a computer from the list" << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
 
