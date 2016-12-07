@@ -178,6 +178,18 @@ vector<Person> Process::sortByAge() {
 
     return sorted;
 }
+<<<<<<< HEAD
+=======
+
+vector<Person> Process::sortByAgeDec() {
+    vector<Person> Results = sortByAge();
+    reverse(Results.begin(), Results.end());
+
+return Results;
+
+}
+
+>>>>>>> 5e1a6438a5c5091beaefdac3abf3b6b4e9031f7d
 vector<Person> Process::sortBySex(string _sex) {
     vector<Person> result;
     char sex = _sex.at(0);
