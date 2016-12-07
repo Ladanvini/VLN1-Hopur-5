@@ -21,8 +21,8 @@ int main(int argc, char *argv[]) {
 //    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
     Database* db = new Database("/Users/BjarniKristinn/VLN1-Hopur-5/create.sqlite");
     appservice* doStuff = new appservice(*db);
-
-    //ConsoleUI ui(*doStuff);
-    //ui.runUI();
+    CompService* cs = new CompService(*db);
+    ConsoleUI ui(*doStuff, *cs);
+    ui.runUI();
     return 0;
 }
