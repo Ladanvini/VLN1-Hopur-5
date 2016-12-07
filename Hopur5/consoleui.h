@@ -40,6 +40,7 @@ public:
     void deleteMenuComp();
     void runUIComp();
     void displayListComp();
+
 };
 
 #endif // CONSOLEUI_H

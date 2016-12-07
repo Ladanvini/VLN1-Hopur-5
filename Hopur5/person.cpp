@@ -38,7 +38,6 @@ Person::Person(int id, string name, char sex, int birth, int death, string contr
     //int currMonth = (now->tm_mon + 1);
     //int currDay = now->tm_mday;
 
-
     if(death == 0)
         _age = currYear - birth;
     else

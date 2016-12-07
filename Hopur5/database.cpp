@@ -16,20 +16,16 @@ Database::Database() {
  * keeping all their attributes
  */
 Database::Database(QString dbName) {
-
-
     _db = QSqlDatabase::addDatabase("QSQLITE");
 
     _db.setDatabaseName(dbName);
 
-    if (!_db.open())
-       {
-          qDebug() << "Error: connection with database fail";
-       }
-       else
-       {
-          qDebug() << "Database: connection ok";
-       }
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+    else {
+        qDebug() << "Database: connection ok";
+    }
 
     QSqlQuery query(_db);
 
@@ -55,10 +51,8 @@ Database::Database(QString dbName) {
         turingYear = query.value("pTuringYear").toInt();
         turing = query.value("pTuring").toBool();
 
-
         _people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
-
 
     QSqlQuery queryC(_db);
 
@@ -78,18 +72,18 @@ Database::Database(QString dbName) {
         builtYearC = queryC.value("cBuiltYear").toInt();
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
-
-
-
 }
+
 //Returns a list of people in the database
 vector<Person> Database::getList() {
-  return _people;
+    return _people;
 }
+
 //Returns a list of computers in the database
 vector<Comps> Database::getComputerList() {
     return _computers;
 }
+
 //Updates the vector of people
 void Database::update(vector<Person> peeps) {
     vector<string> names;
@@ -108,6 +102,7 @@ void Database::update(vector<Person> peeps) {
 
     _people = sorted;
 }
+
 //Updates the vector computers.
 void updateCompDB(vector<Comps> comps) {
     vector<string> compNames;
@@ -125,9 +120,9 @@ void updateCompDB(vector<Comps> comps) {
         }
     }
 }
+
 //Adds a new Person to the Database
 void Database::writeToDB(Person p) {
-
     _db.open();
 
     QSqlQuery query(_db);
@@ -156,6 +151,7 @@ void Database::writeToDB(Person p) {
     cout << _db.commit() << endl;
     _db.close();
 }
+
 //Checks if the person exists in the people vector
 bool Database::exists(Person p) {
     for(unsigned int i=0; i<_people.size(); i++) {
@@ -164,8 +160,9 @@ bool Database::exists(Person p) {
     }
     return false;
 }
+
 //Checks if connection already exists
-bool Database::existsInConns(P_C_Connection pccon){
+bool Database::existsInConns(P_C_Connection pccon) {
     for(unsigned int i=0; i<_connections.size(); i++) {
         if(pccon.compare(_connections.at(i)))
             return true;
@@ -187,19 +184,18 @@ void Database::writeToCompDB(Comps c) {
 
     query.exec(QString::fromStdString(stmnt));
 }
+
 //Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
     for (unsigned int i = 0 ; i < _computers.size(); i++)
         if (_computers.at(i).getId() == c.getId()){
             return true;
-}
+    }
     return false;
-
 }
+
 //Deletes a person from the database.
 void Database::delFromDB(Person p) {
-
-
     _db.open();
 
     QSqlQuery query(_db);
@@ -208,9 +204,9 @@ void Database::delFromDB(Person p) {
     stmnt = "DELETE FROM People WHERE PID = "
             + std::to_string(p.getId());
 
-
     query.exec(QString::fromStdString(stmnt));
 }
+
 //Deletes a computer from the database.
 void Database::delFromCompDB(Comps c) {
     _db.open();
@@ -221,13 +217,11 @@ void Database::delFromCompDB(Comps c) {
     stmnt = "DELETE FROM Computers WHERE CID = "
             + std::to_string(c.getId());
 
-
     query.exec(QString::fromStdString(stmnt));
-
 }
-// Add a connection with the given computer and person.
 
- void Database::addToConsDB(Comps c, Person p){
+// Add a connection with the given computer and person.
+void Database::addToConsDB(Comps c, Person p) {
      _connections.push_back(P_C_Connection(c, p));
 
     _db.open();
@@ -239,22 +233,20 @@ void Database::delFromCompDB(Comps c) {
                 "\n VALUES ( " + std::to_string(c.getId()) + ", "
                         +  std::to_string(p.getId()) + ") ";
 
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else
+        qDebug() << "Could not execute query" << endl;
 
-        if(query.exec(QString::fromStdString(stmnt)))
-            qDebug() << query.executedQuery();
-        else
-            qDebug() << "Could not execute query" << endl;
+    qDebug() << query.lastError();
 
-        qDebug() << query.lastError();
+    cout << _db.commit() << endl;
 
-        cout << _db.commit() << endl;
+    _db.close();
+}
 
-        _db.close();
-
-
- }
-
- void Database::deleteCons(int cId, int pId){
+// Deletes a connection with the given computer and person.
+void Database::deleteCons(int cId, int pId) {
      _db.open();
 
      QSqlQuery query(_db);
@@ -265,9 +257,6 @@ void Database::delFromCompDB(Comps c) {
              + std::to_string(cId)
              + " AND PID = "
              + std::to_string(pId);
-
-
-
 
      query.exec(QString::fromStdString(stmnt));
  }

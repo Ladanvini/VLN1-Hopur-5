@@ -72,10 +72,8 @@ void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
 }
 
-/*Question Menus**************
- *****************************
- *****************************
-*/
+/**************************Question Menus***************************/
+
 void ConsoleUI::searchMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -174,40 +172,37 @@ void ConsoleUI::deleteMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
+        input = cORp("delete");
 
-    input = cORp("delete");
-
-    if(input  == "person") {
-        cout << lowline;
-        deleteMenuPerson();
-    }
-    else if(input == "computer") {
-        cout << lowline;
-        deleteMenuComp();
-    }
-    else if(input == "back") {
-        cout << lowline;
-        cout << "Thank you, taking you back to the main menu" << endl;
-        cout << lowline;
-        exitMenu = true;
-    }
-    else {
-        cout << lowline;
-        cout << "Wrong input!" << endl;
-        cout << lowline;
-    }
+        if(input  == "person") {
+            cout << lowline;
+            deleteMenuPerson();
+        }
+        else if(input == "computer") {
+            cout << lowline;
+            deleteMenuComp();
+        }
+        else if(input == "back") {
+            cout << lowline;
+            cout << "Thank you, taking you back to the main menu" << endl;
+            cout << lowline;
+            exitMenu = true;
+        }
+        else {
+            cout << lowline;
+            cout << "Wrong input!" << endl;
+            cout << lowline;
+        }
     }while(!exitMenu);
 }
 
 
-/*Person*********************************
- ****************************************
-*/
+/**************************Persons***************************/
+
 //search person
 void ConsoleUI::searchMenuPerson() {
     string input = "";
     bool exitMenu = false;
-
     string lowline = "--------------------------------------------------------------\n";
 
     do {
@@ -220,7 +215,6 @@ void ConsoleUI::searchMenuPerson() {
         cout << "Contribution - Search by persons contribution" << endl;
         cout << "Turing - Search those that have won Turing award" << endl;
         cout << "Back - Go back to the main menu" << endl;
-
         cout << lowline << endl;
 
         input = inputHandling();
@@ -351,7 +345,7 @@ void ConsoleUI::sortMenuPerson() {
             cout << lowline;
             cout << _appservice.showPeople(_appservice.sortByTuring(input));
         }
-        else if(input == "back"){
+        else if(input == "back") {
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
             cout << lowline;
@@ -362,7 +356,6 @@ void ConsoleUI::sortMenuPerson() {
             cout << "wrong input! Try again" << endl;
             cout << lowline;
         }
-
     }while(!exitMenu);
 }
 
@@ -407,15 +400,12 @@ void ConsoleUI::createMenuPerson() {
     //int currMonth = (now->tm_mon + 1);
     //int currDay = now->tm_mday;
 
-
     if(death == 0)
         age = currYear - birth;
     else
         age = death - birth;
 
-
     int id = 0;
-
     char _sex = sex.at(0);
 
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
@@ -459,7 +449,7 @@ void ConsoleUI::runUI() {
             cout << lowline;
             createMenu();
         }
-        else if(input == "unicorn"){
+        else if(input == "unicorn") {
             cout << lowline;
             cout << unicorn();
             cout << lowline;
@@ -491,17 +481,15 @@ void ConsoleUI::runUI() {
             cout << "Wrong input!" << endl;
             cout << lowline;
         }
-
     }while(!exitUI);
 }
 
-//Comps**************************
-//*******************************
+/**************************Computers***************************/
+
 //searchComps
 void ConsoleUI::searchMenuComp() {
     string input = "";
     bool exitMenu = false;
-
     string lowline = "--------------------------------------------------------------\n";
 
     do {
@@ -510,8 +498,7 @@ void ConsoleUI::searchMenuComp() {
         cout << "ID - Search by computer's ID" << endl;
         cout << "Type - Search by computer's type" << endl;
         cout << "Built - Search by if computer has been built and then when" << endl;
-        cout << "Back - Go back to the main menu" << endl;
-
+        cout << "Back - Go back to the search menu" << endl;
         cout << lowline << endl;
 
         input = inputHandling();
@@ -521,9 +508,9 @@ void ConsoleUI::searchMenuComp() {
             cout << "Enter the name here: " << endl;
             input = inputHandling();
             cout << lowline;
-            //cout << _compService.showComputers(_compService.searchByName(input));
+            cout << _compService.showComputers(_compService.searchByName(input));
         }
-        else if(input == "unicorn"){
+        else if(input == "unicorn") {
             cout << lowline;
             cout << unicorn();
             cout << lowline;
@@ -535,7 +522,7 @@ void ConsoleUI::searchMenuComp() {
             cout << lowline;
             int id;
             id = stoi(input);
-            //cout << _compService.showComputers(_compService.searchById(id));
+            cout << _compService.showComputers(_compService.searchById(id));
         }
         else if(input == "built") {
             cout << lowline;
@@ -580,7 +567,6 @@ void ConsoleUI::sortMenuComp() {
         cout << "Type - Sort by computer's type" << endl;
         cout << "Built - Sort by if computer was built" << endl;
         cout << "Back - Back to main menu" << endl;
-
         cout << lowline;
 
         input = inputHandling();
@@ -610,7 +596,7 @@ void ConsoleUI::sortMenuComp() {
             cout << lowline;
             cout << _compService.showComputers(_compService.sortByBuilt());
         }
-        else if(input == "back"){
+        else if(input == "back") {
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
             cout << lowline;
@@ -621,7 +607,6 @@ void ConsoleUI::sortMenuComp() {
             cout << "wrong input! Try again" << endl;
             cout << lowline;
         }
-
     }while(!exitMenu);
 }
 
@@ -641,7 +626,6 @@ void ConsoleUI::createMenuComp() {
     cout << "Enter Year Built (Enter 0 if it has not been built): " << endl;
     getline(cin, yearBuiltstr);
 
-
     yearBuilt = stoi(yearBuiltstr);
 
     if(yearBuilt != 0) {
@@ -651,9 +635,7 @@ void ConsoleUI::createMenuComp() {
         built = false;
     }
 
-
     int id = 1;
-
 
     cout << _compService.create(id, name, type, yearBuilt, built);
 }
@@ -670,6 +652,7 @@ void ConsoleUI::deleteMenuComp() {
     cout << lowline << endl;
 }
 
+/*
 void ConsoleUI::runUIComp() {
     string input = " ";
     bool exitUI = false;
@@ -736,4 +719,5 @@ void ConsoleUI::runUIComp() {
 
     }while(!exitUI);
 }
+*/
 
