@@ -18,7 +18,7 @@ public:
     void sortMenu();
     void createMenu();
     void runCompUI();
-    string unicorn2();
+    string unicorn();
     void displayList();
 
 };
