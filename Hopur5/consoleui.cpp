@@ -12,8 +12,9 @@ ConsoleUI::ConsoleUI() {
 
 }
 
-ConsoleUI::ConsoleUI(appservice p) {
+ConsoleUI::ConsoleUI(appservice p, CompService c) {
     _appservice = p;
+    _compService = c;
 }
 
 //Takes input and puts them in lowercasing
@@ -367,7 +368,7 @@ void ConsoleUI::searchMenuComp() {
             cout << "Enter the name here: " << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _compService.showComputers(_compService.searchByName(input));
+            //cout << _compService.showComputers(_compService.searchByName(input));
         }
         else if(input == "unicorn"){
             cout << lowline;
@@ -381,7 +382,7 @@ void ConsoleUI::searchMenuComp() {
             cout << lowline;
             int id;
             id = stoi(input);
-            cout << _compService.showComputers(_compService.searchById(id));
+            //cout << _compService.showComputers(_compService.searchById(id));
         }
         else if(input == "built") {
             cout << lowline;
@@ -391,6 +392,8 @@ void ConsoleUI::searchMenuComp() {
             int ifbuilt;
             ifbuilt = stoi(input);
             cout << _compService.showComputers(_compService.searchByBuilt(ifbuilt));
+
+
         }
         else if(input == "type") {
             cout << lowline;

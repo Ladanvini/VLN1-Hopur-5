@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     Database* db = new Database("/Users/BjarniKristinn/VLN1-Hopur-5/create.sqlite");
     appservice* doStuff = new appservice(*db);
 
-    ConsoleUI ui(*doStuff);
-    ui.runUI();
+    //ConsoleUI ui(*doStuff);
+    //ui.runUI();
     return 0;
 }

@@ -14,7 +14,7 @@ private:
     appservice _appservice;
 public:
     ConsoleUI();
-    ConsoleUI(appservice p);
+    ConsoleUI(appservice p, CompService c);
     string inputHandling();
     //string tolower();
     void searchMenu();

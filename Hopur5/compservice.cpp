@@ -168,7 +168,7 @@ string CompService::deleteComputers(string name, string type) {
 
 // Showing
 
-string showComputers(vector<Comps> results) {
+string CompService::showComputers(vector<Comps> results) {
 
     string temp = "";
 
