@@ -28,8 +28,51 @@ string ConsoleUI::inputHandling() {
     return input;
 }
 
-//search
 void ConsoleUI::searchMenu() {
+    string input = " ";
+    bool exitMenu = false;
+    string lowline = "--------------------------------------------------------------\n";
+
+    do {
+    cout << "What do you want to search?" << endl;
+    cout << "Input:" << endl;
+    cout << "Person - To search a person" << endl;
+    cout << "Computer - To search a computer" << endl;
+
+    input = inputHandling();
+
+    if(input  == "person") {
+        cout << lowline;
+        searchMenuPerson();
+    }
+    else if(input == "computer") {
+        cout << lowline;
+        searchMenuComp();
+    }
+    else if(input == "back") {
+        cout << lowline;
+        cout << "Thank you, taking you back to the main menu" << endl;
+        cout << lowline;
+        exitMenu = true;
+    }
+    else {
+        cout << lowline;
+        cout << "Wrong input!" << endl;
+        cout << lowline;
+    }
+    }while(!exitMenu);
+}
+//TODO
+void ConsoleUI::sortMenu() {
+
+}
+//TODO
+void ConsoleUI::createMenu() {
+
+}
+
+//search person
+void ConsoleUI::searchMenuPerson() {
     string input = "";
     bool exitMenu = false;
 
@@ -118,8 +161,8 @@ void ConsoleUI::searchMenu() {
     }while(!exitMenu);
 }
 
-//sortMenu
-void ConsoleUI::sortMenu() {
+//sortMenu for person
+void ConsoleUI::sortMenuPerson() {
     string lowline = "--------------------------------------------------------------\n";
     string input = "";
     bool exitMenu = false;
@@ -191,8 +234,8 @@ void ConsoleUI::sortMenu() {
     }while(!exitMenu);
 }
 
-//create option
-void ConsoleUI::createMenu() {
+//create option for person
+void ConsoleUI::createMenuPerson() {
     string name;
     int age;
     //string agestr;
@@ -404,7 +447,7 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "back") {
             cout << lowline;
-            cout << "Thank you, taking you back to the main menu" << endl;
+            cout << "Thank you, taking you back to the search menu" << endl;
             cout << lowline;
             exitMenu = true;
         }
