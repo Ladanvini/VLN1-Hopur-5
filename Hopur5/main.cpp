@@ -2,7 +2,8 @@
 #include <iostream>
 
 #include "consoleui.h"
-
+#include "appservice.h"
+#include "database.h"
 
 
 
@@ -19,10 +20,11 @@ int main(int argc, char *argv[]) {
 
 
 //    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
-    Database* db = new Database("/Users/BjarniKristinn/VLN1-Hopur-5/create.sqlite");
+    Database* db = new Database("\create.sqlite");
     appservice* doStuff = new appservice(*db);
-
-    //ConsoleUI ui(*doStuff);
-    //ui.runUI();
+    CompService* cs = new CompService(*db);
+    ConsoleUI ui(*doStuff, *cs);
+   // ui.runUI();
+    ui.runUIComp();
     return 0;
 }

@@ -16,7 +16,8 @@ SOURCES += main.cpp \
     person.cpp \
     appservice.cpp \
     comps.cpp \
-    compservice.cpp
+    compservice.cpp \
+    p_c_connection.cpp
 
 DISTFILES += \
     database \
@@ -28,4 +29,5 @@ HEADERS += \
     person.h \
     appservice.h \
     comps.h \
-    compservice.h
+    compservice.h \
+    p_c_connection.h
