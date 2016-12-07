@@ -28,6 +28,31 @@ string ConsoleUI::inputHandling() {
     return input;
 }
 
+//Fun Unicorn for the users
+string ConsoleUI::unicorn() {
+    string uni = "";
+    uni = uni + "                   ." + '\n' +
+"                  /|" + '\n'+
+"                 /_|" + '\n'+
+"             (0)/__|__" + '\n'+
+"               |\/ (.) \\  " + '\n'     +
+"               | \/ \/ \/:> " + '\n'+
+"               |\/ \/ \/_/  " + '\n'+
+"              /\/ \/ | " + '\n'+
+" ____________/ \/ \/ | " + '\n'+
+"/ \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"| \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
+"|\/ \/_\/_\/_\/_\/_\/_\/ \/ | " + '\n'+
+"|_0|            |_0| " + '\n';
+
+    return uni;
+}
+
+//Display
+void ConsoleUI::displayList() {
+    cout << _appservice.showPeople(_appservice.getList());
+}
+
 void ConsoleUI::searchMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -418,34 +443,6 @@ void ConsoleUI::runUI() {
 
     }while(!exitUI);
 }
-
-//Fun Unicorn for the users
-string ConsoleUI::unicorn() {
-    string uni = "";
-    uni = uni + "                   ." + '\n' +
-"                  /|" + '\n'+
-"                 /_|" + '\n'+
-"             (0)/__|__" + '\n'+
-"               |\/ (.) \\  " + '\n'     +
-"               | \/ \/ \/:> " + '\n'+
-"               |\/ \/ \/_/  " + '\n'+
-"              /\/ \/ | " + '\n'+
-" ____________/ \/ \/ | " + '\n'+
-"/ \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
-"| \/ \/ \/ \/ \/ \/ \/ \/ \/| " + '\n'+
-"|\/ \/_\/_\/_\/_\/_\/_\/ \/ | " + '\n'+
-"|_0|            |_0| " + '\n';
-
-    return uni;
-}
-
-//Display
-void ConsoleUI::displayList() {
-    cout << _appservice.showPeople(_appservice.getList());
-}
-
-
-
 
 
 //Comps**************************
