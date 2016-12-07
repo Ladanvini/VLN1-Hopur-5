@@ -1,7 +1,7 @@
 #ifndef P_C_CONNECTION_H
 #define P_C_CONNECTION_H
-#include "comps.h"
-#include "person.h"
+
+#include "database.h"
 
 
 // User can connect many computers.
@@ -15,8 +15,8 @@ private:
 
 public:
     P_C_Connection();
-    string connUtoC(Person p, vector<Comps> cv);
-    string connCtoU(Comps c, vector<Person> pV);
+    P_C_Connection(Comps c, Person p);
+
     string displayConnection();
 
 
