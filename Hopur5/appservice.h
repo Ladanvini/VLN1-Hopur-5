@@ -1,5 +1,5 @@
-#ifndef PROCESS_H
-#define PROCESS_H
+#ifndef APPSERVICE_H
+#define APPSERVICE_H
 
 #include <string>
 #include <vector>
@@ -43,9 +43,6 @@ public:
     // Showing
     string showPeople(vector<Person> results);
 
-    //SortByDec
-    vector<Person> sortByNameDec();
-
 };
 
-#endif // PROCESS_H
+#endif // APPSERVICE_H

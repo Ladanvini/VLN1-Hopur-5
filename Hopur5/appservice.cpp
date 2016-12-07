@@ -161,14 +161,6 @@ vector<Person> Process::sortByName() {
 
     return sorted;
 }
-vector<Person> Process::sortByNameDec() {
-
-    vector<Person> Results = sortByName();
-    reverse(Results.begin(), Results.end());
-
-    return Results;
-}
-
 vector<Person> Process::sortByAge() {
     vector<string> ages;
     vector<Person> sorted;
@@ -186,9 +178,6 @@ vector<Person> Process::sortByAge() {
 
     return sorted;
 }
-
-
-
 vector<Person> Process::sortBySex(string _sex) {
     vector<Person> result;
     char sex = _sex.at(0);
