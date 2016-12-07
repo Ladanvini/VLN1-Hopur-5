@@ -228,6 +228,8 @@ void Database::delFromCompDB(Comps c) {
 // Add a connection with the given computer and person.
 
  void Database::addToConsDB(Comps c, Person p){
+     _connections.push_back(P_C_Connection(c, p));
+
     _db.open();
 
     QSqlQuery query(_db);
@@ -250,4 +252,22 @@ void Database::delFromCompDB(Comps c) {
         _db.close();
 
 
+ }
+
+ void Database::deleteCons(int cId, int pId){
+     _db.open();
+
+     QSqlQuery query(_db);
+
+     string stmnt;
+     stmnt = "DELETE FROM P_C_con"
+             " WHERE CID = "
+             + std::to_string(cId)
+             + " AND PID = "
+             + std::to_string(pId);
+
+
+
+
+     query.exec(QString::fromStdString(stmnt));
  }
