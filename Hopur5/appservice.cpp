@@ -233,6 +233,17 @@ vector<Person> appservice::sortByBirth() {
 
     return sorted;
 }
+vector<Person> appservice::sortByBirthDec() {
+
+    vector<Person> Results = sortByBirth();
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+
+
+}
+
 vector<Person> appservice::sortByDeath() {
     vector<int> death;
     vector<Person> sorted;
@@ -251,9 +262,9 @@ vector<Person> appservice::sortByDeath() {
     return sorted;
 }
 
-vector<Person> appservice::sortByBirthDec() {
+vector<Person> appservice::sortByDeathDec() {
 
-    vector<Person> Results = sortByBirth();
+    vector<Person> Results = sortByDeath();
 
     reverse(Results.begin(), Results.end());
 
