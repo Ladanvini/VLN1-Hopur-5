@@ -98,9 +98,40 @@ void ConsoleUI::sortMenu() {
     }
     }while(!exitMenu);
 }
-//TODO
+//NEEDS FIXING!
 void ConsoleUI::createMenu() {
+    string input = " ";
+    bool exitMenu = false;
+    string lowline = "--------------------------------------------------------------\n";
 
+    do {
+    cout << "What do you want to create?" << endl;
+    cout << "Person - To create a person" << endl;
+    cout << "Computer - To create a computer" << endl;
+    cout << "Back - To go back to main menu" << endl;
+    cout << "Input: ";
+    input = inputHandling();
+
+    if(input  == "person") {
+        cout << lowline;
+        createMenuPerson();
+    }
+    else if(input == "computer") {
+        cout << lowline;
+        //createMenuComp();
+    }
+    else if(input == "back") {
+        cout << lowline;
+        cout << "Thank you, taking you back to the main menu" << endl;
+        cout << lowline;
+        exitMenu = true;
+    }
+    else {
+        cout << lowline;
+        cout << "Wrong input!" << endl;
+        cout << lowline;
+    }
+    }while(!exitMenu);
 }
 
 //search person
