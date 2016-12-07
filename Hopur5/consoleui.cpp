@@ -35,9 +35,10 @@ void ConsoleUI::searchMenu() {
 
     do {
     cout << "What do you want to search?" << endl;
-    cout << "Input:" << endl;
     cout << "Person - To search a person" << endl;
     cout << "Computer - To search a computer" << endl;
+    cout << "Back - To go back to main menu" << endl;
+    cout << "Input: ";
 
     input = inputHandling();
 
@@ -62,9 +63,40 @@ void ConsoleUI::searchMenu() {
     }
     }while(!exitMenu);
 }
-//TODO
-void ConsoleUI::sortMenu() {
 
+void ConsoleUI::sortMenu() {
+    string input = " ";
+    bool exitMenu = false;
+    string lowline = "--------------------------------------------------------------\n";
+
+    do {
+    cout << "How do you want to sort?" << endl;
+    cout << "Person - To sort persons" << endl;
+    cout << "Computer - To sort computers" << endl;
+    cout << "Back - To go back to main menu" << endl;
+    cout << "Input: ";
+    input = inputHandling();
+
+    if(input  == "person") {
+        cout << lowline;
+        sortMenuPerson();
+    }
+    else if(input == "computer") {
+        cout << lowline;
+        sortMenuComp();
+    }
+    else if(input == "back") {
+        cout << lowline;
+        cout << "Thank you, taking you back to the main menu" << endl;
+        cout << lowline;
+        exitMenu = true;
+    }
+    else {
+        cout << lowline;
+        cout << "Wrong input!" << endl;
+        cout << lowline;
+    }
+    }while(!exitMenu);
 }
 //TODO
 void ConsoleUI::createMenu() {
