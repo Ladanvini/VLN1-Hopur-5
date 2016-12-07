@@ -212,6 +212,17 @@ vector<Person> Process::sortBySex(string _sex) {
 
     return result;
 }
+
+vector<Person> Process::sortBySexDec(string _sex) {
+
+    vector<Person> Results = sortBySex(_sex);
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+
+}
+
 vector<Person> Process::sortByBirth() {
     vector<int> birth;
     vector<Person> sorted;
