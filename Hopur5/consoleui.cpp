@@ -617,7 +617,7 @@ void ConsoleUI::createMenuComp() {
         age = death - birth;
     */
 
-    int id = 0;
+    int id = 1;
 
 
     cout << _compService.create(id, name, type, yearBuilt, built);
