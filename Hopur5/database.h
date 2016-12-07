@@ -7,8 +7,9 @@
 //#include <QtSql>
 #include <QtSql>
 
-#include "comps.h"
-#include "person.h"
+//#include "comps.h"
+//#include "person.h"
+#include "p_c_connection.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ private:
     vector<Person> _people;
     string _dbFile;
     vector<Comps> _computers;
+    vector<P_C_Connection> _connections;
 public:
     Database();
     //Constructor opens connection and fills vectors from the database.
@@ -39,6 +41,8 @@ public:
     bool exists(Person p);
     //Checks if the computer already exists.
     bool existsInCompDB(Comps c);
+    //Checks if connection already exists
+    bool existsInConns(P_C_Connection pccon);
     //Deletes a person from the database.
     void delFromDB(Person p);
     //Deletes a computer from the database.
