@@ -20,6 +20,10 @@ public:
     void searchMenu();
     void sortMenu();
     void createMenu();
+
+    void searchMenuPerson();
+    void sortMenuPerson();
+    void createMenuPerson();
     void runUI();
     string unicorn();
     void displayList();
