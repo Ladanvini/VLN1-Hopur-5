@@ -15,8 +15,12 @@ private:
 public:
     ConsoleUI();
     ConsoleUI(appservice p, CompService c);
+
     string inputHandling();
-    //string tolower();
+    string unicorn();
+    string cORp(string name);
+    void displayList();
+
     void searchMenu();
     void sortMenu();
     void createMenu();
@@ -25,8 +29,7 @@ public:
     void sortMenuPerson();
     void createMenuPerson();
     void runUI();
-    string unicorn();
-    void displayList();
+
 
     void searchMenuComp();
     void sortMenuComp();

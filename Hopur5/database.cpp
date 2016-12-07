@@ -164,6 +164,15 @@ bool Database::exists(Person p) {
     }
     return false;
 }
+//Checks if connection already exists
+bool Database::existsInConns(P_C_Connection pccon){
+    for(unsigned int i=0; i<_connections.size(); i++) {
+        if(pccon.compare(_connections.at(i)))
+            return true;
+    }
+    return false;
+}
+
 //Adds a new computer to the Database
 void Database::writeToCompDB(Comps c) {
     _db.open();
