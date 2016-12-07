@@ -187,7 +187,13 @@ vector<Person> Process::sortByAge() {
     return sorted;
 }
 
+vector<Person> Process::sortByAgeDec() {
+    vector<Person> Results = sortByAge();
+    reverse(Results.begin(), Results.end());
 
+return Results;
+
+}
 
 vector<Person> Process::sortBySex(string _sex) {
     vector<Person> result;
