@@ -47,6 +47,7 @@ public:
     vector<Person> sortByNameDec();
     vector<Person> sortByAgeDec();
     vector<Person> sortBySexDec(string _sex);
+    vector<Person> sortByBirthDec();
 
 };
 

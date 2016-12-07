@@ -250,6 +250,17 @@ vector<Person> appservice::sortByDeath() {
 
     return sorted;
 }
+
+vector<Person> appservice::sortByBirthDec() {
+
+    vector<Person> Results = sortByBirth();
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+
+}
+
 vector<Person> appservice::sortByTuring (string _flag) {
     vector<Person> result;
 
