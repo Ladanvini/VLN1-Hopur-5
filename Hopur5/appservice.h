@@ -43,6 +43,9 @@ public:
     // Showing
     string showPeople(vector<Person> results);
 
+    //SortByDec
+    vector<Person> sortByNameDec();
+
 };
 
 #endif // PROCESS_H

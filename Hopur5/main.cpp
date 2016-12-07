@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
 
 //    string path = QCoreApplication::applicationDirPath().toStdString() + "/database.txt";
-    Database* db = new Database("/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/create.sqlite");
+    Database* db = new Database("/Users/BjarniKristinn/VLN1-Hopur-5/create.sqlite");
     Process* doStuff = new Process(*db);
 
     ConsoleUI ui(*doStuff);
