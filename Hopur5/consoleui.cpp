@@ -579,6 +579,52 @@ void ConsoleUI::sortMenuComp() {
     }while(!exitMenu);
 }
 
+void ConsoleUI::createMenuComp() {
+    string name;
+    string type;
+    string yearBuiltstr;
+    int yearBuilt;
+    bool built;
+
+    cout << "Enter Name (Using correct capitalization of letters): " << endl;
+    getline(cin, name);
+    //    cout << "Enter The Age Of Contribution( 0 if unknown): " << endl;
+    //    getline(cin, agestr);
+    cout << "Enter type: " << endl;
+    getline(cin, type);
+    cout << "Enter year built: " << endl;
+    getline(cin, yearBuiltstr);
+
+
+    yearBuilt = stoi(yearBuiltstr);
+
+    if(yearBuilt != 0) {
+        built = true;
+    }
+    else {
+        built = false;
+    }
+
+    /*
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+    //int currMonth = (now->tm_mon + 1);
+    //int currDay = now->tm_mday;
+
+
+    if(death == 0)
+        age = currYear - birth;
+    else
+        age = death - birth;
+    */
+
+    int id = 0;
+
+
+    cout << _compService.create(id, name, type, yearBuilt, built);
+}
+
 void ConsoleUI::runUIComp() {
     string input = " ";
     bool exitUI = false;
