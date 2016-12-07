@@ -43,7 +43,8 @@ public:
     void delFromDB(Person p);
     //Deletes a computer from the database.
     void delFromCompDB(Comps c);
-
+    //Add connection to database
+    void addToConsDB(Comps c, Person p);
     //TODO delete the following functions!
 
     void reWriteDb();
