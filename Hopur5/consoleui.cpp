@@ -392,8 +392,6 @@ void ConsoleUI::searchMenuComp() {
             int ifbuilt;
             ifbuilt = stoi(input);
             cout << _compService.showComputers(_compService.searchByBuilt(ifbuilt));
-
-
         }
         else if(input == "type") {
             cout << lowline;
