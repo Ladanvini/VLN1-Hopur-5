@@ -344,7 +344,7 @@ void ConsoleUI::displayList() {
 
 //Comps**************************
 //*******************************
-//search
+//searchComps
 void ConsoleUI::searchMenuComp() {
     string input = "";
     bool exitMenu = false;
@@ -353,9 +353,9 @@ void ConsoleUI::searchMenuComp() {
 
     do {
         cout << "Please enter one of these commands" << endl;
-        cout << "Name - Search by computer\'s name (Using correct capitalization of letters)" << endl;
-        cout << "ID - Search by computer\'s ID" << endl;
-        cout << "Type - Search by computer\'s type" << endl;
+        cout << "Name - Search by computer's name (Using correct capitalization of letters)" << endl;
+        cout << "ID - Search by computer's ID" << endl;
+        cout << "Type - Search by computer's type" << endl;
         cout << "Built - Search by if computer has been built and then when" << endl;
         cout << "Back - Go back to the main menu" << endl;
 
@@ -416,8 +416,8 @@ void ConsoleUI::searchMenuComp() {
     }while(!exitMenu);
 }
 
-//sortMenu
-/*void ConsoleUI::sortMenuComp() {
+//sortMenuComps
+void ConsoleUI::sortMenuComp() {
     string lowline = "--------------------------------------------------------------\n";
     string input = "";
     bool exitMenu = false;
@@ -445,7 +445,7 @@ void ConsoleUI::searchMenuComp() {
             cout << "The list sorted by ID number: " << endl;
             cout << lowline;
             cout << _compService.showComputers(_compService.sortByID());
-        }
+        }*/
         else if(input == "type") {
             cout << lowline;
             cout << "The list sorted by type: " << endl;
@@ -540,4 +540,4 @@ void ConsoleUI::runUIComp() {
 
     }while(!exitUI);
 }
-*/
+
