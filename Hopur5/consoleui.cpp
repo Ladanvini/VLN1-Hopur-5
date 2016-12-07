@@ -130,7 +130,7 @@ void ConsoleUI::sortMenu() {
     }
     }while(!exitMenu);
 }
-//NEEDS FIXING!
+
 void ConsoleUI::createMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -147,6 +147,37 @@ void ConsoleUI::createMenu() {
     else if(input == "computer") {
         cout << lowline;
         createMenuComp();
+    }
+    else if(input == "back") {
+        cout << lowline;
+        cout << "Thank you, taking you back to the main menu" << endl;
+        cout << lowline;
+        exitMenu = true;
+    }
+    else {
+        cout << lowline;
+        cout << "Wrong input!" << endl;
+        cout << lowline;
+    }
+    }while(!exitMenu);
+}
+
+void ConsoleUI::deleteMenu() {
+    string input = " ";
+    bool exitMenu = false;
+    string lowline = "--------------------------------------------------------------\n";
+
+    do {
+
+    input = cORp("delete");
+
+    if(input  == "person") {
+        cout << lowline;
+        deleteMenuPerson();
+    }
+    else if(input == "computer") {
+        cout << lowline;
+        //deleteMenuComp();
     }
     else if(input == "back") {
         cout << lowline;
@@ -380,6 +411,19 @@ void ConsoleUI::createMenuPerson() {
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 
+void ConsoleUI::deleteMenuPerson() {
+    string name = " ";
+    string input = " ";
+    string lowline = "--------------------------------------------------------------\n";
+    cout << "Enter the person's name: \n";
+    getline(cin, name);
+    cout << "Enter the person's birth year: \n";
+    input = inputHandling();
+    int birth = stoi(input);
+    cout << _appservice.deletePerson(name, birth) << endl;
+    cout << lowline << endl;
+}
+
 //Main Menu
 void ConsoleUI::runUI() {
     string input = " ";
@@ -422,15 +466,8 @@ void ConsoleUI::runUI() {
             displayList();
         }
         else if(input == "delete") {
-            string name;
             cout << lowline;
-            cout << "Enter the person's name: \n";
-            getline(cin, name);
-            cout << "Enter the person's birth year: \n";
-            input = inputHandling();
-            int birth = stoi(input);
-            cout << _appservice.deletePerson(name, birth) << endl;
-            cout << lowline << endl;
+            deleteMenu();
         }
         else if(input == "exit") {
             cout << lowline;
