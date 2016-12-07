@@ -19,6 +19,8 @@ appservice::appservice(Database _db) {
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
+    if(name.empty()||name[0] == ' ')
+        return "Name was not accepted\n";
     if(age>150 || age < 1)
         return "Age was not accepcted\n";
     if(sex != 'm' && sex != 'f')
