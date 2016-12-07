@@ -5,18 +5,18 @@
 
 using namespace std;
 
-Process::Process() {
+appservice::appservice() {
 
 }
 
-Process::Process(Database _db) {
+appservice::appservice(Database _db) {
    db = _db;
    people = _db.getList();
 }
 
 //####################ADD NEW###################//
 
-string Process::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
+string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
     if(
@@ -44,7 +44,7 @@ string Process::create(int id, string name, int age, char sex, int birth, int de
 
 //####################SEARCH###################//
 
-vector<Person> Process::searchByName(string name) {
+vector<Person> appservice::searchByName(string name) {
     transform(name.begin(), name.end(), name.begin(), ::tolower);
     string _name = "";
 
@@ -61,7 +61,7 @@ vector<Person> Process::searchByName(string name) {
 
     return result;
 }
-vector<Person> Process::searchByAge(string age) {
+vector<Person> appservice::searchByAge(string age) {
     vector<Person> result;
     string _age;
     for(size_t i = 0; i < people.size(); i++) {
@@ -75,7 +75,7 @@ vector<Person> Process::searchByAge(string age) {
 
     return result;
 }
-vector<Person> Process::searchBySex(string _sex) {
+vector<Person> appservice::searchBySex(string _sex) {
     vector<Person> result;
     char sex = _sex.at(0);
     for(size_t i = 0; i < people.size(); i++) {
@@ -86,7 +86,7 @@ vector<Person> Process::searchBySex(string _sex) {
 
     return result;
 }
-vector<Person> Process::searchByDeath(string death) {
+vector<Person> appservice::searchByDeath(string death) {
     vector<Person> result;
     string _death;
     for(size_t i = 0; i < people.size(); i++) {
@@ -99,7 +99,7 @@ vector<Person> Process::searchByDeath(string death) {
 
     return result;
 }
-vector<Person> Process::searchByBirth(string birth) {
+vector<Person> appservice::searchByBirth(string birth) {
     vector<Person> result;
     string _birth;
     for(size_t i = 0; i < people.size(); i++) {
@@ -112,7 +112,7 @@ vector<Person> Process::searchByBirth(string birth) {
 
     return result;
 }
-vector<Person> Process::searchByContribution(string contribution) {
+vector<Person> appservice::searchByContribution(string contribution) {
     vector<Person> result;
     string _cont;
     for(size_t i = 0; i < people.size(); i++) {
@@ -125,7 +125,7 @@ vector<Person> Process::searchByContribution(string contribution) {
 
     return result;
 }
-vector<Person> Process::searchByTuring(string _flag) {
+vector<Person> appservice::searchByTuring(string _flag) {
     vector<Person> result;
     bool flag;
     if(_flag.find("yes") != std::string::npos) {
@@ -145,7 +145,7 @@ vector<Person> Process::searchByTuring(string _flag) {
 
 //####################Sort#####################//
 
-vector<Person> Process::sortByName() {
+vector<Person> appservice::sortByName() {
     vector<string> names;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -161,7 +161,7 @@ vector<Person> Process::sortByName() {
 
     return sorted;
 }
-vector<Person> Process::sortByAge() {
+vector<Person> appservice::sortByAge() {
     vector<string> ages;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -178,7 +178,17 @@ vector<Person> Process::sortByAge() {
 
     return sorted;
 }
-vector<Person> Process::sortBySex(string _sex) {
+
+
+vector<Person> appservice::sortByAgeDec() {
+    vector<Person> Results = sortByAge();
+    reverse(Results.begin(), Results.end());
+
+return Results;
+
+}
+
+vector<Person> appservice::sortBySex(string _sex) {
     vector<Person> result;
     char sex = _sex.at(0);
     for(size_t i = 0; i < people.size(); i++) {
@@ -195,7 +205,18 @@ vector<Person> Process::sortBySex(string _sex) {
 
     return result;
 }
-vector<Person> Process::sortByBirth() {
+
+vector<Person> appservice::sortBySexDec(string _sex) {
+
+    vector<Person> Results = sortBySex(_sex);
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+
+}
+
+vector<Person> appservice::sortByBirth() {
     vector<int> birth;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -212,7 +233,7 @@ vector<Person> Process::sortByBirth() {
 
     return sorted;
 }
-vector<Person> Process::sortByDeath() {
+vector<Person> appservice::sortByDeath() {
     vector<int> death;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -229,7 +250,18 @@ vector<Person> Process::sortByDeath() {
 
     return sorted;
 }
-vector<Person> Process::sortByTuring (string _flag) {
+
+vector<Person> appservice::sortByBirthDec() {
+
+    vector<Person> Results = sortByBirth();
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+
+}
+
+vector<Person> appservice::sortByTuring (string _flag) {
     vector<Person> result;
 
     bool flag;
@@ -255,7 +287,7 @@ vector<Person> Process::sortByTuring (string _flag) {
 
 //####################Delete####################//
 
-string Process::deletePerson(string _name, int birth) {
+string appservice::deletePerson(string _name, int birth) {
     bool flag = false;
     string p_name;
     Person result;
@@ -282,7 +314,7 @@ string Process::deletePerson(string _name, int birth) {
 
 //####################Showing#################//
 
-string Process::showPeople(vector<Person> results) {
+string appservice::showPeople(vector<Person> results) {
 
     string temp = "";
 

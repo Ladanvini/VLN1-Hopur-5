@@ -12,8 +12,8 @@ ConsoleUI::ConsoleUI() {
 
 }
 
-ConsoleUI::ConsoleUI(Process p) {
-    _process = p;
+ConsoleUI::ConsoleUI(appservice p) {
+    _appservice = p;
 }
 
 //Takes input and puts them in lowercasing
@@ -54,7 +54,7 @@ void ConsoleUI::searchMenu() {
             cout << "Enter the name here: " << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByName(input));
+            cout << _appservice.showPeople(_appservice.searchByName(input));
         }
         else if(input == "unicorn"){
             cout << lowline;
@@ -66,42 +66,42 @@ void ConsoleUI::searchMenu() {
             cout << "Please enter the age you want" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByAge(input));
+            cout << _appservice.showPeople(_appservice.searchByAge(input));
         }
         else if(input == "sex") {
             cout << lowline;
             cout << "Please enter the gender" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchBySex(input));
+            cout << _appservice.showPeople(_appservice.searchBySex(input));
         }
         else if(input == "birth") {
             cout << lowline;
             cout << "Enter the birth year please" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByBirth(input));
+            cout << _appservice.showPeople(_appservice.searchByBirth(input));
         }
         else if(input == "death") {
             cout << lowline;
             cout << "Enter the death year (0 if still alive)" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByDeath(input));
+            cout << _appservice.showPeople(_appservice.searchByDeath(input));
         }
         else if(input == "contribution") {
             cout << lowline;
             cout << "Enter the contribution you're looking for" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByContribution(input));
+            cout << _appservice.showPeople(_appservice.searchByContribution(input));
         }
         else if(input == "turing") {
             cout << lowline;
             cout << "If you're looking for people who have won a turing award, enter yes, otherwise enter no" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.searchByTuring(input));
+            cout << _appservice.showPeople(_appservice.searchByTuring(input));
         }
         else if(input == "back") {
             cout << lowline;
@@ -140,40 +140,40 @@ void ConsoleUI::sortMenu() {
             cout << lowline;
             cout << "The list sorted alphabetically: " << endl;
             cout << lowline;
-            cout << _process.showPeople(_process.sortByName());
+            cout << _appservice.showPeople(_appservice.sortByName());
         }
         else if(input == "age") {
             cout << lowline;
             cout << "The list sorted by age of contribution: " << endl;
             cout << lowline;
-            cout << _process.showPeople(_process.sortByAge());
+            cout << _appservice.showPeople(_appservice.sortByAge());
         }
         else if(input == "sex") {
             cout << lowline;
             cout << "Enter the gender you want the list to be sorted by" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.sortBySex(input));
+            cout << _appservice.showPeople(_appservice.sortBySex(input));
         }
         else if(input == "birth") {
             cout << lowline;
             cout << "Sorted from eldest to youngest" << endl;
             cout << lowline;
-            cout << _process.showPeople(_process.sortByBirth());
+            cout << _appservice.showPeople(_appservice.sortByBirth());
         }
         else if(input == "death") {
             cout << lowline;
             cout << "Sorted by year died" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.sortByDeath());
+            cout << _appservice.showPeople(_appservice.sortByDeath());
         }
         else if(input == "turing") {
             cout << lowline;
             cout << "Sort by those who won turing award, input yes" << endl;
             input = inputHandling();
             cout << lowline;
-            cout << _process.showPeople(_process.sortByTuring(input));
+            cout << _appservice.showPeople(_appservice.sortByTuring(input));
         }
         else if(input == "back"){
             cout << lowline;
@@ -242,7 +242,7 @@ void ConsoleUI::createMenu() {
 
     char _sex = sex.at(0);
 
-    cout << _process.create(id, name, age, _sex, birth, death, contribution, turing);
+    cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 
 //Main Menu
@@ -294,7 +294,7 @@ void ConsoleUI::runUI() {
             cout << "Enter the person's birth year: \n";
             input = inputHandling();
             int birth = stoi(input);
-            cout << _process.deletePerson(name, birth) << endl;
+            cout << _appservice.deletePerson(name, birth) << endl;
             cout << lowline << endl;
         }
         else if(input == "exit") {
@@ -334,7 +334,7 @@ string ConsoleUI::unicorn() {
 
 //Display
 void ConsoleUI::displayList() {
-    cout << _process.showPeople(_process.getList());
+    cout << _appservice.showPeople(_appservice.getList());
 }
 
 

@@ -10,11 +10,11 @@ using namespace std;
 
 class ConsoleUI {
 private:
-    Process _process;
     CompService _compService;
+    appservice _appservice;
 public:
     ConsoleUI();
-    ConsoleUI(Process p);
+    ConsoleUI(appservice p);
     string inputHandling();
     //string tolower();
     void searchMenu();
