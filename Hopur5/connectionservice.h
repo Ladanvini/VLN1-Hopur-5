@@ -3,13 +3,9 @@
 #include "database.h"
 
 
-class connectionService
-{
-
+class connectionService {
 private:
-
     Database _db;
-
 public:
     connectionService();
     connectionService(Database db);
