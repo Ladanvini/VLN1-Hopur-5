@@ -19,13 +19,14 @@ appservice::appservice(Database _db) {
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
-    if(
-            (age>150 || age < 1)
-            || (sex != 'm' && sex != 'f')
-            || (birth < 1000 || birth > 2016)
-            || (death > 2016 || (death != 0 && death < birth ))
-            )
-        return "unacceptable value in one of the fields\n";
+    if(age>150 || age < 1)
+        return "Age was not accepcted\n";
+    if(sex != 'm' && sex != 'f')
+        return "Sex was not accepted value\n";
+    if(birth < 1000 || birth > 2016)
+        return "Birth year was not accepted value\n";
+    if(death > 2016 || (death != 0 && death < birth )
+        return "Death year was not accepted value\n";
 
     if(db.exists(*p)) {
         flag = true;
