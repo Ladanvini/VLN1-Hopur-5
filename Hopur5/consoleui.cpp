@@ -183,7 +183,7 @@ void ConsoleUI::deleteMenu() {
     }
     else if(input == "computer") {
         cout << lowline;
-        //deleteMenuComp();
+        deleteMenuComp();
     }
     else if(input == "back") {
         cout << lowline;
@@ -448,7 +448,7 @@ void ConsoleUI::runUI() {
                  or famous computers" << endl;
         cout << "Add - Adds a person or a computer to the database" << endl;
         cout << "Search - Searches the database" << endl;
-        cout << "Sort - Displays the database sorted order from options" << endl;
+        cout << "Sort - Displays the database in sorted order from options" << endl;
         cout << "Delete - Deletes a person or a computer from the list" << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
@@ -636,9 +636,9 @@ void ConsoleUI::createMenuComp() {
     getline(cin, name);
     //    cout << "Enter The Age Of Contribution( 0 if unknown): " << endl;
     //    getline(cin, agestr);
-    cout << "Enter type: " << endl;
+    cout << "Enter Type: " << endl;
     getline(cin, type);
-    cout << "Enter year built: " << endl;
+    cout << "Enter Year Built (Enter 0 if it has not been built): " << endl;
     getline(cin, yearBuiltstr);
 
 
@@ -651,24 +651,23 @@ void ConsoleUI::createMenuComp() {
         built = false;
     }
 
-    /*
-    time_t t = time(0);   // get time now
-    struct tm * now = localtime( & t );
-    int currYear = (now->tm_year + 1900);
-    //int currMonth = (now->tm_mon + 1);
-    //int currDay = now->tm_mday;
-
-
-    if(death == 0)
-        age = currYear - birth;
-    else
-        age = death - birth;
-    */
 
     int id = 1;
 
 
     cout << _compService.create(id, name, type, yearBuilt, built);
+}
+
+void ConsoleUI::deleteMenuComp() {
+    string name = " ";
+    string type = " ";
+    string lowline = "--------------------------------------------------------------\n";
+    cout << "Enter the computer's name: \n";
+    getline(cin, name);
+    cout << "Enter the computer's type: \n";
+    getline(cin, type);
+    cout << _compService.deleteComputers(name, type) << endl;
+    cout << lowline << endl;
 }
 
 void ConsoleUI::runUIComp() {
@@ -683,7 +682,7 @@ void ConsoleUI::runUIComp() {
         cout << "Display - Displays the list of famous computers" << endl;
         cout << "Add - Adds a computer to the list" << endl;
         cout << "Search - Searches for a computer in the list" << endl;
-        cout << "Sort - Displays the list sorted order from options" << endl;
+        cout << "Sort - Displays the list in sorted order from options" << endl;
         cout << "Delete - Deletes a computer from the list" << endl;
         cout << "Unicorn - A unicorn" << endl;
 //BACK MENU INSTEAD OF EXIT?

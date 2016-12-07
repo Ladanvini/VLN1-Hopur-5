@@ -37,6 +37,7 @@ public:
     void searchMenuComp();
     void sortMenuComp();
     void createMenuComp();
+    void deleteMenuComp();
     void runUIComp();
     void displayListComp();
 };
