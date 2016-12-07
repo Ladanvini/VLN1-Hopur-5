@@ -10,14 +10,14 @@
 
 using namespace std;
 
-class Process {
+class appservice {
 private:
     Database db;
     vector<Person> people;
     Person person;
 public:
-    Process();
-    Process(Database _db);
+    appservice();
+    appservice(Database _db);
     vector<Person> getList() { return people; }
     //Search
     string create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear);
