@@ -43,13 +43,10 @@ public:
     // Showing
     string showPeople(vector<Person> results);
 
-<<<<<<< HEAD
-=======
     //SortByDec
     vector<Person> sortByNameDec();
     vector<Person> sortByAgeDec();
 
->>>>>>> 5e1a6438a5c5091beaefdac3abf3b6b4e9031f7d
 };
 
 #endif // APPSERVICE_H
