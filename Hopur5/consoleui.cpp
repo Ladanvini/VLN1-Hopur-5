@@ -49,9 +49,17 @@ string ConsoleUI::unicorn() {
 }
 
 string ConsoleUI::cORp(string name){
+    string grammar = "";
+
+    if(name == "search")
+        grammar = "for";
+    else if(name == "sort")
+        grammar = "by";
+    else if(name == "create")
+        grammar = "a";
     cout << "What do you want to "+ name +"?" << endl;
-    cout << "Person - To "+name+" a person" << endl;
-    cout << "Computer - To "+name+" a computer" << endl;
+    cout << "Person - To "+name+" "+grammar+" person" << endl;
+    cout << "Computer - To "+name+" "+grammar+" computer" << endl;
     cout << "Back - To go back to main menu" << endl;
     cout << "Input: ";
 
@@ -99,12 +107,7 @@ void ConsoleUI::sortMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    cout << "How do you want to sort?" << endl;
-    cout << "Person - To sort persons" << endl;
-    cout << "Computer - To sort computers" << endl;
-    cout << "Back - To go back to main menu" << endl;
-    cout << "Input: ";
-    input = inputHandling();
+    input = cORp("sort");
 
     if(input  == "person") {
         cout << lowline;
@@ -134,12 +137,8 @@ void ConsoleUI::createMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    cout << "What do you want to create?" << endl;
-    cout << "Person - To create a person" << endl;
-    cout << "Computer - To create a computer" << endl;
-    cout << "Back - To go back to main menu" << endl;
-    cout << "Input: ";
-    input = inputHandling();
+
+    input = cORp("create");
 
     if(input  == "person") {
         cout << lowline;
