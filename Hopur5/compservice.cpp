@@ -17,10 +17,14 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
     bool flag = false;
 
-     if((yearBuilt > 100 ||!(yearBuilt != 0 && yearBuilt < 2016 )))
-        return "unacceptable value in one of the fields\n";
+    if(((yearBuilt < 100 && yearBuilt != 0) || yearBuilt > 2016))
+        return "Unacceptable value for year built!\n";
+    if(type.empty() || type.at(0) == ' ')
+        return "Type was not accepted!\n";
+    if(name.empty() || name.at(0) == ' ')
+        return "Name was not accepted!\n";
 
-        if(_db.existsInCompDB(*newComputer)) {
+    if(_db.existsInCompDB(*newComputer)) {
             flag = true;
     }
     if(flag) {

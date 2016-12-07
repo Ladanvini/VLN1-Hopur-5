@@ -146,7 +146,7 @@ void ConsoleUI::createMenu() {
     }
     else if(input == "computer") {
         cout << lowline;
-        //createMenuComp();
+        createMenuComp();
     }
     else if(input == "back") {
         cout << lowline;
