@@ -296,6 +296,14 @@ vector<Person> appservice::sortByTuring (string _flag) {
     return result;
 }
 
+vector<Person> appservice::sortByTuringDec(string _flag) {
+    vector<Person> Results = sortByTuring(_flag);
+
+    reverse(Results.begin(), Results.end());
+
+    return Results;
+}
+
 //####################Delete####################//
 
 string appservice::deletePerson(string _name, int birth) {
