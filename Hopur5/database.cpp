@@ -216,3 +216,11 @@ void Database::delFromCompDB(Comps c) {
     query.exec(QString::fromStdString(stmnt));
 
 }
+// Add a connection with the given computer and person.
+
+ void addToConsDB(Comps c, Person p){
+    _db.open();
+
+
+
+ }
