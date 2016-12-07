@@ -1,6 +1,7 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
+../build-Hopur5-Desktop_Qt_5_7_0_clang_64bit-Debug/
 *~
 *.autosave
 *.a
