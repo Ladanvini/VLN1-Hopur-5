@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 
     QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
-    //Database* db = new Database("create.sqlite");
+
     Database* db = new Database(path);
     appservice* doStuff = new appservice(*db);
     CompService* cs = new CompService(*db);

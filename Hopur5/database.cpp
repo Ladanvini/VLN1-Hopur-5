@@ -36,7 +36,7 @@ Database::Database(QString dbName) {
     int age;
     int birthYear;
     int deathYear;
-    QChar sex;
+    QString sex;
     QString contribution;
     int turingYear;
     bool turing;
@@ -46,12 +46,13 @@ Database::Database(QString dbName) {
         name = query.value("pName").toString();
         birthYear = query.value("pBirthYear").toInt();
         deathYear = query.value("pDeathYear").toInt();
-        sex = query.value("pSex").toChar();
+        sex = query.value("pSex").toString();
         contribution = query.value("pContribution").toString();
         turingYear = query.value("pTuringYear").toInt();
         turing = query.value("pTuring").toBool();
 
-        _people.push_back(Person(id, name.toStdString(), sex.toLatin1(), birthYear, deathYear, contribution.toStdString(), turingYear));
+
+        _people.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 
     QSqlQuery queryC(_db);
