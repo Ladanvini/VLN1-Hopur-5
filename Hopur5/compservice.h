@@ -31,7 +31,7 @@ public:
     // Edit
     // Showing
     string showComputers(vector<Comps> results);
-
+    bool containsID(vector<int> ids, int id);
 };
 
 #endif // COMPSERVICE_H
