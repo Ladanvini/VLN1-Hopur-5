@@ -325,7 +325,7 @@ void ConsoleUI::sortMenuPerson() {
         input = inputHandling();
 
         if(input == "name") {
-            cout << "You want it in a table or list?"
+            cout << "You want it in a table or list?" << endl;
             cout << lowline;
             input = inputHandling();
             if(input == "list"){
