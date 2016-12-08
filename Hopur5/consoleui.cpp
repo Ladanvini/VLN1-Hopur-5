@@ -238,10 +238,23 @@ void ConsoleUI::searchMenuPerson() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "Enter the name here: " << endl;
+            cout << "You want them displayed in a list or table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByName(input));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Enter the name here: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByName(input));
+            }else if(input == "table") {
+                cout << lowline;
+                cout << "Enter the name here: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByName(input));
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "unicorn"){
             cout << lowline;
@@ -250,33 +263,78 @@ void ConsoleUI::searchMenuPerson() {
         }
         else if(input == "age") {
             cout << lowline;
-            cout << "Please enter the age you want" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByAge(input));
-        }
+            if(input == "list"){
+                cout << "Please enter the age you want to search for: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByAge(input));
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "Please enter the age you want to search for: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByAge(input));
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
+         }
         else if(input == "sex") {
             cout << lowline;
-            cout << "Please enter the gender" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchBySex(input));
+            if(input == "list"){
+                cout << "Please input the gender, m for males or f for females." << endl;
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchBySex(input));
+            }else if(input == "table"){
+                cout << "Please input the gender, m for males or f for females." << endl;
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchBySex(input));
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "birth") {
             cout << lowline;
-            cout << "Enter the birth year please" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByBirth(input));
+            if(input == "list"){
+                cout << "Enter the birth year: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByBirth(input));
+            }else if(input == "table"){
+                cout << "Enter the birth year: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByBirth(input));
+            }else {
+                cout << lowline;
+                cout << "Wront input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "death") {
             cout << lowline;
-            cout << "Enter the death year (0 if still alive)" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByDeath(input));
+            if(input == "list"){
+                cout << "Enter the year they died(0 if they are still alive): ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByDeath(input));
+            }else if(input == "table"){
+                cout << "Enter the year they died(0 if they are still alive): ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByDeath(input));
+            }else {
+                cout << lowline;
+                cout << "Wront input" << endl;
+                cout << lowline;
+            }
         }
-        else if(input == "contribution") {
+        else if(input == "contribution") { //Needs to be displayed in list
             cout << lowline;
             cout << "Enter the contribution you're looking for" << endl;
             input = inputHandling();
@@ -285,10 +343,25 @@ void ConsoleUI::searchMenuPerson() {
         }
         else if(input == "turing") {
             cout << lowline;
-            cout << "If you're looking for people who have won a turing award, enter yes, otherwise enter no" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByTuring(input));
+            if(input == "list"){
+                cout << "Inputs: " << endl;
+                cout << "  Yes: Displays those that have won a turing award" << endl;
+                cout << "  No : Displays those that have not won a turing award" << endl;
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByTuring(input));
+            }else if(input == "table"){
+                cout << "Inputs: " << endl;
+                cout << "  Yes: Displays those that have won a turing award" << endl;
+                cout << "  No : Displays those that have not won a turing award" << endl;
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByTuring(input));
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "back") {
             cout << lowline;
