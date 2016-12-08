@@ -319,8 +319,8 @@ void ConsoleUI::sortMenuPerson() {
                 cout << _appservice.showPeople(_appservice.sortByName());
             }else if(input == "descending"){
                 cout << "The list sorted descending: " << endl;
-                cout << lowline << endl << "SHIT" << endl;
-                //cout << _appservice.showPeople(_appservice.sortByNameDec());
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByNameDec());
             }else{
                 cout << "Wrong input" << endl;
                 cout << lowline;
