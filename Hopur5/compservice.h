@@ -1,5 +1,7 @@
 #ifndef COMPSERVICE_H
 #define COMPSERVICE_H
+
+#include <ctime>
 #include "database.h"
 
 

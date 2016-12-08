@@ -309,35 +309,81 @@ void ConsoleUI::sortMenuPerson() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "The list sorted alphabetically: " << endl;
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByName());
+            cout << "You want the list ascending or descending?" << endl;
+            input = inputHandling();
+            if(input == "ascending"){
+                cout << "The list sorted ascending: " << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByName());
+            }else if(input == "descending"){
+                cout << "The list sorted descending: " << endl;
+                cout << lowline << endl << "SHIT" << endl;
+                //cout << _appservice.showPeople(_appservice.sortByNameDec());
+            }else{
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "age") {
             cout << lowline;
-            cout << "The list sorted by age of contribution: " << endl;
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByAge());
+            cout << "You want the list ascending or descending?" << endl;
+            input = inputHandling();
+            if(input == "ascending"){
+                cout << "The list sorted by age of contribution: " << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByAge());
+            }else if(input == "descending"){
+                cout << "The list sorted descending: " << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByAgeDec());
+            }else{
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "sex") {
             cout << lowline;
-            cout << "Enter the gender you want the list to be sorted by" << endl;
+            cout << "Enter the gender you want the list to be sorted by, m or f" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortBySex(input));
+            if(input == "m" || input == "f"){
+               cout << "Showing "+input+" first" << endl;
+               cout << lowline;
+               cout << _appservice.showPeople(_appservice.sortBySex(input));
+            }else {
+               cout << "Wrong Input" << endl;
+               cout << lowline;
+            }
         }
         else if(input == "birth") {
             cout << lowline;
-            cout << "Sorted from eldest to youngest" << endl;
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByBirth());
+            cout << "You want the list sorted first oldest or first youngest?" << endl;
+            input = inputHandling();
+            if(input == "oldest"){
+                cout << "Showing oldest to youngest" << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByBirth());
+            }else if(input == "youngest"){
+                cout << "Showing youngest to oldest" << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByBirthDec());
+            }
         }
         else if(input == "death") {
             cout << lowline;
-            cout << "Sorted by year died" << endl;
+            cout << "Sorted by year died ascending or descending?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByDeath());
+            if(input == "ascending"){
+                cout << "List sorted ascending" << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByDeath());
+            }else if(input == "descending"){
+                cout << "List sorted descending" << endl;
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByDeathDec());
+            }else {
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "turing") {
             cout << lowline;
@@ -359,6 +405,7 @@ void ConsoleUI::sortMenuPerson() {
         }
     }while(!exitMenu);
 }
+
 
 //create option for person
 void ConsoleUI::createMenuPerson() {
