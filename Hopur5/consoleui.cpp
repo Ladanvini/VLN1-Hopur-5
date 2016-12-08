@@ -575,22 +575,56 @@ void ConsoleUI::sortMenuComp() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "The list sorted alphabetically: " << endl;
-            cout << lowline;
-            cout << _compService.showComputers(_compService.sortByName());
+            cout << "You want the list sorted ascending or descending?" << endl;
+            input = inputHandling();
+            if(input == "ascending"){
+                cout << "List sorted ascending: " << endl;
+                cout << _compService.showComputers(_compService.sortByName());
+                cout << lowline;
+            }else if(input == "descending"){
+                cout << "List sorterd descending: " << endl;
+                cout << _compService.showComputers(_compService.sortByNameDec());
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "id") {
             cout << lowline;
-            cout << "The list sorted by ID number: " << endl;
-            cout << lowline;
-            cout << _compService.showComputers(_compService.sortByID());
+            cout << "You want the list sorted ascending or descending?" << endl;
+            input = inputHandling();
+            if(input == "ascending"){
+                cout << "Id's in ascending order: " << endl;
+                cout << _compService.showComputers(_compService.sortByID());
+                cout << lowline;
+            }else if(input == "descending"){
+                cout << "Id's in descending order: " << endl;
+                cout << _compService.showComputers(_compService.sortByIDDec());
+                cout << lowline;
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "type") {
             cout << lowline;
-            cout << "The list sorted by type: " << endl;
+            cout << "You want the list sorted ascending or descending?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _compService.showComputers(_compService.sortByType());
+            if(input == "ascending"){
+                cout << "List sorted ascending: " << endl;
+                cout << _compService.showComputers(_compService.sortByType());
+                cout << lowline;
+            }else if(input == "descending"){
+                cout << "List sorted descending: " << endl;
+                cout << _compService.showComputers(_compService.sortByTypeDec());
+                cout << lowline;
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "built") {
             cout << lowline;
