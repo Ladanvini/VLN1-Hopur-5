@@ -117,6 +117,12 @@ vector<Comps> CompService::sortByName() {
 
     return sorted;
 }
+vector<Comps> CompService::sortByNameDec() {
+    vector<Comps> Resaults = sortByName();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
+}
 vector<Comps> CompService::sortByType() {
     vector<string> types;
     vector<Comps> sorted;
@@ -140,6 +146,12 @@ vector<Comps> CompService::sortByType() {
         }
     }
     return sorted;
+}
+vector<Comps> CompService::sortByTypeDec() {
+    vector<Comps> Resaults = sortByType();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
 }
 vector<Comps> CompService::sortByBuilt() {
 
@@ -167,16 +179,18 @@ vector<Comps> CompService::sortByBuilt() {
 
     return sorted;
 }
+vector<Comps> CompService::sortByBuiltDec() {
+    vector<Comps> Resaults = sortByBuilt();
+    reverse(Resaults.begin(), Resaults.end());
 
+    return Resaults;
+}
 bool CompService::containsID(vector<int> ids, int id) {
     for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)
             return true;
     return false;
 }
-
-//DELETE
-
 vector<Comps> CompService::sortByID() {
 
     vector<int> IDComps;

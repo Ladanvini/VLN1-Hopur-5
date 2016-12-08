@@ -149,6 +149,7 @@ vector<Person> appservice::searchByTuring(string _flag) {
 //####################Sort#####################//
 
 vector<Person> appservice::sortByName() {
+    vector<int> id;
     vector<string> names;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -158,8 +159,11 @@ vector<Person> appservice::sortByName() {
 
     for(unsigned int i = 0; i < names.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++)
-            if(names.at(i) == people.at(j).getName())
+            if(names.at(i) == people.at(j).getName()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
     }
 
     return sorted;
@@ -228,6 +232,7 @@ vector<Person> appservice::sortBySexDec(string _sex) {
 
 }
 vector<Person> appservice::sortByBirth() {
+    vector<int> id;
     vector<int> birth;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -237,8 +242,11 @@ vector<Person> appservice::sortByBirth() {
 
     for(unsigned int i = 0; i < birth.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(birth.at(i) == people.at(j).getBirth())
+            if(birth.at(i) == people.at(j).getBirth()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
     }
 
@@ -255,6 +263,7 @@ vector<Person> appservice::sortByBirthDec() {
 
 }
 vector<Person> appservice::sortByDeath() {
+    vector<int> id;
     vector<int> death;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -264,9 +273,13 @@ vector<Person> appservice::sortByDeath() {
 
     for(unsigned int i = 0; i < death.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(death.at(i) == people.at(j).getDeath())
+            if(death.at(i) == people.at(j).getDeath()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
+
     }
 
     return sorted;
@@ -287,19 +300,16 @@ vector<Person> appservice::sortByTuring (string _flag) {
     if(_flag.find("yes") != std::string::npos) {
         flag = true;
     }
-    else {
+    else if(_flag.find("no") != std::string::npos) {
         flag = false;
     }
+
     for(size_t i = 0; i < people.size(); i++) {
         if((people.at(i).getTuring()) == flag) {
             result.push_back(people.at(i));
         }
     }
-    for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getTuring()) != flag) {
-            result.push_back(people.at(i));
-        }
-    }
+
 
     return result;
 }

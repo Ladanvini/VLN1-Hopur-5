@@ -1,3 +1,4 @@
+#define clearScreen() printf("\033[H\033[J")
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -298,6 +299,7 @@ void ConsoleUI::sortMenuPerson() {
     do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Sort by persons name" << endl;
+        cout << "Age - Sort by persons age" << endl;
         cout << "Sex - Sort by persons gender" << endl;
         cout << "Birth - Sort by persons birth year" << endl;
         cout << "Death - Sort by persons death year" << endl;
@@ -318,8 +320,8 @@ void ConsoleUI::sortMenuPerson() {
                 cout << _appservice.showPeople(_appservice.sortByName());
             }else if(input == "descending"){
                 cout << "The list sorted descending: " << endl;
-                cout << lowline << endl << "SHIT" << endl;
-                //cout << _appservice.showPeople(_appservice.sortByNameDec());
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByNameDec());
             }else{
                 cout << "Wrong input" << endl;
                 cout << lowline;
@@ -388,10 +390,17 @@ void ConsoleUI::sortMenuPerson() {
         }
         else if(input == "turing") {
             cout << lowline;
-            cout << "Sort by those who won turing award, input yes" << endl;
-            input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByTuring(input));
+            cout << "Sort by those who won turing awa"
+                    "yes else input no to sort by those who have not won turing award" << endl;
+                    input = inputHandling();
+            if(input == "yes" || input == "no") {
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByTuring(input));
+            }
+            else {
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "back") {
             cout << lowline;
@@ -724,6 +733,7 @@ void ConsoleUI::runUI() {
     string lowline = "--------------------------------------------------------------\n";
     cout << lowline;
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
+    clearScreen();
 
     do {
 
@@ -774,6 +784,7 @@ void ConsoleUI::runUI() {
             cout << lowline;
             cout << "Wrong input!" << endl;
             cout << lowline;
+            clearScreen();
         }
     }while(!exitUI);
 }
