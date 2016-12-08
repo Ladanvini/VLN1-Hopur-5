@@ -528,7 +528,7 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "built") {
             cout << lowline;
-            cout << "Please enter the year please" << endl;
+            cout << "Please enter the year" << endl;
             input = inputHandling();
             cout << lowline;
             int built;
@@ -537,7 +537,7 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "type") {
             cout << lowline;
-            cout << "Enter the type please" << endl;
+            cout << "Please enter the type" << endl;
             input = inputHandling();
             cout << lowline;
             cout << _compService.showComputers(_compService.searchByType(input));
