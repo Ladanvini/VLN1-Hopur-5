@@ -166,10 +166,10 @@ vector<Person> appservice::sortByName() {
 }
 
 vector<Person> appservice:: sortByNameDec() {
-    vector<Person> Resaults = sortByName();
-    reverse(Resaults.begin(), Resaults.end());
+    vector<Person> Results = sortByName();
+    reverse(Results.begin(), Results.end());
 
-    return Resaults;
+    return Results;
 }
 
 vector<Person> appservice::sortByAge() {
