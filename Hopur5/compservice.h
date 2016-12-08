@@ -25,6 +25,7 @@ public:
     vector<Comps> sortByName();
     vector<Comps> sortByType();
     vector<Comps> sortByBuilt();
+    vector<Comps> sortByID();
     //DELETE
     string deleteComputers(string name, string type);
     // Edit
