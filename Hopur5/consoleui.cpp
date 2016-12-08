@@ -13,9 +13,10 @@ ConsoleUI::ConsoleUI() {
 
 }
 
-ConsoleUI::ConsoleUI(appservice p, CompService c) {
+ConsoleUI::ConsoleUI(appservice p, CompService c, connectionService l) {
     _appservice = p;
     _compService = c;
+    _linkService = l;
 }
 
 //Takes input and puts them in lowercasing
@@ -200,6 +201,16 @@ void ConsoleUI::deleteMenu() {
     }while(!exitMenu);
 }
 
+void ConsoleUI::linkMenu() {
+    string comp = "";
+    string pers = "";
+    cout << "Enter the computer ID: " << endl;
+    comp = inputHandling();
+    cout << "Enter the Person ID: " << endl;
+    pers = inputHandling();
+
+
+}
 
 /**************************Persons***************************/
 
@@ -779,6 +790,7 @@ void ConsoleUI::runUI() {
         cout << "Search - Searches the database" << endl;
         cout << "Sort - Displays the database in sorted order from options" << endl;
         cout << "Delete - Deletes a person or a computer from the list" << endl;
+        cout << "Link - Link computers to people " << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
 
@@ -787,6 +799,11 @@ void ConsoleUI::runUI() {
         if(input == "add") {
             cout << lowline;
             createMenu();
+        }
+        else if(input == "link") {
+            cout << lowline;
+            cout << unicorn();
+            linkMenu();
         }
         else if(input == "unicorn") {
             cout << lowline;

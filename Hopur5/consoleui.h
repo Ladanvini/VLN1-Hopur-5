@@ -3,6 +3,7 @@
 
 #include "appservice.h"
 #include "compservice.h"
+#include "connectionservice.h"
 
 
 #include <string>
@@ -13,9 +14,10 @@ class ConsoleUI {
 private:
     CompService _compService;
     appservice _appservice;
+    connectionService _linkService;
 public:
     ConsoleUI();
-    ConsoleUI(appservice p, CompService c);
+    ConsoleUI(appservice p, CompService c, connectionService l);
 
     string inputHandling();
     string unicorn();
@@ -26,6 +28,7 @@ public:
     void sortMenu();
     void createMenu();
     void deleteMenu();
+    void linkMenu();
 
     void searchMenuPerson();
     void sortMenuPerson();
