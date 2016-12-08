@@ -70,6 +70,8 @@ Database::Database(QString dbName) {
         typeC = queryC.value("cType").toString();
         builtC = queryC.value("cBuilt").toBool();
         builtYearC = queryC.value("cBuiltYear").toInt();
+
+
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
 }
@@ -104,7 +106,7 @@ void Database::update(vector<Person> peeps) {
 }
 
 //Updates the vector computers.
-void updateCompDB(vector<Comps> comps) {
+void Database::updateCompDB(vector<Comps> comps) {
     vector<string> compNames;
     vector<Comps> sortedComps;
     for(unsigned int i = 0; i < comps.size(); i++) {
@@ -133,32 +135,43 @@ void Database::writeToDB(Person p) {
         turingB = "FALSE";
 
     string stmnt;
-    stmnt = "INSERT INTO People ( PID, pName, pBirthYear, pDeathYear, pSex, pContribution,"
+    stmnt = "INSERT INTO People ( pName, pBirthYear, pDeathYear, pSex, pContribution,"
             " pTuringYear, pTuring )"
-            "\n VALUES ( " + std::to_string(p.getId()) + ", '"
+            " VALUES ( '"
                     + p.getName() + "' , " + std::to_string(p.getBirth())
                     + ", " + std::to_string(p.getDeath()) + ", '" + p.getSex()
                     + "', '" + p.getContribution() + "', " + std::to_string(p.getTuringYear()) + ", '"
                     + turingB + "' )";
 
+
+
     if(query.exec(QString::fromStdString(stmnt)))
         qDebug() << query.executedQuery();
-    else
+    else{
         qDebug() << "Could not execute query" << endl;
 
-    qDebug() << query.lastError();
-
+        qDebug() << query.lastError();
+    }
     cout << _db.commit() << endl;
     _db.close();
 }
 
 //Checks if the person exists in the people vector
 bool Database::exists(Person p) {
+    string pname = p.getName();
+    string p2name;
+    transform(pname.begin(), pname.end(), pname.begin(), ::tolower);
     for(unsigned int i=0; i<_people.size(); i++) {
-        if(_people.at(i) == (p))
+        p2name = _people.at(i).getName();
+        transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
+
+        if(pname.find(p2name) != std::string::npos
+           && p.getBirth() == _people.at(i).getBirth()
+           )
             return true;
     }
     return false;
+
 }
 
 //Checks if connection already exists
@@ -176,19 +189,46 @@ void Database::writeToCompDB(Comps c) {
 
     QSqlQuery query(_db);
 
+    cerr << "FUCKING COMPUTERS: " << c.getId() << endl;
     string stmnt;
-    stmnt = "INSERT INTO Computers ( cID, cName, cType, cBuilt, cBuiltYear,)"
-            "\n VALUES ( " + std::to_string(c.getId()) + ", "
-                    + c.getName() + ", " + c.getType()
-                    + ", " + std::to_string(c.getBuilt()) + ", " + std::to_string(c.getYearBuilt()) + " )";
+    stmnt = "INSERT INTO Computers( cName, cType, cBuilt, cBuiltYear )"
+            " VALUES ( '"
+                    + c.getName() + "' , '" + c.getType()
+                    + "', " + std::to_string(c.getBuilt()) + ", " + std::to_string(c.getYearBuilt()) + " )";
 
-    query.exec(QString::fromStdString(stmnt));
+    //query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else
+    {
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
+
+    cout << _db.commit() << endl;
+    _db.close();
 }
 
 //Checks if the computer already exists in the vector
 bool Database::existsInCompDB(Comps c) {
-    for (unsigned int i = 0 ; i < _computers.size(); i++)
-        if (_computers.at(i).getId() == c.getId()){
+    string cname = c.getName();
+    string c2name;
+    string ctype = c.getType();
+    string c2type;
+
+    transform(cname.begin(), cname.end(), cname.begin(), ::tolower);
+
+    for (unsigned int i = 0 ; i < _computers.size(); i++){
+        c2type = _computers.at(i).getType();
+        c2name = _computers.at(i).getName();
+        transform(c2name.begin(), c2name.end(), c2name.begin(), ::tolower);
+        transform(c2type.begin(), c2type.end(), c2type.begin(), ::tolower);
+
+
+        if (c2name.find(cname) != std::string::npos
+                && c2type.find(ctype) != std::string::npos
+                && _computers.at(i).getYearBuilt() == c.getYearBuilt())
             return true;
     }
     return false;
@@ -204,7 +244,18 @@ void Database::delFromDB(Person p) {
     stmnt = "DELETE FROM People WHERE PID = "
             + std::to_string(p.getId());
 
-    query.exec(QString::fromStdString(stmnt));
+    //query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else{
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
+
+    cout << _db.commit() << endl;
+    _db.close();
+
 }
 
 //Deletes a computer from the database.
@@ -214,10 +265,21 @@ void Database::delFromCompDB(Comps c) {
     QSqlQuery query(_db);
 
     string stmnt;
-    stmnt = "DELETE FROM Computers WHERE CID = "
+    stmnt = "DELETE FROM Computers WHERE cID = "
             + std::to_string(c.getId());
 
-    query.exec(QString::fromStdString(stmnt));
+//    query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else{
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
+
+    cout << _db.commit() << endl;
+    _db.close();
+
 }
 
 // Add a connection with the given computer and person.
@@ -258,5 +320,16 @@ void Database::deleteCons(int cId, int pId) {
              + " AND PID = "
              + std::to_string(pId);
 
-     query.exec(QString::fromStdString(stmnt));
+     //query.exec(QString::fromStdString(stmnt));
+
+     if(query.exec(QString::fromStdString(stmnt)))
+         qDebug() << query.executedQuery();
+     else{
+         qDebug() << "Could not execute query" << endl;
+
+         qDebug() << query.lastError();
+     }
+
+     cout << _db.commit() << endl;
+     _db.close();
  }
