@@ -521,12 +521,12 @@ void ConsoleUI::sortMenuComp() {
             cout << lowline;
             cout << _compService.showComputers(_compService.sortByName());
         }
-/*        else if(input == "id") {
+        else if(input == "id") {
             cout << lowline;
             cout << "The list sorted by ID number: " << endl;
             cout << lowline;
             cout << _compService.showComputers(_compService.sortByID());
-        }*/
+        }
         else if(input == "type") {
             cout << lowline;
             cout << "The list sorted by type: " << endl;

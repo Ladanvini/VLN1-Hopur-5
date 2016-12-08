@@ -148,7 +148,29 @@ vector<Comps> CompService::sortByBuilt() {
     return sorted;
 }
 
+
 //DELETE
+
+vector<Comps> CompService::sortByID() {
+
+    vector<int> IDComps;
+    vector<Comps> sorted;
+        for(unsigned int i = 0; i < computers.size(); i++)
+             IDComps.push_back(computers.at(i).getId());
+
+    std::sort(IDComps.begin(), IDComps.end());
+
+    for(unsigned int i = 0; i < IDComps.size(); i++) {
+        for(unsigned int j = 0; j < computers.size(); j++)
+            if(IDComps.at(i) == computers.at(j).getId())
+                sorted.push_back(computers.at(j));
+    }
+
+    return sorted;
+}
+
+//####################Delete####################//
+
 
 string CompService::deleteComputers(string name, string type) {
     bool flag = false;
