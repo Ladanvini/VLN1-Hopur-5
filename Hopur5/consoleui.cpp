@@ -344,7 +344,7 @@ void ConsoleUI::sortMenuPerson() {
                 }
             }else if(input == "table"){
                 cout << lowline;
-                cout << "You want the list ascending or descending?" << endl;
+                cout << "You want the table ascending or descending?" << endl;
                 input = inputHandling();
                 if(input == "ascending"){
                     cout << lowline;
@@ -353,23 +353,46 @@ void ConsoleUI::sortMenuPerson() {
                     cout << lowline;
                     cout << _appservice.showPeopleTable(_appservice.sortByNameDec());
                 }
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
             }
         }
         else if(input == "age") {
             cout << lowline;
-            cout << "You want the list ascending or descending?" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            if(input == "ascending"){
-                cout << "The list sorted by age of contribution: " << endl;
+            if(input == "list"){
+                cout << "You want the list ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << "The list sorted by age of contribution: " << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByAge());
+                }else if(input == "descending"){
+                    cout << "The list sorted descending: " << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByAgeDec());
+                }else{
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByAge());
-            }else if(input == "descending"){
-                cout << "The list sorted descending: " << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByAgeDec());
+                cout << "You want the table ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByAge());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByAgeDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input";
+                }
             }else{
                 cout << "Wrong input" << endl;
-                cout << lowline;
             }
         }
         else if(input == "sex") {
