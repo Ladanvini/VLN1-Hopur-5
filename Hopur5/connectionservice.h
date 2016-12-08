@@ -15,6 +15,8 @@ public:
     string deleteConn(string cIdstr, string pIdstr);
     string addConnCtoP(string pID, vector<string> cIds);
     string addConn(string pIDstr, string cIdstr);
+
+    string showConnections(vector<P_C_Connection> cons);
 };
 
 #endif // CONNECTIONSERVICE_H

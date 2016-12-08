@@ -656,7 +656,7 @@ void ConsoleUI::sortMenuComp() {
             cout << "wrong input! Try again" << endl;
             cout << lowline;
         }
-        clearScreen();
+
     }while(!exitMenu);
 }
 

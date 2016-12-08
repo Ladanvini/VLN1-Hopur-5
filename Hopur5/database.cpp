@@ -87,6 +87,10 @@ vector<Comps> Database::getComputerList() {
     return _computers;
 }
 
+vector<P_C_Connection> Database::getConnectionList(){
+    return _connections;
+}
+
 //Updates the vector of people
 void Database::update(vector<Person> peeps) {
     vector<string> names;
@@ -299,10 +303,11 @@ void Database::addToConsDB(Comps c, Person p) {
     if(query.exec(QString::fromStdString(stmnt)))
         qDebug() << query.executedQuery();
     else
+    {
         qDebug() << "Could not execute query" << endl;
 
-    qDebug() << query.lastError();
-
+        qDebug() << query.lastError();
+    }
     cout << _db.commit() << endl;
 
     _db.close();
