@@ -296,19 +296,16 @@ vector<Person> appservice::sortByTuring (string _flag) {
     if(_flag.find("yes") != std::string::npos) {
         flag = true;
     }
-    else {
+    else if(_flag.find("no") != std::string::npos) {
         flag = false;
     }
+
     for(size_t i = 0; i < people.size(); i++) {
         if((people.at(i).getTuring()) == flag) {
             result.push_back(people.at(i));
         }
     }
-    for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getTuring()) != flag) {
-            result.push_back(people.at(i));
-        }
-    }
+
 
     return result;
 }

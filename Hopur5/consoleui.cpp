@@ -389,10 +389,17 @@ void ConsoleUI::sortMenuPerson() {
         }
         else if(input == "turing") {
             cout << lowline;
-            cout << "Sort by those who won turing award, input yes" << endl;
-            input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByTuring(input));
+            cout << "Sort by those who won turing awa"
+                    "yes else input no to sort by those who have not won turing award" << endl;
+                    input = inputHandling();
+            if(input == "yes" || input == "no") {
+                cout << lowline;
+                cout << _appservice.showPeople(_appservice.sortByTuring(input));
+            }
+            else {
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "back") {
             cout << lowline;
