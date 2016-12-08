@@ -72,6 +72,7 @@ vector<Comps> CompService::searchById(int id) {
             result.push_back(computers.at(i));
         }
     }
+    return result;
 }
 vector<Comps> CompService::searchByType(string type) {
 
@@ -82,6 +83,7 @@ vector<Comps> CompService::searchByType(string type) {
             result.push_back(computers.at(i));
         }
     }
+    return result;
 }
 vector<Comps> CompService::searchByBuilt(int yearBuilt) {
 
