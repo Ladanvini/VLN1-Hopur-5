@@ -428,16 +428,41 @@ void ConsoleUI::sortMenuPerson() {
         }
         else if(input == "birth") {
             cout << lowline;
-            cout << "You want the list sorted first oldest or first youngest?" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            if(input == "oldest"){
-                cout << "Showing oldest to youngest" << endl;
+            if(input == "list"){
+                cout << "You want the list sorted first oldest or first youngest?" << endl;
+                input = inputHandling();
+                if(input == "oldest"){
+                    cout << "Showing oldest to youngest" << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByBirth());
+                }else if(input == "youngest"){
+                    cout << "Showing youngest to oldest" << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByBirthDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << "You want the list sorted first oldest or first youngest?" << endl;
+                input = inputHandling();
+                if(input == "oldest"){
+                    cout << "Showing oldest to youngest" << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByBirth());
+                }else if(input == "youngest"){
+                    cout << "Showing youngest to oldest" << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByBirthDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input";
+                }
+            }else{
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByBirth());
-            }else if(input == "youngest"){
-                cout << "Showing youngest to oldest" << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByBirthDec());
+                cout << "Wrong input" << endl;
             }
         }
         else if(input == "death") {
@@ -474,18 +499,37 @@ void ConsoleUI::sortMenuPerson() {
             }
         else if(input == "turing") {
             cout << lowline;
-            cout << "Sort by those who won turing awa"
-                    "yes else input no to sort by those who have not won turing award" << endl;
-                    input = inputHandling();
-            if(input == "yes" || input == "no") {
+            cout << "You want it in table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << "Yes: if you want the list sorted by those that have won a turing" << endl;
+                        "No: if you want the list sorted by those that have not won a turing"<< endl;
+                        input = inputHandling();
+                if(input == "yes" || input == "no") {
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByTuring(input));
+                }
+                else {
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << "Yes: if you want the list sorted by those that have won a turing" << endl;
+                        "No: if you want the list sorted by those that have not won a turing"<< endl;
+                        input = inputHandling();
+                if(input == "yes" || input == "no") {
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByTuring(input));
+                }
+                else {
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else{
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByTuring(input));
-            }
-            else {
                 cout << "Wrong input" << endl;
-                cout << lowline;
             }
-        }
+          }
         else if(input == "back") {
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;

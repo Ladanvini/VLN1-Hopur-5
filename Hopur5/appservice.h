@@ -6,6 +6,8 @@
 #include <sstream>
 #include <algorithm>
 
+#include <ctime>
+
 #include "database.h"
 
 using namespace std;
