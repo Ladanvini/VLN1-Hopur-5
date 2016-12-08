@@ -228,6 +228,7 @@ vector<Person> appservice::sortBySexDec(string _sex) {
 
 }
 vector<Person> appservice::sortByBirth() {
+    vector<int> id;
     vector<int> birth;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -237,8 +238,11 @@ vector<Person> appservice::sortByBirth() {
 
     for(unsigned int i = 0; i < birth.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(birth.at(i) == people.at(j).getBirth())
+            if(birth.at(i) == people.at(j).getBirth()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
     }
 
