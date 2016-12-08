@@ -298,6 +298,7 @@ void ConsoleUI::sortMenuPerson() {
     do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Sort by persons name" << endl;
+        cout << "Age - Sort by persons age" << endl;
         cout << "Sex - Sort by persons gender" << endl;
         cout << "Birth - Sort by persons birth year" << endl;
         cout << "Death - Sort by persons death year" << endl;
