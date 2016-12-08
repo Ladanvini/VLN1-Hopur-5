@@ -117,6 +117,12 @@ vector<Comps> CompService::sortByName() {
 
     return sorted;
 }
+vector<Comps> CompService::sortByNameDec() {
+    vector<Comps> Resaults = sortByName();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
+}
 vector<Comps> CompService::sortByType() {
     vector<string> types;
     vector<Comps> sorted;
@@ -174,9 +180,6 @@ bool CompService::containsID(vector<int> ids, int id) {
             return true;
     return false;
 }
-
-//DELETE
-
 vector<Comps> CompService::sortByID() {
 
     vector<int> IDComps;

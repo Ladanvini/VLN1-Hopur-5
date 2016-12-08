@@ -1,3 +1,4 @@
+#define clearScreen() printf("\033[H\033[J")
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -722,6 +723,7 @@ void ConsoleUI::runUI() {
     string lowline = "--------------------------------------------------------------\n";
     cout << lowline;
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
+    clearScreen();
 
     do {
         cout << lowline << endl;
@@ -771,6 +773,7 @@ void ConsoleUI::runUI() {
             cout << lowline;
             cout << "Wrong input!" << endl;
             cout << lowline;
+            clearScreen();
         }
     }while(!exitUI);
 }

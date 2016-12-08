@@ -28,6 +28,10 @@ public:
     vector<Comps> sortByType();
     vector<Comps> sortByBuilt();
     vector<Comps> sortByID();
+    vector<Comps> sortByNameDec();
+    vector<Comps> sortByTypeDec();
+    vector<Comps> sortByBuiltDec();
+    vector<Comps> sortByIDDec();
     //DELETE
     string deleteComputers(string name, string type);
     // Edit
