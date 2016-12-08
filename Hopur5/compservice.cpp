@@ -143,17 +143,26 @@ vector<Comps> CompService::sortByType() {
 }
 vector<Comps> CompService::sortByBuilt() {
 
-    vector<bool> builtComps;
+    int yearBuilt;
+    vector<int> builtComps;
     vector<Comps> sorted;
-        for(unsigned int i = 0; i < computers.size(); i++)
-             builtComps.push_back(computers.at(i).getBuilt());
+    vector<int> id;
+        for(unsigned int i = 0; i < computers.size(); i++) {
+            if(computers.at(i).getBuilt() == false) {
+                yearBuilt = 0;
+                computers.at(i).setYearBuilt(yearBuilt);
+            }
+            builtComps.push_back(computers.at(i).getYearBuilt());
+        }
 
     std::sort(builtComps.begin(), builtComps.end());
 
     for(unsigned int i = 0; i < builtComps.size(); i++) {
         for(unsigned int j = 0; j < computers.size(); j++)
-            if(builtComps.at(i) == computers.at(j).getBuilt())
+            if(builtComps.at(i) == computers.at(j).getYearBuilt() && !containsID(id, computers.at(j).getId())) {
+                id.push_back(computers.at(j).getId());
                 sorted.push_back(computers.at(j));
+            }
     }
 
     return sorted;

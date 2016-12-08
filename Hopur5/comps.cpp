@@ -47,6 +47,9 @@
     void Comps::setBuilt(bool built) {
 		_built = built;
 	}
+    void Comps::setYearBuilt(int yearBuilt) {
+        _yearBuilt = yearBuilt;
+    }
 
     string Comps::showComputer(){
         string temp = "";

@@ -29,6 +29,7 @@ public:
 	void setName(string name);
 	void setType(string type);
 	void setBuilt(bool built);
+    void setYearBuilt(int yearBuilt);
     string showComputer();
     //SearchComp
     void setId(int id);
