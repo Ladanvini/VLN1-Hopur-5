@@ -10,7 +10,14 @@ P_C_Connection::P_C_Connection(Comps c, Person p) {
 }
 
 string P_C_Connection::displayConnection() {
+    string temp = "";
+    temp = temp + " ( " + std::to_string(this->_computer.getId());
+    temp = temp + " ) " + this->_computer.getName();
+    temp = temp + "<--->";
+    temp = temp + " ( " + std::to_string(this->_person.getId());
+    temp = temp + " ) " + this->_person.getName();
 
+    return temp;
 }
 
 bool P_C_Connection::compare(P_C_Connection pccon) {

@@ -29,6 +29,7 @@ public:
     vector<Comps> getComputerList();
     //Returns list of people from the database.
     vector<Person> getList();
+    vector<P_C_Connection> getConnectionList();
     //Updates the vector people.
     void update(vector<Person> peeps);
     //Updates the vector computers.
