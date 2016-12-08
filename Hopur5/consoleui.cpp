@@ -450,28 +450,28 @@ void ConsoleUI::sortMenuPerson() {
                 if(input == "ascending"){
                     cout << lowline;
                     cout << _appservice.showPeople(_appservice.sortByDeath());
-                }else if(input == "descending"){;
+                }else if(input == "descending"){
                     cout << lowline;
                     cout << _appservice.showPeople(_appservice.sortByDeathDec());
                 }else {
                     cout << "Wrong input" << endl;
                     cout << lowline;
-                }else if(input = "table"){
-                    cout << "Sorted ascending or descending?" << endl;
-                    input = inputHandling();
-                    if(input == "ascending"){
-                        cout << lowline;
-                        cout << _appservice.showPeopleTable(_appservice.sortByDeath());
-                    }else if(input == "descending"){
-                        cout << lowline;
-                        cout << _appservice.showPeopleTable(_appservice.sortByDeathDec());
-                    }else {
-                      cout << lowline;
-                      cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << "Sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByDeath());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByDeathDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
                     }
                 }
             }
-        }
         else if(input == "turing") {
             cout << lowline;
             cout << "Sort by those who won turing awa"
