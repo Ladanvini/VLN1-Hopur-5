@@ -208,6 +208,12 @@ vector<Comps> CompService::sortByID() {
 
     return sorted;
 }
+vector<Comps> CompService::sortByIDDec() {
+    vector<Comps> Resaults = sortByID();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
+}
 
 //####################Delete####################//
 
