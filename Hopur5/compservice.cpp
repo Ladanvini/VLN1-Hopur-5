@@ -117,17 +117,25 @@ vector<Comps> CompService::sortByName() {
 vector<Comps> CompService::sortByType() {
     vector<string> types;
     vector<Comps> sorted;
+    vector<int> IDs;
+
     for(unsigned int i = 0; i < computers.size(); i++)
         types.push_back(computers.at(i).getType());
 
     std::sort(types.begin(), types.end());
 
     for(unsigned int i = 0; i < types.size(); i++) {
-        for(unsigned int j = 0; j < computers.size(); j++)
-            if(types.at(i) == computers.at(j).getType())
-                sorted.push_back(computers.at(j));
-    }
+        for(unsigned int j = 0; j < computers.size(); j++){
 
+            if(types.at(i) == computers.at(j).getType()
+               && !containsID(IDs, computers.at(j).getId())){
+
+                IDs.push_back(computers.at(j).getId());
+                sorted.push_back(computers.at(j));
+
+            }
+        }
+    }
     return sorted;
 }
 vector<Comps> CompService::sortByBuilt() {
@@ -148,6 +156,12 @@ vector<Comps> CompService::sortByBuilt() {
     return sorted;
 }
 
+bool CompService::containsID(vector<int> ids, int id){
+    for(int i=0; i<ids.size(); i++)
+        if(ids.at(i) == id)
+            return true;
+    return false;
+}
 
 //DELETE
 
