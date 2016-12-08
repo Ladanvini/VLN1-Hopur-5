@@ -8,6 +8,10 @@ connectionService::connectionService() {
 
 connectionService::connectionService(Database db) {
    _db = db;
+  _links = db.getConnectionList();
+}
+vector<P_C_Connection> connectionService::getList(){
+    return _links;
 }
 
 // User to Computers.
@@ -22,7 +26,8 @@ string connectionService::connUtoC(Person p, Comps c) {
    if(_db.existsInConns(P_C_Connection(c, p)))
         return "Connection between person with ID: " + std::to_string(p.getId()) +
                 "and computer with ID: " + std::to_string(c.getId()) + " already exists\n";
-        _db.addToConsDB(c, p);
+
+   _db.addToConsDB(c, p);
 
 
     return "Connections added successfully\n";
@@ -98,4 +103,14 @@ string connectionService::deleteConn(string cIdstr, string pIdstr) {
     int pId = stoi(pIdstr);
 
     _db.deleteCons(cId, pId);
+}
+
+string connectionService::showConnections(vector<P_C_Connection> cons){
+    string temp = "**************LINKS**************\n";
+            temp = temp + "COMPUTERS     <--->     PERSONS";
+    for(unsigned int i=0; i<cons.size(); i++){
+        temp = temp + '\n';
+        temp = temp + cons.at(i).displayConnection();
+    }
+    temp = temp + '\n';
 }
