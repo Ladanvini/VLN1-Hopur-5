@@ -102,17 +102,23 @@ vector<Comps> CompService::searchByBuilt(int yearBuilt) {
 
 vector<Comps> CompService::sortByName() {
 
+    vector<int> IDs;
     vector<string> names;
-        vector<Comps> sorted;
-            for(unsigned int i = 0; i < computers.size(); i++)
+    vector<Comps> sorted;
+
+    for(unsigned int i = 0; i < computers.size(); i++)
                 names.push_back(computers.at(i).getName());
 
      std::sort(names.begin(), names.end());
 
         for(unsigned int i = 0; i < names.size(); i++) {
             for(unsigned int j = 0; j < computers.size(); j++)
-                if(names.at(i) == computers.at(j).getName())
-                 sorted.push_back(computers.at(j));
+                if(names.at(i) == computers.at(j).getName()
+                && !containsID(IDs, computers.at(j).getId())) {
+                     IDs.push_back(computers.at(j).getId());
+                     sorted.push_back(computers.at(j));
+                }
+
         }
 
     return sorted;
