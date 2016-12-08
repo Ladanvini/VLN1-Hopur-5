@@ -173,6 +173,7 @@ vector<Person> appservice:: sortByNameDec() {
 }
 
 vector<Person> appservice::sortByAge() {
+    vector<int> id;
     vector<string> ages;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -182,9 +183,13 @@ vector<Person> appservice::sortByAge() {
     std::sort(ages.begin(), ages.end());
 
     for(unsigned int i = 0; i < ages.size(); i++) {
-        for(unsigned int j = 0; j < people.size(); j++)
-            if(ages.at(i) == std::to_string(people.at(j).getAge()))
+        for(unsigned int j = 0; j < people.size(); j++) {
+            if(ages.at(i) == std::to_string(people.at(j).getAge())
+                    && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
+        }
     }
 
     return sorted;
@@ -348,6 +353,13 @@ string appservice::showPeople(vector<Person> results) {
     }
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
+}
+
+bool appservice::containsID(vector<int> ids, int id) {
+    for(unsigned int i = 0; i < ids.size(); i++)
+        if(ids.at(i) == id)
+            return true;
+    return false;
 }
 
 //####################Edit####################//

@@ -51,6 +51,8 @@ public:
     vector<Person> sortByDeathDec();
     vector<Person> sortByTuringDec(string _flag);
 
+    bool containsID(vector<int> ids, int id);
+
 };
 
 #endif // APPSERVICE_H
