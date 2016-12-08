@@ -825,7 +825,7 @@ void ConsoleUI::sortMenuComp() {
                     cout << _compService.showComputers(_compService.sortByBuilt());
                 }else if(input == "descending"){
                     cout << lowline;
-                    cout << _compService.showComputers(_compService.sortByBuiltDec()):
+                    cout << _compService.showComputers(_compService.sortByBuiltDec());
                 }else {
                     cout << lowline;
                     cout << "Wrong input" << endl;
