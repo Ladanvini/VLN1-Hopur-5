@@ -10,7 +10,7 @@ CompService::CompService(Database db) {
 
 }
 
-//####################ADD NEW###################//
+// Create
 
 string CompService::create(int id, string name, string type, int yearBuilt, bool built) {
 
@@ -44,7 +44,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     return "Added successfully\n";
 }
 
-//####################SEARCH###################//
+//Search
 
 vector<Comps> CompService::searchByName(string name) {
 
@@ -95,7 +95,7 @@ vector<Comps> CompService::searchByBuilt(int yearBuilt) {
     }
 }
 
-//####################Sort#####################//
+// Sort
 
 vector<Comps> CompService::sortByName() {
 
@@ -148,7 +148,7 @@ vector<Comps> CompService::sortByBuilt() {
     return sorted;
 }
 
-//####################Delete####################//
+//DELETE
 
 string CompService::deleteComputers(string name, string type) {
     bool flag = false;
@@ -167,7 +167,7 @@ string CompService::deleteComputers(string name, string type) {
 
     if(flag) {
         _db.delFromCompDB(result);
-        _db.updateCompDB(computers);
+
         return result.showComputer() +
                 "Erased successfully\n";
     }
@@ -175,9 +175,9 @@ string CompService::deleteComputers(string name, string type) {
     return "Computer: \n" + result.getName() + "\n not found\n";
 }
 
-//####################Edit####################//
+// Edit
 
-//####################Showing#################//
+// Showing
 
 string CompService::showComputers(vector<Comps> results) {
 
