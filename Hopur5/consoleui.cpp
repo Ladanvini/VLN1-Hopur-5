@@ -73,7 +73,7 @@ string ConsoleUI::cORp(string name) {
 void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
     cout << _compService.showComputers(_compService.getList());
-
+   // cout << _linkService.showConnections(_linkService.getList());
 
 }
 
@@ -209,7 +209,7 @@ void ConsoleUI::linkMenu() {
     cout << "Enter the Person ID: " << endl;
     pers = inputHandling();
 
-    _linkService.addConn(pers, comp);
+    cout << _linkService.addConn(pers, comp);
 
 
 }
@@ -475,7 +475,12 @@ void ConsoleUI::createMenuPerson() {
     cout << "Enter Turing Year (0 if unknown or not applicable): " << endl;
     getline(cin, turingstr);
 
-
+    if(birthstr == "")
+        birthstr = "1";
+    if(deathstr == "")
+        deathstr = "1";
+    if(turingstr == "")
+        turingstr = "1";
     birth = stoi(birthstr);
     death = stoi(deathstr);
     turing = stoi(turingstr);
@@ -492,6 +497,8 @@ void ConsoleUI::createMenuPerson() {
         age = death - birth;
 
     int id = 0;
+    if(sex == "")
+        sex = "t";
     char _sex = sex.at(0);
 
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);

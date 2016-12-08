@@ -75,6 +75,26 @@ Database::Database(QString dbName) {
 
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
+    QSqlQuery queryL(_db);
+
+    queryL.exec("SELECT * FROM P_C_con");
+
+    int pidL;
+    int cidL;
+    Comps c;
+    Person p;
+    while(queryL.next()) {
+        pidL = queryL.value("PID").toInt();
+        cidL = queryL.value("CID").toInt();
+
+        for(int i = 0; i<_computers.size(); i++){
+            if(_computers.at(i).getId() == cidL)
+                c = _computers.at(i);
+            if(_people.at(i).getId() == pidL)
+                p = _people.at(i);
+        }
+        _connections.push_back(P_C_Connection(c, p));
+    }
 }
 
 //Returns a list of people in the database

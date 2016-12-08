@@ -8,6 +8,10 @@ connectionService::connectionService() {
 
 connectionService::connectionService(Database db) {
    _db = db;
+  _links = db.getConnectionList();
+}
+vector<P_C_Connection> connectionService::getList(){
+    return _links;
 }
 
 // User to Computers.
@@ -102,7 +106,8 @@ string connectionService::deleteConn(string cIdstr, string pIdstr) {
 }
 
 string connectionService::showConnections(vector<P_C_Connection> cons){
-    string temp = "COMPUTERS     <--->     PERSONS";
+    string temp = "**************LINKS**************\n";
+            temp = temp + "COMPUTERS     <--->     PERSONS";
     for(unsigned int i=0; i<cons.size(); i++){
         temp = temp + '\n';
         temp = temp + cons.at(i).displayConnection();
