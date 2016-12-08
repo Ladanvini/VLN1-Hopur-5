@@ -258,3 +258,34 @@ string CompService::showComputers(vector<Comps> results) {
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
+
+string CompService::showComputersTable(vector<Comps> results) {
+        string temp = "";
+        string line = "";
+        for(int i=0; i<80; i++)
+            line = line + "-";
+        line = line + '\n';
+        temp = temp + line;
+        temp = temp + "|      ID       "
+               "|     NAME      "
+               "|     TYPE      "
+               "|     BUILT     "
+               "|     YEAR      |\n";
+
+
+
+    for(unsigned int i = 0; i < results.size(); i++) {
+
+
+        temp = temp + line;
+
+        temp = temp + results.at(i).showComputerTable();
+
+    }
+    if(results.size() == 0) {
+        temp = "#########################################################################\n";
+        temp = temp + "No Computers Found!\n";
+    }
+    temp =  temp + line;
+    return temp;
+}

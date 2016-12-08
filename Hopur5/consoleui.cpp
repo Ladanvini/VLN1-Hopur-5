@@ -73,6 +73,7 @@ void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
     cout << _compService.showComputers(_compService.getList());
 
+
 }
 
 /**************************Question Menus***************************/

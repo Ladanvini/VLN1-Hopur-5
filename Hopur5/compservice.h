@@ -37,6 +37,7 @@ public:
     // Edit
     // Showing
     string showComputers(vector<Comps> results);
+    string showComputersTable(vector<Comps> results);
     bool containsID(vector<int> ids, int id);
 };
 

@@ -31,6 +31,8 @@ public:
 	void setBuilt(bool built);
     void setYearBuilt(int yearBuilt);
     string showComputer();
+    string showComputerTable();
+    string spaceCalc(int cellsize, string value);
     //SearchComp
     void setId(int id);
 

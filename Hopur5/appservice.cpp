@@ -369,6 +369,7 @@ string appservice::showPeopleTable(vector<Person> results) {
         string line = "";
         for(int i=0; i<143; i++)
             line = line + "-";
+        line = line + '\n';
         temp = temp + line;
         temp = temp + "|      ID       "
                "|     NAME      "

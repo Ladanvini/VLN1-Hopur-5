@@ -117,7 +117,7 @@ string Person::spaceCalc(int cellsize, string value){
         if(spaceSize%2 != 0)
             spaceSize++;
 
-        for(int i=0; i<spaceSize/2; i++)
+        for(int unsigned i=0; i<spaceSize/2; i++)
             idTemp = idTemp + " ";
     }
     return idTemp + value + idTemp;
