@@ -411,6 +411,7 @@ void ConsoleUI::createMenuPerson() {
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
 }
 
+//delete option for person
 void ConsoleUI::deleteMenuPerson() {
     string name = " ";
     string input = " ";
@@ -424,65 +425,7 @@ void ConsoleUI::deleteMenuPerson() {
     cout << lowline << endl;
 }
 
-//Main Menu
-void ConsoleUI::runUI() {
-    string input = " ";
-    bool exitUI = false;
-    string lowline = "--------------------------------------------------------------\n";
-    cout << "**************FAMOUS COMPUTER SCIENTISTS****************" << endl;
 
-    do {
-        cout << lowline << endl;
-        cout << "Please input one of these commands: " << endl;
-        cout << "Display - Displays the list of famous computer scientists\
-                 or famous computers" << endl;
-        cout << "Add - Adds a person or a computer to the database" << endl;
-        cout << "Search - Searches the database" << endl;
-        cout << "Sort - Displays the database in sorted order from options" << endl;
-        cout << "Delete - Deletes a person or a computer from the list" << endl;
-        cout << "Unicorn - A unicorn" << endl;
-        cout << "Exit - End the programs run" << endl;
-
-        input = inputHandling();
-
-        if(input == "add") {
-            cout << lowline;
-            createMenu();
-        }
-        else if(input == "unicorn") {
-            cout << lowline;
-            cout << unicorn();
-            cout << lowline;
-        }
-        else if(input == "search") {
-            cout << lowline;
-            searchMenu();
-        }
-        else if(input == "sort") {
-            cout << lowline;
-            sortMenu();
-        }
-        else if(input == "display") {
-            cout << lowline;
-            displayList();
-        }
-        else if(input == "delete") {
-            cout << lowline;
-            deleteMenu();
-        }
-        else if(input == "exit") {
-            cout << lowline;
-            cout << "Thank you, have a nice day!" << endl;
-            cout << lowline;
-            exitUI = true;
-        }
-        else {
-            cout << lowline;
-            cout << "Wrong input!" << endl;
-            cout << lowline;
-        }
-    }while(!exitUI);
-}
 
 /**************************Computers***************************/
 
@@ -610,6 +553,7 @@ void ConsoleUI::sortMenuComp() {
     }while(!exitMenu);
 }
 
+//createComps
 void ConsoleUI::createMenuComp() {
     string name;
     string type;
@@ -640,6 +584,7 @@ void ConsoleUI::createMenuComp() {
     cout << _compService.create(id, name, type, yearBuilt, built);
 }
 
+//deleteComps
 void ConsoleUI::deleteMenuComp() {
     string name = " ";
     string type = " ";
@@ -652,6 +597,7 @@ void ConsoleUI::deleteMenuComp() {
     cout << lowline << endl;
 }
 
+/**************************Main Menu***************************/
 /*
 void ConsoleUI::runUIComp() {
     string input = " ";
@@ -721,3 +667,62 @@ void ConsoleUI::runUIComp() {
 }
 */
 
+//Main Menu
+void ConsoleUI::runUI() {
+    string input = " ";
+    bool exitUI = false;
+    string lowline = "--------------------------------------------------------------\n";
+    cout << lowline;
+    cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
+
+    do {
+        cout << lowline << endl;
+        cout << "Please input one of these commands: " << endl;
+        cout << "Display - Displays the list of famous computer scientists or famous computers" << endl;
+        cout << "Add - Adds a person or a computer to the database" << endl;
+        cout << "Search - Searches the database" << endl;
+        cout << "Sort - Displays the database in sorted order from options" << endl;
+        cout << "Delete - Deletes a person or a computer from the list" << endl;
+        cout << "Unicorn - A unicorn" << endl;
+        cout << "Exit - End the programs run" << endl;
+
+        input = inputHandling();
+
+        if(input == "add") {
+            cout << lowline;
+            createMenu();
+        }
+        else if(input == "unicorn") {
+            cout << lowline;
+            cout << unicorn();
+            cout << lowline;
+        }
+        else if(input == "search") {
+            cout << lowline;
+            searchMenu();
+        }
+        else if(input == "sort") {
+            cout << lowline;
+            sortMenu();
+        }
+        else if(input == "display") {
+            cout << lowline;
+            displayList();
+        }
+        else if(input == "delete") {
+            cout << lowline;
+            deleteMenu();
+        }
+        else if(input == "exit") {
+            cout << lowline;
+            cout << "Thank you, have a nice day!" << endl;
+            cout << lowline;
+            exitUI = true;
+        }
+        else {
+            cout << lowline;
+            cout << "Wrong input!" << endl;
+            cout << lowline;
+        }
+    }while(!exitUI);
+}

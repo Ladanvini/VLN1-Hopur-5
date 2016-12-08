@@ -22,13 +22,13 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
     if(name.empty()||name[0] == ' ')
         return "Name was not accepted\n";
     if(age>150 || age < 1)
-        return "Age was not accepcted\n";
+        return "Age was not accepted\n";
     if(sex != 'm' && sex != 'f')
-        return "Sex was not accepted value\n";
+        return "Sex was not an accepted value\n";
     if(birth < 1000 || birth > 2016)
-        return "Birth year was not accepted value\n";
+        return "Birth year was not an accepted value\n";
     if(death > 2016 || (death != 0 && death < birth ))
-        return "Death year was not accepted value\n";
+        return "Death year was not an accepted value\n";
 
     if(db.exists(*p)) {
         flag = true;
@@ -181,8 +181,6 @@ vector<Person> appservice::sortByAge() {
 
     return sorted;
 }
-
-
 vector<Person> appservice::sortByAgeDec() {
     vector<Person> Results = sortByAge();
     reverse(Results.begin(), Results.end());
@@ -190,7 +188,6 @@ vector<Person> appservice::sortByAgeDec() {
 return Results;
 
 }
-
 vector<Person> appservice::sortBySex(string _sex) {
     vector<Person> result;
     char sex = _sex.at(0);
@@ -208,7 +205,6 @@ vector<Person> appservice::sortBySex(string _sex) {
 
     return result;
 }
-
 vector<Person> appservice::sortBySexDec(string _sex) {
 
     vector<Person> Results = sortBySex(_sex);
@@ -218,7 +214,6 @@ vector<Person> appservice::sortBySexDec(string _sex) {
     return Results;
 
 }
-
 vector<Person> appservice::sortByBirth() {
     vector<int> birth;
     vector<Person> sorted;
@@ -246,7 +241,6 @@ vector<Person> appservice::sortByBirthDec() {
 
 
 }
-
 vector<Person> appservice::sortByDeath() {
     vector<int> death;
     vector<Person> sorted;
@@ -264,7 +258,6 @@ vector<Person> appservice::sortByDeath() {
 
     return sorted;
 }
-
 vector<Person> appservice::sortByDeathDec() {
 
     vector<Person> Results = sortByDeath();
@@ -274,7 +267,6 @@ vector<Person> appservice::sortByDeathDec() {
     return Results;
 
 }
-
 vector<Person> appservice::sortByTuring (string _flag) {
     vector<Person> result;
 
@@ -298,7 +290,6 @@ vector<Person> appservice::sortByTuring (string _flag) {
 
     return result;
 }
-
 vector<Person> appservice::sortByTuringDec(string _flag) {
     vector<Person> Results = sortByTuring(_flag);
 
@@ -351,7 +342,5 @@ string appservice::showPeople(vector<Person> results) {
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
-
-
 
 //####################Edit####################//
