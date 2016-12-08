@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <ctime>
-
+#define clearScreen() printf("\033[H\033[J")
 
 #include "consoleui.h"
 
@@ -71,6 +71,7 @@ string ConsoleUI::cORp(string name) {
 void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
     cout << _compService.showComputers(_compService.getList());
+
 }
 
 /**************************Question Menus***************************/
@@ -598,6 +599,7 @@ void ConsoleUI::sortMenuComp() {
             cout << "wrong input! Try again" << endl;
             cout << lowline;
         }
+        clearScreen();
     }while(!exitMenu);
 }
 
@@ -724,6 +726,7 @@ void ConsoleUI::runUI() {
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
 
     do {
+
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
         cout << "Display - Displays the list of famous computer scientists or famous computers" << endl;

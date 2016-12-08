@@ -42,6 +42,7 @@ public:
     // Edit
     // Showing
     string showPeople(vector<Person> results);
+    string showPeopleTable(vector<Person> results);
 
     //SortByDec
     vector<Person> sortByNameDec();

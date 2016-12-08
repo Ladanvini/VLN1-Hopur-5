@@ -354,7 +354,37 @@ string appservice::showPeople(vector<Person> results) {
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
+string appservice::showPeopleTable(vector<Person> results) {
+        string temp = "";
+        string line = "";
+        for(int i=0; i<143; i++)
+            line = line + "-";
+        temp = temp + line;
+        temp = temp + "|      ID       "
+               "|     NAME      "
+               "|      AGE      "
+               "|     SEX       "
+               "|     BIRTH     "
+               "|    DEATH      "
+               "|    TURING     |\n";
 
+
+
+    for(unsigned int i = 0; i < results.size(); i++) {
+
+
+        temp = temp + line;
+
+        temp = temp + results.at(i).showPersonTable();
+
+    }
+    if(results.size() == 0) {
+        temp = "#########################################################################\n";
+        temp = temp + "No People Found!\n";
+    }
+    temp =  temp + line;
+    return temp;
+}
 bool appservice::containsID(vector<int> ids, int id) {
     for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)

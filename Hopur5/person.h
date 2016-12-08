@@ -23,6 +23,8 @@ public:
     Person();
     Person(int id, string name, char sex, int birth, int death, string contribution, int truringYear);
     string showPerson();
+    string showPersonTable();
+    string spaceCalc(int cellsize, string value);
     int getId() { return _id; }
     string getName() { return _name; }
     int getAge() { return _age; }
