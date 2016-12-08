@@ -66,12 +66,13 @@ vector<Person> appservice::searchByName(string name) {
 }
 vector<Person> appservice::searchByAge(string age) {
     vector<Person> result;
-    string _age;
+    int agedig = stoi(age);
+    int _age;
     for(size_t i = 0; i < people.size(); i++) {
         _age = (people.at(i).getAge());
-        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
+//        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
 
-        if(_age.find(age) != std::string::npos) {
+        if(_age == agedig) {
             result.push_back(people.at(i));
         }
     }
@@ -91,11 +92,12 @@ vector<Person> appservice::searchBySex(string _sex) {
 }
 vector<Person> appservice::searchByDeath(string death) {
     vector<Person> result;
-    string _death;
+    int _death;
+    int deathDig = stoi(death);
     for(size_t i = 0; i < people.size(); i++) {
         _death = people.at(i).getDeath();
-        transform(_death.begin(), _death.end(), _death.begin(), ::tolower);
-        if(_death.find(death) != std::string::npos) {
+
+        if(_death == deathDig) {
             result.push_back(people.at(i));
         }
     }
@@ -104,11 +106,12 @@ vector<Person> appservice::searchByDeath(string death) {
 }
 vector<Person> appservice::searchByBirth(string birth) {
     vector<Person> result;
-    string _birth;
+    int _birth;
+    int bDig = stoi(birth);
     for(size_t i = 0; i < people.size(); i++) {
         _birth = people.at(i).getBirth();
-        transform(_birth.begin(), _birth.end(), _birth.begin(), ::tolower);
-        if(_birth.find(birth) != std::string::npos) {
+
+        if(_birth == bDig) {
             result.push_back(people.at(i));
         }
     }
