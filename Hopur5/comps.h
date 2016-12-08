@@ -31,6 +31,7 @@ public:
 	void setBuilt(bool built);
     string showComputer();
     //SearchComp
+    void setId(int id);
 
 };
 

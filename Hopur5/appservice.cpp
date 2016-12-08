@@ -325,8 +325,8 @@ string appservice::deletePerson(string _name, int birth) {
     }
 
     if(flag) {
-        //db.update(people);
-        //db.reWriteDb();
+        db.update(people);
+        db.delFromDB(result);
         return result.showPerson() +
                 "Erased successfully\n";
     }
@@ -337,8 +337,7 @@ string appservice::deletePerson(string _name, int birth) {
 //####################Showing#################//
 
 string appservice::showPeople(vector<Person> results) {
-
-    string temp = "";
+        string temp = "";
 
     for(unsigned int i = 0; i < results.size(); i++) {
         temp = temp + "--------------------------------------------------------------\n";
@@ -346,7 +345,7 @@ string appservice::showPeople(vector<Person> results) {
     }
     if(results.size() == 0) {
         temp = "#########################################################################\n";
-        temp = temp + "No Results Found!\n";
+        temp = temp + "No People Found!\n";
     }
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;

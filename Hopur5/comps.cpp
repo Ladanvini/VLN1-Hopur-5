@@ -15,6 +15,9 @@
         _built = built;
         _yearBuilt = yearBuilt;
     }
+    void Comps::setId(int id){
+        _id = id;
+    }
 
 	string Comps::getName() {
         return _name;
@@ -48,18 +51,21 @@
 
     string Comps::showComputer(){
         string temp = "";
+        temp = temp + "ID: " + std::to_string(_id) + '\n';
         temp = temp +"Name: " + _name + '\n';
         temp = temp +"Type: " + _type + '\n';
         if (_built)
         {
             temp = temp + "Built\n";
+        temp = temp + "Built Year: " + std::to_string(_yearBuilt);
         }
         else
         {
             temp = temp + "Not Built\n";
         }
 
-        temp = temp + "#\n";
+        temp = temp + "\n";
+
 
         return temp;
 

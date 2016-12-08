@@ -11,6 +11,9 @@ private:
 public:
     CompService();
     CompService(Database db);
+    //GETTERS
+    vector<Comps> getList() { return computers; }
+
     // Create
     string create(int id, string name, string type, int yearBuilt, bool built);
     //Search

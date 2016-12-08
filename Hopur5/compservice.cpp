@@ -28,6 +28,8 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     if(name.empty() || name.at(0) == ' ')
         return "Name was not accepted!\n";
 
+    newComputer->setId(computers.size()+2);
+
     if(_db.existsInCompDB(*newComputer)) {
             flag = true;
     }
@@ -35,6 +37,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
        return "Computer already exists\n";
     }
     computers.push_back(*newComputer);
+
 
     //_db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
@@ -163,8 +166,8 @@ string CompService::deleteComputers(string name, string type) {
     }
 
     if(flag) {
-        //_db.updateCompDB(computers);
-        //_db.reWriteDb();
+        _db.delFromCompDB(result);
+        _db.updateCompDB(computers);
         return result.showComputer() +
                 "Erased successfully\n";
     }
@@ -187,7 +190,7 @@ string CompService::showComputers(vector<Comps> results) {
 
     if(results.size() == 0) {
         temp = "#########################################################################\n";
-        temp = temp + "No Results Found!\n";
+        temp = temp + "No Computers Found!\n";
     }
 
     temp =  temp + "--------------------------------------------------------------\n";
