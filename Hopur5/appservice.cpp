@@ -32,7 +32,7 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
         return "Sex was not an accepted value\n";
     if(birth < 1000 || birth > currYear)
         return "Birth year was not an accepted value\n";
-    if(death > 2016 || (death != 0 && death < birth ))
+    if(death > currYear || (death != 0 && death < birth ))
         return "Death year was not an accepted value\n";
 
     if(db.exists(*p)) {
