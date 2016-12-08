@@ -19,13 +19,18 @@ appservice::appservice(Database _db) {
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
+
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+
     if(name.empty()||name[0] == ' ')
         return "Name was not accepted\n";
     if(age>150 || age < 1)
-        return "Age was not accepted\n";
-    if(sex != 'm' && sex != 'f')
+        return "Birth or death was not accepted\n";
+    if((sex != 'm' && sex != 'f'))
         return "Sex was not an accepted value\n";
-    if(birth < 1000 || birth > 2016)
+    if(birth < 1000 || birth > currYear)
         return "Birth year was not an accepted value\n";
     if(death > 2016 || (death != 0 && death < birth ))
         return "Death year was not an accepted value\n";
