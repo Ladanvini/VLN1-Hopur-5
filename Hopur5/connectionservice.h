@@ -10,11 +10,11 @@ public:
     connectionService();
     connectionService(Database db);
 
-    string connUtoC(Person p, vector<Comps> cv);
+    string connUtoC(Person p, Comps c);
     string connCtoU(Comps c, vector<Person> pV);
     string deleteConn(string cIdstr, string pIdstr);
-    string addConnPtoC(string pID, vector<string> cIds);
-    string addConnCtoP(string cID, vector<string> pIds);
+    string addConnCtoP(string pID, vector<string> cIds);
+    string addConn(string pIDstr, string cIdstr);
 };
 
 #endif // CONNECTIONSERVICE_H

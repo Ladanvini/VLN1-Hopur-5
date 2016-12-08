@@ -209,6 +209,8 @@ void ConsoleUI::linkMenu() {
     cout << "Enter the Person ID: " << endl;
     pers = inputHandling();
 
+    _linkService.addConn(pers, comp);
+
 
 }
 
@@ -779,7 +781,7 @@ void ConsoleUI::runUI() {
     string lowline = "--------------------------------------------------------------\n";
     cout << lowline;
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
-    clearScreen();
+    //clearScreen();
 
     do {
 

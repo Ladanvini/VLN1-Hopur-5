@@ -11,19 +11,19 @@ connectionService::connectionService(Database db) {
 }
 
 // User to Computers.
-string connectionService::connUtoC(Person p, vector<Comps> cv) {
+string connectionService::connUtoC(Person p, Comps c) {
 
     if(!_db.exists(p))
         return "Person does not exist\n";
 
-    for (unsigned int i = 0 ; i < cv.size(); i++) {
-        if(!_db.existsInCompDB(cv.at(i)))
-            return "Computer with id: " + std::to_string(cv.at(i).getId()) + "does not exist\n";
-        if(_db.existsInConns(P_C_Connection(cv.at(i), p)))
-            return "Connection between person with ID: " + std::to_string(p.getId()) +
-                    "and computer with ID: " + std::to_string(cv.at(i).getId()) + " already exists\n";
-        _db.addToConsDB(cv.at(i), p);
-    }
+
+   if(!_db.existsInCompDB(c))
+        return "Computer with id: " + std::to_string(c.getId()) + "does not exist\n";
+   if(_db.existsInConns(P_C_Connection(c, p)))
+        return "Connection between person with ID: " + std::to_string(p.getId()) +
+                "and computer with ID: " + std::to_string(c.getId()) + " already exists\n";
+        _db.addToConsDB(c, p);
+
 
     return "Connections added successfully\n";
 }
@@ -46,12 +46,14 @@ string connectionService::connCtoU(Comps c, vector<Person> pV) {
 
     return "Connections added successfully\n";
 }
-string connectionService::addConnPtoC(string pIDstr, vector<string> cIdstr) {
+string connectionService::addConn(string pIDstr, string cIdstr) {
     Person p;
+    Comps c;
     int pID = stoi(pIDstr);
+    int cID = stoi(cIdstr);
 
     bool flag = false;
-    vector<Comps> cv;
+
     for(unsigned int i = 0; i < _db.getList().size() && !flag; i++) {
         if(_db.getList().at(i).getId() == pID){
             p = _db.getList().at(i);
@@ -59,13 +61,13 @@ string connectionService::addConnPtoC(string pIDstr, vector<string> cIdstr) {
         }
     }
     for(unsigned int i = 0; i < _db.getComputerList().size() ; i++) {
-        for(unsigned int j = 0; j < cIdstr.size(); j++) {
-            if(_db.getComputerList().at(i).getId() == stoi(cIdstr.at(j)))
-                cv.push_back(_db.getComputerList().at(i));
-        }
+
+            if(_db.getComputerList().at(i).getId() == cID)
+                c = (_db.getComputerList().at(i));
+
     }
 
-    return connUtoC(p, cv);
+    return connUtoC(p, c);
 }
 
 string connectionService::addConnCtoP(string cID, vector<string> pIds) {
