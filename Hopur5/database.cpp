@@ -191,8 +191,7 @@ bool Database::exists(Person p) {
         transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
 
         if(pname.find(p2name) != std::string::npos
-           && p.getBirth() == _people.at(i).getBirth()
-           )
+           && p.getBirth() == _people.at(i).getBirth())
             return true;
     }
     return false;

@@ -756,6 +756,8 @@ void ConsoleUI::createMenuComp() {
     cout << "Enter Year Built (Enter 0 if it has not been built): " << endl;
     getline(cin, yearBuiltstr);
 
+    if(yearBuiltstr == "")
+        yearBuiltstr = "1";
     yearBuilt = stoi(yearBuiltstr);
 
     if(yearBuilt != 0) {
