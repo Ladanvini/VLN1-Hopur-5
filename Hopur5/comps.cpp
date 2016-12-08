@@ -33,8 +33,7 @@
         return _id;
 
     }
-    int Comps::getYearBuilt(){
-
+    int Comps::getYearBuilt() {
 
         return _yearBuilt;
     }

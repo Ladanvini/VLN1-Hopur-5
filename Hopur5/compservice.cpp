@@ -95,6 +95,7 @@ vector<Comps> CompService::searchByBuilt(int yearBuilt) {
             result.push_back(computers.at(i));
         }
     }
+    return result;
 }
 
 // Sort
@@ -158,8 +159,8 @@ vector<Comps> CompService::sortByBuilt() {
     return sorted;
 }
 
-bool CompService::containsID(vector<int> ids, int id){
-    for(int i=0; i<ids.size(); i++)
+bool CompService::containsID(vector<int> ids, int id) {
+    for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)
             return true;
     return false;

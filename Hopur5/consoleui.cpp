@@ -470,12 +470,12 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "built") {
             cout << lowline;
-            cout << "Please enter yes or no if built or not" << endl;
+            cout << "Please enter the year please" << endl;
             input = inputHandling();
             cout << lowline;
-            int ifbuilt;
-            ifbuilt = stoi(input);
-            cout << _compService.showComputers(_compService.searchByBuilt(ifbuilt));
+            int built;
+            built = stoi(input);
+            cout << _compService.showComputers(_compService.searchByBuilt(built));
         }
         else if(input == "type") {
             cout << lowline;
