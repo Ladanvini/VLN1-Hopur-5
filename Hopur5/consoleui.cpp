@@ -503,7 +503,7 @@ void ConsoleUI::sortMenuPerson() {
             input = inputHandling();
             if(input == "list"){
                 cout << "Yes: if you want the list sorted by those that have won a turing" << endl;
-                        "No: if you want the list sorted by those that have not won a turing"<< endl;
+                cout << "No: if you want the list sorted by those that have not won a turing"<< endl;
                         input = inputHandling();
                 if(input == "yes" || input == "no") {
                     cout << lowline;
@@ -515,7 +515,7 @@ void ConsoleUI::sortMenuPerson() {
                 }
             }else if(input == "table"){
                 cout << "Yes: if you want the list sorted by those that have won a turing" << endl;
-                        "No: if you want the list sorted by those that have not won a turing"<< endl;
+                cout << "No: if you want the list sorted by those that have not won a turing"<< endl;
                         input = inputHandling();
                 if(input == "yes" || input == "no") {
                     cout << lowline;
