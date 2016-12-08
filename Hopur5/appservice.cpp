@@ -259,6 +259,7 @@ vector<Person> appservice::sortByBirthDec() {
 
 }
 vector<Person> appservice::sortByDeath() {
+    vector<int> id;
     vector<int> death;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -268,9 +269,13 @@ vector<Person> appservice::sortByDeath() {
 
     for(unsigned int i = 0; i < death.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(death.at(i) == people.at(j).getDeath())
+            if(death.at(i) == people.at(j).getDeath()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
+
     }
 
     return sorted;
