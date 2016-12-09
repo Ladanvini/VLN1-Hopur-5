@@ -46,6 +46,9 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     _db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
 
+    _db = Database(_db.getDbName());
+    computers = _db.getComputerList();
+
     return "Added successfully\n";
 }
 

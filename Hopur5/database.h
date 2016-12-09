@@ -19,6 +19,7 @@ private:
     Person person;
     vector<Person> _people;
     string _dbFile;
+    QString _dbName;
     vector<Comps> _computers;
     vector<Links> _connections;
 public:
@@ -26,6 +27,9 @@ public:
 
     //Constructor opens connection and fills vectors from the database.
     Database(QString dbFile);
+    QString getDbName() {
+        return _dbName;
+    }
 
     //Returns list of computers from the database.
     vector<Comps> getComputerList();

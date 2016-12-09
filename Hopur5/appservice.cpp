@@ -53,6 +53,8 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
     db.update(people);
     db.writeToDB(*p);
 
+    db = Database(db.getDbName());
+    people = db.getList();
     return "Added successfully\n";
 }
 

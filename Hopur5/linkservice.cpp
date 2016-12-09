@@ -61,6 +61,11 @@ string LinkService::create(string computerID, string personID) {
     _linkList.push_back(Links(c, p));
     _db.updateLinkDB(_linkList);
     _db.addToConsDB(Links(c, p));
+
+    _db = Database(_db.getDbName());
+    _linkList = _db.getConnectionList();
+    _compList = _db.getComputerList();
+    _persList = _db.getList();
     return "Link added successfully\n";
 }
 
