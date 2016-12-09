@@ -16,6 +16,7 @@ public:
     bool compare(Links l);
     int getCID();
     int getPID();
+    string margins(int cellSize, string value);
 };
 
 

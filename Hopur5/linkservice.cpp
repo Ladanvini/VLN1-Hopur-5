@@ -58,3 +58,13 @@ bool LinkService::exists(Links l){
     }
     return false;
 }
+string LinkService::showLinksTable(vector<Links> display){
+    string temp = "";
+    temp = temp + "|       COMPUTER        | <---> |         PERSON        |\n"
+                  "|   ID  |      NAME     | <---> |   ID  |      NAME     |\n";
+
+    for(int i=0; i<display.size(); i++)
+        temp = temp + (display.at(i)).showLink();
+
+    return temp;
+}

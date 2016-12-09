@@ -73,7 +73,7 @@ string ConsoleUI::cORp(string name) {
 void ConsoleUI::displayList() {
     cout << _appservice.showPeople(_appservice.getList());
     cout << _compService.showComputers(_compService.getList());
-   // cout << _linkService.showConnections(_linkService.getList());
+    cout << _linkService.showLinksTable(_linkService.getLinkList());
 
 }
 

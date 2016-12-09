@@ -75,6 +75,8 @@ Database::Database(QString dbName) {
 
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
+
+
     QSqlQuery queryL(_db);
 
     queryL.exec("SELECT * FROM P_C_con");
@@ -84,19 +86,20 @@ Database::Database(QString dbName) {
     Comps c;
     Person p;
     while(queryL.next()) {
+
         pidL = queryL.value("PID").toInt();
         cidL = queryL.value("CID").toInt();
 
         for(int i = 0; i<_computers.size(); i++){
+
             if(_computers.at(i).getId() == cidL)
-                c = _computers.at(i);
-            else
-                c = Comps();
+                c = _computers.at(i); 
+        }
+        for(int i =0; i<_people.size(); i++){
             if(_people.at(i).getId() == pidL)
                 p = _people.at(i);
-            else
-                p = Person();
         }
+
         _connections.push_back(Links(c, p));
     }
 }
@@ -317,8 +320,9 @@ void Database::addToConsDB(Links l) {
     _db.open();
 
     QSqlQuery query(_db);
-
-    string stmnt;
+cerr<< "CID: " << std::to_string(l.getCID()) << endl;
+cerr << "PID: " << std::to_string(l.getPID()) << endl;
+    string stmnt =
     "INSERT INTO P_C_con ( CID, PID)"
                 "\n VALUES ( " + std::to_string(l.getCID()) + ", "
                         +  std::to_string(l.getPID()) + ") ";

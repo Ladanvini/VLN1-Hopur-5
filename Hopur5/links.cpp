@@ -12,13 +12,13 @@ Links::Links(Comps c, Person p){
 string Links::showLink(){
     string temp = "";
     temp = temp +
-            "|  " + std::to_string(this->_computer.getId()) + "  "
-            "|  " + this->_computer.getName() + "  ";
+            margins(7, std::to_string(this->_computer.getId()) ) +
+            margins(15, this->_computer.getName() );
     temp = temp + " <---> ";
 
     temp = temp +
-            "|  " + std::to_string(this->_person.getId()) + "  "
-            "|  " + this->_person.getName() + "  |";
+            margins(7, std::to_string(this->_person.getId())) +
+            margins(15, this->_person.getName());
     return temp;
 }
 bool Links::compare(Links l){
@@ -34,4 +34,19 @@ int Links::getCID(){
 }
 int Links::getPID(){
     return _person.getId();
+}
+string Links::margins(int cellSize, string value){
+   string sstr = "";
+   int space = (cellSize - value.size())/2;
+   if(value.size() >= cellSize){
+        value = value.substr(0, cellSize-3);
+        value = value + "...";
+
+   }
+    else{
+
+        for(int i=0; i<space; i++)
+            sstr = sstr + " ";
+   }
+    return "|" + sstr + value + sstr + "|";
 }
