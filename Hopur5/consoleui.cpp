@@ -800,6 +800,22 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "built") {
             cout << lowline;
+            cout << "You want it in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByBuilt(stoi(input)));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByBuilt(stoi(input)));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
             cout << "Please enter the year" << endl;
             input = inputHandling();
             cout << lowline;
