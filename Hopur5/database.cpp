@@ -155,6 +155,7 @@ void Database::updateCompDB(vector<Comps> comps) {
     }
 }
 
+//Updates the vector links
 void Database::updateLinkDB(vector<Links> links){
     _connections = links;
 }
@@ -198,7 +199,6 @@ void Database::writeToCompDB(Comps c) {
 
     QSqlQuery query(_db);
 
-    cerr << "FUCKING COMPUTERS: " << c.getId() << endl;
     string stmnt;
     stmnt = "INSERT INTO Computers( cName, cType, cBuilt, cBuiltYear )"
             " VALUES ( '"
