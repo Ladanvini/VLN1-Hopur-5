@@ -3,7 +3,7 @@
 
 #include "appservice.h"
 #include "compservice.h"
-#include "connectionservice.h"
+#include "linkservice.h"
 
 
 #include <string>
@@ -14,10 +14,10 @@ class ConsoleUI {
 private:
     CompService _compService;
     appservice _appservice;
-    connectionService _linkService;
+    LinkService _linkService;
 public:
     ConsoleUI();
-    ConsoleUI(appservice p, CompService c, connectionService l);
+    ConsoleUI(appservice p, CompService c, LinkService l);
 
     string inputHandling();
     string unicorn();

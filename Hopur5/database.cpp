@@ -90,10 +90,14 @@ Database::Database(QString dbName) {
         for(int i = 0; i<_computers.size(); i++){
             if(_computers.at(i).getId() == cidL)
                 c = _computers.at(i);
+            else
+                c = Comps();
             if(_people.at(i).getId() == pidL)
                 p = _people.at(i);
+            else
+                p = Person();
         }
-        _connections.push_back(P_C_Connection(c, p));
+        _connections.push_back(Links(c, p));
     }
 }
 
@@ -107,7 +111,7 @@ vector<Comps> Database::getComputerList() {
     return _computers;
 }
 
-vector<P_C_Connection> Database::getConnectionList(){
+vector<Links> Database::getConnectionList(){
     return _connections;
 }
 
@@ -199,7 +203,7 @@ bool Database::exists(Person p) {
 }
 
 //Checks if connection already exists
-bool Database::existsInConns(P_C_Connection pccon) {
+bool Database::existsInConns(Links pccon) {
     for(unsigned int i=0; i<_connections.size(); i++) {
         if(pccon.compare(_connections.at(i)))
             return true;
@@ -307,8 +311,8 @@ void Database::delFromCompDB(Comps c) {
 }
 
 // Add a connection with the given computer and person.
-void Database::addToConsDB(Comps c, Person p) {
-     _connections.push_back(P_C_Connection(c, p));
+void Database::addToConsDB(Links l) {
+     _connections.push_back(l);
 
     _db.open();
 
@@ -316,8 +320,8 @@ void Database::addToConsDB(Comps c, Person p) {
 
     string stmnt;
     "INSERT INTO P_C_con ( CID, PID)"
-                "\n VALUES ( " + std::to_string(c.getId()) + ", "
-                        +  std::to_string(p.getId()) + ") ";
+                "\n VALUES ( " + std::to_string(l.getCID()) + ", "
+                        +  std::to_string(l.getPID()) + ") ";
 
     if(query.exec(QString::fromStdString(stmnt)))
         qDebug() << query.executedQuery();

@@ -20,7 +20,7 @@ private:
     vector<Person> _people;
     string _dbFile;
     vector<Comps> _computers;
-    vector<P_C_Connection> _connections;
+    vector<Links> _connections;
 public:
     Database();
     //Constructor opens connection and fills vectors from the database.
@@ -29,7 +29,7 @@ public:
     vector<Comps> getComputerList();
     //Returns list of people from the database.
     vector<Person> getList();
-    vector<P_C_Connection> getConnectionList();
+    vector<Links> getConnectionList();
     //Updates the vector people.
     void update(vector<Person> peeps);
     //Updates the vector computers.
@@ -43,13 +43,13 @@ public:
     //Checks if the computer already exists.
     bool existsInCompDB(Comps c);
     //Checks if connection already exists
-    bool existsInConns(P_C_Connection pccon);
+    bool existsInConns(Links pccon);
     //Deletes a person from the database.
     void delFromDB(Person p);
     //Deletes a computer from the database.
     void delFromCompDB(Comps c);
     //Add connection to database
-    void addToConsDB(Comps c, Person p);
+    void addToConsDB(Links l);
     //TODO delete the following functions!
     void deleteCons(int cId, int pId);
     void reWriteDb();

@@ -21,3 +21,17 @@ string Links::showLink(){
             "|  " + this->_person.getName() + "  |";
     return temp;
 }
+bool Links::compare(Links l){
+    if(
+            this->_computer.getId() == l._computer.getId()
+         && this->_person.getId() == l._person.getId()
+            )
+        return true;
+    return false;
+}
+int Links::getCID(){
+    return _computer.getId();
+}
+int Links::getPID(){
+    return _person.getId();
+}

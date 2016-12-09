@@ -13,7 +13,7 @@ ConsoleUI::ConsoleUI() {
 
 }
 
-ConsoleUI::ConsoleUI(appservice p, CompService c, connectionService l) {
+ConsoleUI::ConsoleUI(appservice p, CompService c, LinkService l) {
     _appservice = p;
     _compService = c;
     _linkService = l;
@@ -209,8 +209,7 @@ void ConsoleUI::linkMenu() {
     cout << "Enter the Person ID: " << endl;
     pers = inputHandling();
 
-    cout << _linkService.addConn(pers, comp);
-
+    cout << _linkService.create(comp, pers);
 
 }
 

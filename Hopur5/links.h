@@ -13,6 +13,9 @@ public:
     Links();
     Links(Comps c, Person p);
     string showLink();
+    bool compare(Links l);
+    int getCID();
+    int getPID();
 };
 
 
