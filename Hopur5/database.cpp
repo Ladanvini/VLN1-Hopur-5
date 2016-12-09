@@ -24,7 +24,6 @@ Database::Database(QString dbName) {
         qDebug() << "Error: connection with database fail";
     }
 
-
     QSqlQuery query(_db);
 
     query.exec("SELECT * FROM People");
@@ -49,7 +48,6 @@ Database::Database(QString dbName) {
         turingYear = query.value("pTuringYear").toInt();
         turing = query.value("pTuring").toBool();
 
-
         _people.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
 
@@ -70,10 +68,8 @@ Database::Database(QString dbName) {
         builtC = queryC.value("cBuilt").toBool();
         builtYearC = queryC.value("cBuiltYear").toInt();
 
-
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
-
 
     QSqlQuery queryL(_db);
 
@@ -83,21 +79,20 @@ Database::Database(QString dbName) {
     int cidL;
     Comps c;
     Person p;
+
     while(queryL.next()) {
 
         pidL = queryL.value("PID").toInt();
         cidL = queryL.value("CID").toInt();
 
-        for(unsigned int i = 0; i<_computers.size(); i++){
-
+        for(unsigned int i = 0; i < _computers.size(); i++) {
             if(_computers.at(i).getId() == cidL)
                 c = _computers.at(i); 
         }
-        for(unsigned int i =0; i<_people.size(); i++){
+        for(unsigned int i = 0; i < _people.size(); i++) {
             if(_people.at(i).getId() == pidL)
                 p = _people.at(i);
         }
-
         _connections.push_back(Links(c, p));
     }
 }
@@ -112,7 +107,7 @@ vector<Comps> Database::getComputerList() {
     return _computers;
 }
 
-vector<Links> Database::getConnectionList(){
+vector<Links> Database::getConnectionList() {
     return _connections;
 }
 
@@ -120,18 +115,17 @@ vector<Links> Database::getConnectionList(){
 void Database::update(vector<Person> peeps) {
     vector<string> names;
     vector<Person> sorted;
-    for(unsigned int i=0; i<peeps.size(); i++)
+    for(unsigned int i = 0; i < peeps.size(); i++)
         names.push_back(peeps.at(i).getName());
 
     std::sort(names.begin(), names.end());
 
-    for(unsigned int i=0; i<names.size(); i++) {
-        for(unsigned int j=0; j<peeps.size(); j++) {
+    for(unsigned int i = 0; i < names.size(); i++) {
+        for(unsigned int j = 0; j < peeps.size(); j++) {
             if(names.at(i) == peeps.at(j).getName())
                 sorted.push_back(peeps.at(j));
         }
     }
-
     _people = sorted;
 }
 
@@ -156,7 +150,7 @@ void Database::updateCompDB(vector<Comps> comps) {
 }
 
 //Updates the vector links
-void Database::updateLinkDB(vector<Links> links){
+void Database::updateLinkDB(vector<Links> links) {
     _connections = links;
 }
 
@@ -180,12 +174,8 @@ void Database::writeToDB(Person p) {
                     + "', '" + p.getContribution() + "', " + std::to_string(p.getTuringYear()) + ", '"
                     + turingB + "' )";
 
-
-
-    if(!query.exec(QString::fromStdString(stmnt)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << query.lastError();
     }
     cout << _db.commit() << endl;
@@ -204,15 +194,13 @@ void Database::writeToCompDB(Comps c) {
                     + c.getName() + "' , '" + c.getType()
                     + "', " + std::to_string(c.getBuilt()) + ", " + std::to_string(c.getYearBuilt()) + " )";
 
-    //query.exec(QString::fromStdString(stmnt));
-    if(!query.exec(QString::fromStdString(stmnt)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
+
     cout << _db.commit() << endl;
     _db.close();
-
     _db.open();
 
     QSqlQuery queryC(_db);
@@ -220,16 +208,13 @@ void Database::writeToCompDB(Comps c) {
     stmnt = "";
     stmnt = "SELECT cID FROM Computers WHERE cName = '"
             + c.getName() + "' AND cType = '" + c.getType() + "'";
-    if(!queryC.exec(QString::fromStdString(stmnt)))
-    {
+    if(!queryC.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << queryC.lastError();
     }
     int compId = queryC.value("cID").toInt();
     c.setId(compId);
     _computers.push_back(c);
-
 
     cout << _db.commit() << endl;
     _db.close();
@@ -240,7 +225,8 @@ bool Database::exists(Person p) {
     string pname = p.getName();
     string p2name;
     transform(pname.begin(), pname.end(), pname.begin(), ::tolower);
-    for(unsigned int i=0; i<_people.size(); i++) {
+
+    for(unsigned int i = 0; i < _people.size(); i++) {
         p2name = _people.at(i).getName();
         transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
 
@@ -249,12 +235,11 @@ bool Database::exists(Person p) {
             return true;
     }
     return false;
-
 }
 
 //Checks if connection already exists
 bool Database::existsInConns(Links pccon) {
-    for(unsigned int i=0; i<_connections.size(); i++) {
+    for(unsigned int i = 0; i < _connections.size(); i++) {
         if(pccon.compare(_connections.at(i)))
             return true;
     }
@@ -270,7 +255,7 @@ bool Database::existsInCompDB(Comps c) {
 
     transform(cname.begin(), cname.end(), cname.begin(), ::tolower);
 
-    for (unsigned int i = 0 ; i < _computers.size(); i++){
+    for (unsigned int i = 0 ; i < _computers.size(); i++) {
         c2type = _computers.at(i).getType();
         c2name = _computers.at(i).getName();
         transform(c2name.begin(), c2name.end(), c2name.begin(), ::tolower);
@@ -295,41 +280,32 @@ void Database::delFromDB(Person p) {
     stmnt = "DELETE FROM People WHERE PID = "
             + std::to_string(p.getId());
 
-    //query.exec(QString::fromStdString(stmnt));
-    if(!query.exec(QString::fromStdString(stmnt)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << query.lastError();
     }
     string stmnt1 = "DELETE FROM P_C_con WHERE PID = "
             + std::to_string(p.getId());
 
-    //query.exec(QString::fromStdString(stmnt));
-    if(!query.exec(QString::fromStdString(stmnt1)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt1))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << query.lastError();
     }
 
     cout << _db.commit() << endl;
     _db.close();
 
-    for(unsigned int i=0; i<_people.size(); i++) {
+    for(unsigned int i = 0; i < _people.size(); i++) {
         string p_name = _people.at(i).getName();
 
-        if(p_name.find(p.getName()) != std::string::npos && _people.at(i).getBirth() == p.getBirth() ) {
-
+        if(p_name.find(p.getName()) != std::string::npos && _people.at(i).getBirth() == p.getBirth()) {
             _people.erase(_people.begin() + i);
-
         }
     }
-    for(unsigned int i=0; i< _connections.size(); i++){
+    for(unsigned int i = 0; i < _connections.size(); i++){
         if(_connections.at(i).getPID() == p.getId())
             _connections.erase(_connections.begin()+i);
     }
-
 }
 
 //Deletes a computer from the database.
@@ -342,37 +318,30 @@ void Database::delFromCompDB(Comps c) {
     stmnt = "DELETE FROM Computers WHERE cID = "
             + std::to_string(c.getId());
 
-//    query.exec(QString::fromStdString(stmnt));
-    if(!query.exec(QString::fromStdString(stmnt)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << query.lastError();
     }
+
     string stmnt1 = "DELETE FROM P_C_con WHERE CID = "
             + std::to_string(c.getId());
-//    query.exec(QString::fromStdString(stmnt));
-    if(!query.exec(QString::fromStdString(stmnt1)))
-    {
-        qDebug() << "Could not execute query" << endl;
 
+    if(!query.exec(QString::fromStdString(stmnt1))) {
+        qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-
 
     cout << _db.commit() << endl;
     _db.close();
 
-    for(unsigned int i=0; i<_computers.size(); i++) {
+    for(unsigned int i = 0; i < _computers.size(); i++) {
         string c_name = _computers.at(i).getName();
 
-        if(c_name.find(c.getName()) != std::string::npos && _computers.at(i).getType() == c.getType() ) {
-
+        if(c_name.find(c.getName()) != std::string::npos && _computers.at(i).getType() == c.getType()) {
             _computers.erase(_computers.begin() + i);
-
         }
     }
-    for(unsigned int i=0; i< _connections.size(); i++){
+    for(unsigned int i = 0; i < _connections.size(); i++) {
         if(_connections.at(i).getCID() == c.getId())
             _connections.erase(_connections.begin()+i);
     }
@@ -391,16 +360,12 @@ void Database::deleteCons(int cId, int pId) {
              + " AND PID = "
              + std::to_string(pId);
 
-     //query.exec(QString::fromStdString(stmnt));
-
-     if(!query.exec(QString::fromStdString(stmnt)))
-     {
+     if(!query.exec(QString::fromStdString(stmnt))) {
          qDebug() << "Could not execute query" << endl;
-
          qDebug() << query.lastError();
      }
 
-     for(unsigned int i=0; i< _connections.size(); i++){
+     for(unsigned int i = 0; i < _connections.size(); i++) {
          if(_connections.at(i).getCID() == cId
                  && _connections.at(i).getPID() == pId)
              _connections.erase(_connections.begin()+i);
@@ -413,25 +378,23 @@ void Database::deleteCons(int cId, int pId) {
 // Add a connection with the given computer and person.
 void Database::addToConsDB(Links l) {
      _connections.push_back(l);
-
     _db.open();
 
     QSqlQuery query(_db);
-cerr<< "CID: " << std::to_string(l.getCID()) << endl;
-cerr << "PID: " << std::to_string(l.getPID()) << endl;
+
+    cerr<< "CID: " << std::to_string(l.getCID()) << endl;
+    cerr << "PID: " << std::to_string(l.getPID()) << endl;
+
     string stmnt =
     "INSERT INTO P_C_con ( CID, PID)"
                 "\n VALUES ( " + std::to_string(l.getCID()) + ", "
                         +  std::to_string(l.getPID()) + ") ";
 
-    if(!query.exec(QString::fromStdString(stmnt)))
-    {
+    if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
-
         qDebug() << query.lastError();
     }
     cout << _db.commit() << endl;
-
     _db.close();
 }
 

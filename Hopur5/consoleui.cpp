@@ -1,9 +1,9 @@
+#include "consoleui.h"
+
 #include <iostream>
 #include <algorithm>
 #include <string>
 #include <ctime>
-
-#include "consoleui.h"
 
 using namespace std;
 
@@ -129,27 +129,27 @@ void ConsoleUI::searchMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    input = cORp("search");
+        input = cORp("search");
 
-    if(input  == "person") {
-        cout << lowline;
-        searchMenuPerson();
-    }
-    else if(input == "computer") {
-        cout << lowline;
-        searchMenuComp();
-    }
-    else if(input == "back") {
-        cout << lowline;
-        cout << "Thank you, taking you back to the main menu" << endl;
-        cout << lowline;
-        exitMenu = true;
-    }
-    else {
-        cout << lowline;
-        cout << "Wrong input!" << endl;
-        cout << lowline;
-    }
+        if(input  == "person") {
+            cout << lowline;
+            searchMenuPerson();
+        }
+        else if(input == "computer") {
+            cout << lowline;
+            searchMenuComp();
+        }
+        else if(input == "back") {
+            cout << lowline;
+            cout << "Thank you, taking you back to the main menu" << endl;
+            cout << lowline;
+            exitMenu = true;
+        }
+        else {
+            cout << lowline;
+            cout << "Wrong input!" << endl;
+            cout << lowline;
+        }
     } while(!exitMenu);
 }
 
