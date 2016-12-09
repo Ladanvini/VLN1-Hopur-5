@@ -1,10 +1,10 @@
 #include "unicorn.h"
 
-Unicorn::Unicorn()
-{
+Unicorn::Unicorn() {
 
 }
-void Unicorn::moonWalk(){
+
+void Unicorn::moonWalk() {
 
     clearScreen();
     cout << unicorn();
@@ -67,9 +67,9 @@ void Unicorn::moonWalk(){
     cout << unicorn();
     //wait();
 
-
 }
-string Unicorn::unicorn(){
+
+string Unicorn::unicorn() {
     string uni = "";
     uni = uni +
 "                   ." + '\n' +
@@ -87,11 +87,8 @@ string Unicorn::unicorn(){
 " |_0|            |_0| " + '\n';
 
     return uni;
-
 }
-
-
-string Unicorn::unicornS1(){
+string Unicorn::unicornS1() {
     string uni = "";
     uni = uni +
 "                    ." + '\n' +
@@ -109,9 +106,8 @@ string Unicorn::unicornS1(){
 "  \\_0\\            \\_0\\ " + '\n';
 
     return uni;
-
 }
-string Unicorn::unicornS2(){
+string Unicorn::unicornS2() {
     string uni = "";
     uni = uni +
 "                     ." + '\n' +
@@ -129,11 +125,8 @@ string Unicorn::unicornS2(){
 "   |_0|            |_0| " + '\n';
 
     return uni;
-
 }
-
-
-string Unicorn::unicornS3(){
+string Unicorn::unicornS3() {
     string uni = "";
     uni = uni +
 "                       ." + '\n' +
@@ -151,9 +144,8 @@ string Unicorn::unicornS3(){
 "     \\_0\\            \\_0\\ " + '\n';
 
     return uni;
-
 }
-string Unicorn::unicornS4(){
+string Unicorn::unicornS4() {
     string uni = "";
     uni = uni +
 "                       ." + '\n' +
@@ -171,11 +163,8 @@ string Unicorn::unicornS4(){
 "     |_0|            |_0| " + '\n';
 
     return uni;
-
 }
-
-
-string Unicorn::unicornS5(){
+string Unicorn::unicornS5() {
     string uni = "";
     uni = uni +
 "                         ." + '\n' +
@@ -193,9 +182,8 @@ string Unicorn::unicornS5(){
 "       \\_0\\            \\_0\\ " + '\n';
 
     return uni;
-
 }
-string Unicorn::unicornS6(){
+string Unicorn::unicornS6() {
     string uni = "";
     uni = uni +
 "                         ." + '\n' +
@@ -213,11 +201,8 @@ string Unicorn::unicornS6(){
 "       |_0|            |_0| " + '\n';
 
     return uni;
-
 }
-
-
-string Unicorn::unicornS7(){
+string Unicorn::unicornS7() {
     string uni = "";
     uni = uni +
 "                           ." + '\n' +
@@ -235,9 +220,8 @@ string Unicorn::unicornS7(){
 "         \\_0\\            \\_0\\ " + '\n';
 
     return uni;
-
 }
-string Unicorn::unicornS8(){
+string Unicorn::unicornS8() {
     string uni = "";
     uni = uni +
 "                           ." + '\n' +
@@ -255,11 +239,8 @@ string Unicorn::unicornS8(){
 "        |_0|            |_0| " + '\n';
 
     return uni;
-
 }
-
-
-string Unicorn::unicornS9(){
+string Unicorn::unicornS9() {
     string uni = "";
     uni = uni +
 "                             ." + '\n' +
@@ -277,5 +258,4 @@ string Unicorn::unicornS9(){
 "           \\_0\\            \\_0\\ " + '\n';
 
     return uni;
-
 }
