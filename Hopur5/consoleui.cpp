@@ -1116,6 +1116,7 @@ void ConsoleUI::runUI() {
         cout << "Link - Link computers to people " << endl;
         cout << "TicTacToe - Play Tic Tac Toe" << endl;
         cout << "Unicorn - A unicorn" << endl;
+        cout << "Moonwalk - A surprise" << endl;
         cout << "Exit - End the programs run" << endl;
 
         input = inputHandling();
@@ -1129,6 +1130,12 @@ void ConsoleUI::runUI() {
             cout << unicorn();
             linkMenu();
         }
+        else if(input == "moonwalk") {
+            cout << lowline;
+            u.moonWalk();
+
+        }
+
         else if(input == "unicorn") {
             cout << lowline;
             cout << unicorn();

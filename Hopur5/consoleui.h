@@ -5,7 +5,7 @@
 #include "compservice.h"
 #include "linkservice.h"
 #include "tictactoe.h"
-
+#include "unicorn.h"
 
 #include <string>
 
@@ -13,6 +13,7 @@ using namespace std;
 
 class ConsoleUI {
 private:
+    Unicorn u;
     CompService _compService;
     appservice _appservice;
     LinkService _linkService;

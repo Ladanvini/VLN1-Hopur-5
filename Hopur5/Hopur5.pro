@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     compservice.cpp \
     links.cpp \
     linkservice.cpp \
-    tictactoe.cpp
+    tictactoe.cpp \
+    unicorn.cpp
 
 DISTFILES += \
     database \
@@ -34,4 +35,5 @@ HEADERS += \
     compservice.h \
     links.h \
     linkservice.h \
-    tictactoe.h
+    tictactoe.h \
+    unicorn.h
