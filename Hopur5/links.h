@@ -16,7 +16,7 @@ public:
     //Tools and misc.
     string showLink();
     bool compare(Links l);
-    string margins(int cellSize, string value);
+    string margins(unsigned int cellSize, string value);
 
     //Getters
     int getCID();

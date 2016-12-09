@@ -33,7 +33,7 @@ bool Links::compare(Links l) {
     return false;
 }
 
-string Links::margins(int cellSize, string value) {
+string Links::margins(unsigned int cellSize, string value) {
    string sstr = "";
    int space = (cellSize - value.size())/2;
    if(value.size() >= cellSize) {
@@ -48,10 +48,10 @@ string Links::margins(int cellSize, string value) {
 }
 
 //Getters
-int Links::getCID(){
+int Links::getCID() {
     return _computer.getId();
 }
-int Links::getPID(){
+int Links::getPID() {
     return _person.getId();
 }
 
