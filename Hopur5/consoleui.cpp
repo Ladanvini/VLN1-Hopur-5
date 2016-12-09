@@ -1,4 +1,3 @@
-//#define clearScreen() printf("\033[H\033[J")
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -73,7 +72,7 @@ void ConsoleUI::displayList() {
     bool exitmenu = false;
     string lowline = "--------------------------------------------------------------\n";
 
-    do{
+    do {
         cout << "CL - All computers in a list" << endl;
         cout << "CT - All computers in a table" << endl;
         cout << "PL - All people in a list" << endl;
@@ -84,42 +83,42 @@ void ConsoleUI::displayList() {
         string input;
         input = inputHandling();
 
-        if(input == "cl"){
+        if(input == "cl") {
             cout << lowline;
             cout << _compService.showComputers(_compService.getList());
             cout << lowline;
         }
-        else if (input == "ct"){
+        else if (input == "ct") {
             cout << lowline;
             cout << _compService.showComputersTable(_compService.getList());
             cout << lowline;
         }
-        else if (input == "pl"){
+        else if (input == "pl") {
             cout << lowline;
             cout << _appservice.showPeople(_appservice.getList());
             cout << lowline;
         }
-        else if (input == "pt"){
+        else if (input == "pt") {
             cout << lowline;
             cout << _appservice.showPeopleTable(_appservice.getList());
             cout << lowline;
         }
-        else if (input == "links"){
+        else if (input == "links") {
             cout << lowline;
             cout << _linkService.showLinksTable(_linkService.getLinkList());
             cout << lowline;
         }
-        else if(input == "back"){
+        else if(input == "back") {
             cout << lowline;
             cout << "Thank you" << endl;
             cout << lowline;
             exitmenu = true;
         }
-        else{
+        else {
             cout << lowline;
             cout << "INVALID COMMAND\n";
         }
-    }while(!exitmenu);
+    } while(!exitmenu);
 }
 
 /**************************Question Menus***************************/
@@ -151,7 +150,7 @@ void ConsoleUI::searchMenu() {
         cout << "Wrong input!" << endl;
         cout << lowline;
     }
-    }while(!exitMenu);
+    } while(!exitMenu);
 }
 
 void ConsoleUI::sortMenu() {
@@ -160,28 +159,28 @@ void ConsoleUI::sortMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
-    input = cORp("sort");
+        input = cORp("sort");
 
-    if(input  == "person") {
-        cout << lowline;
-        sortMenuPerson();
-    }
-    else if(input == "computer") {
-        cout << lowline;
-        sortMenuComp();
-    }
-    else if(input == "back") {
-        cout << lowline;
-        cout << "Thank you, taking you back to the main menu" << endl;
-        cout << lowline;
-        exitMenu = true;
-    }
-    else {
-        cout << lowline;
-        cout << "Wrong input!" << endl;
-        cout << lowline;
-    }
-    }while(!exitMenu);
+        if(input  == "person") {
+            cout << lowline;
+            sortMenuPerson();
+        }
+        else if(input == "computer") {
+            cout << lowline;
+            sortMenuComp();
+        }
+        else if(input == "back") {
+            cout << lowline;
+            cout << "Thank you, taking you back to the main menu" << endl;
+            cout << lowline;
+            exitMenu = true;
+        }
+        else {
+            cout << lowline;
+            cout << "Wrong input!" << endl;
+            cout << lowline;
+        }
+    } while(!exitMenu);
 }
 
 void ConsoleUI::createMenu() {
@@ -190,29 +189,28 @@ void ConsoleUI::createMenu() {
     string lowline = "--------------------------------------------------------------\n";
 
     do {
+        input = cORp("create");
 
-    input = cORp("create");
-
-    if(input  == "person") {
-        cout << lowline;
-        createMenuPerson();
-    }
-    else if(input == "computer") {
-        cout << lowline;
-        createMenuComp();
-    }
-    else if(input == "back") {
-        cout << lowline;
-        cout << "Thank you, taking you back to the main menu" << endl;
-        cout << lowline;
-        exitMenu = true;
-    }
-    else {
-        cout << lowline;
-        cout << "Wrong input!" << endl;
-        cout << lowline;
-    }
-    }while(!exitMenu);
+        if(input  == "person") {
+            cout << lowline;
+            createMenuPerson();
+        }
+        else if(input == "computer") {
+            cout << lowline;
+            createMenuComp();
+        }
+        else if(input == "back") {
+            cout << lowline;
+            cout << "Thank you, taking you back to the main menu" << endl;
+            cout << lowline;
+            exitMenu = true;
+        }
+        else {
+            cout << lowline;
+            cout << "Wrong input!" << endl;
+            cout << lowline;
+        }
+    } while(!exitMenu);
 }
 
 void ConsoleUI::deleteMenu() {
