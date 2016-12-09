@@ -9,7 +9,7 @@
 
 //#include "comps.h"
 //#include "person.h"
-#include "p_c_connection.h"
+#include "links.h"
 
 using namespace std;
 

@@ -11,8 +11,8 @@ private:
     Person _person;
 public:
     Links();
-    Links(string computerID, string personID );
     Links(Comps c, Person p);
+    string showLink();
 };
 
 

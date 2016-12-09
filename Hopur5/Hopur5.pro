@@ -17,8 +17,8 @@ SOURCES += main.cpp \
     appservice.cpp \
     comps.cpp \
     compservice.cpp \
-    connectionservice.cpp \
-    links.cpp
+    links.cpp \
+    linkservice.cpp
 
 DISTFILES += \
     database \
@@ -31,5 +31,5 @@ HEADERS += \
     appservice.h \
     comps.h \
     compservice.h \
-    connectionservice.h \
-    links.h
+    links.h \
+    linkservice.h
