@@ -155,6 +155,7 @@ void Database::updateCompDB(vector<Comps> comps) {
     }
 }
 
+//Updates the vector links
 void Database::updateLinkDB(vector<Links> links){
     _connections = links;
 }
