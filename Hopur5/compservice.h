@@ -13,16 +13,19 @@ private:
 public:
     CompService();
     CompService(Database db);
+
     //GETTERS
     vector<Comps> getList() { return computers; }
 
     // Create
     string create(int id, string name, string type, int yearBuilt, bool built);
+
     //Search
     vector<Comps> searchByName(string name);
     vector<Comps> searchById(int id);
     vector<Comps> searchByType(string type);
     vector<Comps> searchByBuilt(int yearBuilt);
+
     // Sort
     vector<Comps> sortByName();
     vector<Comps> sortByType();
@@ -32,9 +35,12 @@ public:
     vector<Comps> sortByTypeDec();
     vector<Comps> sortByBuiltDec();
     vector<Comps> sortByIDDec();
+
     //DELETE
     string deleteComputers(string name, string type);
+
     // Edit
+
     // Showing
     string showComputers(vector<Comps> results);
     string showComputersTable(vector<Comps> results);

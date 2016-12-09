@@ -19,24 +19,27 @@ public:
     ConsoleUI();
     ConsoleUI(appservice p, CompService c, LinkService l);
 
+    //Tools and misc.
     string inputHandling();
     string unicorn();
     string cORp(string name);
     void displayList();
 
+    //Overall menus
     void searchMenu();
     void sortMenu();
     void createMenu();
     void deleteMenu();
     void linkMenu();
 
+    //Person menus
     void searchMenuPerson();
     void sortMenuPerson();
     void createMenuPerson();
     void deleteMenuPerson();
     void runUI();
 
-
+    //Computer menus
     void searchMenuComp();
     void sortMenuComp();
     void createMenuComp();

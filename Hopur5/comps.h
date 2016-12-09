@@ -21,20 +21,25 @@ public:
     Comps ();
     Comps(int id, string name, string type, int yearBuilt, bool built);
 
+    //Getters
 	string getName();
 	string getType();
 	bool getBuilt();
     int getYearBuilt();
     int getId();
-	void setName(string name);
+
+    //Setters
+    void setName(string name);
 	void setType(string type);
 	void setBuilt(bool built);
     void setYearBuilt(int yearBuilt);
+    void setId(int id);
+
+    //Showing
     string showComputer();
     string showComputerTable();
     string spaceCalc(int cellsize, string value);
     //SearchComp
-    void setId(int id);
 
 };
 
