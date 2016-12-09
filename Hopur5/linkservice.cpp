@@ -39,6 +39,10 @@ string LinkService::create(string computerID, string personID) {
 
     Comps c;
     Person p;
+    _db = Database(_db.getDbName());
+    _linkList = _db.getConnectionList();
+    _compList = _db.getComputerList();
+    _persList = _db.getList();
     for(unsigned int i = 0; i < _compList.size(); i++) {
         if(!flagc && _compList.at(i).getId() == cID) {
             c = _compList.at(i);
@@ -66,6 +70,7 @@ string LinkService::create(string computerID, string personID) {
     _linkList = _db.getConnectionList();
     _compList = _db.getComputerList();
     _persList = _db.getList();
+    clearScreen();
     return "Link added successfully\n";
 }
 
@@ -114,7 +119,7 @@ void LinkService::updateLinkc(int cid) {
     for(unsigned int i=0; i<_linkList.size(); i++){
         if(_linkList.at(i).getCID() == cid){
             _linkList.erase(_linkList.begin() + i );
-            cerr<< "IN FUCKING HERE" << endl;
+            cerr<< "SURPRISE BITCHEEES" << endl;
 
         }
     }

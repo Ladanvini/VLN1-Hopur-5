@@ -55,6 +55,7 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
 
     db = Database(db.getDbName());
     people = db.getList();
+    clearScreen();
     return "Added successfully\n";
 }
 

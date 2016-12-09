@@ -1,5 +1,6 @@
 #include "compservice.h"
 #include<iostream>
+
 CompService::CompService() {
 
 }
@@ -49,6 +50,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     _db = Database(_db.getDbName());
     computers = _db.getComputerList();
 
+    clearScreen();
     return "Added successfully\n";
 }
 
@@ -243,7 +245,7 @@ string CompService::deleteComputers(string name, string type) {
     if(flag) {
         _db.updateCompDB(computers);
         _db.delFromCompDB(result);
-
+        clearScreen();
         return result.showComputer() +
                 "Erased successfully\n";
     }
@@ -252,7 +254,7 @@ string CompService::deleteComputers(string name, string type) {
 }
 
 int CompService::getCompID(string name, string type){
-    cerr<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"<< computers.size()  << endl;
+
     for(unsigned int i=0; i<computers.size(); i++) {
         string c_name = computers.at(i).getName();
 

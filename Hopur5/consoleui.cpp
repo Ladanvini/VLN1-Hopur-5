@@ -1,4 +1,4 @@
-#define clearScreen() printf("\033[H\033[J")
+//#define clearScreen() printf("\033[H\033[J")
 #include <iostream>
 #include <algorithm>
 #include <string>
