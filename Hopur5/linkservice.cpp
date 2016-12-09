@@ -1,4 +1,6 @@
 #include "linkservice.h"
+#include <iostream>
+using namespace std;
 
 LinkService::LinkService() {
 
@@ -12,7 +14,7 @@ LinkService::LinkService(Database db) {
 
 //Getters
 vector<Links> LinkService::getLinkList() {
-   // _linkList = _db.getConnectionList();
+    //_linkList = _db.getConnectionList();
     return _linkList;
 }
 vector<Comps> LinkService::getCompList() {
@@ -28,9 +30,9 @@ string LinkService::create(string computerID, string personID) {
     bool flagc = false;
     bool flagp = false;
 
-    _compList = _db.getComputerList();
-    _persList = _db.getList();
-    _linkList = _db.getConnectionList();
+    //_compList = _db.getComputerList();
+    //_persList = _db.getList();
+    //_linkList = _db.getConnectionList();
 
     int cID = stoi(computerID);
     int pID = stoi(personID);
@@ -102,18 +104,20 @@ string LinkService::deleteLink(Links l){
 }
 
 void LinkService::updateLinkc(int cid) {
-    _linkList = _db.getConnectionList();
+    //_linkList = _db.getConnectionList();
 
     for(unsigned int i=0; i<_linkList.size(); i++){
         if(_linkList.at(i).getCID() == cid){
             _linkList.erase(_linkList.begin() + i );
+            cerr<< "IN FUCKING HERE" << endl;
+
         }
     }
     _db.updateLinkDB(_linkList);
 }
 
 void LinkService::updateLinkp(int pid){
-    _linkList = _db.getConnectionList();
+    //_linkList = _db.getConnectionList();
 
     for(unsigned int i=0; i<_linkList.size(); i++){
         if(_linkList.at(i).getPID() == pid){

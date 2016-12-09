@@ -731,9 +731,10 @@ void ConsoleUI::deleteMenuPerson() {
     cout << "Enter the person's birth year: \n";
     input = inputHandling();
     int birth = stoi(input);
-    cout << _appservice.deletePerson(name, birth) << endl;
     _linkService.updateLinkp(
     _appservice.getPersonID(name, birth));
+    cout << _appservice.deletePerson(name, birth) << endl;
+
     cout << lowline << endl;
 }
 
@@ -1087,9 +1088,10 @@ void ConsoleUI::deleteMenuComp() {
     getline(cin, name);
     cout << "Enter the computer's type: \n";
     getline(cin, type);
+    _linkService.updateLinkc(_compService.getCompID(name, type));
     cout << _compService.deleteComputers(name, type) << endl;
 
-    _linkService.updateLinkc(_compService.getCompID(name, type));
+
     cout << lowline << endl;
 }
 

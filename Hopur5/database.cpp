@@ -141,6 +141,7 @@ void Database::update(vector<Person> peeps) {
 void Database::updateCompDB(vector<Comps> comps) {
     vector<string> compNames;
     vector<Comps> sortedComps;
+
     for(unsigned int i = 0; i < comps.size(); i++) {
         compNames.push_back(comps.at(i).getName());
     }
@@ -153,6 +154,7 @@ void Database::updateCompDB(vector<Comps> comps) {
                 sortedComps.push_back(comps.at(j));
         }
     }
+    _computers = sortedComps;
 }
 
 //Updates the vector links
@@ -333,6 +335,10 @@ void Database::delFromDB(Person p) {
 
         }
     }
+    for(unsigned int i=0; i< _connections.size(); i++){
+        if(_connections.at(i).getPID() == p.getId())
+            _connections.erase(_connections.begin()+i);
+    }
 
 }
 
@@ -378,6 +384,10 @@ void Database::delFromCompDB(Comps c) {
 
         }
     }
+    for(unsigned int i=0; i< _connections.size(); i++){
+        if(_connections.at(i).getCID() == c.getId())
+            _connections.erase(_connections.begin()+i);
+    }
 }
 
 // Deletes a connection with the given computer and person.
@@ -401,6 +411,12 @@ void Database::deleteCons(int cId, int pId) {
          qDebug() << "Could not execute query" << endl;
 
          qDebug() << query.lastError();
+     }
+
+     for(unsigned int i=0; i< _connections.size(); i++){
+         if(_connections.at(i).getCID() == cId
+                 && _connections.at(i).getPID() == pId)
+             _connections.erase(_connections.begin()+i);
      }
 
      cout << _db.commit() << endl;

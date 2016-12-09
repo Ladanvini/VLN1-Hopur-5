@@ -1,5 +1,5 @@
 #include "compservice.h"
-
+#include<iostream>
 CompService::CompService() {
 
 }
@@ -42,10 +42,10 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     }
 
 
-//    computers.push_back(*newComputer);
-//    _db.updateCompDB(computers);
+    computers.push_back(*newComputer);
+    _db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
-    computers = _db.getComputerList();
+
     return "Added successfully\n";
 }
 
@@ -249,13 +249,16 @@ string CompService::deleteComputers(string name, string type) {
 }
 
 int CompService::getCompID(string name, string type){
+    cerr<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"<< computers.size()  << endl;
     for(unsigned int i=0; i<computers.size(); i++) {
         string c_name = computers.at(i).getName();
 
         if(c_name.find(name) != std::string::npos && computers.at(i).getType() == type ) {
+
             return computers.at(i).getId();
 
          }
+
     }
 }
 
