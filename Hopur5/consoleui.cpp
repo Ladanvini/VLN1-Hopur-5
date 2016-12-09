@@ -934,8 +934,6 @@ void ConsoleUI::sortMenuComp() {
         }
 
     }while(!exitMenu);
-
-    clearScreen();
 }
 
 //createComps
@@ -1118,7 +1116,7 @@ void ConsoleUI::runUI() {
             cout << lowline;
             cout << "Wrong input!" << endl;
             cout << lowline;
-            clearScreen();
+            //clearScreen();
         }
     }while(!exitUI);
 }
