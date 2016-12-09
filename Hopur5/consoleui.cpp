@@ -1114,6 +1114,7 @@ void ConsoleUI::runUI() {
         cout << "Sort - Displays the database in sorted order from options" << endl;
         cout << "Delete - Deletes a person or a computer from the list" << endl;
         cout << "Link - Link computers to people " << endl;
+        cout << "TicTacToe - Play Tic Tac Toe" << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
 
