@@ -9,6 +9,8 @@ LinkService::LinkService(Database db) {
     _compList = db.getComputerList();
     _persList = db.getList();
 }
+
+//Getters
 vector<Links> LinkService::getLinkList() {
     return _linkList;
 }
@@ -18,6 +20,8 @@ vector<Comps> LinkService::getCompList() {
 vector<Person> LinkService::getPersList() {
     return _persList;
 }
+
+//Creates a new link
 string LinkService::create(string computerID, string personID) {
 
     bool flagc = false;
@@ -28,13 +32,13 @@ string LinkService::create(string computerID, string personID) {
 
     Comps c;
     Person p;
-    for(unsigned int i=0; i<_compList.size(); i++) {
+    for(unsigned int i = 0; i < _compList.size(); i++) {
         if(!flagc && _compList.at(i).getId() == cID) {
             c = _compList.at(i);
             flagc = true;
         }
     }
-    for(unsigned int i=0; i<_persList.size(); i++) {
+    for(unsigned int i = 0; i < _persList.size(); i++) {
         if(!flagp && _persList.at(i).getId() == pID) {
             p = _persList.at(i);
             flagp = true;
@@ -52,13 +56,17 @@ string LinkService::create(string computerID, string personID) {
     _db.addToConsDB(Links(c, p));
     return "Link added successfully\n";
 }
+
+//Checks if link exists
 bool LinkService::exists(Links l) {
-    for(unsigned int i=0; i<_linkList.size(); i++) {
+    for(unsigned int i = 0; i < _linkList.size(); i++) {
         if(l.compare(_linkList.at(i)))
             return true;
     }
     return false;
 }
+
+//Showing
 string LinkService::showLinksTable(vector<Links> display) {
     string temp = "";
     temp = temp + "|       COMPUTER        | <---> |         PERSON        |\n"
