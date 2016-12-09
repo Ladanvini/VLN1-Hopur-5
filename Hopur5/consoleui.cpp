@@ -1032,10 +1032,9 @@ void ConsoleUI::runUI() {
     string input = " ";
     bool exitUI = false;
     string lowline = "--------------------------------------------------------------\n";
+    clearScreen();
     cout << lowline;
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
-
-    clearScreen();
 
     do {
 
