@@ -6,6 +6,8 @@
 #include <sstream>
 #include <algorithm>
 
+#include <ctime>
+
 #include "database.h"
 
 using namespace std;
@@ -19,6 +21,7 @@ public:
     appservice();
     appservice(Database _db);
     vector<Person> getList() { return people; }
+
     //Search
     string create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear);
     vector<Person> searchByName(string name);
@@ -28,6 +31,7 @@ public:
     vector<Person> searchByDeath(string death);
     vector<Person> searchByContribution(string contribution);
     vector<Person> searchByTuring(string _flag);
+
     // Sort
     bool compareByName(const Person p1, const Person p2);
     vector<Person> sortByName();
@@ -37,11 +41,15 @@ public:
     vector<Person> sortByDeath();
     vector<Person> sortByContribution(string contribution);
     vector<Person> sortByTuring(string _flag);
+
     //DELETE
     string deletePerson(string name, int birth);
+
     // Edit
+
     // Showing
     string showPeople(vector<Person> results);
+    string showPeopleTable(vector<Person> results);
 
     //SortByDec
     vector<Person> sortByNameDec();

@@ -15,10 +15,8 @@
         _built = built;
         _yearBuilt = yearBuilt;
     }
-    void Comps::setId(int id){
-        _id = id;
-    }
 
+    //Getters
 	string Comps::getName() {
         return _name;
 	}
@@ -38,6 +36,7 @@
         return _yearBuilt;
     }
 
+    //Setters
     void Comps::setName(string name) {
 		_name = name;
 	}
@@ -50,7 +49,11 @@
     void Comps::setYearBuilt(int yearBuilt) {
         _yearBuilt = yearBuilt;
     }
+    void Comps::setId(int id){
+        _id = id;
+    }
 
+    //Showing
     string Comps::showComputer(){
         string temp = "";
         temp = temp + "ID: " + std::to_string(_id) + '\n';
@@ -72,3 +75,47 @@
         return temp;
 
     }
+    string Comps::showComputerTable(){
+
+        string temp = "";
+        int cellsize = 15;
+        string spTemp;
+
+        spTemp = spaceCalc(cellsize,std::to_string(this->_id));
+        temp = temp + "|"+ spTemp ;
+        spTemp = spaceCalc(cellsize,this->_name);
+        temp = temp + "|" + spTemp ;
+        spTemp = spaceCalc(cellsize,(this->_type));
+        temp = temp + "|" + spTemp ;
+        spTemp = spaceCalc(cellsize,std::to_string(this->_built));
+        temp = temp + "|" + spTemp ;
+        spTemp = spaceCalc(cellsize,std::to_string(this->_yearBuilt));
+        temp = temp + "|" + spTemp  + "|\n";
+
+        return temp;
+
+    }
+
+    //Space calculater
+    string Comps::spaceCalc(int cellsize, string value){
+
+        string idTemp = "";
+        int idSize = value.size();
+
+        if(idSize>=cellsize)
+        {
+            value = value.substr(0, cellsize-3);
+            value = value + "... ";
+         }
+        else{
+
+            unsigned int spaceSize = cellsize - idSize;
+            if(spaceSize%2 != 0)
+                spaceSize++;
+
+            for(int i=0; i<spaceSize/2; i++)
+                idTemp = idTemp + " ";
+        }
+        return idTemp + value + idTemp;
+    }
+

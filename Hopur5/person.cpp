@@ -66,7 +66,7 @@ string Person::showPerson() {
     string temp = "";
     temp = temp + "ID: " + std::to_string(this->_id) + '\n';
     temp = temp + "NAME: " + this->_name + '\n';
-    temp = temp + "AGE OF CONTRIBUTION: " + std::to_string(this->_age) + '\n';
+    temp = temp + "AGE: " + std::to_string(this->_age) + '\n';
     temp = temp + "SEX: " + this->_sex + '\n';
     temp = temp + "BIRTH: " + std::to_string(this->_birth) + '\n';
     temp = temp + "DEATH: " + std::to_string(this->_death) + '\n';
@@ -76,3 +76,49 @@ string Person::showPerson() {
     return temp;
 }
 
+string Person::showPersonTable(){
+
+    string temp = "";
+    int cellsize = 15;
+    string spTemp;
+
+    spTemp = spaceCalc(cellsize,std::to_string(this->_id));
+    temp = temp + "|"+ spTemp ;
+    spTemp = spaceCalc(cellsize,this->_name);
+    temp = temp + "|" + spTemp ;
+    spTemp = spaceCalc(cellsize,std::to_string(this->_age));
+    temp = temp + "|" + spTemp ;
+
+    temp = temp + "|       " + this->_sex + "       ";
+    spTemp = spaceCalc(cellsize,std::to_string(this->_birth));
+    temp = temp + "|" + spTemp ;
+    spTemp = spaceCalc(cellsize,std::to_string(this->_death));
+    temp = temp + "|" + spTemp ;
+    spTemp = spaceCalc(cellsize,std::to_string(this->_turingYear));
+    temp = temp + "|" + spTemp  + "|\n";
+
+    return temp;
+
+}
+
+string Person::spaceCalc(int cellsize, string value){
+
+    string idTemp = "";
+    int idSize = value.size();
+
+    if(idSize>=cellsize)
+    {
+        value = value.substr(0, cellsize-3);
+        value = value + "... ";
+     }
+    else{
+
+        unsigned int spaceSize = cellsize - idSize;
+        if(spaceSize%2 != 0)
+            spaceSize++;
+
+        for(int unsigned i=0; i<spaceSize/2; i++)
+            idTemp = idTemp + " ";
+    }
+    return idTemp + value + idTemp;
+}

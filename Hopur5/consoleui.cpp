@@ -1,3 +1,4 @@
+#define clearScreen() printf("\033[H\033[J")
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -13,9 +14,10 @@ ConsoleUI::ConsoleUI() {
 
 }
 
-ConsoleUI::ConsoleUI(appservice p, CompService c) {
+ConsoleUI::ConsoleUI(appservice p, CompService c, LinkService l) {
     _appservice = p;
     _compService = c;
+    _linkService = l;
 }
 
 //Takes input and puts them in lowercasing
@@ -70,8 +72,27 @@ string ConsoleUI::cORp(string name) {
 
 //Display
 void ConsoleUI::displayList() {
-    cout << _appservice.showPeople(_appservice.getList());
-    cout << _compService.showComputers(_compService.getList());
+    cout << "cl - List of computers" << endl;
+    cout << "comps - list of computers in a table" << endl;
+    cout << "pl - list of people" << endl;
+    cout << "people - list of people in a table " << endl;
+    cout << "links - table of all the links" << endl;
+
+    string input;
+    input = inputHandling();
+
+    if(input == "cl")
+        cout << _compService.showComputers(_compService.getList());
+    else if (input == "comps")
+        cout << _compService.showComputersTable(_compService.getList());
+    else if (input == "pl")
+        cout << _appservice.showPeople(_appservice.getList());
+    else if (input == "people")
+        cout << _appservice.showPeopleTable(_appservice.getList());
+    else if (input == "links")
+        cout << _linkService.showLinksTable(_linkService.getLinkList());
+    else
+        cout << "INVALID COMMAND\n";
 }
 
 /**************************Question Menus***************************/
@@ -198,6 +219,17 @@ void ConsoleUI::deleteMenu() {
     }while(!exitMenu);
 }
 
+void ConsoleUI::linkMenu() {
+    string comp = "";
+    string pers = "";
+    cout << "Enter the computer ID: " << endl;
+    comp = inputHandling();
+    cout << "Enter the Person ID: " << endl;
+    pers = inputHandling();
+
+    cout << _linkService.create(comp, pers);
+
+}
 
 /**************************Persons***************************/
 
@@ -223,10 +255,23 @@ void ConsoleUI::searchMenuPerson() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "Enter the name here: " << endl;
+            cout << "You want them displayed in a list or table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByName(input));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Enter the name here: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByName(input));
+            }else if(input == "table") {
+                cout << lowline;
+                cout << "Enter the name here: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByName(input));
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "unicorn"){
             cout << lowline;
@@ -235,33 +280,78 @@ void ConsoleUI::searchMenuPerson() {
         }
         else if(input == "age") {
             cout << lowline;
-            cout << "Please enter the age you want" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByAge(input));
-        }
+            if(input == "list"){
+                cout << "Please enter the age you want to search for: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByAge(input));
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "Please enter the age you want to search for: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByAge(input));
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
+         }
         else if(input == "sex") {
             cout << lowline;
-            cout << "Please enter the gender" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchBySex(input));
+            if(input == "list"){
+                cout << "Please input the gender, m for males or f for females." << endl;
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchBySex(input));
+            }else if(input == "table"){
+                cout << "Please input the gender, m for males or f for females." << endl;
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchBySex(input));
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "birth") {
             cout << lowline;
-            cout << "Enter the birth year please" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByBirth(input));
+            if(input == "list"){
+                cout << "Enter the birth year: ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByBirth(input));
+            }else if(input == "table"){
+                cout << "Enter the birth year: ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByBirth(input));
+            }else {
+                cout << lowline;
+                cout << "Wront input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "death") {
             cout << lowline;
-            cout << "Enter the death year (0 if still alive)" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByDeath(input));
+            if(input == "list"){
+                cout << "Enter the year they died(0 if they are still alive): ";
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByDeath(input));
+            }else if(input == "table"){
+                cout << "Enter the year they died(0 if they are still alive): ";
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByDeath(input));
+            }else {
+                cout << lowline;
+                cout << "Wront input" << endl;
+                cout << lowline;
+            }
         }
-        else if(input == "contribution") {
+        else if(input == "contribution") { //Needs to be displayed in list
             cout << lowline;
             cout << "Enter the contribution you're looking for" << endl;
             input = inputHandling();
@@ -270,10 +360,25 @@ void ConsoleUI::searchMenuPerson() {
         }
         else if(input == "turing") {
             cout << lowline;
-            cout << "If you're looking for people who have won a turing award, enter yes, otherwise enter no" << endl;
+            cout << "You want them displayed in a list or a table?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.searchByTuring(input));
+            if(input == "list"){
+                cout << "Inputs: " << endl;
+                cout << "  Yes: Displays those that have won a turing award" << endl;
+                cout << "  No : Displays those that have not won a turing award" << endl;
+                input = inputHandling();
+                cout << _appservice.showPeople(_appservice.searchByTuring(input));
+            }else if(input == "table"){
+                cout << "Inputs: " << endl;
+                cout << "  Yes: Displays those that have won a turing award" << endl;
+                cout << "  No : Displays those that have not won a turing award" << endl;
+                input = inputHandling();
+                cout << _appservice.showPeopleTable(_appservice.searchByTuring(input));
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+                cout << lowline;
+            }
         }
         else if(input == "back") {
             cout << lowline;
@@ -298,6 +403,7 @@ void ConsoleUI::sortMenuPerson() {
     do {
         cout << "Please enter one of these commands" << endl;
         cout << "Name - Sort by persons name" << endl;
+        cout << "Age - Sort by persons age" << endl;
         cout << "Sex - Sort by persons gender" << endl;
         cout << "Birth - Sort by persons birth year" << endl;
         cout << "Death - Sort by persons death year" << endl;
@@ -309,90 +415,205 @@ void ConsoleUI::sortMenuPerson() {
         input = inputHandling();
 
         if(input == "name") {
+            cout << "You want it in a table or list?" << endl;
             cout << lowline;
-            cout << "You want the list ascending or descending?" << endl;
             input = inputHandling();
-            if(input == "ascending"){
-                cout << "The list sorted ascending: " << endl;
+            if(input == "list"){
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByName());
-            }else if(input == "descending"){
-                cout << "The list sorted descending: " << endl;
-                cout << lowline << endl << "SHIT" << endl;
-                //cout << _appservice.showPeople(_appservice.sortByNameDec());
+                cout << "You want the list ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByName());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByNameDec());
+                }else{
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "You want the table ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByName());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByNameDec());
+                }
             }else{
-                cout << "Wrong input" << endl;
                 cout << lowline;
+                cout << "Wrong input" << endl;
             }
         }
         else if(input == "age") {
             cout << lowline;
-            cout << "You want the list ascending or descending?" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            if(input == "ascending"){
-                cout << "The list sorted by age of contribution: " << endl;
+            if(input == "list"){
+                cout << "You want the list ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByAge());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByAgeDec());
+                }else{
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByAge());
-            }else if(input == "descending"){
-                cout << "The list sorted descending: " << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByAgeDec());
+                cout << "You want the table ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByAge());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByAgeDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input";
+                }
+            }else{
+                cout << "Wrong input" << endl;
+            }
+        }
+        else if(input == "sex") {
+            cout << lowline;
+            cout << "You want it in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << "Enter the gender you want the list to be sorted by, m or f" << endl;
+                input = inputHandling();
+                if(input == "m" || input == "f"){
+                   cout << "Showing "+input+" first" << endl;
+                   cout << lowline;
+                   cout << _appservice.showPeople(_appservice.sortBySex(input));
+                }else {
+                   cout << "Wrong Input" << endl;
+                   cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << "Enter the gender you want the list to be sorted by, m or f" << endl;
+                input = inputHandling();
+                if(input == "m" || input == "f"){
+                    cout << "Showing "+input+" first" << endl;
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortBySex(input));
+                }else {
+                    cout << "Wrong Input" << endl;
+                    cout << lowline;
+                }
             }else{
                 cout << "Wrong input" << endl;
                 cout << lowline;
             }
         }
-        else if(input == "sex") {
-            cout << lowline;
-            cout << "Enter the gender you want the list to be sorted by, m or f" << endl;
-            input = inputHandling();
-            if(input == "m" || input == "f"){
-               cout << "Showing "+input+" first" << endl;
-               cout << lowline;
-               cout << _appservice.showPeople(_appservice.sortBySex(input));
-            }else {
-               cout << "Wrong Input" << endl;
-               cout << lowline;
-            }
-        }
         else if(input == "birth") {
             cout << lowline;
-            cout << "You want the list sorted first oldest or first youngest?" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            if(input == "oldest"){
-                cout << "Showing oldest to youngest" << endl;
+            if(input == "list"){
+                cout << "You want the list sorted first oldest or first youngest?" << endl;
+                input = inputHandling();
+                if(input == "oldest"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByBirth());
+                }else if(input == "youngest"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByBirthDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << "You want the list sorted first oldest or first youngest?" << endl;
+                input = inputHandling();
+                if(input == "oldest"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByBirth());
+                }else if(input == "youngest"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByBirthDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input";
+                }
+            }else{
                 cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByBirth());
-            }else if(input == "youngest"){
-                cout << "Showing youngest to oldest" << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByBirthDec());
+                cout << "Wrong input" << endl;
             }
         }
         else if(input == "death") {
             cout << lowline;
-            cout << "Sorted by year died ascending or descending?" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            if(input == "ascending"){
-                cout << "List sorted ascending" << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByDeath());
-            }else if(input == "descending"){
-                cout << "List sorted descending" << endl;
-                cout << lowline;
-                cout << _appservice.showPeople(_appservice.sortByDeathDec());
-            }else {
-                cout << "Wrong input" << endl;
-                cout << lowline;
+            if(input == "list"){
+                cout << "You want the list sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByDeath());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByDeathDec());
+                }else {
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << "You want the table sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByDeath());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByDeathDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                    }
+                }
             }
-        }
         else if(input == "turing") {
             cout << lowline;
-            cout << "Sort by those who won turing award, input yes" << endl;
+            cout << "You want it in table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _appservice.showPeople(_appservice.sortByTuring(input));
-        }
+            if(input == "list"){
+                cout << "Yes: if you want the list sorted by those that have won a turing" << endl;
+                cout << "No: if you want the list sorted by those that have not won a turing"<< endl;
+                        input = inputHandling();
+                if(input == "yes" || input == "no") {
+                    cout << lowline;
+                    cout << _appservice.showPeople(_appservice.sortByTuring(input));
+                }
+                else {
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << "Yes: if you want the table sorted by those that have won a turing" << endl;
+                cout << "No: if you want the table sorted by those that have not won a turing"<< endl;
+                        input = inputHandling();
+                if(input == "yes" || input == "no") {
+                    cout << lowline;
+                    cout << _appservice.showPeopleTable(_appservice.sortByTuring(input));
+                }
+                else {
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+          }
         else if(input == "back") {
             cout << lowline;
             cout << "Thank you, taking you back to the main menu" << endl;
@@ -438,7 +659,12 @@ void ConsoleUI::createMenuPerson() {
     cout << "Enter Turing Year (0 if unknown or not applicable): " << endl;
     getline(cin, turingstr);
 
-
+    if(birthstr == "")
+        birthstr = "1";
+    if(deathstr == "")
+        deathstr = "1";
+    if(turingstr == "")
+        turingstr = "1";
     birth = stoi(birthstr);
     death = stoi(deathstr);
     turing = stoi(turingstr);
@@ -455,6 +681,8 @@ void ConsoleUI::createMenuPerson() {
         age = death - birth;
 
     int id = 0;
+    if(sex == "")
+        sex = "t";
     char _sex = sex.at(0);
 
     cout << _appservice.create(id, name, age, _sex, birth, death, contribution, turing);
@@ -518,7 +746,7 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "built") {
             cout << lowline;
-            cout << "Please enter the year please" << endl;
+            cout << "Please enter the year" << endl;
             input = inputHandling();
             cout << lowline;
             int built;
@@ -527,7 +755,7 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "type") {
             cout << lowline;
-            cout << "Enter the type please" << endl;
+            cout << "Please enter the type" << endl;
             input = inputHandling();
             cout << lowline;
             cout << _compService.showComputers(_compService.searchByType(input));
@@ -565,28 +793,151 @@ void ConsoleUI::sortMenuComp() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "The list sorted alphabetically: " << endl;
-            cout << lowline;
-            cout << _compService.showComputers(_compService.sortByName());
-        }
-        else if(input == "id") {
-            cout << lowline;
-            cout << "The list sorted by ID number: " << endl;
-            cout << lowline;
-            cout << _compService.showComputers(_compService.sortByID());
-        }
-        else if(input == "type") {
-            cout << lowline;
-            cout << "The list sorted by type: " << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                cout << "You want the list sorted in ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByName());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByNameDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "You want the table sorted in ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByName());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByNameDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+        }else if(input == "id") {
             cout << lowline;
-            cout << _compService.showComputers(_compService.sortByType());
-        }
-        else if(input == "built") {
+            cout << "You wand them in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                cout << "You want the list sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByID());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByIDDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "You want the table sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByID());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByIDDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+        }else if(input == "type") {
             cout << lowline;
-            cout << "Sorted from eldest to youngest" << endl;
+            cout << "You want it in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                cout << "You want the list sorted ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << "List sorted ascending: " << endl;
+                    cout << _compService.showComputers(_compService.sortByType());
+                    cout << lowline;
+                }else if(input == "descending"){
+                    cout << "List sorted descending: " << endl;
+                    cout << _compService.showComputers(_compService.sortByTypeDec());
+                    cout << lowline;
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                    cout << lowline;
+                }
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "You want the table ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByType());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByTypeDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+        }else if(input == "built") {
             cout << lowline;
-            cout << _compService.showComputers(_compService.sortByBuilt());
+            cout << "You want it in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                cout << "You wand the list sorted in ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByBuilt());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputers(_compService.sortByBuiltDec());
+                }else {
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else if(input == "table"){
+                cout << lowline;
+                cout << "You wand the table sorted in ascending or descending?" << endl;
+                input = inputHandling();
+                if(input == "ascending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByBuilt());
+                }else if(input == "descending"){
+                    cout << lowline;
+                    cout << _compService.showComputersTable(_compService.sortByBuiltDec());
+                }else{
+                    cout << lowline;
+                    cout << "Wrong input" << endl;
+                }
+            }else{
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
         }
         else if(input == "back") {
             cout << lowline;
@@ -599,6 +950,7 @@ void ConsoleUI::sortMenuComp() {
             cout << "wrong input! Try again" << endl;
             cout << lowline;
         }
+
     }while(!exitMenu);
 }
 
@@ -619,6 +971,8 @@ void ConsoleUI::createMenuComp() {
     cout << "Enter Year Built (Enter 0 if it has not been built): " << endl;
     getline(cin, yearBuiltstr);
 
+    if(yearBuiltstr == "")
+        yearBuiltstr = "1";
     yearBuilt = stoi(yearBuiltstr);
 
     if(yearBuilt != 0) {
@@ -646,75 +1000,7 @@ void ConsoleUI::deleteMenuComp() {
     cout << lowline << endl;
 }
 
-/**************************Main Menu***************************/
-/*
-void ConsoleUI::runUIComp() {
-    string input = " ";
-    bool exitUI = false;
-    string lowline = "--------------------------------------------------------------\n";
-    cout << "*******************FAMOUS COMPUTERS*********************" << endl;
-
-    do {
-        cout << lowline << endl;
-        cout << "Please input one of these commands: " << endl;
-        cout << "Display - Displays the list of famous computers" << endl;
-        cout << "Add - Adds a computer to the list" << endl;
-        cout << "Search - Searches for a computer in the list" << endl;
-        cout << "Sort - Displays the list in sorted order from options" << endl;
-        cout << "Delete - Deletes a computer from the list" << endl;
-        cout << "Unicorn - A unicorn" << endl;
-//BACK MENU INSTEAD OF EXIT?
-        cout << "Exit - End the programs run" << endl;
-
-        input = inputHandling();
-
-        if(input == "add") {
-            cout << lowline;
-            createMenu();
-        }
-        else if(input == "unicorn"){
-            cout << lowline;
-            cout << unicorn();
-            cout << lowline;
-        }
-        else if(input == "search") {
-            cout << lowline;
-            searchMenu();
-        }
-        else if(input == "sort") {
-            cout << lowline;
-            sortMenu();
-        }
-        else if(input == "display") {
-            cout << lowline;
-            displayList();
-        }
-        else if(input == "delete") {
-            string name;
-            string type;
-            cout << lowline;
-            cout << "Enter the computer's name: \n";
-            getline(cin, name);
-            cout << "Enter the computer's type: \n";
-            getline(cin, type);
-            cout << _compService.deleteComputers(name, type) << endl;
-            cout << lowline << endl;
-        }
-        else if(input == "exit") {
-            cout << lowline;
-            cout << "Thank you, have a nice day!" << endl;
-            cout << lowline;
-            exitUI = true;
-        }
-        else {
-            cout << lowline;
-            cout << "Wrong input!" << endl;
-            cout << lowline;
-        }
-
-    }while(!exitUI);
-}
-*/
+/******************************MainMenu***********************************/
 
 //Main Menu
 void ConsoleUI::runUI() {
@@ -723,9 +1009,11 @@ void ConsoleUI::runUI() {
     string lowline = "--------------------------------------------------------------\n";
     cout << lowline;
     cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
+
     clearScreen();
 
     do {
+
         cout << lowline << endl;
         cout << "Please input one of these commands: " << endl;
         cout << "Display - Displays the list of famous computer scientists or famous computers" << endl;
@@ -733,6 +1021,7 @@ void ConsoleUI::runUI() {
         cout << "Search - Searches the database" << endl;
         cout << "Sort - Displays the database in sorted order from options" << endl;
         cout << "Delete - Deletes a person or a computer from the list" << endl;
+        cout << "Link - Link computers to people " << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Exit - End the programs run" << endl;
 
@@ -741,6 +1030,11 @@ void ConsoleUI::runUI() {
         if(input == "add") {
             cout << lowline;
             createMenu();
+        }
+        else if(input == "link") {
+            cout << lowline;
+            cout << unicorn();
+            linkMenu();
         }
         else if(input == "unicorn") {
             cout << lowline;
@@ -773,6 +1067,7 @@ void ConsoleUI::runUI() {
             cout << lowline;
             cout << "Wrong input!" << endl;
             cout << lowline;
+            //clearScreen();
         }
     }while(!exitUI);
 }

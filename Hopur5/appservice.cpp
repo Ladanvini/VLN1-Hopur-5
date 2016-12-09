@@ -19,15 +19,20 @@ appservice::appservice(Database _db) {
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
+
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+    int currYear = (now->tm_year + 1900);
+
     if(name.empty()||name[0] == ' ')
         return "Name was not accepted\n";
     if(age>150 || age < 1)
-        return "Age was not accepted\n";
-    if(sex != 'm' && sex != 'f')
+        return "Birth or death was not accepted\n";
+    if((sex != 'm' && sex != 'f'))
         return "Sex was not an accepted value\n";
-    if(birth < 1000 || birth > 2016)
+    if(birth < 1000 || birth > currYear)
         return "Birth year was not an accepted value\n";
-    if(death > 2016 || (death != 0 && death < birth ))
+    if(death > currYear || (death != 0 && death < birth ))
         return "Death year was not an accepted value\n";
 
     if(db.exists(*p)) {
@@ -37,7 +42,7 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
        return "Person already exists\n";
     }
 
-    p->setId(people.size()+1);
+//    p->setId(people.size()+1);
     people.push_back(*p);
 
     db.update(people);
@@ -66,12 +71,13 @@ vector<Person> appservice::searchByName(string name) {
 }
 vector<Person> appservice::searchByAge(string age) {
     vector<Person> result;
-    string _age;
+    int agedig = stoi(age);
+    int _age;
     for(size_t i = 0; i < people.size(); i++) {
         _age = (people.at(i).getAge());
-        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
+//        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
 
-        if(_age.find(age) != std::string::npos) {
+        if(_age == agedig) {
             result.push_back(people.at(i));
         }
     }
@@ -91,11 +97,12 @@ vector<Person> appservice::searchBySex(string _sex) {
 }
 vector<Person> appservice::searchByDeath(string death) {
     vector<Person> result;
-    string _death;
+    int _death;
+    int deathDig = stoi(death);
     for(size_t i = 0; i < people.size(); i++) {
         _death = people.at(i).getDeath();
-        transform(_death.begin(), _death.end(), _death.begin(), ::tolower);
-        if(_death.find(death) != std::string::npos) {
+
+        if(_death == deathDig) {
             result.push_back(people.at(i));
         }
     }
@@ -104,11 +111,12 @@ vector<Person> appservice::searchByDeath(string death) {
 }
 vector<Person> appservice::searchByBirth(string birth) {
     vector<Person> result;
-    string _birth;
+    int _birth;
+    int bDig = stoi(birth);
     for(size_t i = 0; i < people.size(); i++) {
         _birth = people.at(i).getBirth();
-        transform(_birth.begin(), _birth.end(), _birth.begin(), ::tolower);
-        if(_birth.find(birth) != std::string::npos) {
+
+        if(_birth == bDig) {
             result.push_back(people.at(i));
         }
     }
@@ -149,6 +157,7 @@ vector<Person> appservice::searchByTuring(string _flag) {
 //####################Sort#####################//
 
 vector<Person> appservice::sortByName() {
+    vector<int> id;
     vector<string> names;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -158,8 +167,11 @@ vector<Person> appservice::sortByName() {
 
     for(unsigned int i = 0; i < names.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++)
-            if(names.at(i) == people.at(j).getName())
+            if(names.at(i) == people.at(j).getName()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
     }
 
     return sorted;
@@ -228,6 +240,7 @@ vector<Person> appservice::sortBySexDec(string _sex) {
 
 }
 vector<Person> appservice::sortByBirth() {
+    vector<int> id;
     vector<int> birth;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -237,8 +250,11 @@ vector<Person> appservice::sortByBirth() {
 
     for(unsigned int i = 0; i < birth.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(birth.at(i) == people.at(j).getBirth())
+            if(birth.at(i) == people.at(j).getBirth()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
     }
 
@@ -255,6 +271,7 @@ vector<Person> appservice::sortByBirthDec() {
 
 }
 vector<Person> appservice::sortByDeath() {
+    vector<int> id;
     vector<int> death;
     vector<Person> sorted;
     for(unsigned int i = 0; i < people.size(); i++)
@@ -264,9 +281,13 @@ vector<Person> appservice::sortByDeath() {
 
     for(unsigned int i = 0; i < death.size(); i++) {
         for(unsigned int j = 0; j < people.size(); j++) {
-            if(death.at(i) == people.at(j).getDeath())
+            if(death.at(i) == people.at(j).getDeath()
+            && !containsID(id, people.at(j).getId())) {
+                id.push_back(people.at(j).getId());
                 sorted.push_back(people.at(j));
+            }
         }
+
     }
 
     return sorted;
@@ -287,19 +308,16 @@ vector<Person> appservice::sortByTuring (string _flag) {
     if(_flag.find("yes") != std::string::npos) {
         flag = true;
     }
-    else {
+    else if(_flag.find("no") != std::string::npos) {
         flag = false;
     }
+
     for(size_t i = 0; i < people.size(); i++) {
         if((people.at(i).getTuring()) == flag) {
             result.push_back(people.at(i));
         }
     }
-    for(size_t i = 0; i < people.size(); i++) {
-        if((people.at(i).getTuring()) != flag) {
-            result.push_back(people.at(i));
-        }
-    }
+
 
     return result;
 }
@@ -354,7 +372,38 @@ string appservice::showPeople(vector<Person> results) {
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
+string appservice::showPeopleTable(vector<Person> results) {
+        string temp = "";
+        string line = "";
+        for(int i=0; i<143; i++)
+            line = line + "-";
+        line = line + '\n';
+        temp = temp + line;
+        temp = temp + "|      ID       "
+               "|     NAME      "
+               "|      AGE      "
+               "|     SEX       "
+               "|     BIRTH     "
+               "|    DEATH      "
+               "|    TURING     |\n";
 
+
+
+    for(unsigned int i = 0; i < results.size(); i++) {
+
+
+        temp = temp + line;
+
+        temp = temp + results.at(i).showPersonTable();
+
+    }
+    if(results.size() == 0) {
+        temp = "#########################################################################\n";
+        temp = temp + "No People Found!\n";
+    }
+    temp =  temp + line;
+    return temp;
+}
 bool appservice::containsID(vector<int> ids, int id) {
     for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)

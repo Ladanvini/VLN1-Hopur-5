@@ -75,6 +75,33 @@ Database::Database(QString dbName) {
 
         _computers.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
+
+
+    QSqlQuery queryL(_db);
+
+    queryL.exec("SELECT * FROM P_C_con");
+
+    int pidL;
+    int cidL;
+    Comps c;
+    Person p;
+    while(queryL.next()) {
+
+        pidL = queryL.value("PID").toInt();
+        cidL = queryL.value("CID").toInt();
+
+        for(unsigned int i = 0; i<_computers.size(); i++){
+
+            if(_computers.at(i).getId() == cidL)
+                c = _computers.at(i); 
+        }
+        for(unsigned int i =0; i<_people.size(); i++){
+            if(_people.at(i).getId() == pidL)
+                p = _people.at(i);
+        }
+
+        _connections.push_back(Links(c, p));
+    }
 }
 
 //Returns a list of people in the database
@@ -85,6 +112,10 @@ vector<Person> Database::getList() {
 //Returns a list of computers in the database
 vector<Comps> Database::getComputerList() {
     return _computers;
+}
+
+vector<Links> Database::getConnectionList(){
+    return _connections;
 }
 
 //Updates the vector of people
@@ -124,6 +155,10 @@ void Database::updateCompDB(vector<Comps> comps) {
     }
 }
 
+void Database::updateLinkDB(vector<Links> links){
+    _connections = links;
+}
+
 //Adds a new Person to the Database
 void Database::writeToDB(Person p) {
     _db.open();
@@ -157,33 +192,6 @@ void Database::writeToDB(Person p) {
     _db.close();
 }
 
-//Checks if the person exists in the people vector
-bool Database::exists(Person p) {
-    string pname = p.getName();
-    string p2name;
-    transform(pname.begin(), pname.end(), pname.begin(), ::tolower);
-    for(unsigned int i=0; i<_people.size(); i++) {
-        p2name = _people.at(i).getName();
-        transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
-
-        if(pname.find(p2name) != std::string::npos
-           && p.getBirth() == _people.at(i).getBirth()
-           )
-            return true;
-    }
-    return false;
-
-}
-
-//Checks if connection already exists
-bool Database::existsInConns(P_C_Connection pccon) {
-    for(unsigned int i=0; i<_connections.size(); i++) {
-        if(pccon.compare(_connections.at(i)))
-            return true;
-    }
-    return false;
-}
-
 //Adds a new computer to the Database
 void Database::writeToCompDB(Comps c) {
     _db.open();
@@ -209,6 +217,32 @@ void Database::writeToCompDB(Comps c) {
 
     cout << _db.commit() << endl;
     _db.close();
+}
+
+//Checks if the person exists in the people vector
+bool Database::exists(Person p) {
+    string pname = p.getName();
+    string p2name;
+    transform(pname.begin(), pname.end(), pname.begin(), ::tolower);
+    for(unsigned int i=0; i<_people.size(); i++) {
+        p2name = _people.at(i).getName();
+        transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
+
+        if(pname.find(p2name) != std::string::npos
+           && p.getBirth() == _people.at(i).getBirth())
+            return true;
+    }
+    return false;
+
+}
+
+//Checks if connection already exists
+bool Database::existsInConns(Links pccon) {
+    for(unsigned int i=0; i<_connections.size(); i++) {
+        if(pccon.compare(_connections.at(i)))
+            return true;
+    }
+    return false;
 }
 
 //Checks if the computer already exists in the vector
@@ -283,31 +317,6 @@ void Database::delFromCompDB(Comps c) {
 
 }
 
-// Add a connection with the given computer and person.
-void Database::addToConsDB(Comps c, Person p) {
-     _connections.push_back(P_C_Connection(c, p));
-
-    _db.open();
-
-    QSqlQuery query(_db);
-
-    string stmnt;
-    "INSERT INTO P_C_con ( CID, PID)"
-                "\n VALUES ( " + std::to_string(c.getId()) + ", "
-                        +  std::to_string(p.getId()) + ") ";
-
-    if(query.exec(QString::fromStdString(stmnt)))
-        qDebug() << query.executedQuery();
-    else
-        qDebug() << "Could not execute query" << endl;
-
-    qDebug() << query.lastError();
-
-    cout << _db.commit() << endl;
-
-    _db.close();
-}
-
 // Deletes a connection with the given computer and person.
 void Database::deleteCons(int cId, int pId) {
      _db.open();
@@ -334,3 +343,32 @@ void Database::deleteCons(int cId, int pId) {
      cout << _db.commit() << endl;
      _db.close();
  }
+
+// Add a connection with the given computer and person.
+void Database::addToConsDB(Links l) {
+     _connections.push_back(l);
+
+    _db.open();
+
+    QSqlQuery query(_db);
+cerr<< "CID: " << std::to_string(l.getCID()) << endl;
+cerr << "PID: " << std::to_string(l.getPID()) << endl;
+    string stmnt =
+    "INSERT INTO P_C_con ( CID, PID)"
+                "\n VALUES ( " + std::to_string(l.getCID()) + ", "
+                        +  std::to_string(l.getPID()) + ") ";
+
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else
+    {
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
+    cout << _db.commit() << endl;
+
+    _db.close();
+}
+
+

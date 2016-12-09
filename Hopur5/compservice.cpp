@@ -39,7 +39,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     computers.push_back(*newComputer);
 
 
-    //_db.updateCompDB(computers);
+    _db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
     return "Added successfully\n";
 }
@@ -102,20 +102,32 @@ vector<Comps> CompService::searchByBuilt(int yearBuilt) {
 
 vector<Comps> CompService::sortByName() {
 
+    vector<int> IDs;
     vector<string> names;
-        vector<Comps> sorted;
-            for(unsigned int i = 0; i < computers.size(); i++)
+    vector<Comps> sorted;
+
+    for(unsigned int i = 0; i < computers.size(); i++)
                 names.push_back(computers.at(i).getName());
 
      std::sort(names.begin(), names.end());
 
         for(unsigned int i = 0; i < names.size(); i++) {
             for(unsigned int j = 0; j < computers.size(); j++)
-                if(names.at(i) == computers.at(j).getName())
-                 sorted.push_back(computers.at(j));
+                if(names.at(i) == computers.at(j).getName()
+                && !containsID(IDs, computers.at(j).getId())) {
+                     IDs.push_back(computers.at(j).getId());
+                     sorted.push_back(computers.at(j));
+                }
+
         }
 
     return sorted;
+}
+vector<Comps> CompService::sortByNameDec() {
+    vector<Comps> Resaults = sortByName();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
 }
 vector<Comps> CompService::sortByType() {
     vector<string> types;
@@ -140,6 +152,12 @@ vector<Comps> CompService::sortByType() {
         }
     }
     return sorted;
+}
+vector<Comps> CompService::sortByTypeDec() {
+    vector<Comps> Resaults = sortByType();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
 }
 vector<Comps> CompService::sortByBuilt() {
 
@@ -167,16 +185,12 @@ vector<Comps> CompService::sortByBuilt() {
 
     return sorted;
 }
+vector<Comps> CompService::sortByBuiltDec() {
+    vector<Comps> Resaults = sortByBuilt();
+    reverse(Resaults.begin(), Resaults.end());
 
-bool CompService::containsID(vector<int> ids, int id) {
-    for(unsigned int i = 0; i < ids.size(); i++)
-        if(ids.at(i) == id)
-            return true;
-    return false;
+    return Resaults;
 }
-
-//DELETE
-
 vector<Comps> CompService::sortByID() {
 
     vector<int> IDComps;
@@ -193,6 +207,12 @@ vector<Comps> CompService::sortByID() {
     }
 
     return sorted;
+}
+vector<Comps> CompService::sortByIDDec() {
+    vector<Comps> Resaults = sortByID();
+    reverse(Resaults.begin(), Resaults.end());
+
+    return Resaults;
 }
 
 //####################Delete####################//
@@ -243,4 +263,41 @@ string CompService::showComputers(vector<Comps> results) {
 
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
+}
+string CompService::showComputersTable(vector<Comps> results) {
+        string temp = "";
+        string line = "";
+        for(int i=0; i<80; i++)
+            line = line + "-";
+        line = line + '\n';
+        temp = temp + line;
+        temp = temp + "|      ID       "
+               "|     NAME      "
+               "|     TYPE      "
+               "|     BUILT     "
+               "|     YEAR      |\n";
+
+
+
+    for(unsigned int i = 0; i < results.size(); i++) {
+
+
+        temp = temp + line;
+
+        temp = temp + results.at(i).showComputerTable();
+
+    }
+    if(results.size() == 0) {
+        temp = "#########################################################################\n";
+        temp = temp + "No Computers Found!\n";
+    }
+    temp =  temp + line;
+    return temp;
+}
+
+bool CompService::containsID(vector<int> ids, int id) {
+    for(unsigned int i = 0; i < ids.size(); i++)
+        if(ids.at(i) == id)
+            return true;
+    return false;
 }
