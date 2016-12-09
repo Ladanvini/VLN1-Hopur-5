@@ -198,7 +198,6 @@ void Database::writeToCompDB(Comps c) {
 
     QSqlQuery query(_db);
 
-    cerr << "FUCKING COMPUTERS: " << c.getId() << endl;
     string stmnt;
     stmnt = "INSERT INTO Computers( cName, cType, cBuilt, cBuiltYear )"
             " VALUES ( '"
