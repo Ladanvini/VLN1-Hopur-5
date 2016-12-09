@@ -71,10 +71,27 @@ string ConsoleUI::cORp(string name) {
 
 //Display
 void ConsoleUI::displayList() {
-    cout << _appservice.showPeople(_appservice.getList());
-    cout << _compService.showComputers(_compService.getList());
-    cout << _linkService.showLinksTable(_linkService.getLinkList());
+    cout << "cl - List of computers" << endl;
+    cout << "comps - list of computers in a table" << endl;
+    cout << "pl - list of people" << endl;
+    cout << "people - list of people in a table " << endl;
+    cout << "links - table of all the links" << endl;
 
+    string input;
+    input = inputHandling();
+
+    if(input == "cl")
+        cout << _compService.showComputers(_compService.getList());
+    else if (input == "comps")
+        cout << _compService.showComputersTable(_compService.getList());
+    else if (input == "pl")
+        cout << _appservice.showPeople(_appservice.getList());
+    else if (input == "people")
+        cout << _appservice.showPeopleTable(_appservice.getList());
+    else if (input == "links")
+        cout << _linkService.showLinksTable(_linkService.getLinkList());
+    else
+        cout << "INVALID COMMAND\n";
 }
 
 /**************************Question Menus***************************/
@@ -982,75 +999,7 @@ void ConsoleUI::deleteMenuComp() {
     cout << lowline << endl;
 }
 
-/**************************Main Menu***************************/
-/*
-void ConsoleUI::runUIComp() {
-    string input = " ";
-    bool exitUI = false;
-    string lowline = "--------------------------------------------------------------\n";
-    cout << "*******************FAMOUS COMPUTERS*********************" << endl;
-
-    do {
-        cout << lowline << endl;
-        cout << "Please input one of these commands: " << endl;
-        cout << "Display - Displays the list of famous computers" << endl;
-        cout << "Add - Adds a computer to the list" << endl;
-        cout << "Search - Searches for a computer in the list" << endl;
-        cout << "Sort - Displays the list in sorted order from options" << endl;
-        cout << "Delete - Deletes a computer from the list" << endl;
-        cout << "Unicorn - A unicorn" << endl;
-//BACK MENU INSTEAD OF EXIT?
-        cout << "Exit - End the programs run" << endl;
-
-        input = inputHandling();
-
-        if(input == "add") {
-            cout << lowline;
-            createMenu();
-        }
-        else if(input == "unicorn"){
-            cout << lowline;
-            cout << unicorn();
-            cout << lowline;
-        }
-        else if(input == "search") {
-            cout << lowline;
-            searchMenu();
-        }
-        else if(input == "sort") {
-            cout << lowline;
-            sortMenu();
-        }
-        else if(input == "display") {
-            cout << lowline;
-            displayList();
-        }
-        else if(input == "delete") {
-            string name;
-            string type;
-            cout << lowline;
-            cout << "Enter the computer's name: \n";
-            getline(cin, name);
-            cout << "Enter the computer's type: \n";
-            getline(cin, type);
-            cout << _compService.deleteComputers(name, type) << endl;
-            cout << lowline << endl;
-        }
-        else if(input == "exit") {
-            cout << lowline;
-            cout << "Thank you, have a nice day!" << endl;
-            cout << lowline;
-            exitUI = true;
-        }
-        else {
-            cout << lowline;
-            cout << "Wrong input!" << endl;
-            cout << lowline;
-        }
-
-    }while(!exitUI);
-}
-*/
+/******************************MainMenu***********************************/
 
 //Main Menu
 void ConsoleUI::runUI() {
