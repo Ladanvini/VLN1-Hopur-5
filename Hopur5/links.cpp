@@ -20,7 +20,7 @@ string Links::showLink() {
 
     temp = temp +
             margins(7, std::to_string(this->_person.getId())) +
-            margins(15, this->_person.getName());
+            margins(15, this->_person.getName()) + "\n";
     return temp;
 }
 

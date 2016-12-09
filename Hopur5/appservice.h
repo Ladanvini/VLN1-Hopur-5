@@ -59,7 +59,9 @@ public:
     vector<Person> sortByDeathDec();
     vector<Person> sortByTuringDec(string _flag);
 
+    //Tools and misc.
     bool containsID(vector<int> ids, int id);
+    bool checkIDExists(string id);
 
 };
 
