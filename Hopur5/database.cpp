@@ -223,10 +223,7 @@ void Database::writeToCompDB(Comps c) {
     stmnt = "";
     stmnt = "SELECT cID FROM Computers WHERE cName = '"
             + c.getName() + "' AND cType = '" + c.getType() + "'";
-    if(queryC.exec(QString::fromStdString(stmnt)))
-        break;
-        //qDebug() << queryC.executedQuery();
-    else
+    if(!queryC.exec(QString::fromStdString(stmnt)))
     {
         qDebug() << "Could not execute query" << endl;
 
@@ -302,10 +299,8 @@ void Database::delFromDB(Person p) {
             + std::to_string(p.getId());
 
     //query.exec(QString::fromStdString(stmnt));
-    if(query.exec(QString::fromStdString(stmnt)))
-        break;
-        //qDebug() << query.executedQuery();
-    else{
+    if(!query.exec(QString::fromStdString(stmnt)))
+    {
         qDebug() << "Could not execute query" << endl;
 
         qDebug() << query.lastError();
@@ -314,10 +309,8 @@ void Database::delFromDB(Person p) {
             + std::to_string(p.getId());
 
     //query.exec(QString::fromStdString(stmnt));
-    if(query.exec(QString::fromStdString(stmnt1)))
-        break;
-        //qDebug() << query.executedQuery();
-    else{
+    if(!query.exec(QString::fromStdString(stmnt1)))
+    {
         qDebug() << "Could not execute query" << endl;
 
         qDebug() << query.lastError();
@@ -353,10 +346,8 @@ void Database::delFromCompDB(Comps c) {
             + std::to_string(c.getId());
 
 //    query.exec(QString::fromStdString(stmnt));
-    if(query.exec(QString::fromStdString(stmnt)))
-        break;
-        //qDebug() << query.executedQuery();
-    else{
+    if(!query.exec(QString::fromStdString(stmnt)))
+    {
         qDebug() << "Could not execute query" << endl;
 
         qDebug() << query.lastError();
@@ -364,10 +355,8 @@ void Database::delFromCompDB(Comps c) {
     string stmnt1 = "DELETE FROM P_C_con WHERE CID = "
             + std::to_string(c.getId());
 //    query.exec(QString::fromStdString(stmnt));
-    if(query.exec(QString::fromStdString(stmnt1)))
-        break;
-        //qDebug() << query.executedQuery();
-    else{
+    if(!query.exec(QString::fromStdString(stmnt1)))
+    {
         qDebug() << "Could not execute query" << endl;
 
         qDebug() << query.lastError();
@@ -407,10 +396,8 @@ void Database::deleteCons(int cId, int pId) {
 
      //query.exec(QString::fromStdString(stmnt));
 
-     if(query.exec(QString::fromStdString(stmnt)))
-         break;
-         //qDebug() << query.executedQuery();
-     else{
+     if(!query.exec(QString::fromStdString(stmnt)))
+     {
          qDebug() << "Could not execute query" << endl;
 
          qDebug() << query.lastError();
@@ -440,10 +427,7 @@ cerr << "PID: " << std::to_string(l.getPID()) << endl;
                 "\n VALUES ( " + std::to_string(l.getCID()) + ", "
                         +  std::to_string(l.getPID()) + ") ";
 
-    if(query.exec(QString::fromStdString(stmnt)))
-        break;
-        //qDebug() << query.executedQuery();
-    else
+    if(!query.exec(QString::fromStdString(stmnt)))
     {
         qDebug() << "Could not execute query" << endl;
 
