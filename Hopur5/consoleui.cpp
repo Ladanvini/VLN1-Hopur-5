@@ -628,7 +628,6 @@ void ConsoleUI::sortMenuPerson() {
     }while(!exitMenu);
 }
 
-
 //create option for person
 void ConsoleUI::createMenuPerson() {
     string name;
@@ -701,8 +700,6 @@ void ConsoleUI::deleteMenuPerson() {
     cout << _appservice.deletePerson(name, birth) << endl;
     cout << lowline << endl;
 }
-
-
 
 /**************************Computers***************************/
 
