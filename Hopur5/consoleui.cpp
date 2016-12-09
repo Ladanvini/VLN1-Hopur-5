@@ -756,10 +756,23 @@ void ConsoleUI::searchMenuComp() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "Enter the name here: " << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _compService.showComputers(_compService.searchByName(input));
+            if(input == "list"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByName(input));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByName(input));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+
         }
         else if(input == "unicorn") {
             cout << lowline;
