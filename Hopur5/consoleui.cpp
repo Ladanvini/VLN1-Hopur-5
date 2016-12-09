@@ -825,6 +825,22 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "type") {
             cout << lowline;
+            cout << "You want it in a table or list?" << endl;
+            input = inputHandling();
+            if(input == "list"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByType(input));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByType(input));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
             cout << "Please enter the type" << endl;
             input = inputHandling();
             cout << lowline;
