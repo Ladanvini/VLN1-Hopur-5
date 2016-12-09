@@ -4,8 +4,6 @@
 #include <string>
 #include <ctime>
 
-#define clearScreen() printf("\033[H\033[J")
-
 #include "consoleui.h"
 
 using namespace std;
@@ -1042,7 +1040,7 @@ void ConsoleUI::runUI() {
     string lowline = "--------------------------------------------------------------\n";
     clearScreen();
     cout << lowline;
-    cout << "********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS********" << endl;
+    cout << "***********FAMOUS COMPUTERS AND COMPUTER SCIENTISTS***********" << endl;
 
     do {
 

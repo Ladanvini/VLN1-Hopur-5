@@ -369,21 +369,21 @@ string appservice::showPeople(vector<Person> results) {
         temp = "#########################################################################\n";
         temp = temp + "No People Found!\n";
     }
-    temp =  temp + "--------------------------------------------------------------\n";
+    temp =  temp + "----------------------------------\n";
     return temp;
 }
 string appservice::showPeopleTable(vector<Person> results) {
         string temp = "";
         string line = "";
-        for(int i=0; i<143; i++)
+        for(int i = 0; i < 115; i++)
             line = line + "-";
         line = line + '\n';
         temp = temp + line;
         temp = temp + "|      ID       "
                "|     NAME      "
-               "|      AGE      "
+               "|       AGE      "
                "|     SEX       "
-               "|     BIRTH     "
+               "|      BIRTH     "
                "|    DEATH      "
                "|    TURING     |\n";
 
