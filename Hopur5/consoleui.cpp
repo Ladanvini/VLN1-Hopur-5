@@ -1193,6 +1193,7 @@ void ConsoleUI::runUI() {
         cout << "Delete - Deletes a person or a computer from the list" << endl;
         cout << "Link - Link computers to people " << endl;
         cout << "TicTacToe - Play Tic Tac Toe" << endl;
+        cout << "Slim - ...try me " << endl;
         cout << "Unicorn - A unicorn" << endl;
         cout << "Moonwalk - A surprise" << endl;
         cout << "Exit - End the programs run" << endl;
@@ -1202,6 +1203,9 @@ void ConsoleUI::runUI() {
         if(input == "add") {
             cout << lowline;
             createMenu();
+        }
+        else if(input == "slim") {
+            u.realSlimShady();
         }
         else if(input == "link") {
             cout << lowline;

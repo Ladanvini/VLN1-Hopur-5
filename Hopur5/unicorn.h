@@ -14,6 +14,8 @@ using namespace std;
 
 class Unicorn {
 private:
+    string slimShady();
+    string standUp();
     string unicorn();
     string unicornS1();
     string unicornS2();
@@ -27,7 +29,7 @@ private:
 public:
     Unicorn();
     void moonWalk();
-
+    void realSlimShady();
 };
 
 #endif // UNICORN_H

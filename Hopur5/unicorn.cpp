@@ -3,6 +3,32 @@
 Unicorn::Unicorn() {
 
 }
+string Unicorn::slimShady(){
+    string temp = "\n"
+"    O      O      O      O\n"
+"   |_|_   |_|_   |_|_   |_|_ \n"
+"     \\ \\    \\ \\    \\ \\    \\ \\ \n";
+    return temp;
+
+}
+string Unicorn::standUp() {
+    string temp = ""
+"            0 \n"
+"     O     /|\\     O      O\n"
+"    |_|_    |     |_|_   |_|_\n"
+"      \\ \\  / \\      \\ \\    \\ \\ \n";
+    return temp;
+
+
+}
+
+void Unicorn::realSlimShady(){
+    cout << slimShady();
+     sleep(2);
+     cout << "Will the real Slim Shady please stand up?" << endl;
+     sleep(1);
+     cout << standUp();
+}
 
 void Unicorn::moonWalk() {
 
