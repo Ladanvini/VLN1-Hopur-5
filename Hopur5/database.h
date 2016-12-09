@@ -4,12 +4,11 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-//#include <QtSql>
 #include <QtSql>
-#define clearScreen() printf("\033[H\033[J")
-//#include "comps.h"
-//#include "person.h"
+
 #include "links.h"
+
+#define clearScreen() printf("\033[H\033[J")
 
 using namespace std;
 
@@ -30,7 +29,6 @@ public:
     QString getDbName() {
         return _dbName;
     }
-
 
     //Returns list of computers from the database.
     vector<Comps> getComputerList();

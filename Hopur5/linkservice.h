@@ -1,16 +1,15 @@
 #ifndef LINKSERVICE_H
 #define LINKSERVICE_H
+
 #include "database.h"
 
-class LinkService
-{
+class LinkService {
 private:
     Links _link;
     Database _db;
     vector<Links> _linkList;
     vector<Comps> _compList;
     vector<Person> _persList;
-
 public:
     LinkService();
     LinkService(Database db);

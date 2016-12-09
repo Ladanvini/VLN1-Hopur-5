@@ -3,15 +3,16 @@
 
 #include <string>
 #include <iostream>
-#define clearScreen() cout<<("\033[H\033[J")
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 #include <unistd.h>
+
+#define clearScreen() cout<<("\033[H\033[J")
+
 using namespace std;
 
-class Unicorn
-{
+class Unicorn {
 private:
     string unicorn();
     string unicornS1();

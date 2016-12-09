@@ -2,8 +2,8 @@
 #define COMPSERVICE_H
 
 #include <ctime>
-#include "database.h"
 
+#include "database.h"
 
 class CompService {
 private:
@@ -14,10 +14,10 @@ public:
     CompService();
     CompService(Database db);
 
-    //GETTERS
+    //Getters
     vector<Comps> getList();
 
-    // Create
+    //Create
     string create(int id, string name, string type, int yearBuilt, bool built);
 
     //Search
@@ -26,7 +26,7 @@ public:
     vector<Comps> searchByType(string type);
     vector<Comps> searchByBuilt(int yearBuilt);
 
-    // Sort
+    //Sort
     vector<Comps> sortByName();
     vector<Comps> sortByType();
     vector<Comps> sortByBuilt();
@@ -36,7 +36,7 @@ public:
     vector<Comps> sortByBuiltDec();
     vector<Comps> sortByIDDec();
 
-    //DELETE
+    //Delete
     string deleteComputers(string name, string type);
 
     // Edit
@@ -50,9 +50,8 @@ public:
     bool checkIDExists(string id);
 
     //geet comp ID
-
     int getCompID(string name, string type);
-};
 
+};
 
 #endif // COMPSERVICE_H

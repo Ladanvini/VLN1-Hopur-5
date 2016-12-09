@@ -4,8 +4,7 @@
 #include "comps.h"
 #include "person.h"
 
-class Links
-{
+class Links {
 private:
     Comps _computer;
     Person _person;
@@ -21,7 +20,7 @@ public:
     //Getters
     int getCID();
     int getPID();
-};
 
+};
 
 #endif // LINKS_H

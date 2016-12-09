@@ -5,7 +5,6 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
-
 #include <ctime>
 
 #include "database.h"
@@ -64,6 +63,7 @@ public:
     bool checkIDExists(string id);
 
     int getPersonID(string name, int birth);
+
 };
 
 #endif // APPSERVICE_H
