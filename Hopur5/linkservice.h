@@ -27,6 +27,14 @@ public:
     //Checks if exists
     bool exists(Links l);
 
+    //Delete link
+    string deleteLink(Links l);
+
+    //Updates Links after person has been deleted
+    void updateLinkc(int cid);
+    //Updates Links after computer has been deleted
+    void updateLinkp(int pid);
+
 };
 
 #endif // LINKSERVICE_H

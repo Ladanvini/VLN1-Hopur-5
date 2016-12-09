@@ -12,6 +12,7 @@ LinkService::LinkService(Database db) {
 
 //Getters
 vector<Links> LinkService::getLinkList() {
+   // _linkList = _db.getConnectionList();
     return _linkList;
 }
 vector<Comps> LinkService::getCompList() {
@@ -26,6 +27,10 @@ string LinkService::create(string computerID, string personID) {
 
     bool flagc = false;
     bool flagp = false;
+
+    _compList = _db.getComputerList();
+    _persList = _db.getList();
+    _linkList = _db.getConnectionList();
 
     int cID = stoi(computerID);
     int pID = stoi(personID);
@@ -76,4 +81,46 @@ string LinkService::showLinksTable(vector<Links> display) {
         temp = temp + (display.at(i)).showLink();
 
     return temp;
+}
+
+//Deleting links
+
+string LinkService::deleteLink(Links l){
+    if(!exists(l))
+        return "Link does not exist\n";
+
+    bool flag = false;
+    for(unsigned int i = 0; i<_linkList.size() && !flag; i++){
+        if(l.compare(_linkList.at(i))){
+            flag = true;
+            _linkList.erase(_linkList.begin() + i);
+        }
+    }
+    _db.updateLinkDB(_linkList);
+    _db.deleteCons(l.getCID(), l.getPID());
+    return "Link deleted successfully\n";
+}
+
+void LinkService::updateLinkc(int cid) {
+    _linkList = _db.getConnectionList();
+
+    for(unsigned int i=0; i<_linkList.size(); i++){
+        if(_linkList.at(i).getCID() == cid){
+            _linkList.erase(_linkList.begin() + i );
+        }
+    }
+    _db.updateLinkDB(_linkList);
+}
+
+void LinkService::updateLinkp(int pid){
+    _linkList = _db.getConnectionList();
+
+    for(unsigned int i=0; i<_linkList.size(); i++){
+        if(_linkList.at(i).getPID() == pid){
+            _linkList.erase(_linkList.begin() + i );
+        }
+    }
+    _db.updateLinkDB(_linkList);
+
+
 }

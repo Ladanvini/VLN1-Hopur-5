@@ -14,6 +14,10 @@ appservice::appservice(Database _db) {
    people = _db.getList();
 }
 
+vector<Person> appservice::getList() {
+    //people = db.getList();
+    return people;
+}
 //####################ADD NEW###################//
 
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
@@ -43,10 +47,12 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
     }
 
 //    p->setId(people.size()+1);
-    people.push_back(*p);
+;
 
+    people.push_back(*p);
     db.update(people);
     db.writeToDB(*p);
+
     return "Added successfully\n";
 }
 
@@ -424,4 +430,16 @@ bool appservice::checkIDExists(string id) {
     return false;
 }
 
-//####################Edit####################//
+//####################GET PERSON ID ####################//
+
+int appservice::getPersonID(string _name, int birth){
+    for(unsigned int i=0; i<people.size(); i++) {
+        string p_name = people.at(i).getName();
+
+        if(p_name.find(_name) != std::string::npos && people.at(i).getBirth() == birth ) {
+            return people.at(i).getId();
+
+        }
+    }
+
+}

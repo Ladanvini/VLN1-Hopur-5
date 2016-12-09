@@ -214,6 +214,28 @@ void Database::writeToCompDB(Comps c) {
 
         qDebug() << query.lastError();
     }
+    cout << _db.commit() << endl;
+    _db.close();
+
+    _db.open();
+
+    QSqlQuery queryC(_db);
+
+    stmnt = "";
+    stmnt = "SELECT cID FROM Computers WHERE cName = '"
+            + c.getName() + "' AND cType = '" + c.getType() + "'";
+    if(queryC.exec(QString::fromStdString(stmnt)))
+        qDebug() << queryC.executedQuery();
+    else
+    {
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << queryC.lastError();
+    }
+    int compId = queryC.value("cID").toInt();
+    c.setId(compId);
+    _computers.push_back(c);
+
 
     cout << _db.commit() << endl;
     _db.close();
@@ -287,9 +309,30 @@ void Database::delFromDB(Person p) {
 
         qDebug() << query.lastError();
     }
+    string stmnt1 = "DELETE FROM P_C_con WHERE PID = "
+            + std::to_string(p.getId());
+
+    //query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt1)))
+        qDebug() << query.executedQuery();
+    else{
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
 
     cout << _db.commit() << endl;
     _db.close();
+
+    for(unsigned int i=0; i<_people.size(); i++) {
+        string p_name = _people.at(i).getName();
+
+        if(p_name.find(p.getName()) != std::string::npos && _people.at(i).getBirth() == p.getBirth() ) {
+
+            _people.erase(_people.begin() + i);
+
+        }
+    }
 
 }
 
@@ -312,9 +355,30 @@ void Database::delFromCompDB(Comps c) {
         qDebug() << query.lastError();
     }
 
+    stmnt = "DELETE FROM P_C_con WHERE CID = "
+            + std::to_string(c.getId());
+//    query.exec(QString::fromStdString(stmnt));
+    if(query.exec(QString::fromStdString(stmnt)))
+        qDebug() << query.executedQuery();
+    else{
+        qDebug() << "Could not execute query" << endl;
+
+        qDebug() << query.lastError();
+    }
+
+
     cout << _db.commit() << endl;
     _db.close();
 
+    for(unsigned int i=0; i<_computers.size(); i++) {
+        string c_name = _computers.at(i).getName();
+
+        if(c_name.find(c.getName()) != std::string::npos && _computers.at(i).getType() == c.getType() ) {
+
+            _computers.erase(_computers.begin() + i);
+
+        }
+    }
 }
 
 // Deletes a connection with the given computer and person.
