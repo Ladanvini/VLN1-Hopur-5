@@ -42,7 +42,7 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
        return "Person already exists\n";
     }
 
-    p->setId(people.size()+1);
+//    p->setId(people.size()+1);
     people.push_back(*p);
 
     db.update(people);

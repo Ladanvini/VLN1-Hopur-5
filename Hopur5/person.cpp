@@ -66,7 +66,7 @@ string Person::showPerson() {
     string temp = "";
     temp = temp + "ID: " + std::to_string(this->_id) + '\n';
     temp = temp + "NAME: " + this->_name + '\n';
-    temp = temp + "AGE OF CONTRIBUTION: " + std::to_string(this->_age) + '\n';
+    temp = temp + "AGE: " + std::to_string(this->_age) + '\n';
     temp = temp + "SEX: " + this->_sex + '\n';
     temp = temp + "BIRTH: " + std::to_string(this->_birth) + '\n';
     temp = temp + "DEATH: " + std::to_string(this->_death) + '\n';
