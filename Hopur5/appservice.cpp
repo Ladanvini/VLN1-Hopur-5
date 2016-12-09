@@ -15,9 +15,9 @@ appservice::appservice(Database _db) {
 }
 
 vector<Person> appservice::getList() {
-    //people = db.getList();
     return people;
 }
+
 //####################ADD NEW###################//
 
 string appservice::create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear) {
@@ -46,9 +46,6 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
        return "Person already exists\n";
     }
 
-//    p->setId(people.size()+1);
-;
-
     people.push_back(*p);
     db.update(people);
     db.writeToDB(*p);
@@ -75,7 +72,6 @@ vector<Person> appservice::searchByName(string name) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchByAge(string age) {
@@ -84,13 +80,11 @@ vector<Person> appservice::searchByAge(string age) {
     int _age;
     for(size_t i = 0; i < people.size(); i++) {
         _age = (people.at(i).getAge());
-//        transform(_age.begin(), _age.end(), _age.begin(), ::tolower);
 
         if(_age == agedig) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchBySex(string _sex) {
@@ -101,7 +95,6 @@ vector<Person> appservice::searchBySex(string _sex) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchByDeath(string death) {
@@ -115,7 +108,6 @@ vector<Person> appservice::searchByDeath(string death) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchByBirth(string birth) {
@@ -129,7 +121,6 @@ vector<Person> appservice::searchByBirth(string birth) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchByContribution(string contribution) {
@@ -142,7 +133,6 @@ vector<Person> appservice::searchByContribution(string contribution) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::searchByTuring(string _flag) {
@@ -159,7 +149,6 @@ vector<Person> appservice::searchByTuring(string _flag) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 
@@ -182,23 +171,19 @@ vector<Person> appservice::sortByName() {
                 sorted.push_back(people.at(j));
             }
     }
-
     return sorted;
 }
-
 vector<Person> appservice:: sortByNameDec() {
     vector<Person> Results = sortByName();
     reverse(Results.begin(), Results.end());
 
     return Results;
 }
-
 vector<Person> appservice::sortByAge() {
     vector<int> id;
     vector<string> ages;
     vector<Person> sorted;
-    for(unsigned int i = 0; i < people.size(); i++)
-    {
+    for(unsigned int i = 0; i < people.size(); i++) {
         ages.push_back(std::to_string(people.at(i).getAge()));
     }
     std::sort(ages.begin(), ages.end());
@@ -212,7 +197,6 @@ vector<Person> appservice::sortByAge() {
             }
         }
     }
-
     return sorted;
 }
 vector<Person> appservice::sortByAgeDec() {
@@ -230,23 +214,18 @@ vector<Person> appservice::sortBySex(string _sex) {
             result.push_back(people.at(i));
         }
     }
-
     for(size_t i = 0; i < people.size(); i++) {
         if(people.at(i).getSex() != (sex)) {
             result.push_back(people.at(i));
         }
     }
-
     return result;
 }
 vector<Person> appservice::sortBySexDec(string _sex) {
-
     vector<Person> Results = sortBySex(_sex);
-
     reverse(Results.begin(), Results.end());
 
     return Results;
-
 }
 vector<Person> appservice::sortByBirth() {
     vector<int> id;
@@ -266,18 +245,13 @@ vector<Person> appservice::sortByBirth() {
             }
         }
     }
-
     return sorted;
 }
 vector<Person> appservice::sortByBirthDec() {
-
     vector<Person> Results = sortByBirth();
-
     reverse(Results.begin(), Results.end());
 
     return Results;
-
-
 }
 vector<Person> appservice::sortByDeath() {
     vector<int> id;
@@ -296,23 +270,17 @@ vector<Person> appservice::sortByDeath() {
                 sorted.push_back(people.at(j));
             }
         }
-
     }
-
     return sorted;
 }
 vector<Person> appservice::sortByDeathDec() {
-
     vector<Person> Results = sortByDeath();
-
     reverse(Results.begin(), Results.end());
 
     return Results;
-
 }
 vector<Person> appservice::sortByTuring (string _flag) {
     vector<Person> result;
-
     bool flag;
     if(_flag.find("yes") != std::string::npos) {
         flag = true;
@@ -326,13 +294,10 @@ vector<Person> appservice::sortByTuring (string _flag) {
             result.push_back(people.at(i));
         }
     }
-
-
     return result;
 }
 vector<Person> appservice::sortByTuringDec(string _flag) {
     vector<Person> Results = sortByTuring(_flag);
-
     reverse(Results.begin(), Results.end());
 
     return Results;
@@ -361,7 +326,6 @@ string appservice::deletePerson(string _name, int birth) {
         return result.showPerson() +
                 "Erased successfully\n";
     }
-
     return "Person: \n" + result.getName() + "\n not found\n";
 }
 
@@ -379,6 +343,7 @@ string appservice::showPeople(vector<Person> results) {
         temp = temp + "No People Found!\n";
     }
     temp =  temp + "----------------------------------\n";
+
     return temp;
 }
 string appservice::showPeopleTable(vector<Person> results) {
@@ -396,21 +361,16 @@ string appservice::showPeopleTable(vector<Person> results) {
                "|    DEATH      "
                "|    TURING     |\n";
 
-
-
     for(unsigned int i = 0; i < results.size(); i++) {
-
-
         temp = temp + line;
-
         temp = temp + results.at(i).showPersonTable();
-
     }
     if(results.size() == 0) {
         temp = "#########################################################################\n";
         temp = temp + "No People Found!\n";
     }
     temp =  temp + line;
+
     return temp;
 }
 
@@ -435,14 +395,12 @@ bool appservice::checkIDExists(string id) {
 
 //####################GET PERSON ID ####################//
 
-int appservice::getPersonID(string _name, int birth){
-    for(unsigned int i=0; i<people.size(); i++) {
+int appservice::getPersonID(string _name, int birth) {
+    for(unsigned int i = 0; i < people.size(); i++) {
         string p_name = people.at(i).getName();
 
         if(p_name.find(_name) != std::string::npos && people.at(i).getBirth() == birth ) {
             return people.at(i).getId();
-
         }
     }
-
 }
