@@ -295,9 +295,21 @@ string CompService::showComputersTable(vector<Comps> results) {
     return temp;
 }
 
+//Tools and misc.
 bool CompService::containsID(vector<int> ids, int id) {
     for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)
             return true;
+    return false;
+}
+bool CompService::checkIDExists(string id) {
+
+    int ID = stoi(id);
+
+    for(unsigned int i = 0; i < computers.size(); i++) {
+        if(computers.at(i).getId() == ID) {
+            return true;
+        }
+    }
     return false;
 }

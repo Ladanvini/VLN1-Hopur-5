@@ -44,7 +44,10 @@ public:
     // Showing
     string showComputers(vector<Comps> results);
     string showComputersTable(vector<Comps> results);
+
+    //Tools and misc.
     bool containsID(vector<int> ids, int id);
+    bool checkIDExists(string id);
 };
 
 #endif // COMPSERVICE_H

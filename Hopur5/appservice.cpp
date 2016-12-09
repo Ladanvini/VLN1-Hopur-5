@@ -404,10 +404,23 @@ string appservice::showPeopleTable(vector<Person> results) {
     temp =  temp + line;
     return temp;
 }
+
+//Tools and misc.
 bool appservice::containsID(vector<int> ids, int id) {
     for(unsigned int i = 0; i < ids.size(); i++)
         if(ids.at(i) == id)
             return true;
+    return false;
+}
+bool appservice::checkIDExists(string id) {
+
+    int ID = stoi(id);
+
+    for(unsigned int i = 0; i < people.size(); i++) {
+        if(people.at(i).getId() == ID) {
+            return true;
+        }
+    }
     return false;
 }
 

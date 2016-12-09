@@ -255,7 +255,15 @@ void ConsoleUI::linkMenu() {
     cout << "Enter the Person ID: " << endl;
     pers = inputHandling();
 
-    cout << _linkService.create(comp, pers);
+    if(comp.size() == 0 || comp[0] == ' ' || pers.size() == 0 || pers[0] == ' ') {
+        cout << "You have to enter ID for Computer and Person!" << endl;
+    }
+    else if(_appservice.checkIDExists(pers) == false || _compService.checkIDExists(comp) == false) {
+        cout << "Person ID or Computer ID does not exist!" << endl;
+    }
+    else {
+        cout << _linkService.create(comp, pers);
+    }
 
 }
 
