@@ -12,11 +12,15 @@ private:
 public:
     Links();
     Links(Comps c, Person p);
+
+    //Tools and misc.
     string showLink();
     bool compare(Links l);
+    string margins(int cellSize, string value);
+
+    //Getters
     int getCID();
     int getPID();
-    string margins(int cellSize, string value);
 };
 
 

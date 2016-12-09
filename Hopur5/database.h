@@ -66,8 +66,6 @@ public:
 
     //TODO delete the following functions!
     void deleteCons(int cId, int pId);
-    //void reWriteDb();
-    //void reWriteCompDB();
 
 };
 
