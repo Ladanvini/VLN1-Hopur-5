@@ -781,12 +781,22 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "id") {
             cout << lowline;
-            cout << "Please enter the ID you want" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            int id;
-            id = stoi(input);
-            cout << _compService.showComputers(_compService.searchById(id));
+            if(input == "list"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchById(stoi(input)));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchById(stoi(input)));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
         }
         else if(input == "built") {
             cout << lowline;
