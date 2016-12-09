@@ -1,4 +1,5 @@
 #include "compservice.h"
+
 #include<iostream>
 
 CompService::CompService() {
@@ -8,15 +9,13 @@ CompService::CompService() {
 CompService::CompService(Database db) {
     _db = db;
     computers = _db.getComputerList();
-
 }
 
 vector<Comps> CompService::getList() {
-    //computers = _db.getComputerList();
     return computers;
 }
-// Create
 
+// Create
 string CompService::create(int id, string name, string type, int yearBuilt, bool built) {
 
     Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
@@ -33,15 +32,12 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     if(name.empty() || name.at(0) == ' ')
         return "Name was not accepted!\n";
 
-    //newComputer->setId(computers.size()+2);
-
     if(_db.existsInCompDB(*newComputer)) {
             flag = true;
     }
     if(flag) {
        return "Computer already exists\n";
     }
-
 
     computers.push_back(*newComputer);
     _db.updateCompDB(computers);
@@ -55,7 +51,6 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
 }
 
 //Search
-
 vector<Comps> CompService::searchByName(string name) {
 
     transform(name.begin(), name.end(), name.begin(), ::tolower);
@@ -70,7 +65,6 @@ vector<Comps> CompService::searchByName(string name) {
                 result.push_back(computers.at(i));
         }
     }
-
     return result;
 }
 vector<Comps> CompService::searchById(int id) {
@@ -109,7 +103,6 @@ vector<Comps> CompService::searchByBuilt(int yearBuilt) {
 }
 
 // Sort
-
 vector<Comps> CompService::sortByName() {
 
     vector<int> IDs;
@@ -128,9 +121,7 @@ vector<Comps> CompService::sortByName() {
                      IDs.push_back(computers.at(j).getId());
                      sorted.push_back(computers.at(j));
                 }
-
         }
-
     return sorted;
 }
 vector<Comps> CompService::sortByNameDec() {
@@ -157,7 +148,6 @@ vector<Comps> CompService::sortByType() {
 
                 IDs.push_back(computers.at(j).getId());
                 sorted.push_back(computers.at(j));
-
             }
         }
     }
@@ -175,13 +165,14 @@ vector<Comps> CompService::sortByBuilt() {
     vector<int> builtComps;
     vector<Comps> sorted;
     vector<int> id;
-        for(unsigned int i = 0; i < computers.size(); i++) {
-            if(computers.at(i).getBuilt() == false) {
-                yearBuilt = 0;
-                computers.at(i).setYearBuilt(yearBuilt);
-            }
-            builtComps.push_back(computers.at(i).getYearBuilt());
+
+    for(unsigned int i = 0; i < computers.size(); i++) {
+        if(computers.at(i).getBuilt() == false) {
+            yearBuilt = 0;
+            computers.at(i).setYearBuilt(yearBuilt);
         }
+        builtComps.push_back(computers.at(i).getYearBuilt());
+    }
 
     std::sort(builtComps.begin(), builtComps.end());
 
@@ -192,7 +183,6 @@ vector<Comps> CompService::sortByBuilt() {
                 sorted.push_back(computers.at(j));
             }
     }
-
     return sorted;
 }
 vector<Comps> CompService::sortByBuiltDec() {
@@ -205,8 +195,8 @@ vector<Comps> CompService::sortByID() {
 
     vector<int> IDComps;
     vector<Comps> sorted;
-        for(unsigned int i = 0; i < computers.size(); i++)
-             IDComps.push_back(computers.at(i).getId());
+    for(unsigned int i = 0; i < computers.size(); i++)
+         IDComps.push_back(computers.at(i).getId());
 
     std::sort(IDComps.begin(), IDComps.end());
 
@@ -215,7 +205,6 @@ vector<Comps> CompService::sortByID() {
             if(IDComps.at(i) == computers.at(j).getId())
                 sorted.push_back(computers.at(j));
     }
-
     return sorted;
 }
 vector<Comps> CompService::sortByIDDec() {
@@ -232,7 +221,7 @@ string CompService::deleteComputers(string name, string type) {
     string c_name;
     Comps result;
 
-    for(unsigned int i=0; i<computers.size(); i++) {
+    for(unsigned int i = 0; i < computers.size(); i++) {
         c_name = computers.at(i).getName();
 
         if(c_name.find(name) != std::string::npos && computers.at(i).getType() == type ) {
@@ -249,28 +238,23 @@ string CompService::deleteComputers(string name, string type) {
         return result.showComputer() +
                 "Erased successfully\n";
     }
-
     return "Computer: \n" + result.getName() + "\n not found\n";
 }
 
 int CompService::getCompID(string name, string type){
 
-    for(unsigned int i=0; i<computers.size(); i++) {
+    for(unsigned int i = 0; i < computers.size(); i++) {
         string c_name = computers.at(i).getName();
 
         if(c_name.find(name) != std::string::npos && computers.at(i).getType() == type ) {
-
             return computers.at(i).getId();
-
          }
-
     }
 }
 
 // Edit
 
 // Showing
-
 string CompService::showComputers(vector<Comps> results) {
 
     string temp = "";
@@ -301,21 +285,17 @@ string CompService::showComputersTable(vector<Comps> results) {
                "|     BUILT     "
                "|     YEAR       |\n";
 
-
-
     for(unsigned int i = 0; i < results.size(); i++) {
-
-
         temp = temp + line;
-
         temp = temp + results.at(i).showComputerTable();
-
     }
     if(results.size() == 0) {
         temp = "#########################################################################\n";
         temp = temp + "No Computers Found!\n";
     }
+
     temp =  temp + line;
+
     return temp;
 }
 
