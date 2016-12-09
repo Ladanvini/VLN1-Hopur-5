@@ -760,11 +760,13 @@ void ConsoleUI::searchMenuComp() {
             input = inputHandling();
             if(input == "list"){
                 cout << lowline;
+                cout << "Input Name ";
                 input = inputHandling();
                 cout << _compService.showComputers(_compService.searchByName(input));
             }
             else if(input == "table"){
                 cout << lowline;
+                cout << "Input Name ";
                 input = inputHandling();
                 cout << _compService.showComputersTable(_compService.searchByName(input));
 
@@ -772,6 +774,8 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Wrong input" << endl;
             }
+
+
 
         }
         else if(input == "unicorn") {
@@ -785,11 +789,13 @@ void ConsoleUI::searchMenuComp() {
             input = inputHandling();
             if(input == "list"){
                 cout << lowline;
+                cout << "Input Id ";
                 input = inputHandling();
                 cout << _compService.showComputers(_compService.searchById(stoi(input)));
             }
             else if(input == "table"){
                 cout << lowline;
+                cout << "Input Id ";
                 input = inputHandling();
                 cout << _compService.showComputersTable(_compService.searchById(stoi(input)));
 
@@ -797,6 +803,7 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Wrong input" << endl;
             }
+
         }
         else if(input == "built") {
             cout << lowline;
@@ -804,11 +811,13 @@ void ConsoleUI::searchMenuComp() {
             input = inputHandling();
             if(input == "list"){
                 cout << lowline;
+                cout << "Input Year ";
                 input = inputHandling();
                 cout << _compService.showComputers(_compService.searchByBuilt(stoi(input)));
             }
             else if(input == "table"){
                 cout << lowline;
+                cout << "Input Year ";
                 input = inputHandling();
                 cout << _compService.showComputersTable(_compService.searchByBuilt(stoi(input)));
 
@@ -816,12 +825,7 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Wrong input" << endl;
             }
-            cout << "Please enter the year" << endl;
-            input = inputHandling();
-            cout << lowline;
-            int built;
-            built = stoi(input);
-            cout << _compService.showComputers(_compService.searchByBuilt(built));
+
         }
         else if(input == "type") {
             cout << lowline;
@@ -829,11 +833,13 @@ void ConsoleUI::searchMenuComp() {
             input = inputHandling();
             if(input == "list"){
                 cout << lowline;
+                cout << "Input Type ";
                 input = inputHandling();
                 cout << _compService.showComputers(_compService.searchByType(input));
             }
             else if(input == "table"){
                 cout << lowline;
+                cout << "Input Type";
                 input = inputHandling();
                 cout << _compService.showComputersTable(_compService.searchByType(input));
 
@@ -841,10 +847,7 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Wrong input" << endl;
             }
-            cout << "Please enter the type" << endl;
-            input = inputHandling();
-            cout << lowline;
-            cout << _compService.showComputers(_compService.searchByType(input));
+
         }
         else if(input == "back") {
             cout << lowline;
