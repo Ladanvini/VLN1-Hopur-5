@@ -354,11 +354,10 @@ void Database::delFromCompDB(Comps c) {
 
         qDebug() << query.lastError();
     }
-
-    stmnt = "DELETE FROM P_C_con WHERE CID = "
+    string stmnt1 = "DELETE FROM P_C_con WHERE CID = "
             + std::to_string(c.getId());
 //    query.exec(QString::fromStdString(stmnt));
-    if(query.exec(QString::fromStdString(stmnt)))
+    if(query.exec(QString::fromStdString(stmnt1)))
         qDebug() << query.executedQuery();
     else{
         qDebug() << "Could not execute query" << endl;
