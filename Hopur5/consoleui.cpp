@@ -1127,7 +1127,6 @@ void ConsoleUI::runUI() {
         }
         else if(input == "link") {
             cout << lowline;
-            cout << unicorn();
             linkMenu();
         }
         else if(input == "moonwalk") {
