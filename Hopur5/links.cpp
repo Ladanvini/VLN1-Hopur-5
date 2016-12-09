@@ -9,6 +9,8 @@ Links::Links(Comps c, Person p){
     _computer = c;
     _person = p;
 }
+
+//Tools and misc.
 string Links::showLink(){
     string temp = "";
     temp = temp +
@@ -29,12 +31,6 @@ bool Links::compare(Links l){
         return true;
     return false;
 }
-int Links::getCID(){
-    return _computer.getId();
-}
-int Links::getPID(){
-    return _person.getId();
-}
 string Links::margins(int cellSize, string value){
    string sstr = "";
    int space = (cellSize - value.size())/2;
@@ -50,3 +46,13 @@ string Links::margins(int cellSize, string value){
    }
     return "|" + sstr + value + sstr + "|";
 }
+
+//Getters
+int Links::getCID(){
+    return _computer.getId();
+}
+int Links::getPID(){
+    return _person.getId();
+}
+
+
