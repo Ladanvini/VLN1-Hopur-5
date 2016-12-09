@@ -4,6 +4,7 @@
 #include "appservice.h"
 #include "compservice.h"
 #include "linkservice.h"
+#include "tictactoe.h"
 
 
 #include <string>
@@ -15,6 +16,7 @@ private:
     CompService _compService;
     appservice _appservice;
     LinkService _linkService;
+    TicTacToe _ticTacToe;
 public:
     ConsoleUI();
     ConsoleUI(appservice p, CompService c, LinkService l);

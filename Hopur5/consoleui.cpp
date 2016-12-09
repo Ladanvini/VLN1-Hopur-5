@@ -1093,6 +1093,9 @@ void ConsoleUI::runUI() {
             cout << lowline;
             exitUI = true;
         }
+        else if(input == "tictactoe") {
+            _ticTacToe.ticTacToeMain();
+        }
         else {
             cout << lowline;
             cout << "Wrong input!" << endl;
