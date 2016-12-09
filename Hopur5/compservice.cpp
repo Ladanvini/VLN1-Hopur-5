@@ -191,12 +191,6 @@ vector<Comps> CompService::sortByBuiltDec() {
 
     return Resaults;
 }
-bool CompService::containsID(vector<int> ids, int id) {
-    for(unsigned int i = 0; i < ids.size(); i++)
-        if(ids.at(i) == id)
-            return true;
-    return false;
-}
 vector<Comps> CompService::sortByID() {
 
     vector<int> IDComps;
@@ -270,7 +264,6 @@ string CompService::showComputers(vector<Comps> results) {
     temp =  temp + "--------------------------------------------------------------\n";
     return temp;
 }
-
 string CompService::showComputersTable(vector<Comps> results) {
         string temp = "";
         string line = "";
@@ -300,4 +293,11 @@ string CompService::showComputersTable(vector<Comps> results) {
     }
     temp =  temp + line;
     return temp;
+}
+
+bool CompService::containsID(vector<int> ids, int id) {
+    for(unsigned int i = 0; i < ids.size(); i++)
+        if(ids.at(i) == id)
+            return true;
+    return false;
 }

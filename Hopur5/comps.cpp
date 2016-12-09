@@ -15,10 +15,8 @@
         _built = built;
         _yearBuilt = yearBuilt;
     }
-    void Comps::setId(int id){
-        _id = id;
-    }
 
+    //Getters
 	string Comps::getName() {
         return _name;
 	}
@@ -38,6 +36,7 @@
         return _yearBuilt;
     }
 
+    //Setters
     void Comps::setName(string name) {
 		_name = name;
 	}
@@ -50,7 +49,11 @@
     void Comps::setYearBuilt(int yearBuilt) {
         _yearBuilt = yearBuilt;
     }
+    void Comps::setId(int id){
+        _id = id;
+    }
 
+    //Showing
     string Comps::showComputer(){
         string temp = "";
         temp = temp + "ID: " + std::to_string(_id) + '\n';
@@ -93,6 +96,7 @@
 
     }
 
+    //Space calculater
     string Comps::spaceCalc(int cellsize, string value){
 
         string idTemp = "";
