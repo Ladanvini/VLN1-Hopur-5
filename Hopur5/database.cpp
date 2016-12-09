@@ -90,12 +90,12 @@ Database::Database(QString dbName) {
         pidL = queryL.value("PID").toInt();
         cidL = queryL.value("CID").toInt();
 
-        for(int i = 0; i<_computers.size(); i++){
+        for(unsigned int i = 0; i<_computers.size(); i++){
 
             if(_computers.at(i).getId() == cidL)
                 c = _computers.at(i); 
         }
-        for(int i =0; i<_people.size(); i++){
+        for(unsigned int i =0; i<_people.size(); i++){
             if(_people.at(i).getId() == pidL)
                 p = _people.at(i);
         }
