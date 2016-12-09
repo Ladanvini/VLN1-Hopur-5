@@ -155,6 +155,10 @@ void Database::updateCompDB(vector<Comps> comps) {
     }
 }
 
+void Database::updateLinkDB(vector<Links> links){
+    _connections = links;
+}
+
 //Adds a new Person to the Database
 void Database::writeToDB(Person p) {
     _db.open();

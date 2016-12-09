@@ -34,12 +34,14 @@ string LinkService::create(string computerID, string personID){
             c = _compList.at(i);
             flagc = true;
         }
+    }
+    for(unsigned int i=0; i<_persList.size(); i++){
         if(!flagp && _persList.at(i).getId() == pID){
             p = _persList.at(i);
             flagp = true;
         }
-    }
 
+    }
     if(!flagc)
         return "Computer " + computerID + " Not Found\n";
     if(!flagp)
@@ -47,6 +49,8 @@ string LinkService::create(string computerID, string personID){
     if(exists(Links(c, p)))
         return "Link already exists\n";
 
+    _linkList.push_back(Links(c, p));
+    _db.updateLinkDB(_linkList);
     _db.addToConsDB(Links(c, p));
     return "Link added successfully\n";
 

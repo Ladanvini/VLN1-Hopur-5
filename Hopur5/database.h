@@ -40,6 +40,9 @@ public:
     //Updates the vector computers.
     void updateCompDB(vector<Comps> comps);
 
+    //Updates the vector links
+    void updateLinkDB(vector<Links> links);
+
     //Adds a person to the database.
     void writeToDB(Person p);
 
