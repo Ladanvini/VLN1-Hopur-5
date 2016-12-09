@@ -59,7 +59,7 @@ string LinkService::create(string computerID, string personID) {
         return "Computer " + computerID + " Not Found\n";
     if(!flagp)
         return "Person " + personID + " Not Found\n";
-    if(exists(Links(c, p)))
+    if(exists(stoi(computerID), stoi(personID)))
         return "Link already exists\n";
 
     _linkList.push_back(Links(c, p));
@@ -75,9 +75,10 @@ string LinkService::create(string computerID, string personID) {
 }
 
 //Checks if link exists
-bool LinkService::exists(Links l) {
+bool LinkService::exists(int cid, int pid) {
     for(unsigned int i = 0; i < _linkList.size(); i++) {
-        if(l.compare(_linkList.at(i)))
+        if(cid == (_linkList.at(i)).getCID()
+              && pid == (_linkList.at(i)).getPID())
             return true;
     }
     return false;
@@ -97,19 +98,20 @@ string LinkService::showLinksTable(vector<Links> display) {
 
 //Deleting links
 
-string LinkService::deleteLink(Links l){
-    if(!exists(l))
+string LinkService::deleteLink(int cid, int pid){
+    if(!exists(cid, pid))
         return "Link does not exist\n";
 
     bool flag = false;
     for(unsigned int i = 0; i<_linkList.size() && !flag; i++){
-        if(l.compare(_linkList.at(i))){
+        if(cid == (_linkList.at(i)).getCID()
+                && pid == (_linkList.at(i)).getPID()){
             flag = true;
             _linkList.erase(_linkList.begin() + i);
         }
     }
     _db.updateLinkDB(_linkList);
-    _db.deleteCons(l.getCID(), l.getPID());
+    _db.deleteCons(cid, pid);
     return "Link deleted successfully\n";
 }
 

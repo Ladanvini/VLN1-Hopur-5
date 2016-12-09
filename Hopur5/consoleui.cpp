@@ -220,6 +220,7 @@ void ConsoleUI::deleteMenu() {
     bool exitMenu = false;
     string lowline = "--------------------------------------------------------------\n";
 
+    cout << "Link - Deletes links" << endl;
     do {
         input = cORp("delete");
 
@@ -236,6 +237,16 @@ void ConsoleUI::deleteMenu() {
             cout << "Thank you, taking you back to the main menu" << endl;
             cout << lowline;
             exitMenu = true;
+        }
+        else if(input == "link") {
+            cout << lowline;
+            cout << "Enter computer ID" << endl;
+            string cidstr = inputHandling();
+            cout << "Enter person ID" << endl;
+            string pidstr = inputHandling();
+            int cid = stoi(cidstr);
+            int pid = stoi(pidstr);
+            cout << _linkService.deleteLink(cid, pid);
         }
         else {
             cout << lowline;
@@ -730,6 +741,8 @@ void ConsoleUI::deleteMenuPerson() {
     getline(cin, name);
     cout << "Enter the person's birth year: \n";
     input = inputHandling();
+    if(input == "")
+        input = "1";
     int birth = stoi(input);
     _linkService.updateLinkp(
     _appservice.getPersonID(name, birth));
@@ -794,13 +807,19 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Input Id ";
                 input = inputHandling();
-                cout << _compService.showComputers(_compService.searchById(stoi(input)));
+                if(input == "")
+                    cout << "Field ID left empty - UNACCEPTABLE!" <<endl;
+                else
+                    cout << _compService.showComputers(_compService.searchById(stoi(input)));
             }
             else if(input == "table"){
                 cout << lowline;
                 cout << "Input Id ";
                 input = inputHandling();
-                cout << _compService.showComputersTable(_compService.searchById(stoi(input)));
+                if(input == "")
+                    cout << "Field ID left empty - UNACCEPTABLE!" <<endl;
+                else
+                    cout << _compService.showComputersTable(_compService.searchById(stoi(input)));
 
             }else {
                 cout << lowline;
@@ -816,13 +835,19 @@ void ConsoleUI::searchMenuComp() {
                 cout << lowline;
                 cout << "Input Year ";
                 input = inputHandling();
-                cout << _compService.showComputers(_compService.searchByBuilt(stoi(input)));
+                if(input == "")
+                    cout << "Field Year left empty - UNACCEPTABLE!" <<endl;
+                else
+                    cout << _compService.showComputers(_compService.searchByBuilt(stoi(input)));
             }
             else if(input == "table"){
                 cout << lowline;
                 cout << "Input Year ";
                 input = inputHandling();
-                cout << _compService.showComputersTable(_compService.searchByBuilt(stoi(input)));
+                if(input == "")
+                    cout << "Field Year left empty - UNACCEPTABLE!" <<endl;
+                else
+                    cout << _compService.showComputersTable(_compService.searchByBuilt(stoi(input)));
 
             }else {
                 cout << lowline;
