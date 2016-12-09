@@ -1,8 +1,7 @@
 #ifndef P_C_CONNECTION_H
 #define P_C_CONNECTION_H
 
-#include "comps.h"
-#include "person.h"
+
 
 // User can connect many computers.
 // Every computer can be connected to every persons.
