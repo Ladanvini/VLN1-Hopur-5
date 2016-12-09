@@ -15,7 +15,7 @@ public:
     CompService(Database db);
 
     //GETTERS
-    vector<Comps> getList() { return computers; }
+    vector<Comps> getList();
 
     // Create
     string create(int id, string name, string type, int yearBuilt, bool built);
@@ -48,6 +48,11 @@ public:
     //Tools and misc.
     bool containsID(vector<int> ids, int id);
     bool checkIDExists(string id);
+
+    //geet comp ID
+
+    int getCompID(string name, string type);
 };
+
 
 #endif // COMPSERVICE_H

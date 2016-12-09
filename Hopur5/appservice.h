@@ -20,7 +20,7 @@ private:
 public:
     appservice();
     appservice(Database _db);
-    vector<Person> getList() { return people; }
+    vector<Person> getList();
 
     //Search
     string create(int id, string name, int age, char sex, int birth, int death, string contribution, int turingYear);
@@ -63,6 +63,7 @@ public:
     bool containsID(vector<int> ids, int id);
     bool checkIDExists(string id);
 
+    int getPersonID(string name, int birth);
 };
 
 #endif // APPSERVICE_H

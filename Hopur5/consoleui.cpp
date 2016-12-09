@@ -732,6 +732,8 @@ void ConsoleUI::deleteMenuPerson() {
     input = inputHandling();
     int birth = stoi(input);
     cout << _appservice.deletePerson(name, birth) << endl;
+    _linkService.updateLinkp(
+    _appservice.getPersonID(name, birth));
     cout << lowline << endl;
 }
 
@@ -756,10 +758,27 @@ void ConsoleUI::searchMenuComp() {
 
         if(input == "name") {
             cout << lowline;
-            cout << "Enter the name here: " << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _compService.showComputers(_compService.searchByName(input));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Input Name ";
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByName(input));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                cout << "Input Name ";
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByName(input));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+
+
+
         }
         else if(input == "unicorn") {
             cout << lowline;
@@ -768,28 +787,69 @@ void ConsoleUI::searchMenuComp() {
         }
         else if(input == "id") {
             cout << lowline;
-            cout << "Please enter the ID you want" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            int id;
-            id = stoi(input);
-            cout << _compService.showComputers(_compService.searchById(id));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Input Id ";
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchById(stoi(input)));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                cout << "Input Id ";
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchById(stoi(input)));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+
         }
         else if(input == "built") {
             cout << lowline;
-            cout << "Please enter the year" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            int built;
-            built = stoi(input);
-            cout << _compService.showComputers(_compService.searchByBuilt(built));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Input Year ";
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByBuilt(stoi(input)));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                cout << "Input Year ";
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByBuilt(stoi(input)));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+
         }
         else if(input == "type") {
             cout << lowline;
-            cout << "Please enter the type" << endl;
+            cout << "You want it in a table or list?" << endl;
             input = inputHandling();
-            cout << lowline;
-            cout << _compService.showComputers(_compService.searchByType(input));
+            if(input == "list"){
+                cout << lowline;
+                cout << "Input Type ";
+                input = inputHandling();
+                cout << _compService.showComputers(_compService.searchByType(input));
+            }
+            else if(input == "table"){
+                cout << lowline;
+                cout << "Input Type";
+                input = inputHandling();
+                cout << _compService.showComputersTable(_compService.searchByType(input));
+
+            }else {
+                cout << lowline;
+                cout << "Wrong input" << endl;
+            }
+
         }
         else if(input == "back") {
             cout << lowline;
@@ -1028,6 +1088,8 @@ void ConsoleUI::deleteMenuComp() {
     cout << "Enter the computer's type: \n";
     getline(cin, type);
     cout << _compService.deleteComputers(name, type) << endl;
+
+    _linkService.updateLinkc(_compService.getCompID(name, type));
     cout << lowline << endl;
 }
 

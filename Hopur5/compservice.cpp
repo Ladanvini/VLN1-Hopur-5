@@ -10,6 +10,10 @@ CompService::CompService(Database db) {
 
 }
 
+vector<Comps> CompService::getList() {
+    //computers = _db.getComputerList();
+    return computers;
+}
 // Create
 
 string CompService::create(int id, string name, string type, int yearBuilt, bool built) {
@@ -28,7 +32,7 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     if(name.empty() || name.at(0) == ' ')
         return "Name was not accepted!\n";
 
-    newComputer->setId(computers.size()+2);
+    //newComputer->setId(computers.size()+2);
 
     if(_db.existsInCompDB(*newComputer)) {
             flag = true;
@@ -36,11 +40,12 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
     if(flag) {
        return "Computer already exists\n";
     }
-    computers.push_back(*newComputer);
 
 
-    _db.updateCompDB(computers);
+//    computers.push_back(*newComputer);
+//    _db.updateCompDB(computers);
     _db.writeToCompDB(*newComputer);
+    computers = _db.getComputerList();
     return "Added successfully\n";
 }
 
@@ -233,6 +238,7 @@ string CompService::deleteComputers(string name, string type) {
     }
 
     if(flag) {
+        _db.updateCompDB(computers);
         _db.delFromCompDB(result);
 
         return result.showComputer() +
@@ -240,6 +246,17 @@ string CompService::deleteComputers(string name, string type) {
     }
 
     return "Computer: \n" + result.getName() + "\n not found\n";
+}
+
+int CompService::getCompID(string name, string type){
+    for(unsigned int i=0; i<computers.size(); i++) {
+        string c_name = computers.at(i).getName();
+
+        if(c_name.find(name) != std::string::npos && computers.at(i).getType() == type ) {
+            return computers.at(i).getId();
+
+         }
+    }
 }
 
 // Edit
