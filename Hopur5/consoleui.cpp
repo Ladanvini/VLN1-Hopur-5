@@ -1158,6 +1158,8 @@ void ConsoleUI::runUI() {
         }
         else if(input == "tictactoe") {
             _ticTacToe.ticTacToeMain();
+            cin.clear();
+            cin.ignore(INT_MAX, '\n');
         }
         else {
             cout << lowline;
