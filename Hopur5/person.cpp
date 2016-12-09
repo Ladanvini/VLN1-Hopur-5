@@ -21,7 +21,6 @@ Person::Person() {
 Person::Person(int id, string name, char sex, int birth, int death, string contribution, int truringYear) {
     _name = name;
     _id = id;
-//    _age = age;
     _sex = sex;
     _birth = birth;
     _death = death;
@@ -103,9 +102,8 @@ string Person::spaceCalc(int cellsize, string value) {
     if(idSize>=cellsize) {
         value = value.substr(0, cellsize-3);
         value = value + "... ";
-     }
+    }
     else {
-
         unsigned int spaceSize = cellsize - idSize;
         if(spaceSize%2 != 0)
             spaceSize++;

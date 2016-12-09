@@ -54,5 +54,3 @@ int Links::getCID() {
 int Links::getPID() {
     return _person.getId();
 }
-
-

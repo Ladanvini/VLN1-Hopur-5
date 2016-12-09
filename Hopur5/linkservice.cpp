@@ -1,10 +1,13 @@
 #include "linkservice.h"
+
 #include <iostream>
+
 using namespace std;
 
 LinkService::LinkService() {
 
 }
+
 LinkService::LinkService(Database db) {
     _db = db;
     _linkList = db.getConnectionList();
@@ -14,7 +17,6 @@ LinkService::LinkService(Database db) {
 
 //Getters
 vector<Links> LinkService::getLinkList() {
-    //_linkList = _db.getConnectionList();
     return _linkList;
 }
 vector<Comps> LinkService::getCompList() {
@@ -30,10 +32,6 @@ string LinkService::create(string computerID, string personID) {
     bool flagc = false;
     bool flagp = false;
 
-    //_compList = _db.getComputerList();
-    //_persList = _db.getList();
-    //_linkList = _db.getConnectionList();
-
     int cID = stoi(computerID);
     int pID = stoi(personID);
 
@@ -43,6 +41,7 @@ string LinkService::create(string computerID, string personID) {
     _linkList = _db.getConnectionList();
     _compList = _db.getComputerList();
     _persList = _db.getList();
+
     for(unsigned int i = 0; i < _compList.size(); i++) {
         if(!flagc && _compList.at(i).getId() == cID) {
             c = _compList.at(i);
@@ -71,6 +70,7 @@ string LinkService::create(string computerID, string personID) {
     _compList = _db.getComputerList();
     _persList = _db.getList();
     clearScreen();
+
     return "Link added successfully\n";
 }
 
@@ -96,45 +96,40 @@ string LinkService::showLinksTable(vector<Links> display) {
 }
 
 //Deleting links
-
-string LinkService::deleteLink(Links l){
+string LinkService::deleteLink(Links l) {
     if(!exists(l))
         return "Link does not exist\n";
 
     bool flag = false;
-    for(unsigned int i = 0; i<_linkList.size() && !flag; i++){
-        if(l.compare(_linkList.at(i))){
+    for(unsigned int i = 0; i < _linkList.size() && !flag; i++) {
+        if(l.compare(_linkList.at(i))) {
             flag = true;
             _linkList.erase(_linkList.begin() + i);
         }
     }
     _db.updateLinkDB(_linkList);
     _db.deleteCons(l.getCID(), l.getPID());
+
     return "Link deleted successfully\n";
 }
 
 void LinkService::updateLinkc(int cid) {
-    //_linkList = _db.getConnectionList();
 
-    for(unsigned int i=0; i<_linkList.size(); i++){
-        if(_linkList.at(i).getCID() == cid){
+    for(unsigned int i = 0; i < _linkList.size(); i++) {
+        if(_linkList.at(i).getCID() == cid) {
             _linkList.erase(_linkList.begin() + i );
             cerr<< "SURPRISE BITCHEEES" << endl;
-
         }
     }
     _db.updateLinkDB(_linkList);
 }
 
-void LinkService::updateLinkp(int pid){
-    //_linkList = _db.getConnectionList();
+void LinkService::updateLinkp(int pid) {
 
-    for(unsigned int i=0; i<_linkList.size(); i++){
-        if(_linkList.at(i).getPID() == pid){
+    for(unsigned int i = 0; i < _linkList.size(); i++) {
+        if(_linkList.at(i).getPID() == pid) {
             _linkList.erase(_linkList.begin() + i );
         }
     }
     _db.updateLinkDB(_linkList);
-
-
 }
