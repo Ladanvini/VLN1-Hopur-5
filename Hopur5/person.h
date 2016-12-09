@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-
 using namespace std;
 
 class Person {
@@ -47,6 +46,7 @@ public:
 
     //Friend
     friend bool operator==(const Person p, const Person p2);
+
 };
 
 #endif // PERSON_H
