@@ -71,27 +71,56 @@ string ConsoleUI::cORp(string name) {
 
 //Display
 void ConsoleUI::displayList() {
-    cout << "cl - List of computers" << endl;
-    cout << "comps - list of computers in a table" << endl;
-    cout << "pl - list of people" << endl;
-    cout << "people - list of people in a table " << endl;
-    cout << "links - table of all the links" << endl;
+    bool exitmenu = false;
+    string lowline = "--------------------------------------------------------------\n";
 
-    string input;
-    input = inputHandling();
+    do{
+        cout << "CL - All computers in a list" << endl;
+        cout << "CT - All computers in a table" << endl;
+        cout << "PL - All people in a list" << endl;
+        cout << "PT - All people in a table" << endl;
+        cout << "Links - table of all the links" << endl;
+        cout << "Back - to go back to Main Menu" << endl;
 
-    if(input == "cl")
-        cout << _compService.showComputers(_compService.getList());
-    else if (input == "comps")
-        cout << _compService.showComputersTable(_compService.getList());
-    else if (input == "pl")
-        cout << _appservice.showPeople(_appservice.getList());
-    else if (input == "people")
-        cout << _appservice.showPeopleTable(_appservice.getList());
-    else if (input == "links")
-        cout << _linkService.showLinksTable(_linkService.getLinkList());
-    else
-        cout << "INVALID COMMAND\n";
+        string input;
+        input = inputHandling();
+
+        if(input == "cl"){
+            cout << lowline;
+            cout << _compService.showComputers(_compService.getList());
+            cout << lowline;
+        }
+        else if (input == "ct"){
+            cout << lowline;
+            cout << _compService.showComputersTable(_compService.getList());
+            cout << lowline;
+        }
+        else if (input == "pl"){
+            cout << lowline;
+            cout << _appservice.showPeople(_appservice.getList());
+            cout << lowline;
+        }
+        else if (input == "pt"){
+            cout << lowline;
+            cout << _appservice.showPeopleTable(_appservice.getList());
+            cout << lowline;
+        }
+        else if (input == "links"){
+            cout << lowline;
+            cout << _linkService.showLinksTable(_linkService.getLinkList());
+            cout << lowline;
+        }
+        else if(input == "back"){
+            cout << lowline;
+            cout << "Thank you" << endl;
+            cout << lowline;
+            exitmenu = true;
+        }
+        else{
+            cout << lowline;
+            cout << "INVALID COMMAND\n";
+        }
+    }while(!exitmenu);
 }
 
 /**************************Question Menus***************************/
