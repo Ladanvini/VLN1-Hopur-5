@@ -187,7 +187,6 @@ void ConsoleUI::createMenu() {
     }while(!exitMenu);
 }
 
-
 void ConsoleUI::deleteMenu() {
     string input = " ";
     bool exitMenu = false;
@@ -626,7 +625,6 @@ void ConsoleUI::sortMenuPerson() {
         }
     }while(!exitMenu);
 }
-
 
 //create option for person
 void ConsoleUI::createMenuPerson() {

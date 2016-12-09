@@ -44,14 +44,7 @@ Person::Person(int id, string name, char sex, int birth, int death, string contr
         _age = death - birth;
 }
 
-bool Person::isSame(Person p) {
-    cout << p.getName() << " != " << this->getName();
-    return(     this->getName().find(p.getName()) != std::string::npos &&
-                this->getAge() == (p.getAge()) &&
-                this->getBirth() == (p.getBirth())
-                );
-}
-
+//Friend
 bool operator==(Person p, Person p2) {
     if(p.getName().find(p2.getName()) != std::string::npos
             && p.getBirth() == (p2.getBirth())
@@ -62,6 +55,7 @@ bool operator==(Person p, Person p2) {
         return false;
 }
 
+//Showing
 string Person::showPerson() {
     string temp = "";
     temp = temp + "ID: " + std::to_string(this->_id) + '\n';
@@ -101,6 +95,7 @@ string Person::showPersonTable(){
 
 }
 
+//Tools and misc.
 string Person::spaceCalc(int cellsize, string value){
 
     string idTemp = "";
@@ -121,4 +116,12 @@ string Person::spaceCalc(int cellsize, string value){
             idTemp = idTemp + " ";
     }
     return idTemp + value + idTemp;
+}
+
+bool Person::isSame(Person p) {
+    cout << p.getName() << " != " << this->getName();
+    return(     this->getName().find(p.getName()) != std::string::npos &&
+                this->getAge() == (p.getAge()) &&
+                this->getBirth() == (p.getBirth())
+                );
 }

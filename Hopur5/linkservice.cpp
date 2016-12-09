@@ -10,6 +10,8 @@ LinkService::LinkService(Database db){
     _compList = db.getComputerList();
     _persList = db.getList();
 }
+
+//Getters
 vector<Links> LinkService::getLinkList(){
     return _linkList;
 }
@@ -19,6 +21,8 @@ vector<Comps> LinkService::getCompList(){
 vector<Person> LinkService::getPersList(){
     return _persList;
 }
+
+//Creates a new link
 string LinkService::create(string computerID, string personID){
 
     bool flagc = false;
@@ -55,6 +59,8 @@ string LinkService::create(string computerID, string personID){
     return "Link added successfully\n";
 
 }
+
+//Checks if link exists
 bool LinkService::exists(Links l){
     for(unsigned int i=0; i<_linkList.size(); i++){
         if(l.compare(_linkList.at(i)))
@@ -62,6 +68,8 @@ bool LinkService::exists(Links l){
     }
     return false;
 }
+
+//Showing
 string LinkService::showLinksTable(vector<Links> display){
     string temp = "";
     temp = temp + "|       COMPUTER        | <---> |         PERSON        |\n"
