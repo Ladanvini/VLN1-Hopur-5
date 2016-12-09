@@ -70,7 +70,7 @@ string Person::showPerson() {
     return temp;
 }
 
-string Person::showPersonTable(){
+string Person::showPersonTable() {
 
     string temp = "";
     int cellsize = 15;
@@ -92,21 +92,19 @@ string Person::showPersonTable(){
     temp = temp + "|" + spTemp  + "|\n";
 
     return temp;
-
 }
 
 //Tools and misc.
-string Person::spaceCalc(int cellsize, string value){
+string Person::spaceCalc(int cellsize, string value) {
 
     string idTemp = "";
     int idSize = value.size();
 
-    if(idSize>=cellsize)
-    {
+    if(idSize>=cellsize) {
         value = value.substr(0, cellsize-3);
         value = value + "... ";
      }
-    else{
+    else {
 
         unsigned int spaceSize = cellsize - idSize;
         if(spaceSize%2 != 0)

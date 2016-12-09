@@ -5,8 +5,6 @@
 #include "appservice.h"
 #include "database.h"
 
-
-
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -17,8 +15,6 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication a(argc, argv);
 
-
-
     QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     Database* db = new Database(path);
@@ -27,6 +23,5 @@ int main(int argc, char *argv[]) {
     LinkService* ls = new LinkService(*db);
     ConsoleUI ui(*doStuff, *cs, *ls);
     ui.runUI();
-    //ui.runUIComp();
     return 0;
 }

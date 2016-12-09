@@ -222,7 +222,6 @@ vector<Comps> CompService::sortByIDDec() {
 
 //####################Delete####################//
 
-
 string CompService::deleteComputers(string name, string type) {
     bool flag = false;
     string c_name;
@@ -284,15 +283,15 @@ string CompService::showComputers(vector<Comps> results) {
 string CompService::showComputersTable(vector<Comps> results) {
         string temp = "";
         string line = "";
-        for(int i=0; i<80; i++)
+        for(int i = 0; i < 84; i++)
             line = line + "-";
         line = line + '\n';
         temp = temp + line;
         temp = temp + "|      ID       "
-               "|     NAME      "
-               "|     TYPE      "
+               "|     NAME       "
+               "|      TYPE      "
                "|     BUILT     "
-               "|     YEAR      |\n";
+               "|     YEAR       |\n";
 
 
 

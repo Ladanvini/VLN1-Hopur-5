@@ -54,28 +54,25 @@
     }
 
     //Showing
-    string Comps::showComputer(){
+    string Comps::showComputer() {
         string temp = "";
         temp = temp + "ID: " + std::to_string(_id) + '\n';
         temp = temp +"Name: " + _name + '\n';
         temp = temp +"Type: " + _type + '\n';
-        if (_built)
-        {
+        if (_built) {
             temp = temp + "Built\n";
         temp = temp + "Built Year: " + std::to_string(_yearBuilt);
         }
-        else
-        {
+        else {
             temp = temp + "Not Built\n";
         }
 
         temp = temp + "\n";
 
-
         return temp;
 
     }
-    string Comps::showComputerTable(){
+    string Comps::showComputerTable() {
 
         string temp = "";
         int cellsize = 15;
@@ -93,7 +90,6 @@
         temp = temp + "|" + spTemp  + "|\n";
 
         return temp;
-
     }
 
     //Space calculater
@@ -102,18 +98,16 @@
         string idTemp = "";
         int idSize = value.size();
 
-        if(idSize>=cellsize)
-        {
+        if(idSize>=cellsize) {
             value = value.substr(0, cellsize-3);
             value = value + "... ";
-         }
-        else{
-
+        }
+        else {
             unsigned int spaceSize = cellsize - idSize;
             if(spaceSize%2 != 0)
                 spaceSize++;
 
-            for(int i=0; i<spaceSize/2; i++)
+            for(unsigned int i = 0; i < spaceSize/2; i++)
                 idTemp = idTemp + " ";
         }
         return idTemp + value + idTemp;
