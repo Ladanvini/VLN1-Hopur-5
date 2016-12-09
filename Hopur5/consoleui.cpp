@@ -217,7 +217,6 @@ void ConsoleUI::createMenu() {
     }while(!exitMenu);
 }
 
-
 void ConsoleUI::deleteMenu() {
     string input = " ";
     bool exitMenu = false;

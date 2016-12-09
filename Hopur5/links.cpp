@@ -1,17 +1,17 @@
 #include "links.h"
 
-Links::Links()
-{
+Links::Links() {
     _computer = Comps();
     _person = Person();
 }
-Links::Links(Comps c, Person p){
+
+Links::Links(Comps c, Person p) {
     _computer = c;
     _person = p;
 }
 
 //Tools and misc.
-string Links::showLink(){
+string Links::showLink() {
     string temp = "";
     temp = temp +
             margins(7, std::to_string(this->_computer.getId()) ) +
@@ -23,7 +23,8 @@ string Links::showLink(){
             margins(15, this->_person.getName());
     return temp;
 }
-bool Links::compare(Links l){
+
+bool Links::compare(Links l) {
     if(
             this->_computer.getId() == l._computer.getId()
          && this->_person.getId() == l._person.getId()
@@ -31,19 +32,18 @@ bool Links::compare(Links l){
         return true;
     return false;
 }
-string Links::margins(int cellSize, string value){
+
+string Links::margins(int cellSize, string value) {
    string sstr = "";
    int space = (cellSize - value.size())/2;
-   if(value.size() >= cellSize){
+   if(value.size() >= cellSize) {
         value = value.substr(0, cellSize-3);
         value = value + "...";
-
    }
-    else{
-
+    else {
         for(int i=0; i<space; i++)
             sstr = sstr + " ";
-   }
+    }
     return "|" + sstr + value + sstr + "|";
 }
 
