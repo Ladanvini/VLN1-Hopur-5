@@ -2,12 +2,13 @@
 #define DISPLAYLIST_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class DisplayList;
 }
 
-class DisplayList : public QWidget
+class DisplayList : public QDialog
 {
     Q_OBJECT
 

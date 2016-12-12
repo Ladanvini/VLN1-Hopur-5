@@ -2,7 +2,7 @@
 #include "ui_addcomputermenu.h"
 
 AddComputerMenu::AddComputerMenu(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::AddComputerMenu)
 {
     ui->setupUi(this);

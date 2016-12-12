@@ -2,12 +2,13 @@
 #define ADDTODB_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class AddToDB;
 }
 
-class AddToDB : public QWidget
+class AddToDB : public QDialog
 {
     Q_OBJECT
 

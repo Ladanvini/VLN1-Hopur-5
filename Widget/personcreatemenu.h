@@ -2,12 +2,13 @@
 #define PERSONCREATEMENU_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class PersonCreateMenu;
 }
 
-class PersonCreateMenu : public QWidget
+class PersonCreateMenu : public QDialog
 {
     Q_OBJECT
 

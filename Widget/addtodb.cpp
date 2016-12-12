@@ -2,7 +2,7 @@
 #include "ui_addtodb.h"
 
 AddToDB::AddToDB(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::AddToDB)
 {
     ui->setupUi(this);

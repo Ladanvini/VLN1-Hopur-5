@@ -2,7 +2,7 @@
 #include "ui_displaylist.h"
 
 DisplayList::DisplayList(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::DisplayList)
 {
     ui->setupUi(this);

@@ -2,12 +2,13 @@
 #define ADDCOMPUTERMENU_H
 
 #include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class AddComputerMenu;
 }
 
-class AddComputerMenu : public QWidget
+class AddComputerMenu : public QDialog
 {
     Q_OBJECT
 

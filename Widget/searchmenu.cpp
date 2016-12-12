@@ -2,7 +2,7 @@
 #include "ui_searchmenu.h"
 
 SearchMenu::SearchMenu(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::SearchMenu)
 {
     ui->setupUi(this);

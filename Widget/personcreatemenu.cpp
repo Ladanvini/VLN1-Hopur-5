@@ -2,7 +2,7 @@
 #include "ui_personcreatemenu.h"
 
 PersonCreateMenu::PersonCreateMenu(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::PersonCreateMenu)
 {
     ui->setupUi(this);

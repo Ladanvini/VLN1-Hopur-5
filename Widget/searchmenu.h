@@ -2,12 +2,12 @@
 #define SEARCHMENU_H
 
 #include <QWidget>
-
+#include <QDialog>
 namespace Ui {
 class SearchMenu;
 }
 
-class SearchMenu : public QWidget
+class SearchMenu : public QDialog
 {
     Q_OBJECT
 

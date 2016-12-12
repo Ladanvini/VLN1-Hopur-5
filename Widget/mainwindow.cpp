@@ -7,6 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+
+    QPixmap pix("/Users/BjarniKristinn/VLN1-Hopur-5/Widget/Unicorn.png") ;
+    ui->label_pix->setPixmap(pix);
 }
 
 MainWindow::~MainWindow()
