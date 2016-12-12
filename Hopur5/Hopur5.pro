@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     links.cpp \
     linkservice.cpp \
     tictactoe.cpp \
-    unicorn.cpp
+    unicorn.cpp \
+    fcacs.cpp
 
 DISTFILES += \
     database \
@@ -36,4 +37,8 @@ HEADERS += \
     links.h \
     linkservice.h \
     tictactoe.h \
-    unicorn.h
+    unicorn.h \
+    fcacs.h
+
+FORMS += \
+    fcacs.ui
