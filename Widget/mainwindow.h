@@ -38,16 +38,6 @@ private slots:
 
     void on_pBDelete_clicked();
 
-    void on_pBTicTacToe_clicked();
-
-    void on_pBSlim_clicked();
-
-    void on_pBUnicorn_clicked();
-
-    void on_pBMoonwalk_clicked();
-
-    void on_pushButton_10_clicked();
-
     void on_pBExit_clicked();
 
 private:
