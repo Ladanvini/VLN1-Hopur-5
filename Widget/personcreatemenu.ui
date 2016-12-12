@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="l_EnterName">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -26,20 +26,20 @@
     <string>Enter name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="l_EnterBirthYear">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>50</y>
-     <width>81</width>
+     <width>121</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Enter Birth:</string>
+    <string>Enter year of birth:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="l_GenderPicker">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -52,7 +52,7 @@
     <string>Choose Gender:</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="cB_GenderMale">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -65,7 +65,7 @@
     <string>Male</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QCheckBox" name="cB_GenderFemale">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -78,7 +78,7 @@
     <string>Female</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="input_Name">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -88,33 +88,33 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="l_EnterDeathYear">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>110</y>
-     <width>60</width>
+     <width>151</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Death:</string>
+    <string>Enter year of death(if Dead):</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="l_Contribution">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>180</y>
-     <width>91</width>
+     <width>141</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Contribution:</string>
+    <string>Contribution of the person:</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="input_Contribution">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -124,7 +124,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="l_TuringYear">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -137,7 +137,7 @@
     <string>Turing Year:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_3">
+  <widget class="QComboBox" name="cB_TuringYear">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -1232,7 +1232,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pBAddPerson">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -1245,7 +1245,7 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="input_YearBorn">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -1255,7 +1255,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="input_YearDeath">
    <property name="geometry">
     <rect>
      <x>180</x>
