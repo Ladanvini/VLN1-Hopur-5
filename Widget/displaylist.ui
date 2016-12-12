@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QTabWidget" name="Displaytaps">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -23,13 +23,13 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="tPerson">
     <attribute name="title">
      <string>Person</string>
     </attribute>
-    <widget class="QTableWidget" name="tableWidget_2">
+    <widget class="QTableWidget" name="ListPeople">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -74,7 +74,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="pBPAdd">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -87,7 +87,7 @@
       <string>Add</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="pBPBack">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -100,7 +100,7 @@
       <string>Back</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_9">
+    <widget class="QPushButton" name="pBPEdit">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -114,11 +114,11 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="tComputer">
     <attribute name="title">
      <string>Computer</string>
     </attribute>
-    <widget class="QTableWidget" name="tableWidget_3">
+    <widget class="QTableWidget" name="ListComputers">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -143,7 +143,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="pBCBack">
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -156,7 +156,7 @@
       <string>Back</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="pBCAdd">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -169,7 +169,7 @@
       <string>Add</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_10">
+    <widget class="QPushButton" name="pBCEdit">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -183,11 +183,11 @@
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_3">
+   <widget class="QWidget" name="tLinks">
     <attribute name="title">
      <string>Links</string>
     </attribute>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="ListLinks">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -207,7 +207,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pBLAdd">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -220,7 +220,7 @@
       <string>Add</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pBLEdit">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -233,7 +233,7 @@
       <string>Edit</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pBLBack">
      <property name="geometry">
       <rect>
        <x>260</x>
