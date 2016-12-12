@@ -16,20 +16,20 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>10</x>
+     <y>10</y>
      <width>481</width>
      <height>261</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Person">
     <attribute name="title">
      <string>Person</string>
     </attribute>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="cB_SearchForPers">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -74,17 +74,17 @@
       </property>
      </item>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="input_SearchForPers">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>110</x>
        <y>30</y>
-       <width>221</width>
+       <width>251</width>
        <height>24</height>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pB_SearchforPers">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -97,7 +97,7 @@
       <string>Search</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pbGoBackPer">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -110,7 +110,7 @@
       <string>Back</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="l_SearchForPerson">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -128,10 +128,10 @@
     <attribute name="title">
      <string>Computers</string>
     </attribute>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="cB_SearchForComp">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>30</y>
        <width>79</width>
        <height>24</height>
@@ -153,20 +153,20 @@
       </property>
      </item>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="input_SearchComp">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>110</x>
        <y>30</y>
-       <width>241</width>
+       <width>251</width>
        <height>24</height>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pBSearchComp">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>370</x>
        <y>30</y>
        <width>80</width>
        <height>24</height>
@@ -176,12 +176,12 @@
       <string>Search</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="pBGoBackPer">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>130</x>
        <y>100</y>
-       <width>131</width>
+       <width>221</width>
        <height>24</height>
       </rect>
      </property>
@@ -189,10 +189,10 @@
       <string>Back</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="l_SearchForComputer">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>20</x>
        <y>0</y>
        <width>111</width>
        <height>16</height>
