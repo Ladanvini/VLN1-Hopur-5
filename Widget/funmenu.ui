@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FunMenu</class>
+ <widget class="QDialog" name="FunMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>256</width>
+    <height>233</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="l_Slim">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>65</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Just Try me.</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pBUnicorn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unicorn</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_TicTacToe">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>25</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Play Tic Tac Toe.</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pBTicTacToe">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TicTacToe</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_Uni">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>105</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A Unicorn.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_Moonwalk">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>145</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>A surprise.</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pBMoonwalk">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Moonwalk</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pBSlim">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Slim</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pBBack">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_BBack">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>185</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

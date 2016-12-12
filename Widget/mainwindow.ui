@@ -53,7 +53,7 @@
      <string>Search</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pBSort">
+   <widget class="QPushButton" name="pBFunMenu">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -63,79 +63,14 @@
      </rect>
     </property>
     <property name="text">
-     <string>Sort</string>
+     <string>Fun Menu</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pBDelete">
+   <widget class="QPushButton" name="pBExit">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>180</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pBTicTacToe">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>220</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TicTacToe</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pBSlim">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>260</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Slim</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pBUnicorn">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>300</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Unicorn</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pBMoonwalk">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>340</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Moonwalk</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>380</y>
       <width>91</width>
       <height>24</height>
      </rect>
@@ -148,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>20</y>
+      <y>25</y>
       <width>431</width>
       <height>16</height>
      </rect>
@@ -161,7 +96,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>60</y>
+      <y>65</y>
       <width>281</width>
       <height>16</height>
      </rect>
@@ -174,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>100</y>
+      <y>105</y>
       <width>151</width>
       <height>16</height>
      </rect>
@@ -183,108 +118,30 @@
      <string>Searches the database.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_Sort">
+   <widget class="QLabel" name="l_FunMenu">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>140</y>
-      <width>321</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Displays the database in sorted order from options.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="l_Delete">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>180</y>
-      <width>321</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Deletes a person or computer from the list.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="l_TicTacToe">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>220</y>
-      <width>111</width>
+      <y>145</y>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Play Tic Tac Toe.</string>
+     <string>Games and other extra features</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_Slim">
+   <widget class="QLabel" name="l_Exit">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>260</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Just Try me.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="l_Uni">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>300</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>A Unicorn.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="l_Moonwalk">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>340</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>A surprise.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>380</y>
+      <y>185</y>
       <width>141</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string>End the programs run.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_pix">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>200</y>
-      <width>311</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
   </widget>
