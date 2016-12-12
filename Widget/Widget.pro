@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     displaylist.cpp \
     addtodb.cpp \
     personcreatemenu.cpp \
-    addcomputermenu.cpp
+    addcomputermenu.cpp \
+    searchmenu.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -41,10 +42,12 @@ HEADERS  += mainwindow.h \
     displaylist.h \
     addtodb.h \
     personcreatemenu.h \
-    addcomputermenu.h
+    addcomputermenu.h \
+    searchmenu.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
     addtodb.ui \
     personcreatemenu.ui \
-    addcomputermenu.ui
+    addcomputermenu.ui \
+    searchmenu.ui
