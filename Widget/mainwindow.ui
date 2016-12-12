@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Unicorn</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pBDisplay">
@@ -19,7 +19,7 @@
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -32,7 +32,7 @@
      <rect>
       <x>30</x>
       <y>60</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -45,7 +45,7 @@
      <rect>
       <x>30</x>
       <y>100</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -58,7 +58,7 @@
      <rect>
       <x>30</x>
       <y>140</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -71,7 +71,7 @@
      <rect>
       <x>30</x>
       <y>180</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -84,7 +84,7 @@
      <rect>
       <x>30</x>
       <y>220</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -97,7 +97,7 @@
      <rect>
       <x>30</x>
       <y>260</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -110,7 +110,7 @@
      <rect>
       <x>30</x>
       <y>300</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -123,7 +123,7 @@
      <rect>
       <x>30</x>
       <y>340</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -136,7 +136,7 @@
      <rect>
       <x>30</x>
       <y>380</y>
-      <width>80</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -147,7 +147,7 @@
    <widget class="QLabel" name="l_Display">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>20</y>
       <width>431</width>
       <height>16</height>
@@ -160,7 +160,7 @@
    <widget class="QLabel" name="l_Add">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>60</y>
       <width>281</width>
       <height>16</height>
@@ -173,7 +173,7 @@
    <widget class="QLabel" name="l_search">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>100</y>
       <width>151</width>
       <height>16</height>
@@ -186,7 +186,7 @@
    <widget class="QLabel" name="l_Sort">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>140</y>
       <width>321</width>
       <height>16</height>
@@ -199,7 +199,7 @@
    <widget class="QLabel" name="l_Delete">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>180</y>
       <width>321</width>
       <height>16</height>
@@ -212,8 +212,8 @@
    <widget class="QLabel" name="l_TicTacToe">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>215</y>
+      <x>130</x>
+      <y>220</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -225,7 +225,7 @@
    <widget class="QLabel" name="l_Slim">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>260</y>
       <width>81</width>
       <height>16</height>
@@ -238,7 +238,7 @@
    <widget class="QLabel" name="l_Uni">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>300</y>
       <width>91</width>
       <height>16</height>
@@ -251,7 +251,7 @@
    <widget class="QLabel" name="l_Moonwalk">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>340</y>
       <width>71</width>
       <height>16</height>
@@ -264,7 +264,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>380</y>
       <width>141</width>
       <height>16</height>
