@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     linkservice.cpp \
     person.cpp \
     tictactoe.cpp \
-    unicorn.cpp
+    unicorn.cpp \
+    displaylist.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -33,6 +34,8 @@ HEADERS  += mainwindow.h \
     unicorn.h \
     tictactoe.h \
     person.h \
-    links.h
+    links.h \
+    displaylist.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    displaylist.ui
