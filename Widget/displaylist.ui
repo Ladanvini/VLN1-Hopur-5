@@ -22,6 +22,9 @@
      <height>481</height>
     </rect>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
@@ -29,51 +32,6 @@
     <attribute name="title">
      <string>Person</string>
     </attribute>
-    <widget class="QTableWidget" name="ListPeople">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>611</width>
-       <height>401</height>
-      </rect>
-     </property>
-     <column>
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Gender</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Age</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Birth</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Contrubution</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Death</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Turing</string>
-      </property>
-     </column>
-    </widget>
     <widget class="QPushButton" name="pBPAdd">
      <property name="geometry">
       <rect>
@@ -112,6 +70,55 @@
      <property name="text">
       <string>Edit</string>
      </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>611</width>
+       <height>401</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectColumns</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Gender</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Age</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Birth</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Death</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Contribution</string>
+      </property>
+     </column>
     </widget>
    </widget>
    <widget class="QWidget" name="tComputer">
