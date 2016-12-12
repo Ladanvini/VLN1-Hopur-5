@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pBDisplay">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -27,7 +27,7 @@
      <string>Display</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pBAdd">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -40,7 +40,7 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pBSearch">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -53,7 +53,7 @@
      <string>Search</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pBSort">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -66,7 +66,7 @@
      <string>Sort</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="pBDelete">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -79,7 +79,7 @@
      <string>Delete</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="pBTicTacToe">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -92,7 +92,7 @@
      <string>TicTacToe</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="pBSlim">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -105,7 +105,7 @@
      <string>Slim</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="pBUnicorn">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -118,7 +118,7 @@
      <string>Unicorn</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="pBMoonwalk">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -144,7 +144,7 @@
      <string>Exit</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="l_Display">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -157,7 +157,7 @@
      <string>Displays the list of famous computer scientists or famous computers.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="l_Add">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -170,7 +170,7 @@
      <string>Add a person or a computer to the database.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="l_search">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -183,7 +183,7 @@
      <string>Searches the database.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="l_Sort">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -196,7 +196,7 @@
      <string>Displays the database in sorted order from options.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="l_Delete">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -209,20 +209,20 @@
      <string>Deletes a person or computer from the list.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="l_TicTacToe">
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>220</y>
+      <y>215</y>
       <width>111</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Play Tic Tac Toe.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="l_Slim">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -235,7 +235,7 @@
      <string>Just Try me.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="l_Uni">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -248,7 +248,7 @@
      <string>A Unicorn.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_9">
+   <widget class="QLabel" name="l_Moonwalk">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -274,7 +274,7 @@
      <string>End the programs run.</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="gView_MainWindow">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -291,7 +291,7 @@
      <x>0</x>
      <y>0</y>
      <width>564</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
