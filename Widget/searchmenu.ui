@@ -27,7 +27,7 @@
    </property>
    <widget class="QWidget" name="Person">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Person</string>
     </attribute>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
@@ -126,7 +126,7 @@
    </widget>
    <widget class="QWidget" name="Computer">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Computers</string>
     </attribute>
     <widget class="QComboBox" name="comboBox_2">
      <property name="geometry">
