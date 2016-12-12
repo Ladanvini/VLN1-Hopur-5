@@ -8,12 +8,14 @@
 #include "linkservice.h"
 
 #include "displaylist.h"
-/*
+#include "addtodb.h"
+#include "searchmenu.h"
+
 static QString _dbpath = QCoreApplication::applicationDirPath() + "/create.sqlite";
 static appservice _ps = appservice(_dbpath);
 static CompService _cs = CompService(_dbpath);
 static LinkService _ls = LinkService(_dbpath);
-*/
+
 namespace Ui {
 class MainWindow;
 }
@@ -28,6 +30,10 @@ public:
 
 private slots:
     void on_pBDisplay_clicked();
+
+    void on_pBAdd_clicked();
+
+    void on_pBSearch_clicked();
 
 private:
     Ui::MainWindow *ui;
