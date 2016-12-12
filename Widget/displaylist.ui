@@ -65,58 +65,6 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>40</y>
-     <width>87</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>List</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox_2">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>40</y>
-     <width>87</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Table</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox_3">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>80</y>
-     <width>87</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>List</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="checkBox_4">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>80</y>
-     <width>87</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Table</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -129,6 +77,46 @@
    <property name="text">
     <string>What do you want to display?</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>40</y>
+     <width>79</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>List</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Table</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>79</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>List</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Table</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
