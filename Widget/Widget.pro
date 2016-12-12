@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     unicorn.cpp \
     displaylist.cpp \
     addtodb.cpp \
-    personcreatemenu.cpp
+    personcreatemenu.cpp \
+    addcomputermenu.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -39,9 +40,11 @@ HEADERS  += mainwindow.h \
     links.h \
     displaylist.h \
     addtodb.h \
-    personcreatemenu.h
+    personcreatemenu.h \
+    addcomputermenu.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
     addtodb.ui \
-    personcreatemenu.ui
+    personcreatemenu.ui \
+    addcomputermenu.ui
