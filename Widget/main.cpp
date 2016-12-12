@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     appservice* doStuff = new appservice(*db);
     CompService* cs = new CompService(*db);
     LinkService* ls = new LinkService(*db);
-    ConsoleUI ui(*doStuff, *cs, *ls);
-    ui.runUI();
+    //ConsoleUI ui(*doStuff, *cs, *ls);
+    //ui.runUI();
     return 0;
 }
