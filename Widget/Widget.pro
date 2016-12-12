@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     tictactoe.cpp \
     unicorn.cpp \
     displaylist.cpp \
-    addtodb.cpp
+    addtodb.cpp \
+    personcreatemenu.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -37,8 +38,10 @@ HEADERS  += mainwindow.h \
     person.h \
     links.h \
     displaylist.h \
-    addtodb.h
+    addtodb.h \
+    personcreatemenu.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
-    addtodb.ui
+    addtodb.ui \
+    personcreatemenu.ui
