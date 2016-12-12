@@ -1,8 +1,10 @@
 #include <QCoreApplication>
 #include <iostream>
 
-#include "consoleui.h"
-#include "appservice.h"
+#include <QApplication>
+
+#include "mainwindow.h"
+
 #include "database.h"
 
 using namespace std;
@@ -13,15 +15,20 @@ int main(int argc, char *argv[]) {
  * with relevance to the compiler you´re using
 */
 
-    QCoreApplication a(argc, argv);
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
-    QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
+    return a.exec();
 
-    Database* db = new Database(path);
-    appservice* doStuff = new appservice(*db);
-    CompService* cs = new CompService(*db);
-    LinkService* ls = new LinkService(*db);
+   // QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+   // Database* db = new Database(path);
+    //appservice* doStuff = new appservice(*db);
+    //CompService* cs = new CompService(*db);
+    //LinkService* ls = new LinkService(*db);
+
     //ConsoleUI ui(*doStuff, *cs, *ls);
     //ui.runUI();
-    return 0;
+   // return 0;
 }
