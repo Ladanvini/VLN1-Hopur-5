@@ -2,6 +2,7 @@
 #define FCACS_H
 
 #include <fcacs.ui>
+using namespace std;
 
 namespace Ui {
 class FCACS;
@@ -9,7 +10,7 @@ class FCACS;
 
 class FCACS : public FCACS
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     explicit FCACS(QWidget *parent = 0);
