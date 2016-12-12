@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDialog>
+#include "mainwindow.h"
 
 namespace Ui {
 class PersonCreateMenu;
@@ -15,6 +16,9 @@ class PersonCreateMenu : public QDialog
 public:
     explicit PersonCreateMenu(QWidget *parent = 0);
     ~PersonCreateMenu();
+
+private slots:
+    void on_pBAddPerson_clicked();
 
 private:
     Ui::PersonCreateMenu *ui;
