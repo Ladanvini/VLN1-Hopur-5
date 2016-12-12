@@ -1,0 +1,184 @@
+Name: Ada Lovelace
+Age: 37
+Sex: f
+BirthYear: 1815
+DeathYear: 1852
+Contribution: First programmer ever
+TuringAwardYear: 0
+#
+Name: Charles Babbage
+Age: 80
+Sex: m
+BirthYear: 1791
+DeathYear: 1871
+Contribution: The father of computing
+TuringAwardYear: 0
+#
+Name: Tony Hoar
+Age: 82
+Sex: m
+BirthYear: 1934
+DeathYear: 0
+Contribution: QuickSort Algorithm
+TuringAwardYear: 1980
+#
+Name: Arfa Karim
+Age: 9
+Sex: f
+BirthYear: 1995
+DeathYear: 2012
+Contribution: Youngest Microsoft Certified Professional
+TuringAwardYear: 0
+#
+Name: Joshua Travis Mann
+Age: 8
+Sex: m
+BirthYear: 1982
+DeathYear: 0
+Contribution: invented his own Object Oriented computer language
+TuringAwardYear: 0
+#
+Name: Babar Iqbal
+Age: 9
+Sex: m
+BirthYear: 2001
+DeathYear: 0
+Contribution: became a Microsoft Certified Professional in 2010
+TuringAwardYear: 0
+#
+Name: John McCarthy
+Age: 84
+Sex: m
+BirthYear: 1927
+DeathYear: 2011
+Contribution: in Artificial Intelligence
+TuringAwardYear: 1971
+#
+Name: Whitfield Diffie
+Age: 72
+Sex: m
+BirthYear: 1944
+DeathYear: 0
+Contribution: New Directions in Cryptography
+TuringAwardYear: 2015
+#
+Name: Martin E. Hellman
+Age: 71
+Sex: m
+BirthYear: 1945
+DeathYear: 0
+Contribution: New Directions in Cryptography
+TuringAwardYear: 2015
+#
+Name: Alan Turing
+Age: 41
+Sex: m
+BirthYear: 1912
+DeathYear: 1954
+Contribution: Cryptanalysis and Turing test etc.
+TuringAwardYear: 0
+#
+Name: Bob Kahn
+Age: 66
+Sex: m
+BirthYear: 1938
+DeathYear: 0
+Contribution: Known for TCP/IP 
+TuringAwardYear: 2004
+#
+Name: Niklaus Wirth
+Age: 50
+Sex: m
+BirthYear: 1934
+DeathYear: 0
+Contribution: Algol, Euler, Pascal, Modula, etc. Language achievements
+TuringAwardYear: 1984
+#
+Name: John Cocke
+Age: 63
+Sex: m
+BirthYear: 1925
+DeathYear: 2002
+Contribution: RISC, CYK Algorithm
+TuringAwardYear: 1987
+#
+Name: Stephen Cook
+Age: 43
+Sex: m
+BirthYear: 1939
+DeathYear: 0
+Contribution: Np-completeness, Cook-Levin theorem
+TuringAwardYear: 1982
+#
+Name: Kenneth Iverson
+Age: 70
+Sex: m
+BirthYear: 1920
+DeathYear: 2004
+Contribution: APL, JSoftware
+TuringAwardYear: 1979
+#
+Name: John Backus
+Age: 53
+Sex: m
+BirthYear: 1924
+DeathYear: 2007
+Contribution: FORTRAN and ALGOL
+TuringAwardYear: 1977
+#
+Name: Robel W. Floyd
+Age: 42
+Sex: m
+BirthYear: 1936
+DeathYear: 2001
+Contribution: Graph Algorithms
+TuringAwardYear: 1978
+#
+Name: Charles Bachman
+Age: 49
+Sex: m
+BirthYear: 1924
+DeathYear: 0
+Contribution: Integrated Data Storage
+TuringAwardYear: 1973
+#
+Name: Donald Knuth
+Age: 33
+Sex: m
+BirthYear: 1938
+DeathYear: 0
+Contribution: The Art of Computer Programming
+TuringAwardYear: 1974
+#
+Name: Edsger W. Dijkstra
+Age: 42
+Sex: m
+BirthYear: 1030
+DeathYear: 2002
+Contribution: Dijkstra's Algorithm
+TuringAwardYear: 1972
+#
+Name: Margaret Hamilton
+Age: 43
+Sex: f
+BirthYear: 1936
+DeathYear: 0
+Contribution: Lead Apollo flight software designer
+TuringAwardYear: 0
+#
+Name: Barbara Liskov
+Age: 69
+Sex: f
+BirthYear: 1939
+DeathYear: 0
+Contribution: practical and theoretical foundations of programming, programming languages and system design
+TuringAwardYear: 2008
+#
+Name: Grace Hopper
+Age: 28
+Sex: f
+BirthYear: 1906
+DeathYear: 1992
+Contribution: One of the pioneers in computer programming
+TuringAwardYear: 0
+#
