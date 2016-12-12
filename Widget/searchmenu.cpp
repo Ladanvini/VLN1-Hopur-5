@@ -12,3 +12,17 @@ SearchMenu::~SearchMenu()
 {
     delete ui;
 }
+
+void SearchMenu::on_pbGoBackPer_clicked()
+{
+    MainWindow mw;
+    mw.show();
+    this ->close();
+}
+
+void SearchMenu::on_pBGoBackCom_clicked()
+{
+    MainWindow mw;
+    mw.show();
+    this ->close();
+}

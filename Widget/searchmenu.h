@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QDialog>
+
+#include "mainwindow.h"
+
 namespace Ui {
 class SearchMenu;
 }
@@ -14,6 +17,11 @@ class SearchMenu : public QDialog
 public:
     explicit SearchMenu(QWidget *parent = 0);
     ~SearchMenu();
+
+private slots:
+    void on_pbGoBackPer_clicked();
+
+    void on_pBGoBackCom_clicked();
 
 private:
     Ui::SearchMenu *ui;

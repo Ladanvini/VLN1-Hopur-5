@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QDialog>
 
+#include "mainwindow.h"
+
+
 namespace Ui {
 class DisplayList;
 }
@@ -15,6 +18,9 @@ class DisplayList : public QDialog
 public:
     explicit DisplayList(QWidget *parent = 0);
     ~DisplayList();
+
+private slots:
+    void on_pBPBack_clicked();
 
 private:
     Ui::DisplayList *ui;

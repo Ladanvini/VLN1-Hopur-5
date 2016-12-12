@@ -22,10 +22,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_pBDisplay_clicked()
 {
     DisplayList dp(this);
-    this->close();
-
+    this->hide();
     dp.exec();
-
+    this ->show();
 }
 
 void MainWindow::on_pBAdd_clicked()
@@ -43,4 +42,10 @@ void MainWindow::on_pBSearch_clicked()
 void MainWindow::on_pBExit_clicked()
 {
     this->close();
+}
+
+void MainWindow::on_pBFunMenu_clicked()
+{
+    FunMenu fm(this);
+    fm.exec();
 }

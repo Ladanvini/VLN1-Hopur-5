@@ -11,6 +11,7 @@
 #include "displaylist.h"
 #include "addtodb.h"
 #include "searchmenu.h"
+#include "funmenu.h"
 
 static QString _dbpath = QCoreApplication::applicationDirPath() + "/create.sqlite";
 static appservice _ps = appservice(_dbpath);
@@ -36,9 +37,11 @@ private slots:
 
     void on_pBSearch_clicked();
 
-    void on_pBDelete_clicked();
+    //void on_pBDelete_clicked();
 
     void on_pBExit_clicked();
+
+    void on_pBFunMenu_clicked();
 
 private:
     Ui::MainWindow *ui;

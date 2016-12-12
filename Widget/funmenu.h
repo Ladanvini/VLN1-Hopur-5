@@ -3,6 +3,9 @@
 
 #include <QDialog>
 
+#include "mainwindow.h"
+
+
 namespace Ui {
 class FunMenu;
 }
@@ -14,6 +17,9 @@ class FunMenu : public QDialog
 public:
     explicit FunMenu(QWidget *parent = 0);
     ~FunMenu();
+
+private slots:
+    void on_pBBack_clicked();
 
 private:
     Ui::FunMenu *ui;

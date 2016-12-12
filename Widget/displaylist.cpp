@@ -12,3 +12,10 @@ DisplayList::~DisplayList()
 {
     delete ui;
 }
+
+void DisplayList::on_pBPBack_clicked()
+{
+    MainWindow mw;
+    mw.show();
+    this ->close();
+}

@@ -12,3 +12,10 @@ FunMenu::~FunMenu()
 {
     delete ui;
 }
+
+void FunMenu::on_pBBack_clicked()
+{
+    MainWindow mw;
+    mw.show();
+    this ->close();
+}
