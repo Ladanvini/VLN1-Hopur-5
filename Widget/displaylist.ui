@@ -89,6 +89,9 @@
      <property name="sortingEnabled">
       <bool>true</bool>
      </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>101</number>
+     </attribute>
      <column>
       <property name="text">
        <string>Name</string>
@@ -134,6 +137,12 @@
        <height>401</height>
       </rect>
      </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>203</number>
+     </attribute>
      <column>
       <property name="text">
        <string>Name</string>
@@ -203,6 +212,12 @@
        <height>401</height>
       </rect>
      </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>304</number>
+     </attribute>
      <column>
       <property name="text">
        <string>Name</string>

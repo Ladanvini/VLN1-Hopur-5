@@ -40,32 +40,7 @@ void MainWindow::on_pBSearch_clicked()
     sm.exec();
 }
 
-void MainWindow::on_pBDelete_clicked()
-{
-    //TODO add deleteMenu
-}
-
-void MainWindow::on_pBTicTacToe_clicked()
-{
-    //TODO add TicTacToe view
-}
-
-void MainWindow::on_pBSlim_clicked()
-{
-    //TODO   add slim shady view
-}
-
-void MainWindow::on_pBUnicorn_clicked()
-{
-    //TODO add Unicorn view
-}
-
-void MainWindow::on_pBMoonwalk_clicked()
-{
-    //TODO add moonwalk view
-}
-
-void MainWindow::on_pushButton_10_clicked()
+void MainWindow::on_pBExit_clicked()
 {
     this->close();
 }
