@@ -1,11 +1,33 @@
 #include "displaylist.h"
 #include "ui_displaylist.h"
 
+#include "mainwindow.h"
 DisplayList::DisplayList(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DisplayList)
 {
+
+    vector<Comps> comps = _cs.getList();
+
     ui->setupUi(this);
+
+    ui->ListComputers->setRowCount(comps.size());
+
+    QString Name;
+    QString Type;
+    QString YearBuilt;
+
+    for(unsigned int i=0; i<comps.size(); i++){
+        Name = QString::fromStdString(comps.at(i).getName());
+        Type = QString::fromStdString(comps.at(i).getType());
+        YearBuilt = QString::number(comps.at(i).getYearBuilt());
+
+        ui->ListComputers->setItem(i, 0, new QTableWidgetItem(Name));
+        ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Type));
+        ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
+    }
+
+
 }
 
 DisplayList::~DisplayList()
@@ -36,4 +58,23 @@ void DisplayList::on_pBCAdd_clicked()
     //this->hide();
     adb.exec();
     //this->show();
+}
+
+void DisplayList::on_tableWidget_activated(const QModelIndex &index)
+{
+
+    QTableWidgetItem* item = new QTableWidgetItem("YO");
+    //QTableWidgetItem* item = new QTableWidgetItem(QString::fromStdString(_cs.getList().at(0).getName()), 0);
+    ui->ListComputers->setItem(0, 0, item);
+
+}
+
+void DisplayList::on_ListComputers_clicked(const QModelIndex &index)
+{
+
+    QString Name = "BARABARAAAA";
+
+    ui->ListComputers->setItem(0, 0, new QTableWidgetItem(Name));
+
+
 }

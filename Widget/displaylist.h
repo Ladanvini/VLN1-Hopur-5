@@ -28,6 +28,10 @@ private slots:
 
     void on_pBCAdd_clicked();
 
+    void on_tableWidget_activated(const QModelIndex &index);
+
+    void on_ListComputers_clicked(const QModelIndex &index);
+
 private:
     Ui::DisplayList *ui;
 };
