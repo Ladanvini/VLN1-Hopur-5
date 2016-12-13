@@ -91,7 +91,7 @@ void DisplayList::on_pBCAdd_clicked()
     AddToDB adb(this);
     //this->hide();
     adb.exec();
-    //this->show();
+    this->show();
 }
 
 void DisplayList::on_tableWidget_activated(const QModelIndex &index)
@@ -111,4 +111,14 @@ void DisplayList::on_ListComputers_clicked(const QModelIndex &index)
     ui->ListComputers->setItem(0, 0, new QTableWidgetItem(Name));
 
 
+}
+
+void DisplayList::on_pBLAdd_clicked()
+{
+    on_pBCAdd_clicked();
+}
+
+void DisplayList::on_pBPAdd_clicked()
+{
+    on_pBCAdd_clicked();
 }

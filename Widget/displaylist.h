@@ -32,6 +32,10 @@ private slots:
 
     void on_ListComputers_clicked(const QModelIndex &index);
 
+    void on_pBLAdd_clicked();
+
+    void on_pBPAdd_clicked();
+
 private:
     Ui::DisplayList *ui;
 };
