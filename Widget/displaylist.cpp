@@ -27,7 +27,30 @@ DisplayList::DisplayList(QWidget *parent) :
         ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
     }
 
+    vector<Person> people = _ps.getList();
 
+    ui->ListPersons->setRowCount(people.size());
+
+    QString PName;
+    QString PGender;
+    QString PAge;
+    QString PBirth;
+    QString PDeath;
+    QString PTuring;
+    QString PContribution;
+
+    for(unsigned int i = 0; i < people.size(); i++) {
+        PName = QString::fromStdString(people.at(i).getName());
+        if(people.at(i).getSex() == 'm')
+            PGender = "Male";
+        else
+            PGender = "Female";
+        PAge = QString::number(people.at(i).getAge());
+        PBirth = QString::number(people.at(i).getBirth());
+        PDeath = QString::number(people.at(i).getDeath());
+        PTuring = QString::number(people.at(i).getTuringYear());
+        PContribution = QString::fromStdString(people.at(i).getContribution());
+    }
 }
 
 DisplayList::~DisplayList()
