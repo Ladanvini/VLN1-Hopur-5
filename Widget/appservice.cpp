@@ -404,3 +404,9 @@ int appservice::getPersonID(string _name, int birth) {
         }
     }
 }
+
+//################### EDIT PERSON ###########################//
+
+string appservice::editPerson(int id){
+
+}

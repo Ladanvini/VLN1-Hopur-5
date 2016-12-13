@@ -45,7 +45,7 @@ public:
     string deletePerson(string name, int birth);
 
     // Edit
-
+    string editPerson(int id);
     // Showing
     string showPeople(vector<Person> results);
     string showPeopleTable(vector<Person> results);
