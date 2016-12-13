@@ -15,8 +15,8 @@ AddToDB::~AddToDB()
 
 void AddToDB::on_pBABack_clicked()
 {
-    MainWindow mw;
-    mw.show();
+    DisplayList dl;
+    dl.show();
     this ->close();
 }
 
