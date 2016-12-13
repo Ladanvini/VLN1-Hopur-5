@@ -28,3 +28,10 @@ void AddLinksMenu::on_pLAdd_clicked()
 
     _ls.create(PID, CID);
 }
+
+void AddLinksMenu::on_pLBack_clicked()
+{
+    DisplayList dl;
+    dl.show();
+    this->close();
+}
