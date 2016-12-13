@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="l_AddToDB">
    <property name="geometry">
     <rect>
      <x>95</x>
@@ -26,7 +26,7 @@
     <string>What do yo want to create?</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pBAAddP">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -39,7 +39,7 @@
     <string>Person</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pBAAddC">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -52,7 +52,7 @@
     <string>Computer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pBABack">
    <property name="geometry">
     <rect>
      <x>230</x>

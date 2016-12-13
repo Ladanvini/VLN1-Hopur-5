@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QDialog>
 
+#include "mainwindow.h"
+
+
 namespace Ui {
 class AddToDB;
 }
@@ -15,6 +18,9 @@ class AddToDB : public QDialog
 public:
     explicit AddToDB(QWidget *parent = 0);
     ~AddToDB();
+
+private slots:
+    void on_pBABack_clicked();
 
 private:
     Ui::AddToDB *ui;

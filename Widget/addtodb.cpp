@@ -12,3 +12,10 @@ AddToDB::~AddToDB()
 {
     delete ui;
 }
+
+void AddToDB::on_pBABack_clicked()
+{
+    MainWindow mw;
+    mw.show();
+    this ->close();
+}

@@ -19,3 +19,13 @@ void DisplayList::on_pBPBack_clicked()
     mw.show();
     this ->close();
 }
+
+void DisplayList::on_pBLBack_clicked()
+{
+    on_pBPBack_clicked();
+}
+
+void DisplayList::on_pBCBack_clicked()
+{
+    on_pBPBack_clicked();
+}

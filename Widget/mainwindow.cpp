@@ -22,30 +22,37 @@ MainWindow::~MainWindow()
 void MainWindow::on_pBDisplay_clicked()
 {
     DisplayList dp(this);
-    this->hide();
+    this->hide();//this hides the main menu window while we´re in a diffirent menu
     dp.exec();
-    this ->show();
+    this->show();//this pops him back from hiding when we're done in the old one
 }
 
 void MainWindow::on_pBAdd_clicked()
 {
     AddToDB adb(this);
+    //this->hide();
     adb.exec();
+    //this->show();
 }
 
 void MainWindow::on_pBSearch_clicked()
 {
     SearchMenu sm(this);
+    this->hide();
     sm.exec();
+    this->show();
 }
 
 void MainWindow::on_pBExit_clicked()
 {
     this->close();
+    qApp->exit();
 }
 
 void MainWindow::on_pBFunMenu_clicked()
 {
     FunMenu fm(this);
+    this->hide();
     fm.exec();
+    this->show();
 }
