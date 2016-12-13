@@ -71,7 +71,7 @@
       <string>Edit</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="ListPersons">
      <property name="geometry">
       <rect>
        <x>10</x>
