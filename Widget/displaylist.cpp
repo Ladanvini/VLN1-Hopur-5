@@ -120,10 +120,8 @@ void DisplayList::on_tableWidget_activated(const QModelIndex &index)
 void DisplayList::on_ListComputers_clicked(const QModelIndex &index)
 {
 
-    QString Name = "BARABARAAAA";
-
-    ui->ListComputers->setItem(0, 0, new QTableWidgetItem(Name));
-
+    ui->pBCEdit->setEnabled(true);
+    ui->pBCDelete->setEnabled(true);
 
 }
 
@@ -139,4 +137,16 @@ void DisplayList::on_pBPAdd_clicked()
     //DisplayList->hide();
     pcm.exec();
     //this->show();
+}
+
+void DisplayList::on_ListLinks_clicked(const QModelIndex &index)
+{
+    ui->pBLEdit->setEnabled(true);
+    ui->pBLDelete->setEnabled(true);
+}
+
+void DisplayList::on_ListPersons_clicked(const QModelIndex &index)
+{
+    ui->pBPEdit->setEnabled(true);
+    ui->pBPDelete->setEnabled(true);
 }

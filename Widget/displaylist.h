@@ -39,6 +39,10 @@ private slots:
 
     void on_pBPAdd_clicked();
 
+    void on_ListLinks_clicked(const QModelIndex &index);
+
+    void on_ListPersons_clicked(const QModelIndex &index);
+
 private:
     Ui::DisplayList *ui;
 };

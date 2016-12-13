@@ -59,6 +59,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBPEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -84,7 +87,7 @@
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
      <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectColumns</enum>
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>
@@ -129,6 +132,9 @@
      </column>
     </widget>
     <widget class="QPushButton" name="pBPDelete">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -154,6 +160,9 @@
        <width>611</width>
        <height>401</height>
       </rect>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>
@@ -204,6 +213,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBCEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -217,6 +229,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBCDelete">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -242,6 +257,9 @@
        <width>611</width>
        <height>401</height>
       </rect>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>
@@ -274,6 +292,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBLEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -300,6 +321,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBLDelete">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>260</x>
