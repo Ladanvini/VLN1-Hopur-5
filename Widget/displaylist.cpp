@@ -25,6 +25,7 @@ DisplayList::DisplayList(QWidget *parent) :
         ui->ListComputers->setItem(i, 0, new QTableWidgetItem(Name));
         ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Type));
         ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
+
     }
 
     vector<Person> people = _ps.getList();
@@ -61,6 +62,8 @@ DisplayList::DisplayList(QWidget *parent) :
         ui->ListPersons->setItem(i, 4, new QTableWidgetItem(PDeath));
         ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PTuring));
         //ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PContribution));
+
+        currentlyDisplayedPerson = people;
     }
 
     vector<Links> links = _ls.getLinkList();
@@ -149,4 +152,20 @@ void DisplayList::on_ListPersons_clicked(const QModelIndex &index)
 {
     ui->pBPEdit->setEnabled(true);
     ui->pBPDelete->setEnabled(true);
+}
+
+void DisplayList::on_pBPDelete_clicked()
+{
+    string currentlySelectedName;
+    int currentlySelectedBirth;
+
+    int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
+    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
+
+    currentlySelectedName = currentlySelectedPerson.getName();
+    currentlySelectedBirth = currentlySelectedPerson.getBirth();
+
+    _ps.deletePerson(currentlySelectedName, currentlySelectedBirth);
+
+    ui->pBPDelete->setEnabled(false);
 }

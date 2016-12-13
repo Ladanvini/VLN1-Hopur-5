@@ -43,8 +43,12 @@ private slots:
 
     void on_ListPersons_clicked(const QModelIndex &index);
 
+    void on_pBPDelete_clicked();
+
 private:
     Ui::DisplayList *ui;
+
+    vector<Person> currentlyDisplayedPerson;
 };
 
 #endif // DISPLAYLIST_H
