@@ -398,4 +398,13 @@ void Database::addToConsDB(Links l) {
     _db.close();
 }
 
+//Edit person
 
+void editDB(Person p) {
+
+}
+
+//Edit computers
+void editCompDB(Comps c) {
+
+}
