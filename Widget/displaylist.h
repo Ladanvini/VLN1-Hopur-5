@@ -26,6 +26,8 @@ private slots:
 
     void on_pBCBack_clicked();
 
+    void on_pBCAdd_clicked();
+
 private:
     Ui::DisplayList *ui;
 };

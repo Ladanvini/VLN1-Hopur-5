@@ -27,14 +27,6 @@ void MainWindow::on_pBDisplay_clicked()
     this->show();//this pops him back from hiding when we're done in the old one
 }
 
-void MainWindow::on_pBAdd_clicked()
-{
-    AddToDB adb(this);
-    //this->hide();
-    adb.exec();
-    //this->show();
-}
-
 void MainWindow::on_pBSearch_clicked()
 {
     SearchMenu sm(this);

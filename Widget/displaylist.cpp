@@ -29,3 +29,11 @@ void DisplayList::on_pBCBack_clicked()
 {
     on_pBPBack_clicked();
 }
+
+void DisplayList::on_pBCAdd_clicked()
+{
+    AddToDB adb(this);
+    //this->hide();
+    adb.exec();
+    //this->show();
+}
