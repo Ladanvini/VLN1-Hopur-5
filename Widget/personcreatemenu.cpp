@@ -36,9 +36,11 @@ void PersonCreateMenu::on_pBAddPerson_clicked()
     else
         age = death - birth;
 //setting gender:
+    if(ui->rBMale->isChecked())
+        sex = 'm';
+    else if(ui->rBFemale->isChecked())
+        sex = 'f';
 
-/*TODO GENDER RADIO BUTTON*/
-    sex = 't';
 //creating the person
 
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
