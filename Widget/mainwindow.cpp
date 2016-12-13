@@ -22,17 +22,15 @@ MainWindow::~MainWindow()
 void MainWindow::on_pBDisplay_clicked()
 {
     DisplayList dp(this);
-    this->hide();//this hides the main menu window while we´re in a diffirent menu
+    //this->hide();//this hides the main menu window while we´re in a diffirent menu
     dp.exec();
-    this->show();//this pops him back from hiding when we're done in the old one
+    //this->show();//this pops him back from hiding when we're done in the old one
 }
 
 void MainWindow::on_pBSearch_clicked()
 {
-    SearchMenu sm(this);
-    this->hide();
+    SearchMenu sm;
     sm.exec();
-    this->show();
 }
 
 void MainWindow::on_pBExit_clicked()
@@ -43,8 +41,8 @@ void MainWindow::on_pBExit_clicked()
 
 void MainWindow::on_pBFunMenu_clicked()
 {
-    FunMenu fm(this);
-    this->hide();
+    FunMenu fm;
+    //this->hide();
     fm.exec();
-    this->show();
+    //this->show();
 }

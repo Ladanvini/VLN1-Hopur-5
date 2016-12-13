@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QDialog>
-#include "mainwindow.h"
+#include "displaylist.h"
 
 namespace Ui {
 class PersonCreateMenu;

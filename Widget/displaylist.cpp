@@ -102,8 +102,8 @@ void DisplayList::on_pBCBack_clicked()
 
 void DisplayList::on_pBCAdd_clicked()
 {
-    AddComputerMenu adcm(this);
-    this->hide();
+    AddComputerMenu adcm;
+    //this->hide();
     adcm.exec();
    //this->show();
 }
@@ -134,8 +134,8 @@ void DisplayList::on_pBLAdd_clicked()
 
 void DisplayList::on_pBPAdd_clicked()
 {
-    PersonCreateMenu pcm(this);
-    this->hide();
+    PersonCreateMenu pcm;
+    //DisplayList->hide();
     pcm.exec();
-    this->show();
+    //this->show();
 }
