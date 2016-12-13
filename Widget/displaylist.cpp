@@ -129,7 +129,8 @@ void DisplayList::on_ListComputers_clicked(const QModelIndex &index)
 
 void DisplayList::on_pBLAdd_clicked()
 {
-    on_pBCAdd_clicked();
+    AddLinksMenu alm;
+    alm.exec();
 }
 
 void DisplayList::on_pBPAdd_clicked()

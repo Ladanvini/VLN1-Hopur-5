@@ -13,7 +13,7 @@ AddComputerMenu::~AddComputerMenu()
     delete ui;
 }
 
-void AddComputerMenu::on_pushButton_clicked()
+void AddComputerMenu::on_pBAdd_clicked()
 {
     int id = 0;
     string name = ui->input_Name->text().toStdString();

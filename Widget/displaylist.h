@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include "addcomputermenu.h"
 #include "personcreatemenu.h"
+#include "addlinksmenu.h"
 
 
 namespace Ui {

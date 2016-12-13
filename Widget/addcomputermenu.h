@@ -19,9 +19,10 @@ public:
     ~AddComputerMenu();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_pBBack_clicked();
+
+    void on_pBAdd_clicked();
 
 private:
     Ui::AddComputerMenu *ui;
