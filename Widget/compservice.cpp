@@ -321,3 +321,15 @@ bool CompService::checkIDExists(string id) {
     }
     return false;
 }
+
+Comps CompService::getCompFromId(int id)
+{
+    for(unsigned int i=0; i<computers.size(); i++)
+    {
+        if(computers.at(i).getId() == id)
+            return computers.at(i);
+    }
+
+
+
+}

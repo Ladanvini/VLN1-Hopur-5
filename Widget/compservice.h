@@ -53,6 +53,8 @@ public:
     //geet comp ID
     int getCompID(string name, string type);
 
+    Comps getCompFromId(int id);
+
 };
 
 #endif // COMPSERVICE_H
