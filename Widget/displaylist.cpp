@@ -50,6 +50,14 @@ DisplayList::DisplayList(QWidget *parent) :
         PDeath = QString::number(people.at(i).getDeath());
         PTuring = QString::number(people.at(i).getTuringYear());
         PContribution = QString::fromStdString(people.at(i).getContribution());
+
+        ui->ListPersons->setItem(i, 0, new QTableWidgetItem(PName));
+        ui->ListPersons->setItem(i, 1, new QTableWidgetItem(PGender));
+        ui->ListPersons->setItem(i, 2, new QTableWidgetItem(PAge));
+        ui->ListPersons->setItem(i, 3, new QTableWidgetItem(PBirth));
+        ui->ListPersons->setItem(i, 4, new QTableWidgetItem(PDeath));
+        ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PTuring));
+        //ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PContribution));
     }
 }
 
