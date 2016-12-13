@@ -73,6 +73,9 @@ public:
     //TODO delete the following functions!
     void deleteCons(int cId, int pId);
 
+    //Edit person
+    void editDB(Person p);
+
 };
 
 #endif // DATABASE_H
