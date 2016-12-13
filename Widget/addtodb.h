@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QDialog>
 
-#include "mainwindow.h"
+#include "displaylist.h"
 #include "personcreatemenu.h"
 #include "addcomputermenu.h"
 
