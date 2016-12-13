@@ -134,5 +134,8 @@ void DisplayList::on_pBLAdd_clicked()
 
 void DisplayList::on_pBPAdd_clicked()
 {
-    on_pBCAdd_clicked();
+    PersonCreateMenu pcm(this);
+    this->hide();
+    pcm.exec();
+    this->show();
 }

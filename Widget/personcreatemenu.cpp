@@ -43,3 +43,10 @@ void PersonCreateMenu::on_pBAddPerson_clicked()
 
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
 }
+
+void PersonCreateMenu::on_pBBack_clicked()
+{
+    DisplayList dl;
+    dl.show();
+    this->close();
+}

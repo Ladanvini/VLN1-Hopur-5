@@ -20,6 +20,8 @@ public:
 private slots:
     void on_pBAddPerson_clicked();
 
+    void on_pBBack_clicked();
+
 private:
     Ui::PersonCreateMenu *ui;
 };
