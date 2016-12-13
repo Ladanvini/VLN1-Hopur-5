@@ -45,7 +45,10 @@ DisplayList::DisplayList(QWidget *parent) :
             PGender = "Male";
         else
             PGender = "Female";
-        PAge = QString::number(people.at(i).getAge());
+        if(people.at(i).getAge() < 10)
+            PAge = "0" + QString::number(people.at(i).getAge());
+        else
+            PAge = QString::number(people.at(i).getAge());
         PBirth = QString::number(people.at(i).getBirth());
         PDeath = QString::number(people.at(i).getDeath());
         PTuring = QString::number(people.at(i).getTuringYear());
