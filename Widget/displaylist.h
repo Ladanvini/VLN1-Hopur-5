@@ -5,6 +5,7 @@
 #include <QDialog>
 
 #include "mainwindow.h"
+#include "addcomputermenu.h"
 
 
 namespace Ui {

@@ -30,3 +30,10 @@ void AddComputerMenu::on_pushButton_clicked()
     _cs.create(id, name, type, yearBuilt, built);
 
 }
+
+void AddComputerMenu::on_pBBack_clicked()
+{
+    DisplayList dl;
+    dl.show();
+    this->close();
+}

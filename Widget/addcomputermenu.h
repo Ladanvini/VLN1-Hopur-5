@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QDialog>
 #include "mainwindow.h"
+#include "displaylist.h"
 
 namespace Ui {
 class AddComputerMenu;
@@ -19,6 +20,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pBBack_clicked();
 
 private:
     Ui::AddComputerMenu *ui;

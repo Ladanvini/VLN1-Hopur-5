@@ -102,10 +102,10 @@ void DisplayList::on_pBCBack_clicked()
 
 void DisplayList::on_pBCAdd_clicked()
 {
-    AddToDB adb(this);
-    //this->hide();
-    adb.exec();
-    this->show();
+    AddComputerMenu adcm(this);
+    this->hide();
+    adcm.exec();
+   //this->show();
 }
 
 void DisplayList::on_tableWidget_activated(const QModelIndex &index)
