@@ -76,6 +76,9 @@ public:
     //Edit person
     void editDB(Person p);
 
+    //Edit Computers
+    void editCompDB(Comps c);
+
 };
 
 #endif // DATABASE_H

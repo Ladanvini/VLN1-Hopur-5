@@ -40,6 +40,7 @@ public:
     string deleteComputers(string name, string type);
 
     // Edit
+    string editComputer(string id);
 
     // Showing
     string showComputers(vector<Comps> results);

@@ -400,7 +400,7 @@ void Database::addToConsDB(Links l) {
 
 //Edit person
 
-void editDB(Person p) {
+void Database::editDB(Person p) {
     _db.open();
 
     QSqlQuery query(_db);
@@ -433,6 +433,29 @@ void editDB(Person p) {
 
 
 //Edit computers
-void editCompDB(Comps c) {
+void Database::editCompDB(Comps c) {
+    _db.open();
 
+    QSqlQuery query(_db);
+    string built;
+    if(c.getBuilt())
+        built = "'TRUE'";
+    else
+        built = "'FALSE'";
+
+    string stmnt =
+    "UPDATE People   "
+                "SET cName = '" + c.getName() +
+            "'  ,  cType = '" + c.getType() +
+            "'  ,  cBuilt = " + built +
+            "  ,  cBuiltYear = " + std::to_string(c.getYearBuilt()) +
+            "                       "
+            "WHERE cID = " + std::to_string(c.getId());
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+    cout << _db.commit() << endl;
+    _db.close();
 }
