@@ -63,6 +63,7 @@ public:
     bool checkIDExists(string id);
 
     int getPersonID(string name, int birth);
+    Person getPersonFromId(int id);
 
 };
 

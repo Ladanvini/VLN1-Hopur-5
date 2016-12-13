@@ -62,6 +62,20 @@ DisplayList::DisplayList(QWidget *parent) :
         ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PTuring));
         //ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PContribution));
     }
+
+    vector<Links> links = _ls.getLinkList();
+
+    ui->ListLinks->setRowCount(links.size());
+
+    QString LName;
+    QString LComp;
+
+    for(unsigned int i=0; i<links.size(); i++){
+        LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
+        LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
+        ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LName));
+        ui->ListLinks->setItem(i, 1, new QTableWidgetItem(LComp));
+    }
 }
 
 DisplayList::~DisplayList()

@@ -13,7 +13,7 @@
 #include "searchmenu.h"
 #include "funmenu.h"
 
-static QString _dbpath = "/home/ladanvini/Documents/VLN1/VLN1-Hopur-5/build-Widget-Desktop_Qt_5_7_0_GCC_64bit-Debug/create.sqlite";
+static QString _dbpath = "/home/smari/Documents/Verklegt/VLN1-Hopur-5/create.sqlite";
 static appservice _ps = appservice(_dbpath);
 static CompService _cs = CompService(_dbpath);
 static LinkService _ls = LinkService(_dbpath);

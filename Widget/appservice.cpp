@@ -412,3 +412,11 @@ string appservice::editPerson(int id){
         return "Person of ID: " + std::to_string(id) + " does not exist!\n";
 
 }
+
+Person appservice::getPersonFromId(int id) {
+    for(unsigned int i = 0; i < people.size(); i++) {
+        if(people.at(i).getId() == id) {
+            return people.at(i);
+        }
+    }
+}
