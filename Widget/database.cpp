@@ -382,8 +382,8 @@ void Database::addToConsDB(Links l) {
 
     QSqlQuery query(_db);
 
-    cerr<< "CID: " << std::to_string(l.getCID()) << endl;
-    cerr << "PID: " << std::to_string(l.getPID()) << endl;
+    //cerr<< "CID: " << std::to_string(l.getCID()) << endl;
+    //cerr << "PID: " << std::to_string(l.getPID()) << endl;
 
     string stmnt =
     "INSERT INTO P_C_con ( CID, PID)"
@@ -401,8 +401,36 @@ void Database::addToConsDB(Links l) {
 //Edit person
 
 void editDB(Person p) {
+    _db.open();
 
+    QSqlQuery query(_db);
+    string tur;
+    if(p.getTuring())
+        tur = "'TRUE'";
+    else
+        tur = "'FALSE'";
+
+    string stmnt =
+    "UPDATE People   "
+                "SET pName = '" + p.getName() +
+            "'  ,  pBirthYear = " + std::to_string(p.getBirth()) +
+            "  ,  pDeathYear = " + std::to_string(p.getDeath()) +
+            "  ,  pSex = '" + p.getSex() +
+            "' ,  pContribution = '" + p.getContribution() +
+            "'  ,  pTuringYear = " + std::to_string(p.getTuringYear()) +
+            "  ,  pTuring = " + tur +
+            "                       "
+            "WHERE PID = " + std::to_string(p.getId());
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+    cout << _db.commit() << endl;
+    _db.close();
 }
+
+
 
 //Edit computers
 void editCompDB(Comps c) {
