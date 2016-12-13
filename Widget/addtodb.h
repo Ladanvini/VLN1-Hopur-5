@@ -5,6 +5,8 @@
 #include <QDialog>
 
 #include "mainwindow.h"
+#include "personcreatemenu.h"
+#include "addcomputermenu.h"
 
 
 namespace Ui {
@@ -21,6 +23,10 @@ public:
 
 private slots:
     void on_pBABack_clicked();
+
+    void on_pBAAddP_clicked();
+
+    void on_pBAAddC_clicked();
 
 private:
     Ui::AddToDB *ui;

@@ -19,3 +19,15 @@ void AddToDB::on_pBABack_clicked()
     mw.show();
     this ->close();
 }
+
+void AddToDB::on_pBAAddP_clicked()
+{
+    PersonCreateMenu addP(this);
+    addP.exec();
+}
+
+void AddToDB::on_pBAAddC_clicked()
+{
+    AddComputerMenu addC(this);
+    addC.exec();
+}
