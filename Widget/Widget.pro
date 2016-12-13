@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     addcomputermenu.cpp \
     searchmenu.cpp \
     funmenu.cpp \
-    messagebox.cpp
+    messagebox.cpp \
+    addlinksmenu.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     addcomputermenu.h \
     searchmenu.h \
     funmenu.h \
-    messagebox.h
+    messagebox.h \
+    addlinksmenu.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -56,4 +58,5 @@ FORMS    += mainwindow.ui \
     addcomputermenu.ui \
     searchmenu.ui \
     funmenu.ui \
-    messagebox.ui
+    messagebox.ui \
+    addlinksmenu.ui
