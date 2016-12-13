@@ -253,6 +253,10 @@ int CompService::getCompID(string name, string type){
 }
 
 // Edit
+string CompService::editComputer(string id) {
+    if(!checkIDExists(id))
+        return "Computer ID: " + id + "does not exist!\n";
+}
 
 // Showing
 string CompService::showComputers(vector<Comps> results) {
