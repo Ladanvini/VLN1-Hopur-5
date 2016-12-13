@@ -404,3 +404,11 @@ int appservice::getPersonID(string _name, int birth) {
         }
     }
 }
+
+//################### EDIT PERSON ###########################//
+
+string appservice::editPerson(int id){
+    if(!checkIDExists(std::to_string(id)))
+        return "Person of ID: " + std::to_string(id) + " does not exist!\n";
+
+}
