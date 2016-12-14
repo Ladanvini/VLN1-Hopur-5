@@ -9,6 +9,8 @@
 #include "compservice.h"
 #include "linkservice.h"
 
+#include "editperson.h"
+#include "editcomputer.h"
 #include "displaylist.h"
 #include "funmenu.h"
 

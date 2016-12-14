@@ -279,3 +279,15 @@ void DisplayList::displayLinks() {
 
     currentlyDisplayedLink = links;
 }
+
+void DisplayList::on_pBPEdit_clicked()
+{
+    editPerson ep;
+    ep.show();
+}
+
+void DisplayList::on_pBCEdit_clicked()
+{
+    editComputer ec;
+    ec.show();
+}

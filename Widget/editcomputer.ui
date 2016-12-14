@@ -46,7 +46,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Add</string>
+    <string>Edit</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
