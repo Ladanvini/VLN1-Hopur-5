@@ -7,6 +7,10 @@ DisplayList::DisplayList(QWidget *parent) :
     ui(new Ui::DisplayList)
 {
 
+    _cs = CompService(_dbpath);
+    _ps = appservice(_dbpath);
+    _ls = LinkService(_dbpath);
+
     ui->setupUi(this);
 
     displayPeople();
@@ -39,11 +43,12 @@ void DisplayList::on_pBCBack_clicked()
 void DisplayList::on_pBCAdd_clicked()
 {
     AddComputerMenu adcm;
-    //this->hide();
-    adcm.exec();
-   //this->show();
+//    this->hide();
 
-    //displayComps();
+    adcm.exec();
+//    this->show();
+
+    displayComps();
 
 }
 
@@ -75,7 +80,7 @@ void DisplayList::on_pBLAdd_clicked()
 void DisplayList::on_pBPAdd_clicked()
 {
     PersonCreateMenu pcm;
-    //DisplayList->hide();
+    //this->hide();
     pcm.exec();
     //this->show();
 

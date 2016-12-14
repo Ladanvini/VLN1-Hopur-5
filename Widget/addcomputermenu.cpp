@@ -29,6 +29,8 @@ void AddComputerMenu::on_pBAdd_clicked()
 
     _cs.create(id, name, type, yearBuilt, built);
 
+
+
     DisplayList dlc;
 
     this->close();
