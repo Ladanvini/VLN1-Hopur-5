@@ -124,7 +124,6 @@ void DisplayList::on_pBPDelete_clicked()
 
 void DisplayList::on_pBCDelete_clicked()
 {
-    ui->pBPDelete->setEnabled(false);
 
     string currentlySelectedName;
     string currentlySelectedType;
@@ -140,6 +139,7 @@ void DisplayList::on_pBCDelete_clicked()
     displayComps();
 
     ui->pBCEdit->setEnabled(false);
+    ui->pBCDelete->setEnabled(false);
 }
 
 void DisplayList::on_pBLDelete_clicked()
@@ -157,8 +157,8 @@ void DisplayList::on_pBLDelete_clicked()
 
     displayLinks();
 
-    ui->pBCEdit->setEnabled(false);
-    ui->pBPDelete->setEnabled(false);
+    ui->pBLEdit->setEnabled(false);
+    ui->pBLDelete->setEnabled(false);
 }
 
 void DisplayList::displayComps() {

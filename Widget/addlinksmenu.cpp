@@ -27,6 +27,12 @@ void AddLinksMenu::on_pLAdd_clicked()
 //creating the person
 
     _ls.create(PID, CID);
+
+    DisplayList dll;
+
+    this->close();
+
+    dll.displayLinks();
 }
 
 void AddLinksMenu::on_pLBack_clicked()
