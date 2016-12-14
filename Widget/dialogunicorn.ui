@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>DialogUnicorn</class>
  <widget class="QDialog" name="DialogUnicorn">
@@ -13,6 +13,16 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>31</y>
+     <width>451</width>
+     <height>411</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
