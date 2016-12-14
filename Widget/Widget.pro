@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     funmenu.cpp \
     messagebox.cpp \
     addlinksmenu.cpp \
-    dialogtictactoe.cpp
+    dialogtictactoe.cpp \
+    dialogmoonwalk.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -51,7 +52,8 @@ HEADERS  += mainwindow.h \
     funmenu.h \
     messagebox.h \
     addlinksmenu.h \
-    dialogtictactoe.h
+    dialogtictactoe.h \
+    dialogmoonwalk.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -62,4 +64,5 @@ FORMS    += mainwindow.ui \
     funmenu.ui \
     messagebox.ui \
     addlinksmenu.ui \
-    dialogtictactoe.ui
+    dialogtictactoe.ui \
+    dialogmoonwalk.ui
