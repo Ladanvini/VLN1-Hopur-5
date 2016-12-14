@@ -9,7 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+     _ps = appservice(_dbpath);
+    _cs = CompService(_dbpath);
+    _ls = LinkService(_dbpath);
 
+    //cout << _dbpath.toStdString() << endl;
     QPixmap pix("/Users/BjarniKristinn/VLN1-Hopur-5/Widget/Unicorn.png") ;
     //ui->label_pix->setPixmap(pix);
 }

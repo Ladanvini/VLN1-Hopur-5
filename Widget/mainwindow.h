@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <ctime>
+#include <iostream>
 
 #include "appservice.h"
 #include "compservice.h"
@@ -15,7 +16,7 @@
 
 
 
-static QString _dbpath = "/home/ladanvini/Documents/VLN1/VLSS/VLN1-Hopur-5/build-Widget-Desktop_Qt_5_7_0_GCC_64bit-Debug/create.sqlite";
+static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
 //static QString _dbpath = "C:\VLN1-Hopur-5\create.sqlite";
 

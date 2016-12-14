@@ -2,10 +2,14 @@
 #include "ui_displaylist.h"
 
 #include "mainwindow.h"
+
+using namespace std;
+
 DisplayList::DisplayList(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DisplayList)
 {
+    _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _cs = CompService(_dbpath);
     _ps = appservice(_dbpath);
