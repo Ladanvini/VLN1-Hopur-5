@@ -10,22 +10,17 @@ namespace Ui {
 class AddComputerMenu;
 }
 
-class AddComputerMenu : public QDialog
-{
+class AddComputerMenu : public QDialog {
     Q_OBJECT
-
 public:
     explicit AddComputerMenu(QWidget *parent = 0);
     ~AddComputerMenu();
-
 private slots:
-
     void on_pBBack_clicked();
-
     void on_pBAdd_clicked();
-
 private:
     Ui::AddComputerMenu *ui;
+
 };
 
 #endif // ADDCOMPUTERMENU_H

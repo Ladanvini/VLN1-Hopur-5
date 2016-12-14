@@ -5,7 +5,6 @@
 #include <vector>
 #include <algorithm>
 #include <QtSql>
-
 #include "links.h"
 
 #define clearScreen() printf("\033[H\033[J")

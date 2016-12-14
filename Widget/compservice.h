@@ -2,7 +2,6 @@
 #define COMPSERVICE_H
 
 #include <ctime>
-
 #include "database.h"
 
 class CompService {

@@ -137,8 +137,8 @@
   <widget class="QLabel" name="l_error_type">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>64</y>
+     <x>312</x>
+     <y>60</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -150,7 +150,7 @@
   <widget class="QLabel" name="l_error_yearBuilt">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>315</x>
      <y>90</y>
      <width>161</width>
      <height>21</height>

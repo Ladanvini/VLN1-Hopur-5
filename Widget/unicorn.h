@@ -30,6 +30,7 @@ public:
     Unicorn();
     void moonWalk();
     void realSlimShady();
+
 };
 
 #endif // UNICORN_H
