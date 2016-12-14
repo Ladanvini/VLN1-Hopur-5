@@ -4,6 +4,9 @@
 #include <QDialog>
 
 #include "mainwindow.h"
+#include "dialogunicorn.h"
+#include "dialogmoonwalk.h"
+#include "dialogtictactoe.h"
 
 
 namespace Ui {
@@ -19,6 +22,7 @@ public:
     ~FunMenu();
 
 private slots:
+    void on_pBUnicorn_clicked();
     void on_pBBack_clicked();
 
 private:
