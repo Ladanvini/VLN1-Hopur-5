@@ -29,18 +29,33 @@ void AddComputerMenu::on_pBAdd_clicked()
     }
 
     ui->l_error_name->setText("");
+    ui->l_error_type->setText("");
+    ui->l_error_yearBuilt->setText("");
 //Error checks
     if(name.empty()) {
-        ui->l_error_name->setText("<span style='color: #ff0000'>Name cannot be empty!</span>");
+        ui->l_error_name->setText("<span style='color: #ff0000'>Name not accepted!</span>");
+
+        if(type.empty()) {
+            ui->l_error_type->setText("<span style='color: #ff0000'>Type not accepted!</span>");
+
+            if(yearBuiltstr.empty() || !isOK) {
+                ui->l_error_yearBuilt->setText("<span style='color: #ff0000'>Year not accepted!</span>");
+            }
+        }
         return;
     }
+
     if(type.empty()){
-        //ERROR
+        ui->l_error_type->setText("<span style='color: #ff0000'>Type not accepted!</span>");
+
+        if(yearBuiltstr.empty() || !isOK) {
+            ui->l_error_yearBuilt->setText("<span style='color: #ff0000'>Year not accepted!</span>");
+        }
         return;
     }
 
     if(yearBuiltstr.empty() || !isOK){
-        //ERRROR
+        ui->l_error_yearBuilt->setText("<span style='color: #ff0000'>Year not accepted!</span>");
         return;
     }
 
