@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 
     return a.exec();
 
-   // QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
+   //QString path = QCoreApplication::applicationDirPath() + "/create.sqlite";
 
    // Database* db = new Database(path);
     //appservice* doStuff = new appservice(*db);
