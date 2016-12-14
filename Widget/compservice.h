@@ -40,7 +40,15 @@ public:
     string deleteComputers(string name, string type);
 
     // Edit
+
+    /*
+     * First we check if the computer exists with editComputer function,
+     * then we open the edit page and have the user input the information
+     * then call the editComputerWith function with the information of the computer
+     * along with the previously inputted id
+     */
     string editComputer(string id);
+    void editComputerWith(int id, string name, string type, int yearBuilt);
 
     // Showing
     string showComputers(vector<Comps> results);

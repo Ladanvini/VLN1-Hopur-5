@@ -403,6 +403,8 @@ int appservice::getPersonID(string _name, int birth) {
             return people.at(i).getId();
         }
     }
+    cerr << "Peron not found, id 0 is returned\n";
+    return 0;
 }
 
 //################### EDIT PERSON ###########################//
@@ -410,7 +412,11 @@ int appservice::getPersonID(string _name, int birth) {
 string appservice::editPerson(int id){
     if(!checkIDExists(std::to_string(id)))
         return "Person of ID: " + std::to_string(id) + " does not exist!\n";
-
+    return "Person found, you can input info now\n";
+}
+void appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear){
+    Person p(id, name, sex, birth, death, contribution, turingYear);
+    db.editDB(p);
 }
 
 Person appservice::getPersonFromId(int id) {
@@ -419,4 +425,6 @@ Person appservice::getPersonFromId(int id) {
             return people.at(i);
         }
     }
+    cerr <<"PErson not found, an empty person returned\n";
+    return Person();
 }
