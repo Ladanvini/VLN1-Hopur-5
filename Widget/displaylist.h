@@ -22,6 +22,12 @@ public:
     explicit DisplayList(QWidget *parent = 0);
     ~DisplayList();
 
+    void displayPeople();
+
+    void displayComps();
+
+    void displayLinks();
+
 private slots:
     void on_pBPBack_clicked();
 
@@ -48,12 +54,6 @@ private slots:
     void on_pBCDelete_clicked();
 
     void on_pBLDelete_clicked();
-
-    void displayPeople();
-
-    void displayComps();
-
-    void displayLinks();
 
 private:
     Ui::DisplayList *ui;

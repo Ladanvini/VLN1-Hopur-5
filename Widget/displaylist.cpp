@@ -41,7 +41,8 @@ void DisplayList::on_pBCAdd_clicked()
     adcm.exec();
    //this->show();
 
-    displayComps();
+    //displayComps();
+
 }
 
 void DisplayList::on_tableWidget_activated(const QModelIndex &index)
@@ -112,6 +113,8 @@ void DisplayList::on_pBPDelete_clicked()
 
 void DisplayList::on_pBCDelete_clicked()
 {
+    ui->pBPDelete->setEnabled(false);
+
     string currentlySelectedName;
     string currentlySelectedType;
 
@@ -126,7 +129,6 @@ void DisplayList::on_pBCDelete_clicked()
     displayComps();
 
     ui->pBCEdit->setEnabled(false);
-    ui->pBPDelete->setEnabled(false);
 }
 
 void DisplayList::on_pBLDelete_clicked()

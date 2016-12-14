@@ -25,9 +25,15 @@ void AddComputerMenu::on_pBAdd_clicked()
     if(yearBuilt != 0) {
         built = true;
     }
-//creating the person
+//creating the computer
 
     _cs.create(id, name, type, yearBuilt, built);
+
+    DisplayList dlc;
+
+    this->close();
+
+    dlc.displayComps();
 
 }
 
@@ -36,4 +42,6 @@ void AddComputerMenu::on_pBBack_clicked()
     DisplayList dl;
     dl.show();
     this->close();
+
+    dl.displayComps();
 }

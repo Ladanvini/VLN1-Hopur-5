@@ -250,23 +250,12 @@ int CompService::getCompID(string name, string type){
             return computers.at(i).getId();
          }
     }
-    cerr << "Computer not found\n";
-    return 0;
 }
 
 // Edit
 string CompService::editComputer(string id) {
     if(!checkIDExists(id))
         return "Computer ID: " + id + "does not exist!\n";
-    return "Computer found, you can enter the information now\n";
-}
-void CompService::editComputerWith(int id, string name, string type, int yearBuilt){
-    bool built = true;
-    if(yearBuilt == 0)
-        built = false;
-
-    Comps c(id, name, type, yearBuilt, built);
-    _db.editCompDB(c);
 }
 
 // Showing
@@ -340,8 +329,7 @@ Comps CompService::getCompFromId(int id)
         if(computers.at(i).getId() == id)
             return computers.at(i);
     }
-    cerr << "Computer not found\n";
-    return Comps();
+
 
 
 }
