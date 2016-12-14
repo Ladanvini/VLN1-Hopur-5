@@ -45,10 +45,16 @@ private slots:
 
     void on_pBPDelete_clicked();
 
+    void on_pBCDelete_clicked();
+
+    void on_pBLDelete_clicked();
+
 private:
     Ui::DisplayList *ui;
 
     vector<Person> currentlyDisplayedPerson;
+    vector<Comps> currentlyDisplayedComps;
+    vector<Links> currentlyDisplayedLink;
 };
 
 #endif // DISPLAYLIST_H

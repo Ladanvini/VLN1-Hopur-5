@@ -26,6 +26,8 @@ DisplayList::DisplayList(QWidget *parent) :
         ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Type));
         ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
 
+        currentlyDisplayedComps = comps;
+
     }
 
     vector<Person> people = _ps.getList();
@@ -78,6 +80,8 @@ DisplayList::DisplayList(QWidget *parent) :
         LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
         ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LName));
         ui->ListLinks->setItem(i, 1, new QTableWidgetItem(LComp));
+
+        currentlyDisplayedLink = links;
     }
 }
 
@@ -167,5 +171,40 @@ void DisplayList::on_pBPDelete_clicked()
 
     _ps.deletePerson(currentlySelectedName, currentlySelectedBirth);
 
+    ui->pBPEdit->setEnabled(false);
+    ui->pBPDelete->setEnabled(false);
+}
+
+void DisplayList::on_pBCDelete_clicked()
+{
+    string currentlySelectedName;
+    string currentlySelectedType;
+
+    int currentlySelectedCompsIndex = ui->ListComputers->currentIndex().row();
+    Comps currentlySelectedComps = currentlyDisplayedComps.at(currentlySelectedCompsIndex);
+
+    currentlySelectedName = currentlySelectedComps.getName();
+    currentlySelectedType = currentlySelectedComps.getType();
+
+    _cs.deleteComputers(currentlySelectedName, currentlySelectedType);
+
+    ui->pBCEdit->setEnabled(false);
+    ui->pBPDelete->setEnabled(false);
+}
+
+void DisplayList::on_pBLDelete_clicked()
+{
+    int currentlySelectedPerson;
+    int currentlySelectedComps;
+
+    int currentlySelectedLinkIndex = ui->ListLinks->currentIndex().row();
+    Links currentlySelectedLink = currentlyDisplayedLink.at(currentlySelectedLinkIndex);
+
+    currentlySelectedPerson = currentlySelectedLink.getPID();
+    currentlySelectedComps = currentlySelectedLink.getCID();
+
+    _ls.deleteLink(currentlySelectedComps, currentlySelectedPerson);
+
+    ui->pBCEdit->setEnabled(false);
     ui->pBPDelete->setEnabled(false);
 }
