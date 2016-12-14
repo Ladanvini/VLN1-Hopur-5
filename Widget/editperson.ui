@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PersonCreateMenu</class>
- <widget class="QWidget" name="PersonCreateMenu">
+ <class>editPerson</class>
+ <widget class="QDialog" name="editPerson">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,9 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="l_EnterName">
+  <widget class="QLabel" name="l_name">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Enter name:</string>
+    <string>Enter Name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="l_EnterBirthYear">
+  <widget class="QLabel" name="l_birthyear">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -39,7 +39,7 @@
     <string>Enter year of birth:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="l_GenderPicker">
+  <widget class="QLabel" name="l_gender">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -49,23 +49,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Choose Gender:</string>
+    <string>Choose gender:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_Name">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>20</y>
-     <width>191</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::NoFocus</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="l_EnterDeathYear">
+  <widget class="QLabel" name="l_deathyear">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -75,33 +62,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Enter year of death(if Dead):</string>
+    <string>Enter year of death(if dead):</string>
    </property>
   </widget>
-  <widget class="QLabel" name="l_Contribution">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>180</y>
-     <width>141</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Contribution of the person:</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="input_Contribution">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>180</y>
-     <width>271</width>
-     <height>91</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="l_TuringYear">
+  <widget class="QLabel" name="l_turing">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -111,7 +75,86 @@
     </rect>
    </property>
    <property name="text">
-    <string>Turing Year:</string>
+    <string>Turing year</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Contribution">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>180</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Contribution:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_name">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>191</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_birthYear">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>50</y>
+     <width>113</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>110</y>
+     <width>113</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>180</y>
+     <width>271</width>
+     <height>91</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rbMale">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Male</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rbFemale">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>80</y>
+     <width>71</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Female</string>
    </property>
   </widget>
   <widget class="QComboBox" name="cB_TuringYear">
@@ -1209,7 +1252,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="pBAddPerson">
+  <widget class="QPushButton" name="pBEdit">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -1219,56 +1262,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Add</string>
+    <string>Edit</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_YearBorn">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>50</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_YearDeath">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>110</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rBMale">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>80</y>
-     <width>71</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Male</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="rBFemale">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>80</y>
-     <width>71</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Female</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pBBack">
+  <widget class="QPushButton" name="pBCancel">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -1278,19 +1275,20 @@
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>Cancel</string>
    </property>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>input_YearBorn</tabstop>
-  <tabstop>rBMale</tabstop>
-  <tabstop>rBFemale</tabstop>
-  <tabstop>input_YearDeath</tabstop>
+  <tabstop>input_name</tabstop>
+  <tabstop>input_birthYear</tabstop>
+  <tabstop>rbMale</tabstop>
+  <tabstop>rbFemale</tabstop>
+  <tabstop>lineEdit</tabstop>
   <tabstop>cB_TuringYear</tabstop>
-  <tabstop>input_Contribution</tabstop>
-  <tabstop>pBAddPerson</tabstop>
-  <tabstop>pBBack</tabstop>
+  <tabstop>plainTextEdit</tabstop>
+  <tabstop>pBEdit</tabstop>
+  <tabstop>pBCancel</tabstop>
  </tabstops>
  <resources/>
  <connections/>

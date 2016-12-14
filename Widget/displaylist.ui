@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="Displaytaps">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>10</y>
+     <x>10</x>
+     <y>20</y>
      <width>651</width>
      <height>541</height>
     </rect>
@@ -26,7 +26,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tPerson">
     <attribute name="title">
@@ -408,6 +408,30 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>Displaytaps</tabstop>
+  <tabstop>le_SearchPers</tabstop>
+  <tabstop>input_SearchPers</tabstop>
+  <tabstop>pBPAdd</tabstop>
+  <tabstop>ListPersons</tabstop>
+  <tabstop>pBPEdit</tabstop>
+  <tabstop>pBPDelete</tabstop>
+  <tabstop>pBPBack</tabstop>
+  <tabstop>le_SearchComp</tabstop>
+  <tabstop>input_SearchComp</tabstop>
+  <tabstop>pBCAdd</tabstop>
+  <tabstop>ListComputers</tabstop>
+  <tabstop>pBCEdit</tabstop>
+  <tabstop>pBCDelete</tabstop>
+  <tabstop>pBCBack</tabstop>
+  <tabstop>le_Searchlink</tabstop>
+  <tabstop>input_SearchLink</tabstop>
+  <tabstop>pBLAdd</tabstop>
+  <tabstop>ListLinks</tabstop>
+  <tabstop>pBLEdit</tabstop>
+  <tabstop>pBLDelete</tabstop>
+  <tabstop>pBLBack</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
