@@ -27,12 +27,6 @@ void MainWindow::on_pBDisplay_clicked()
     //this->show();//this pops him back from hiding when we're done in the old one
 }
 
-void MainWindow::on_pBSearch_clicked()
-{
-    SearchMenu sm;
-    sm.exec();
-}
-
 void MainWindow::on_pBExit_clicked()
 {
     this->close();
