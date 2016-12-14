@@ -121,6 +121,19 @@
     <string>Back</string>
    </property>
   </widget>
+  <widget class="QLabel" name="l_error_name">
+   <property name="geometry">
+    <rect>
+     <x>318</x>
+     <y>30</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

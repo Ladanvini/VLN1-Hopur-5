@@ -27,9 +27,11 @@ void AddComputerMenu::on_pBAdd_clicked()
     if(yearBuilt != 0) {
         built = true;
     }
+
+    ui->l_error_name->setText("");
 //Error checks
     if(name.empty()) {
-        //ERROR MESSAGE
+        ui->l_error_name->setText("<span style='color: #ff0000'>Name cannot be empty!</span>");
         return;
     }
     if(type.empty()) {

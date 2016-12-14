@@ -283,11 +283,11 @@ void DisplayList::displayLinks() {
 void DisplayList::on_pBPEdit_clicked()
 {
     editPerson ep;
-    ep.show();
+    ep.exec();
 }
 
 void DisplayList::on_pBCEdit_clicked()
 {
     editComputer ec;
-    ec.show();
+    ec.exec();
 }
