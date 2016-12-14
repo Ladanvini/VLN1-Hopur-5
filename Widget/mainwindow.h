@@ -39,10 +39,6 @@ public:
 private slots:
     void on_pBDisplay_clicked();
 
-    void on_pBSearch_clicked();
-
-    //void on_pBDelete_clicked();
-
     void on_pBExit_clicked();
 
     void on_pBFunMenu_clicked();

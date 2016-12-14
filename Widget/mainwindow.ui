@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>564</width>
-    <height>465</height>
+    <height>206</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,24 +27,11 @@
      <string>Display</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pBSearch">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>60</y>
-      <width>91</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Search</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pBFunMenu">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>100</y>
+      <y>60</y>
       <width>91</width>
       <height>24</height>
      </rect>
@@ -57,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>100</y>
       <width>91</width>
       <height>24</height>
      </rect>
@@ -79,24 +66,11 @@
      <string>Displays the list of famous computer scientists or famous computers.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_search">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>65</y>
-      <width>151</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Searches the database.</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="l_FunMenu">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>105</y>
+      <y>65</y>
       <width>191</width>
       <height>21</height>
      </rect>
@@ -109,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>145</y>
+      <y>105</y>
       <width>141</width>
       <height>16</height>
      </rect>
@@ -125,7 +99,7 @@
      <x>0</x>
      <y>0</y>
      <width>564</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
