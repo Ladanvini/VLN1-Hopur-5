@@ -44,6 +44,12 @@ void PersonCreateMenu::on_pBAddPerson_clicked()
 //creating the person
 
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
+
+    DisplayList dlp;
+
+    this->close();
+
+    dlp.displayPeople();
 }
 
 void PersonCreateMenu::on_pBBack_clicked()
