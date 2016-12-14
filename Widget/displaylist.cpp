@@ -6,16 +6,10 @@ DisplayList::DisplayList(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DisplayList)
 {
-
-    vector<Comps> comps = _cs.getList();
-
     ui->setupUi(this);
-    showAllLists();
-    currentlyDisplayedComps = comps;
-    currentlyDisplayedPerson = people;
-    currentlyDisplayedLink = links;
-
-
+    displayPeople();
+    displayComps();
+    displayLinks();
 }
 
 DisplayList::~DisplayList()
@@ -46,6 +40,8 @@ void DisplayList::on_pBCAdd_clicked()
     //this->hide();
     adcm.exec();
    //this->show();
+
+    displayComps();
 }
 
 void DisplayList::on_tableWidget_activated(const QModelIndex &index)
@@ -69,6 +65,8 @@ void DisplayList::on_pBLAdd_clicked()
 {
     AddLinksMenu alm;
     alm.exec();
+
+    displayLinks();
 }
 
 void DisplayList::on_pBPAdd_clicked()
@@ -77,6 +75,8 @@ void DisplayList::on_pBPAdd_clicked()
     //DisplayList->hide();
     pcm.exec();
     //this->show();
+
+    displayPeople();
 }
 
 void DisplayList::on_ListLinks_clicked(const QModelIndex &index)
@@ -104,6 +104,8 @@ void DisplayList::on_pBPDelete_clicked()
 
     _ps.deletePerson(currentlySelectedName, currentlySelectedBirth);
 
+    displayPeople();
+
     ui->pBPEdit->setEnabled(false);
     ui->pBPDelete->setEnabled(false);
 }
@@ -120,6 +122,8 @@ void DisplayList::on_pBCDelete_clicked()
     currentlySelectedType = currentlySelectedComps.getType();
 
     _cs.deleteComputers(currentlySelectedName, currentlySelectedType);
+
+    displayComps();
 
     ui->pBCEdit->setEnabled(false);
     ui->pBPDelete->setEnabled(false);
@@ -138,77 +142,93 @@ void DisplayList::on_pBLDelete_clicked()
 
     _ls.deleteLink(currentlySelectedComps, currentlySelectedPerson);
 
+    displayLinks();
+
     ui->pBCEdit->setEnabled(false);
     ui->pBPDelete->setEnabled(false);
 }
 
-void DisplayList::showAllLists()
-{    ui->ListComputers->setRowCount(comps.size());
+void DisplayList::displayComps() {
 
-     QString Name;
-     QString Type;
-     QString YearBuilt;
+    vector<Comps> comps = _cs.getList();
 
-     for(unsigned int i=0; i<comps.size(); i++){
-         Name = QString::fromStdString(comps.at(i).getName());
-         Type = QString::fromStdString(comps.at(i).getType());
-         YearBuilt = QString::number(comps.at(i).getYearBuilt());
+    ui->ListComputers->setRowCount(comps.size());
 
-         ui->ListComputers->setItem(i, 0, new QTableWidgetItem(Name));
-         ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Type));
-         ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
+    QString Name;
+    QString Type;
+    QString YearBuilt;
 
-     }
+    for(unsigned int i=0; i<comps.size(); i++){
+        Name = QString::fromStdString(comps.at(i).getName());
+        Type = QString::fromStdString(comps.at(i).getType());
+        YearBuilt = QString::number(comps.at(i).getYearBuilt());
 
-     vector<Person> people = _ps.getList();
+        ui->ListComputers->setItem(i, 0, new QTableWidgetItem(Name));
+        ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Type));
+        ui->ListComputers->setItem(i, 2, new QTableWidgetItem(YearBuilt));
 
-     ui->ListPersons->setRowCount(people.size());
+    }
 
-     QString PName;
-     QString PGender;
-     QString PAge;
-     QString PBirth;
-     QString PDeath;
-     QString PTuring;
-     QString PContribution;
+    currentlyDisplayedComps = comps;
+}
 
-     for(unsigned int i = 0; i < people.size(); i++) {
-         PName = QString::fromStdString(people.at(i).getName());
-         if(people.at(i).getSex() == 'm')
-             PGender = "Male";
-         else
-             PGender = "Female";
-         if(people.at(i).getAge() < 10)
-             PAge = "0" + QString::number(people.at(i).getAge());
-         else
-             PAge = QString::number(people.at(i).getAge());
-         PBirth = QString::number(people.at(i).getBirth());
-         PDeath = QString::number(people.at(i).getDeath());
-         PTuring = QString::number(people.at(i).getTuringYear());
-         PContribution = QString::fromStdString(people.at(i).getContribution());
+void DisplayList::displayPeople() {
+    vector<Person> people = _ps.getList();
 
-         ui->ListPersons->setItem(i, 0, new QTableWidgetItem(PName));
-         ui->ListPersons->setItem(i, 1, new QTableWidgetItem(PGender));
-         ui->ListPersons->setItem(i, 2, new QTableWidgetItem(PAge));
-         ui->ListPersons->setItem(i, 3, new QTableWidgetItem(PBirth));
-         ui->ListPersons->setItem(i, 4, new QTableWidgetItem(PDeath));
-         ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PTuring));
-         //ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PContribution));
+    ui->ListPersons->setRowCount(people.size());
 
-     }
+    QString PName;
+    QString PGender;
+    QString PAge;
+    QString PBirth;
+    QString PDeath;
+    QString PTuring;
+    QString PContribution;
 
-     vector<Links> links = _ls.getLinkList();
+    for(unsigned int i = 0; i < people.size(); i++) {
+        PName = QString::fromStdString(people.at(i).getName());
+        if(people.at(i).getSex() == 'm')
+            PGender = "Male";
+        else
+            PGender = "Female";
+        if(people.at(i).getAge() < 10)
+            PAge = "0" + QString::number(people.at(i).getAge());
+        else
+            PAge = QString::number(people.at(i).getAge());
 
-     ui->ListLinks->setRowCount(links.size());
+        PBirth = QString::number(people.at(i).getBirth());
+        PDeath = QString::number(people.at(i).getDeath());
+        PTuring = QString::number(people.at(i).getTuringYear());
+        PContribution = QString::fromStdString(people.at(i).getContribution());
 
-     QString LName;
-     QString LComp;
+        ui->ListPersons->setItem(i, 0, new QTableWidgetItem(PName));
+        ui->ListPersons->setItem(i, 1, new QTableWidgetItem(PGender));
+        ui->ListPersons->setItem(i, 2, new QTableWidgetItem(PAge));
+        ui->ListPersons->setItem(i, 3, new QTableWidgetItem(PBirth));
+        ui->ListPersons->setItem(i, 4, new QTableWidgetItem(PDeath));
+        ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PTuring));
+        //ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PContribution));
 
-     for(unsigned int i=0; i<links.size(); i++){
-         LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
-         LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
-         ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LName));
-         ui->ListLinks->setItem(i, 1, new QTableWidgetItem(LComp));
+    }
 
-     }
+    currentlyDisplayedPerson = people;
+}
+
+void DisplayList::displayLinks() {
+    vector<Links> links = _ls.getLinkList();
+
+    ui->ListLinks->setRowCount(links.size());
+
+    QString LName;
+    QString LComp;
+
+    for(unsigned int i=0; i<links.size(); i++){
+        LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
+        LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
+        ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LName));
+        ui->ListLinks->setItem(i, 1, new QTableWidgetItem(LComp));
+
+    }
+
+    currentlyDisplayedLink = links;
 }

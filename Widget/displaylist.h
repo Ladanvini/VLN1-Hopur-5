@@ -49,7 +49,11 @@ private slots:
 
     void on_pBLDelete_clicked();
 
-    void showAllLists();
+    void displayPeople();
+
+    void displayComps();
+
+    void displayLinks();
 
 private:
     Ui::DisplayList *ui;

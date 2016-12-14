@@ -425,6 +425,6 @@ Person appservice::getPersonFromId(int id) {
             return people.at(i);
         }
     }
-    cerr <<"PErson not found, an empty person returned\n";
+    cerr <<"Person not found, an empty person returned\n";
     return Person();
 }
