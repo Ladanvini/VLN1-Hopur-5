@@ -16,15 +16,32 @@ AddComputerMenu::~AddComputerMenu()
 void AddComputerMenu::on_pBAdd_clicked()
 {
     int id = 0;
+    bool isOK = false;
     string name = ui->input_Name->text().toStdString();
     string type = ui->input_Type->text().toStdString();
-    int yearBuilt = ui->input_YearBuilt->text().toInt();
+    string yearBuiltstr = ui->input_YearBuilt->text().toStdString();
+    int yearBuilt = ui->input_YearBuilt->text().toInt(&isOK);
     bool built = false;
 
 //Checking if built
     if(yearBuilt != 0) {
         built = true;
     }
+//Error checks
+    if(name.empty()) {
+        //ERROR MESSAGE
+        return;
+    }
+    if(type.empty()) {
+        //ERROR
+        return;
+    }
+    if(yearBuiltstr.empty() || !isOK){
+        //ERRROR
+        return;
+    }
+
+
 //creating the computer
 
     _cs.create(id, name, type, yearBuilt, built);

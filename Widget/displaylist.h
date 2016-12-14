@@ -57,6 +57,8 @@ private slots:
 
     void on_pBPEdit_clicked();
 
+    void on_pBCEdit_clicked();
+
 private:
     Ui::DisplayList *ui;
 
