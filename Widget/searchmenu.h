@@ -23,6 +23,10 @@ private slots:
 
     void on_pBGoBackCom_clicked();
 
+    void on_cB_SearchForPers_currentIndexChanged(int index);
+
+    void on_pB_SearchforPers_clicked();
+
 private:
     Ui::SearchMenu *ui;
 };
