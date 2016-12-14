@@ -49,6 +49,8 @@ private slots:
 
     void on_pBLDelete_clicked();
 
+    void showAllLists();
+
 private:
     Ui::DisplayList *ui;
 
