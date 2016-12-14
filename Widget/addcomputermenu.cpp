@@ -34,10 +34,11 @@ void AddComputerMenu::on_pBAdd_clicked()
         ui->l_error_name->setText("<span style='color: #ff0000'>Name cannot be empty!</span>");
         return;
     }
-    if(type.empty()) {
+    if(type.empty()){
         //ERROR
         return;
     }
+
     if(yearBuiltstr.empty() || !isOK){
         //ERRROR
         return;
