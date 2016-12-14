@@ -30,7 +30,10 @@ SOURCES += main.cpp\
     searchmenu.cpp \
     funmenu.cpp \
     messagebox.cpp \
-    addlinksmenu.cpp
+    addlinksmenu.cpp \
+    dialogtictactoe.cpp \
+    dialogmoonwalk.cpp \
+    dialogunicorn.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -49,7 +52,10 @@ HEADERS  += mainwindow.h \
     searchmenu.h \
     funmenu.h \
     messagebox.h \
-    addlinksmenu.h
+    addlinksmenu.h \
+    dialogtictactoe.h \
+    dialogmoonwalk.h \
+    dialogunicorn.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -59,4 +65,7 @@ FORMS    += mainwindow.ui \
     searchmenu.ui \
     funmenu.ui \
     messagebox.ui \
-    addlinksmenu.ui
+    addlinksmenu.ui \
+    dialogtictactoe.ui \
+    dialogmoonwalk.ui \
+    dialogunicorn.ui
