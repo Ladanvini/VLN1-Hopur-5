@@ -13,6 +13,13 @@ FunMenu::~FunMenu()
     delete ui;
 }
 
+void FunMenu::on_pBUnicorn_clicked()
+{
+    DialogUnicorn Unicorn;
+    Unicorn.exec();
+    this ->close();
+}
+
 void FunMenu::on_pBBack_clicked()
 {
     MainWindow mw;
