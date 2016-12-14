@@ -28,7 +28,6 @@ SOURCES += main.cpp\
     addcomputermenu.cpp \
     funmenu.cpp \
     addlinksmenu.cpp \
-    dialogtictactoe.cpp \
     dialogmoonwalk.cpp \
     dialogunicorn.cpp \
     editperson.cpp \
@@ -49,7 +48,6 @@ HEADERS  += mainwindow.h \
     addcomputermenu.h \
     funmenu.h \
     addlinksmenu.h \
-    dialogtictactoe.h \
     dialogmoonwalk.h \
     dialogunicorn.h \
     editperson.h \
@@ -61,7 +59,6 @@ FORMS    += mainwindow.ui \
     addcomputermenu.ui \
     funmenu.ui \
     addlinksmenu.ui \
-    dialogtictactoe.ui \
     dialogmoonwalk.ui \
     dialogunicorn.ui \
     editperson.ui \
