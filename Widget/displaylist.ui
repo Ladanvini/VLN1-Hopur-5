@@ -97,6 +97,11 @@
      </attribute>
      <column>
       <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Name</string>
       </property>
      </column>
@@ -193,6 +198,11 @@
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>203</number>
      </attribute>
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
      <column>
       <property name="text">
        <string>Name</string>
@@ -315,7 +325,17 @@
      </attribute>
      <column>
       <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>ID</string>
       </property>
      </column>
      <column>
