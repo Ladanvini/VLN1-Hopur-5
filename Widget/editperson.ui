@@ -111,7 +111,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="input_deathYear">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -121,7 +121,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="input_contribution">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -1284,9 +1284,9 @@
   <tabstop>input_birthYear</tabstop>
   <tabstop>rbMale</tabstop>
   <tabstop>rbFemale</tabstop>
-  <tabstop>lineEdit</tabstop>
+  <tabstop>input_deathYear</tabstop>
   <tabstop>cB_TuringYear</tabstop>
-  <tabstop>plainTextEdit</tabstop>
+  <tabstop>input_contribution</tabstop>
   <tabstop>pBEdit</tabstop>
   <tabstop>pBCancel</tabstop>
  </tabstops>

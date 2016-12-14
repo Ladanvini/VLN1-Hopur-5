@@ -1,7 +1,11 @@
 #ifndef EDITPERSON_H
 #define EDITPERSON_H
 
+#include <QWidget>
 #include <QDialog>
+#include "displaylist.h"
+
+#include "mainwindow.h"
 
 namespace Ui {
 class editPerson;
