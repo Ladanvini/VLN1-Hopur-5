@@ -3,7 +3,8 @@
 Unicorn::Unicorn() {
 
 }
-string Unicorn::slimShady(){
+
+string Unicorn::slimShady() {
     string temp = "\n"
 "    O      O      O      O\n"
 "   |_|_   |_|_   |_|_   |_|_ \n"
@@ -18,12 +19,9 @@ string Unicorn::standUp() {
 "    |_|_    |     |_|_   |_|_\n"
 "      \\ \\  / \\      \\ \\    \\ \\ \n";
     return temp;
-
-
 }
-
-void Unicorn::realSlimShady(){
-    cout << slimShady();
+void Unicorn::realSlimShady() {
+     cout << slimShady();
      sleep(2);
      cout << "Will the real Slim Shady please stand up?" << endl;
      sleep(1);
@@ -31,7 +29,6 @@ void Unicorn::realSlimShady(){
 }
 
 void Unicorn::moonWalk() {
-
     clearScreen();
     cout << unicorn();
     sleep(1);
@@ -92,7 +89,6 @@ void Unicorn::moonWalk() {
     clearScreen();
     cout << unicorn();
     //wait();
-
 }
 
 string Unicorn::unicorn() {

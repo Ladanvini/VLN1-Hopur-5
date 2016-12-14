@@ -1,10 +1,7 @@
 #include <QCoreApplication>
 #include <iostream>
-
 #include <QApplication>
-
 #include "mainwindow.h"
-
 #include "database.h"
 
 using namespace std;

@@ -39,7 +39,6 @@ bool TicTacToe::insertIntoBoard (char position, char player) {
 }
 
 bool TicTacToe::checkIfWinner () {
-
     // check horizontal
     for (int i = 0; i < 3; i++) {
         if (_ticTacToeBoard[i][i] != 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) {
@@ -113,7 +112,6 @@ int TicTacToe::playTicTacToe () {
 }
 
 int TicTacToe::ticTacToeMain() {
-
     initializeBoard ();
     printBoard ();
     playTicTacToe ();

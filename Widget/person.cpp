@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include <ctime>
-
 #include "person.h"
 
 using namespace std;
@@ -68,7 +67,6 @@ string Person::showPerson() {
 
     return temp;
 }
-
 string Person::showPersonTable() {
 
     string temp = "";
@@ -113,7 +111,6 @@ string Person::spaceCalc(int cellsize, string value) {
     }
     return idTemp + value + idTemp;
 }
-
 bool Person::isSame(Person p) {
     cout << p.getName() << " != " << this->getName();
     return(     this->getName().find(p.getName()) != std::string::npos &&
