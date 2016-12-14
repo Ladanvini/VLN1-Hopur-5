@@ -14,7 +14,7 @@
 #include "funmenu.h"
 
 
-static QString _dbpath = "/home/smari/Documents/Verklegt/VLN1-Hopur-5/create.sqlite";
+static QString _dbpath = "C:\VLN1-Hopur-5\create.sqlite";
 
 static appservice _ps = appservice(_dbpath);
 static CompService _cs = CompService(_dbpath);
