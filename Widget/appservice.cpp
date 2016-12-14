@@ -1,7 +1,6 @@
-#include "appservice.h"
-
 #include <iostream>
 #include <algorithm>
+#include "appservice.h"
 
 using namespace std;
 
@@ -173,7 +172,7 @@ vector<Person> appservice::sortByName() {
     }
     return sorted;
 }
-vector<Person> appservice:: sortByNameDec() {
+vector<Person> appservice::sortByNameDec() {
     vector<Person> Results = sortByName();
     reverse(Results.begin(), Results.end());
 
@@ -186,6 +185,7 @@ vector<Person> appservice::sortByAge() {
     for(unsigned int i = 0; i < people.size(); i++) {
         ages.push_back(std::to_string(people.at(i).getAge()));
     }
+
     std::sort(ages.begin(), ages.end());
 
     for(unsigned int i = 0; i < ages.size(); i++) {
@@ -203,8 +203,7 @@ vector<Person> appservice::sortByAgeDec() {
     vector<Person> Results = sortByAge();
     reverse(Results.begin(), Results.end());
 
-return Results;
-
+    return Results;
 }
 vector<Person> appservice::sortBySex(string _sex) {
     vector<Person> result;
@@ -409,16 +408,15 @@ int appservice::getPersonID(string _name, int birth) {
 
 //################### EDIT PERSON ###########################//
 
-string appservice::editPerson(int id){
+string appservice::editPerson(int id) {
     if(!checkIDExists(std::to_string(id)))
         return "Person of ID: " + std::to_string(id) + " does not exist!\n";
     return "Person found, you can input info now\n";
 }
-void appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear){
+void appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear) {
     Person p(id, name, sex, birth, death, contribution, turingYear);
     db.editDB(p);
 }
-
 Person appservice::getPersonFromId(int id) {
     for(unsigned int i = 0; i < people.size(); i++) {
         if(people.at(i).getId() == id) {

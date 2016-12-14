@@ -1,6 +1,5 @@
-#include "compservice.h"
-
 #include<iostream>
+#include "compservice.h"
 
 CompService::CompService() {
 
@@ -112,16 +111,16 @@ vector<Comps> CompService::sortByName() {
     for(unsigned int i = 0; i < computers.size(); i++)
                 names.push_back(computers.at(i).getName());
 
-     std::sort(names.begin(), names.end());
+    std::sort(names.begin(), names.end());
 
-        for(unsigned int i = 0; i < names.size(); i++) {
-            for(unsigned int j = 0; j < computers.size(); j++)
-                if(names.at(i) == computers.at(j).getName()
-                && !containsID(IDs, computers.at(j).getId())) {
-                     IDs.push_back(computers.at(j).getId());
-                     sorted.push_back(computers.at(j));
-                }
-        }
+    for(unsigned int i = 0; i < names.size(); i++) {
+        for(unsigned int j = 0; j < computers.size(); j++)
+            if(names.at(i) == computers.at(j).getName()
+            && !containsID(IDs, computers.at(j).getId())) {
+                IDs.push_back(computers.at(j).getId());
+                sorted.push_back(computers.at(j));
+            }
+    }
     return sorted;
 }
 vector<Comps> CompService::sortByNameDec() {
@@ -141,10 +140,10 @@ vector<Comps> CompService::sortByType() {
     std::sort(types.begin(), types.end());
 
     for(unsigned int i = 0; i < types.size(); i++) {
-        for(unsigned int j = 0; j < computers.size(); j++){
+        for(unsigned int j = 0; j < computers.size(); j++) {
 
             if(types.at(i) == computers.at(j).getType()
-               && !containsID(IDs, computers.at(j).getId())){
+               && !containsID(IDs, computers.at(j).getId())) {
 
                 IDs.push_back(computers.at(j).getId());
                 sorted.push_back(computers.at(j));
@@ -241,7 +240,8 @@ string CompService::deleteComputers(string name, string type) {
     return "Computer: \n" + result.getName() + "\n not found\n";
 }
 
-int CompService::getCompID(string name, string type){
+// Get ID
+int CompService::getCompID(string name, string type) {
 
     for(unsigned int i = 0; i < computers.size(); i++) {
         string c_name = computers.at(i).getName();
@@ -321,15 +321,9 @@ bool CompService::checkIDExists(string id) {
     }
     return false;
 }
-
-Comps CompService::getCompFromId(int id)
-{
-    for(unsigned int i=0; i<computers.size(); i++)
-    {
+Comps CompService::getCompFromId(int id) {
+    for(unsigned int i=0; i<computers.size(); i++) {
         if(computers.at(i).getId() == id)
             return computers.at(i);
     }
-
-
-
 }

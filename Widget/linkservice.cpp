@@ -1,6 +1,5 @@
-#include "linkservice.h"
-
 #include <iostream>
+#include "linkservice.h"
 
 using namespace std;
 
@@ -28,7 +27,6 @@ vector<Person> LinkService::getPersList() {
 
 //Creates a new link
 string LinkService::create(string computerID, string personID) {
-
     bool flagc = false;
     bool flagp = false;
 
@@ -116,7 +114,6 @@ string LinkService::deleteLink(int cid, int pid) {
 }
 
 void LinkService::updateLinkc(int cid) {
-
     for(unsigned int i = 0; i < _linkList.size(); i++) {
         if(_linkList.at(i).getCID() == cid) {
             _linkList.erase(_linkList.begin() + i );
@@ -127,7 +124,6 @@ void LinkService::updateLinkc(int cid) {
 }
 
 void LinkService::updateLinkp(int pid) {
-
     for(unsigned int i = 0; i < _linkList.size(); i++) {
         if(_linkList.at(i).getPID() == pid) {
             _linkList.erase(_linkList.begin() + i );

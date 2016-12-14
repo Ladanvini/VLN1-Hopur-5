@@ -3,12 +3,10 @@
 
 DialogTicTacToe::DialogTicTacToe(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogTicTacToe)
-{
+    ui(new Ui::DialogTicTacToe) {
     ui->setupUi(this);
 }
 
-DialogTicTacToe::~DialogTicTacToe()
-{
+DialogTicTacToe::~DialogTicTacToe() {
     delete ui;
 }

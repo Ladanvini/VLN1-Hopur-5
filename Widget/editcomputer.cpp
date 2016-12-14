@@ -3,12 +3,10 @@
 
 editComputer::editComputer(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::editComputer)
-{
+    ui(new Ui::editComputer) {
     ui->setupUi(this);
 }
 
-editComputer::~editComputer()
-{
+editComputer::~editComputer() {
     delete ui;
 }

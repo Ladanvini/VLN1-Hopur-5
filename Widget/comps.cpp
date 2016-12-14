@@ -1,6 +1,6 @@
 #include "comps.h"
 
-Comps::Comps(){
+Comps::Comps() {
     _name = "";
     _type = "";
     _yearBuilt = 0;
@@ -8,7 +8,7 @@ Comps::Comps(){
     _built = false;
 }
 
-Comps::Comps(int id, string name, string type, int yearBuilt, bool built){
+Comps::Comps(int id, string name, string type, int yearBuilt, bool built) {
     _id = id;
     _name = name;
     _type = type;
@@ -26,7 +26,7 @@ string Comps::getType() {
 bool Comps::getBuilt() {
     return _built;
 }
-int Comps::getId(){
+int Comps::getId() {
     return _id;
 }
 int Comps::getYearBuilt() {
@@ -46,7 +46,7 @@ void Comps::setBuilt(bool built) {
 void Comps::setYearBuilt(int yearBuilt) {
     _yearBuilt = yearBuilt;
 }
-void Comps::setId(int id){
+void Comps::setId(int id) {
     _id = id;
 }
 

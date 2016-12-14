@@ -3,18 +3,15 @@
 
 editPerson::editPerson(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::editPerson)
-{
+    ui(new Ui::editPerson) {
     ui->setupUi(this);
 }
 
-editPerson::~editPerson()
-{
+editPerson::~editPerson() {
     delete ui;
 }
 
-void editPerson::on_pBEdit_clicked()
-{
+void editPerson::on_pBEdit_clicked() {
     int id = 0;
     int birth = ui->input_birthYear->text().toInt();
     int death = ui->input_deathYear->text().toInt();
@@ -44,7 +41,6 @@ void editPerson::on_pBEdit_clicked()
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
 }
 
-void editPerson::on_pBCancel_clicked()
-{
+void editPerson::on_pBCancel_clicked() {
 
 }

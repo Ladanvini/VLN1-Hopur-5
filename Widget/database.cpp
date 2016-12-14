@@ -1,9 +1,8 @@
-#include "database.h"
-
 #include <fstream>
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include "database.h"
 
 using namespace std;
 
@@ -261,7 +260,6 @@ bool Database::existsInCompDB(Comps c) {
         transform(c2name.begin(), c2name.end(), c2name.begin(), ::tolower);
         transform(c2type.begin(), c2type.end(), c2type.begin(), ::tolower);
 
-
         if (c2name.find(cname) != std::string::npos
                 && c2type.find(ctype) != std::string::npos
                 && _computers.at(i).getYearBuilt() == c.getYearBuilt())
@@ -302,7 +300,7 @@ void Database::delFromDB(Person p) {
             _people.erase(_people.begin() + i);
         }
     }
-    for(unsigned int i = 0; i < _connections.size(); i++){
+    for(unsigned int i = 0; i < _connections.size(); i++) {
         if(_connections.at(i).getPID() == p.getId())
             _connections.erase(_connections.begin()+i);
     }
@@ -429,8 +427,6 @@ void Database::editDB(Person p) {
     cout << _db.commit() << endl;
     _db.close();
 }
-
-
 
 //Edit computers
 void Database::editCompDB(Comps c) {

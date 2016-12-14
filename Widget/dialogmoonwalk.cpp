@@ -3,12 +3,10 @@
 
 DialogMoonWalk::DialogMoonWalk(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogMoonWalk)
-{
+    ui(new Ui::DialogMoonWalk) {
     ui->setupUi(this);
 }
 
-DialogMoonWalk::~DialogMoonWalk()
-{
+DialogMoonWalk::~DialogMoonWalk() {
     delete ui;
 }

@@ -3,18 +3,15 @@
 
 AddLinksMenu::AddLinksMenu(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddLinksMenu)
-{
+    ui(new Ui::AddLinksMenu) {
     ui->setupUi(this);
 }
 
-AddLinksMenu::~AddLinksMenu()
-{
+AddLinksMenu::~AddLinksMenu() {
     delete ui;
 }
 
-void AddLinksMenu::on_pLAdd_clicked()
-{
+void AddLinksMenu::on_pLAdd_clicked() {
     string PID = ui->input_PID->text().toStdString();
     string CID = ui->input_CID->text().toStdString();
 
@@ -25,18 +22,13 @@ void AddLinksMenu::on_pLAdd_clicked()
     //TODO
 
 //creating the person
-
     _ls.create(PID, CID);
-
     DisplayList dll;
-
     this->close();
-
     dll.displayLinks();
 }
 
-void AddLinksMenu::on_pLBack_clicked()
-{
+void AddLinksMenu::on_pLBack_clicked() {
     DisplayList dl;
     dl.show();
     this->close();

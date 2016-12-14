@@ -3,12 +3,10 @@
 
 DialogUnicorn::DialogUnicorn(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogUnicorn)
-{
+    ui(new Ui::DialogUnicorn) {
     ui->setupUi(this);
 }
 
-DialogUnicorn::~DialogUnicorn()
-{
+DialogUnicorn::~DialogUnicorn() {
     delete ui;
 }
