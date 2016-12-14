@@ -45,7 +45,15 @@ public:
     string deletePerson(string name, int birth);
 
     // Edit
+    /*
+     * First we check if the person exists with editPerson function,
+     * then we open the edit page and have the user input the information
+     * then call the editPersonWith function with the information of the person
+     * along with the previously inputted id
+     */
+
     string editPerson(int id);
+    void editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear);
     // Showing
     string showPeople(vector<Person> results);
     string showPeopleTable(vector<Person> results);
