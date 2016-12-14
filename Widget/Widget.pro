@@ -24,12 +24,9 @@ SOURCES += main.cpp\
     tictactoe.cpp \
     unicorn.cpp \
     displaylist.cpp \
-    addtodb.cpp \
     personcreatemenu.cpp \
     addcomputermenu.cpp \
-    searchmenu.cpp \
     funmenu.cpp \
-    messagebox.cpp \
     addlinksmenu.cpp \
     dialogtictactoe.cpp \
     dialogmoonwalk.cpp \
@@ -47,12 +44,9 @@ HEADERS  += mainwindow.h \
     person.h \
     links.h \
     displaylist.h \
-    addtodb.h \
     personcreatemenu.h \
     addcomputermenu.h \
-    searchmenu.h \
     funmenu.h \
-    messagebox.h \
     addlinksmenu.h \
     dialogtictactoe.h \
     dialogmoonwalk.h \
@@ -61,12 +55,9 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
-    addtodb.ui \
     personcreatemenu.ui \
     addcomputermenu.ui \
-    searchmenu.ui \
     funmenu.ui \
-    messagebox.ui \
     addlinksmenu.ui \
     dialogtictactoe.ui \
     dialogmoonwalk.ui \

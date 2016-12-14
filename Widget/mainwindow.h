@@ -10,15 +10,12 @@
 #include "linkservice.h"
 
 #include "displaylist.h"
-#include "addtodb.h"
-#include "searchmenu.h"
 #include "funmenu.h"
 
 
 
-static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
-//static QString _dbpath = "C:\VLN1-Hopur-5\create.sqlite";
+static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
 
 static appservice _ps = appservice(_dbpath);
