@@ -26,7 +26,6 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
     <number>2</number>
    </property>
    <widget class="QWidget" name="tPerson">
@@ -503,6 +502,26 @@
        <height>20</height>
       </rect>
      </property>
+    </widget>
+    <widget class="QComboBox" name="cB_SearchForLinks">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>15</y>
+       <width>79</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </item>
     </widget>
    </widget>
   </widget>
