@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     editcomputer.cpp \
     dialogtictactoe.cpp \
     editlink.cpp \
-    profile.cpp
+    profile.cpp \
+    trashservice.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -57,7 +58,8 @@ HEADERS  += mainwindow.h \
     editcomputer.h \
     dialogtictactoe.h \
     editlink.h \
-    profile.h
+    profile.h \
+    trashservice.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
