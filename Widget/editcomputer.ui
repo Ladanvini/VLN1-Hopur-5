@@ -36,7 +36,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pBAdd">
+  <widget class="QPushButton" name="editComp">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -119,6 +119,45 @@
    </property>
    <property name="text">
     <string>Type:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_error_name">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>30</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_error_type">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>60</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_error_yearBuilt">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>90</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

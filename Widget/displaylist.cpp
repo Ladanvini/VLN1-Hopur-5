@@ -249,7 +249,15 @@ void DisplayList::on_pBPEdit_clicked() {
 }
 
 void DisplayList::on_pBCEdit_clicked() {
+    int currentlySelectedID;
+
+    int currentlySelectedCompsIndex = ui->ListComputers->currentIndex().row();
+    Comps currentlySelectedComps = currentlyDisplayedComps.at(currentlySelectedCompsIndex);
+
+    currentlySelectedID = currentlySelectedComps.getId();
+
     editComputer ec;
+    ec._editWithId(currentlySelectedID);
     ec.exec();
 }
 /*************************SEARCH****************************/
