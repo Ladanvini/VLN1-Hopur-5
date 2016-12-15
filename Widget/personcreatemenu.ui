@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Enter year of death (if Dead):</string>
+    <string>Enter year of death (if dead):</string>
    </property>
   </widget>
   <widget class="QLabel" name="l_Contribution">

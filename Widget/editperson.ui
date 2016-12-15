@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
+    <width>524</width>
     <height>315</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
+     <y>25</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>50</y>
+     <y>55</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>80</y>
+     <y>85</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -56,20 +56,20 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>110</y>
-     <width>141</width>
+     <y>115</y>
+     <width>171</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Enter year of death(if dead):</string>
+    <string>Enter year of death (if dead):</string>
    </property>
   </widget>
   <widget class="QLabel" name="l_turing">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>140</y>
+     <y>145</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -82,13 +82,13 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>180</y>
+     <y>170</y>
      <width>141</width>
-     <height>16</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Contribution:</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Contribution of the &lt;br/&gt;person:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="input_name">
@@ -114,8 +114,8 @@
   <widget class="QLineEdit" name="input_deathYear">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>110</y>
+     <x>210</x>
+     <y>115</y>
      <width>113</width>
      <height>24</height>
     </rect>
@@ -135,7 +135,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>80</y>
+     <y>85</y>
      <width>71</width>
      <height>20</height>
     </rect>
@@ -148,7 +148,7 @@
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>80</y>
+     <y>85</y>
      <width>71</width>
      <height>17</height>
     </rect>
@@ -161,7 +161,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>140</y>
+     <y>145</y>
      <width>79</width>
      <height>24</height>
     </rect>
@@ -452,8 +452,8 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>20</y>
-     <width>91</width>
+     <y>25</y>
+     <width>131</width>
      <height>24</height>
     </rect>
    </property>
@@ -468,8 +468,8 @@
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>50</y>
-     <width>131</width>
+     <y>55</y>
+     <width>191</width>
      <height>24</height>
     </rect>
    </property>
@@ -483,9 +483,9 @@
   <widget class="QLabel" name="l_error_death">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>110</y>
-     <width>141</width>
+     <x>330</x>
+     <y>115</y>
+     <width>181</width>
      <height>24</height>
     </rect>
    </property>
@@ -500,8 +500,8 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>140</y>
-     <width>181</width>
+     <y>145</y>
+     <width>241</width>
      <height>24</height>
     </rect>
    </property>
