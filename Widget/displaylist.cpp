@@ -14,7 +14,6 @@ DisplayList::DisplayList(QWidget *parent) :
     _ls = LinkService(Database(_dbpath));
 
     ui->setupUi(this);
-
     displayPeople();
     displayComps();
     displayLinks();
@@ -279,13 +278,13 @@ void DisplayList::on_input_SearchComp_clicked()
     string CompsCB = ui->cB_SearchForComp->currentText().toStdString();
 
     if(CompsCB == "Name")
-        _cs.searchByName(ui->input_SearchComp->text().toStdString());
+        displayComps(_cs.searchByName(ui->le_SearchComp->text().toStdString()));
     else if(CompsCB == "Type")
-        _cs.searchByType(ui->input_SearchComp->text().toStdString());
+        displayComps(_cs.searchByType(ui->le_SearchComp->text().toStdString()));
     else if(CompsCB == "Built")
-        _cs.searchByBuilt(ui->input_SearchComp->text().toInt());
+        displayComps(_cs.searchByBuilt(ui->le_SearchComp->text().toStdString()));
     else if(CompsCB == "ID")
-        _cs.searchById(ui->input_SearchComp->text().toInt());
+        displayComps(_cs.searchById(ui->le_SearchComp->text().toStdString()));
 
 }
 
@@ -294,17 +293,108 @@ void DisplayList::on_input_SearchPers_clicked()
     string PersonCB = ui->cB_SearchForPers->currentText().toStdString();
 
     if(PersonCB == "Name")
-        _ps.searchByName(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByName(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Gender")
-        _ps.searchBySex(ui->input_SearchPers->text().toStdString());
+    {
+        displayPeople(_ps.searchBySex(ui->le_SearchPers->text().toStdString()));
+    }
     else if(PersonCB == "Age")
-        _ps.searchByAge(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByAge(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Birth")
-        _ps.searchByBirth(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByBirth(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Death")
-        _ps.searchByDeath(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByDeath(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Turing")
-        _ps.searchByTuring(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByTuring(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Contribution")
-        _ps.searchByContribution(ui->input_SearchPers->text().toStdString());
+        displayPeople(_ps.searchByContribution(ui->le_SearchPers->text().toStdString()));
+}
+
+void DisplayList::displayPeople(vector<Person> people)
+{
+
+
+    ui->ListPersons->setColumnWidth(0, 50);
+    ui->ListPersons->setColumnWidth(1, 100);
+    ui->ListPersons->setColumnWidth(2, 50);
+    ui->ListPersons->setColumnWidth(3, 50);
+    ui->ListPersons->setColumnWidth(4, 75);
+    ui->ListPersons->setColumnWidth(5, 75);
+    ui->ListPersons->setColumnWidth(6, 75);
+    ui->ListPersons->setColumnWidth(7, 175);
+
+    ui->ListPersons->setRowCount(people.size());
+
+    QString PID;
+    QString PName;
+    QString PGender;
+    QString PAge;
+    QString PBirth;
+    QString PDeath;
+    QString PTuring;
+    QString PContribution;
+
+    for(unsigned int i = 0; i < people.size(); i++) {
+        PID = QString::number(people.at(i).getId());
+        PName = QString::fromStdString(people.at(i).getName());
+        if(people.at(i).getSex() == 'm')
+            PGender = "Male";
+        else
+            PGender = "Female";
+        if(people.at(i).getAge() < 10)
+            PAge = "0" + QString::number(people.at(i).getAge());
+        else
+            PAge = QString::number(people.at(i).getAge());
+
+        PBirth = QString::number(people.at(i).getBirth());
+        PDeath = QString::number(people.at(i).getDeath());
+        PTuring = QString::number(people.at(i).getTuringYear());
+        PContribution = QString::fromStdString(people.at(i).getContribution());
+
+        ui->ListPersons->setItem(i, 0, new QTableWidgetItem(PID));
+        ui->ListPersons->setItem(i, 1, new QTableWidgetItem(PName));
+        ui->ListPersons->setItem(i, 2, new QTableWidgetItem(PGender));
+        ui->ListPersons->setItem(i, 3, new QTableWidgetItem(PAge));
+        ui->ListPersons->setItem(i, 4, new QTableWidgetItem(PBirth));
+        ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PDeath));
+        ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PTuring));
+        ui->ListPersons->setItem(i, 7, new QTableWidgetItem(PContribution));
+    }
+    currentlyDisplayedPerson = people;
+}
+void DisplayList::displayComps(vector<Comps> comps){
+    ui->ListComputers->setColumnWidth(0, 50);
+    ui->ListComputers->setColumnWidth(3, 150);
+
+
+
+    ui->ListComputers->setRowCount(comps.size());
+
+    QString ID;
+    QString Name;
+    QString Type;
+    QString YearBuilt;
+
+    for(unsigned int i = 0; i < comps.size(); i++) {
+        ID = QString::number(comps.at(i).getId());
+        Name = QString::fromStdString(comps.at(i).getName());
+        Type = QString::fromStdString(comps.at(i).getType());
+        YearBuilt = QString::number(comps.at(i).getYearBuilt());
+
+        ui->ListComputers->setItem(i, 0, new QTableWidgetItem(ID));
+        ui->ListComputers->setItem(i, 1, new QTableWidgetItem(Name));
+        ui->ListComputers->setItem(i, 2, new QTableWidgetItem(Type));
+        ui->ListComputers->setItem(i, 3, new QTableWidgetItem(YearBuilt));
+    }
+    currentlyDisplayedComps = comps;
+}
+
+void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
+{
+    if(ui->cB_SearchForPers->currentText() == "Gender")
+    {
+        ui->le_SearchPers->setText("Input 'F'or 'M' ");
+
+    }
+
 }

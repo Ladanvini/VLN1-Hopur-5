@@ -20,6 +20,9 @@ public:
     void displayPeople();
     void displayComps();
     void displayLinks();
+    void displayPeople(vector<Person> peeps);
+    void displayComps(vector<Comps> computs);
+
 private slots:
     void on_pBPBack_clicked();
     void on_pBLBack_clicked();
@@ -39,6 +42,8 @@ private slots:
     void on_input_SearchComp_clicked();
 
     void on_input_SearchPers_clicked();
+
+    void on_cB_SearchForPers_currentTextChanged(const QString &arg1);
 
 private:
     Ui::DisplayList *ui;

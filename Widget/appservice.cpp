@@ -58,14 +58,23 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
 //####################SEARCH###################//
 
 vector<Person> appservice::searchByName(string name) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+    people = db.getList();
+
     transform(name.begin(), name.end(), name.begin(), ::tolower);
+
     string _name = "";
+    if(name == "")
+        return people;
 
     vector<Person> result;
-
+    transform(name.begin(), name.end(), name.begin(), ::tolower);
     for(size_t i = 0; i < people.size(); i++) {
 
         _name = people.at(i).getName();
+
         transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
         if(_name.find(name) != std::string::npos) {
             result.push_back(people.at(i));
@@ -74,9 +83,14 @@ vector<Person> appservice::searchByName(string name) {
     return result;
 }
 vector<Person> appservice::searchByAge(string age) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+    people = db.getList();
+
     vector<Person> result;
         if(age == "")
-            return result;
+            return people;
 
     int agedig = stoi(age);
     int _age;
@@ -90,6 +104,14 @@ vector<Person> appservice::searchByAge(string age) {
     return result;
 }
 vector<Person> appservice::searchBySex(string _sex) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
+    people = db.getList();
+    if(_sex == "")
+        return people;
+
     vector<Person> result;
     char sex = _sex.at(0);
     for(size_t i = 0; i < people.size(); i++) {
