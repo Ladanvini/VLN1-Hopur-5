@@ -131,7 +131,7 @@ void editPerson::on_pBEdit_clicked() {
 
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
 
->>>>>>> c981e77a32e1f06d6e958d32dd56c5bdb71d285f
+
     DisplayList dl;
     dl.show();
     this->close();
