@@ -7,9 +7,9 @@ TrashBin::TrashBin(QWidget *parent) :
 {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
-     CompService _cs(Database(_dbpath));
-    appservice _ps(Database(_dbpath));
-    LinkService _ls(Database(_dbpath));
+    _cs = CompService(Database(_dbpath));
+    _ps = appservice(Database(_dbpath));
+    _ls = LinkService(Database(_dbpath));
 
     ui->setupUi(this);
     displayPeople();
