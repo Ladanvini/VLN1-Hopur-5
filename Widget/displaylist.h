@@ -22,6 +22,7 @@ public:
     void displayLinks();
     void displayPeople(vector<Person> peeps);
     void displayComps(vector<Comps> computs);
+    void displayLinks(vector<Links> links);
 
     vector<Person> currentlyDisplayedPerson;
     vector<Comps> currentlyDisplayedComps;
@@ -51,6 +52,8 @@ private slots:
     void on_cB_SearchForPers_currentTextChanged(const QString &arg1);
 
 
+
+    void on_input_SearchLink_clicked();
 
 private:
     Ui::DisplayList *ui;
