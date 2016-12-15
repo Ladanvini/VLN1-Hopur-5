@@ -4,6 +4,12 @@
 AddComputerMenu::AddComputerMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddComputerMenu) {
+/*    _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _cs = CompService(_dbpath);
+    _ps = appservice(_dbpath);
+    _ls = LinkService(_dbpath);
+*/
     ui->setupUi(this);
 }
 

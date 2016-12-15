@@ -27,15 +27,24 @@ vector<Person> LinkService::getPersList() {
 
 //Creates a new link
 string LinkService::create(string computerID, string personID) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+
     bool flagc = false;
     bool flagp = false;
+    if(computerID == "")
+        return "Computer ID is empty\n";
+    if(personID == "")
+        return "Person ID is empty\n";
 
     int cID = stoi(computerID);
     int pID = stoi(personID);
 
     Comps c;
     Person p;
-    _db = Database(_db.getDbName());
+
     _linkList = _db.getConnectionList();
     _compList = _db.getComputerList();
     _persList = _db.getList();
@@ -53,11 +62,20 @@ string LinkService::create(string computerID, string personID) {
         }
     }
     if(!flagc)
+    {
+
         return "Computer " + computerID + " Not Found\n";
+    }
     if(!flagp)
+    {
+
         return "Person " + personID + " Not Found\n";
+    }
     if(exists(stoi(computerID), stoi(personID)))
+    {
+
         return "Link already exists\n";
+    }
 
     _linkList.push_back(Links(c, p));
     _db.updateLinkDB(_linkList);
