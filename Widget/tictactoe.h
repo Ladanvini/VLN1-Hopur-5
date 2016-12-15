@@ -2,6 +2,7 @@
 #define TICTACTOE_H
 
 #include <iostream>
+#include "dialogtictactoe.h"
 
 using namespace std;
 

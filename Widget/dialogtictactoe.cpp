@@ -1,10 +1,14 @@
 #include "dialogtictactoe.h"
 #include "ui_dialogtictactoe.h"
+#include <QMessageBox>
 
 DialogTicTacToe::DialogTicTacToe(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogTicTacToe)
 {
+    QPainter *painter = new QPainter(this);
+
+    painter->setPen(Qt::green);
     ui->setupUi(this);
 
 
@@ -23,54 +27,34 @@ DialogTicTacToe::DialogTicTacToe(QWidget *parent) :
    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
 
 
-   QLineF topLine(scene->sceneRect().topLeft(),
-                  scene->sceneRect().topRight());
-   QLineF leftLine(scene->sceneRect().topLeft(),
-                   scene->sceneRect().bottomLeft());
-   QLineF rightLine(scene->sceneRect().topRight(),
-                    scene->sceneRect().bottomRight());
-   QLineF bottomLine(scene->sceneRect().bottomLeft(),
-                     scene->sceneRect().bottomRight());
-
-   QPen myPen = QPen(Qt::black);
-
-
-
-
-   scene->addLine(topLine, myPen);
-   scene->addLine(leftLine, myPen);
-   scene->addLine(rightLine, myPen);
-   scene->addLine(bottomLine, myPen);
-
-
    //Create Rect Item
 
-   QGraphicsRectItem * rect = new QGraphicsRectItem(50,100,100,100);
-      QGraphicsRectItem * rect1 = new QGraphicsRectItem(150,100,100,100);
-      QGraphicsRectItem * rect2 = new QGraphicsRectItem(250,100,100,100);
-      QGraphicsRectItem * rect3 = new QGraphicsRectItem(50,200,100,100);
-      QGraphicsRectItem * rect4 = new QGraphicsRectItem(150,200,100,100);
-      QGraphicsRectItem * rect5 = new QGraphicsRectItem(250,200,100,100);
-      QGraphicsRectItem * rect6 = new QGraphicsRectItem(50,300,100,100);
-      QGraphicsRectItem * rect7 = new QGraphicsRectItem(150,300,100,100);
-      QGraphicsRectItem * rect8 = new QGraphicsRectItem(250,300,100,100);
+      QGraphicsRectItem * rects = new QGraphicsRectItem(50,100,100,100);
+      QGraphicsRectItem * rects1 = new QGraphicsRectItem(150,100,100,100);
+      QGraphicsRectItem * rects2 = new QGraphicsRectItem(250,100,100,100);
+      QGraphicsRectItem * rects3 = new QGraphicsRectItem(50,200,100,100);
+      QGraphicsRectItem * rects4 = new QGraphicsRectItem(150,200,100,100);
+      QGraphicsRectItem * rects5 = new QGraphicsRectItem(250,200,100,100);
+      QGraphicsRectItem * rects6 = new QGraphicsRectItem(50,300,100,100);
+      QGraphicsRectItem * rects7 = new QGraphicsRectItem(150,300,100,100);
+      QGraphicsRectItem * rects8 = new QGraphicsRectItem(250,300,100,100);
 
 
       // Add item to the scene.
 
-      scene->addItem(rect);
-      scene->addItem(rect1);
-      scene->addItem(rect2);
-      scene->addItem(rect3);
-      scene->addItem(rect4);
-      scene->addItem(rect5);
-      scene->addItem(rect6);
-      scene->addItem(rect7);
-      scene->addItem(rect8);
-
-   }
+          scene->addItem(rects);
+          scene->addItem(rects1);
+          scene->addItem(rects2);
+          scene->addItem(rects3);
+          scene->addItem(rects4);
+          scene->addItem(rects5);
+          scene->addItem(rects6);
+          scene->addItem(rects7);
+          scene->addItem(rects8);
 
 
+
+}
 
 DialogTicTacToe::~DialogTicTacToe()
 {
@@ -82,6 +66,39 @@ void DialogTicTacToe::on_pBExit_clicked(){
     DialogTicTacToe t;
     t.close();
     this ->close();
+
+
+}
+void DialogTicTacToe::TicTacToeSource(){
+
+
+
+
+
+
+
+
+//TicTacToe InitializeBoard();
+
+
+//TicTacToe printBoard();
+
+
+//TicTacToe::InsertIntoBoard();
+
+// I am trying to figgure this out.
+/*TicTacToe::CheckIfWinner();
+if(false){
+
+    QMessageBox::StandardButton reply;
+    replay = QMessageBox::question(this, "The Game is over. Do you want to play new game",
+            QMessageBox::Yes|QMessageBox::No);
+*/
+
+
+
+
+
 
 
 }

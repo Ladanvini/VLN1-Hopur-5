@@ -151,7 +151,10 @@ void DisplayList::displayComps() {
     QString YearBuilt;
 
     for(unsigned int i = 0; i < comps.size(); i++) {
-        ID = QString::number(comps.at(i).getId());
+        if(comps.at(i).getId() < 10)
+            ID = "0" + QString::number(comps.at(i).getId());
+        else
+            ID = QString::number(comps.at(i).getId());
         Name = QString::fromStdString(comps.at(i).getName());
         Type = QString::fromStdString(comps.at(i).getType());
         YearBuilt = QString::number(comps.at(i).getYearBuilt());
@@ -188,7 +191,10 @@ void DisplayList::displayPeople() {
     QString PContribution;
 
     for(unsigned int i = 0; i < people.size(); i++) {
-        PID = QString::number(people.at(i).getId());
+        if(people.at(i).getId() < 10)
+            PID = "0" + QString::number(people.at(i).getId());
+        else
+            PID = QString::number(people.at(i).getId());
         PName = QString::fromStdString(people.at(i).getName());
         if(people.at(i).getSex() == 'm')
             PGender = "Male";
@@ -232,9 +238,15 @@ void DisplayList::displayLinks() {
     QString LComp;
 
     for(unsigned int i = 0; i < links.size(); i++) {
-        LPID = QString::number(links.at(i).getPID());
+        if(links.at(i).getPID() < 10)
+            LPID = "0" + QString::number(links.at(i).getPID());
+        else
+            LPID = QString::number(links.at(i).getPID());
         LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
-        LCID = QString::number(links.at(i).getCID());
+        if(links.at(i).getCID() < 10)
+            LCID = "0" + QString::number(links.at(i).getCID());
+        else
+            LCID = QString::number(links.at(i).getCID());
         LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
 
         ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LPID));

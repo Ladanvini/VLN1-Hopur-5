@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     dialogtictactoe.cpp \
     editlink.cpp \
     profile.cpp \
-    trashservice.cpp
+    trashservice.cpp\
+    trashbin.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -59,7 +60,8 @@ HEADERS  += mainwindow.h \
     dialogtictactoe.h \
     editlink.h \
     profile.h \
-    trashservice.h
+    trashservice.h\
+    trashbin.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -73,7 +75,8 @@ FORMS    += mainwindow.ui \
     editcomputer.ui \
     dialogtictactoe.ui \
     editlink.ui \
-    profile.ui
+    profile.ui \
+    trashbin.ui
 
 RESOURCES += \
     markers.qrc
