@@ -75,11 +75,6 @@ void editPerson::on_pBEdit_clicked() {
         if(death != 0 && turing > death) {
             ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
         }
-
-        if(age >= 150) {
-            ui->l_error_death->setText("<span style='color: #ff0000'>This age is not possible!</span>");
-            ui->l_error_birth->setText("<span style='color: #ff0000'>This age is not possible!</span>");
-        }
         return;
     }
     if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear) {
@@ -96,11 +91,6 @@ void editPerson::on_pBEdit_clicked() {
         if(death != 0 && turing > death) {
             ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
         }
-
-        if(age >= 150) {
-            ui->l_error_death->setText("<span style='color: #ff0000'>This age is not possible!</span>");
-            ui->l_error_birth->setText("<span style='color: #ff0000'>This age is not possible!</span>");
-        }
         return;
     }
     if(!isOk_d || (death != 0 && death <= birth) || death >= currYear) {
@@ -112,11 +102,6 @@ void editPerson::on_pBEdit_clicked() {
 
         if(death != 0 && turing > death) {
             ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
-        }
-
-        if(age >= 150) {
-            ui->l_error_death->setText("<span style='color: #ff0000'>This age is not possible!</span>");
-            ui->l_error_birth->setText("<span style='color: #ff0000'>This age is not possible!</span>");
         }
         return;
     }
