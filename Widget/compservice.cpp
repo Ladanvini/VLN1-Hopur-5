@@ -56,6 +56,14 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
 //Search
 vector<Comps> CompService::searchByName(string name) {
 
+    //cout << "NAME: " << name << endl;
+
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+    computers = _db.getComputerList();
+
     transform(name.begin(), name.end(), name.begin(), ::tolower);
     string _name = "";
 
@@ -70,7 +78,16 @@ vector<Comps> CompService::searchByName(string name) {
     }
     return result;
 }
-vector<Comps> CompService::searchById(int id) {
+vector<Comps> CompService::searchById(string _id) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+    int id;
+    computers = _db.getComputerList();
+    if(_id == "")
+        return computers;
+    else
+        id = stoi(_id);
 
     vector<Comps> result;
 
@@ -83,17 +100,38 @@ vector<Comps> CompService::searchById(int id) {
 }
 vector<Comps> CompService::searchByType(string type) {
 
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+    computers = _db.getComputerList();
     vector<Comps> result;
 
+    string _type;
+    transform(type.begin(), type.end(), type.begin(), ::tolower);
     for(size_t i = 0; i < computers.size(); i++) {
-        if(type == computers.at(i).getType()) {
+        _type = computers.at(i).getType();
+        transform(_type.begin(), _type.end(), _type.begin(), ::tolower);
+        if(type.find(_type) != std::string::npos
+                ||
+                _type.find(type) != std::string::npos) {
             result.push_back(computers.at(i));
         }
     }
     return result;
 }
-vector<Comps> CompService::searchByBuilt(int yearBuilt) {
+vector<Comps> CompService::searchByBuilt(string _yearBuilt) {
+    int yearBuilt;
 
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+    computers = _db.getComputerList();
+    if(_yearBuilt == "")
+        return computers;
+    else
+        yearBuilt = stoi(_yearBuilt);
     vector<Comps> result;
 
     for(size_t i = 0; i < computers.size(); i++) {

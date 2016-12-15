@@ -21,9 +21,9 @@ public:
 
     //Search
     vector<Comps> searchByName(string name);
-    vector<Comps> searchById(int id);
+    vector<Comps> searchById(string _id);
     vector<Comps> searchByType(string type);
-    vector<Comps> searchByBuilt(int yearBuilt);
+    vector<Comps> searchByBuilt(string _yearBuilt);
 
     //Sort
     vector<Comps> sortByName();
