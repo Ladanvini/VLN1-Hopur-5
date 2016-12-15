@@ -26,7 +26,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tPerson">
     <attribute name="title">
@@ -233,6 +233,9 @@
        <width>611</width>
        <height>401</height>
       </rect>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>false</bool>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>

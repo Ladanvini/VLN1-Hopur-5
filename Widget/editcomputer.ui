@@ -161,6 +161,13 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>input_Name</tabstop>
+  <tabstop>input_Type</tabstop>
+  <tabstop>input_YearBuilt</tabstop>
+  <tabstop>editComp</tabstop>
+  <tabstop>pBBack</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
