@@ -11,6 +11,9 @@ private:
 
 public:
     TrashService();
+    vector<Comps> getTrashComp();
+    vector<Person> getTrashPeople();
+    vector<Links> getTrashLinks();
     void restoreComp(Comps c);
     void restorePers(Person p);
     void restoreLink(Links l);

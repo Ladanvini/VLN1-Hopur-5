@@ -692,9 +692,9 @@ void Database::restoreLink(Links l)
     string stmnt;
     stmnt = "DELETE FROM TrashLinks"
             " WHERE CID = "
-            + std::to_string(cId)
+            + std::to_string(l.getCID())
             + " AND tPID = "
-            + std::to_string(pId);
+            + std::to_string(l.getPID());
 
     if(!query.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;

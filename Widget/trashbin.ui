@@ -45,7 +45,7 @@
       <string>Back</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="ListTrashPersons">
+    <widget class="QTableWidget" name="ListPersons">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -125,7 +125,7 @@
     <attribute name="title">
      <string>Computer</string>
     </attribute>
-    <widget class="QTableWidget" name="ListTrashComputers">
+    <widget class="QTableWidget" name="ListComputers">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -198,7 +198,7 @@
     <attribute name="title">
      <string>Links</string>
     </attribute>
-    <widget class="QTableWidget" name="ListTrashLinks">
+    <widget class="QTableWidget" name="ListLinks">
      <property name="geometry">
       <rect>
        <x>10</x>
