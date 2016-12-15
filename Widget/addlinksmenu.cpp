@@ -82,6 +82,9 @@ void AddLinksMenu::displayPeople() {
          ui->table_person->setItem(i, 0, new QTableWidgetItem(PID));
          ui->table_person->setItem(i, 1, new QTableWidgetItem(PName));
      }
+
+
+
 }
 
 void AddLinksMenu::displayComps() {
@@ -102,4 +105,22 @@ void AddLinksMenu::displayComps() {
         ui->table_comps->setItem(i, 0, new QTableWidgetItem(ID));
         ui->table_comps->setItem(i, 1, new QTableWidgetItem(Name));
     }
+}
+
+void AddLinksMenu::on_table_person_clicked(const QModelIndex &index)
+{
+    int currentlySelectedPersIndex =
+            ui->table_person->currentIndex().row();
+    int pid = (currentlyDisplayedPeople.at(currentlySelectedPersIndex)).getId();
+    ui->input_PID->setText(QString::number(pid));
+
+
+}
+
+void AddLinksMenu::on_table_comps_clicked(const QModelIndex &index)
+{
+    int currentlySelectedCompIndex =
+            ui->table_comps->currentIndex().row();
+    int cid = (currentlyDisplayedComps.at(currentlySelectedCompIndex)).getId();
+    ui->input_CID->setText(QString::number(cid));
 }

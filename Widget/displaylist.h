@@ -23,6 +23,10 @@ public:
     void displayPeople(vector<Person> peeps);
     void displayComps(vector<Comps> computs);
 
+    vector<Person> currentlyDisplayedPerson;
+    vector<Comps> currentlyDisplayedComps;
+    vector<Links> currentlyDisplayedLink;
+
 private slots:
     void on_pBPBack_clicked();
     void on_pBLBack_clicked();
@@ -52,9 +56,6 @@ private slots:
 private:
     Ui::DisplayList *ui;
 
-    vector<Person> currentlyDisplayedPerson;
-    vector<Comps> currentlyDisplayedComps;
-    vector<Links> currentlyDisplayedLink;
 
 };
 
