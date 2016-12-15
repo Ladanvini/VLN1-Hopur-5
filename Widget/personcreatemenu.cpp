@@ -30,7 +30,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     char sex;
     string name = ui->input_Name->text().toStdString();
     string contribution = ui->input_Contribution->toPlainText().toStdString();
-    int turing = ui->cB_TuringYear->currentData().toInt();
+    int turing = ui->cB_TuringYear->currentText().toInt();
 
 //Setting death = 0 if empty
     if(deathstr.empty()) {
@@ -77,7 +77,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
                 }
 
-                if(turing > death) {
+                if(death != 0 && turing > death) {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 }
                 return;
@@ -94,7 +94,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
                 }
 
-                if(turing > death) {
+                if(death != 0 && turing > death) {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 }
                 return;
@@ -107,7 +107,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
                 }
 
-                if(turing > death) {
+                if(death != 0 && turing > death) {
                     ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 }
                 return;
@@ -118,7 +118,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                 return;
             }
 
-            if(turing > death) {
+            if(death != 0 && turing > death) {
                 ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 return;
             }
