@@ -1281,6 +1281,19 @@
     <string>Back</string>
    </property>
   </widget>
+  <widget class="QLabel" name="l_error_name">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>20</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>input_YearBorn</tabstop>

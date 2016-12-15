@@ -39,6 +39,15 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     else if(ui->rBFemale->isChecked())
         sex = 'f';
 
+    ui->l_error_name->setText("");
+
+
+//Error check TODO
+        if(name.empty() || name.at(0) == ' ') {
+            ui->l_error_name->setText("<span style='color: #ff0000'>Name not accepted!</span>");
+            return;
+        }
+
 //creating the person
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
     DisplayList dlp;
