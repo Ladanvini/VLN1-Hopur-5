@@ -9,9 +9,9 @@ DisplayList::DisplayList(QWidget *parent) :
     ui(new Ui::DisplayList) {
     _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
-    _cs = CompService(_dbpath);
-    _ps = appservice(_dbpath);
-    _ls = LinkService(_dbpath);
+    _cs = CompService(Database(_dbpath));
+    _ps = appservice(Database(_dbpath));
+    _ls = LinkService(Database(_dbpath));
 
     ui->setupUi(this);
 
@@ -249,7 +249,15 @@ void DisplayList::on_pBPEdit_clicked() {
 }
 
 void DisplayList::on_pBCEdit_clicked() {
+    int currentlySelectedID;
+
+    int currentlySelectedCompsIndex = ui->ListComputers->currentIndex().row();
+    Comps currentlySelectedComps = currentlyDisplayedComps.at(currentlySelectedCompsIndex);
+
+    currentlySelectedID = currentlySelectedComps.getId();
+
     editComputer ec;
+    ec._editWithId(currentlySelectedID);
     ec.exec();
 }
 /*************************SEARCH****************************/

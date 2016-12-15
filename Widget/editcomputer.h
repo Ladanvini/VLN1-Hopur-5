@@ -13,11 +13,10 @@ class editComputer : public QDialog {
 public:
     explicit editComputer(QWidget *parent = 0);
     ~editComputer();
+    void _editWithId(int ID);
 private slots:
     void on_pBBack_clicked();
-
-    void on_pBAdd_clicked();
-
+    void on_editComp_clicked();
 private:
     Ui::editComputer *ui;
 
