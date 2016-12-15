@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     editperson.cpp \
     editcomputer.cpp \
     dialogtictactoe.cpp \
-    editlink.cpp
+    editlink.cpp \
+    profile.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -55,7 +56,8 @@ HEADERS  += mainwindow.h \
     editperson.h \
     editcomputer.h \
     dialogtictactoe.h \
-    editlink.h
+    editlink.h \
+    profile.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -68,7 +70,8 @@ FORMS    += mainwindow.ui \
     editperson.ui \
     editcomputer.ui \
     dialogtictactoe.ui \
-    editlink.ui
+    editlink.ui \
+    profile.ui
 
 RESOURCES += \
     markers.qrc
