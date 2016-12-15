@@ -244,8 +244,18 @@ void DisplayList::displayLinks() {
 }
 
 void DisplayList::on_pBPEdit_clicked() {
+    int currentlySelectedID;
+
+    int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
+    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
+
+    currentlySelectedID = currentlySelectedPerson.getId();
+
     editPerson ep;
+    ep._editPersonWithId(currentlySelectedID);
     ep.exec();
+    displayPeople();
+
 }
 
 void DisplayList::on_pBCEdit_clicked() {

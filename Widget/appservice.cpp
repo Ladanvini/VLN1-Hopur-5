@@ -435,10 +435,19 @@ string appservice::editPerson(int id) {
     return "Person found, you can input info now\n";
 }
 void appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     Person p(id, name, sex, birth, death, contribution, turingYear);
     db.editDB(p);
 }
 Person appservice::getPersonFromId(int id) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+    people = db.getList();
+
     for(unsigned int i = 0; i < people.size(); i++) {
         if(people.at(i).getId() == id) {
             return people.at(i);

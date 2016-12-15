@@ -12,7 +12,9 @@ editPerson::~editPerson() {
 }
 
 void editPerson::on_pBEdit_clicked() {
-    int id = 0;
+
+
+    int id = _id;
     int birth = ui->input_birthYear->text().toInt();
     int death = ui->input_deathYear->text().toInt();
     int age;
@@ -39,6 +41,10 @@ void editPerson::on_pBEdit_clicked() {
         sex = 'f';
 
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
+
+    DisplayList dl;
+    dl.show();
+    this->close();
 }
 
 void editPerson::on_pBCancel_clicked() {
@@ -46,4 +52,28 @@ void editPerson::on_pBCancel_clicked() {
     dl.show();
     this->close();
 
+}
+
+void editPerson::_editPersonWithId(int id){
+
+    _id = id;
+
+    Person p = _ps.getPersonFromId(id);
+
+    ui->cB_TuringYear->setCurrentText(QString::number(p.getTuringYear()));
+    ui->input_birthYear->setText(QString::number(p.getBirth()));
+    ui->input_contribution->setPlainText(QString::fromStdString(p.getContribution()));
+    ui->input_deathYear->setText(QString::number(p.getDeath()));
+    ui->input_name->setText(QString::fromStdString(p.getName()));
+
+    if(p.getSex() == 'f')
+    {
+        ui->rbMale->setChecked(false);
+        ui->rbFemale->setChecked(true);
+    }
+    else
+    {
+        ui->rbMale->setChecked(true);
+        ui->rbFemale->setChecked(false);
+    }
 }

@@ -13,8 +13,10 @@ class editPerson;
 class editPerson : public QDialog {
     Q_OBJECT
 public:
+    int _id;
     explicit editPerson(QWidget *parent = 0);
     ~editPerson();
+    void _editPersonWithId(int id);
 private slots:
     void on_pBEdit_clicked();
     void on_pBCancel_clicked();
