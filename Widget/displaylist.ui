@@ -26,7 +26,11 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
+<<<<<<< HEAD
     <number>0</number>
+=======
+    <number>2</number>
+>>>>>>> a87b5afde92ee3ee2e78090b083113b70fa4322f
    </property>
    <widget class="QWidget" name="tPerson">
     <attribute name="title">

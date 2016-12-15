@@ -43,7 +43,11 @@ private slots:
 
     void on_input_SearchPers_clicked();
 
+
     void on_cB_SearchForPers_currentTextChanged(const QString &arg1);
+
+    void on_pBLEdit_clicked();
+
 
 private:
     Ui::DisplayList *ui;
