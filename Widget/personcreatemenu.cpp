@@ -73,12 +73,13 @@ void PersonCreateMenu::on_pBBack_clicked() {
 }
 
 //In: String
-//Out: True if the string contains no numbers
+//Out: True if the string contains no numbers or symbols
 bool PersonCreateMenu:: isNumb(string inputname){
+
     QString qInputName = QString::fromStdString(inputname);
     for(int i = 0; i < inputname.length();i++)
     {
-        if(qInputName.at(i).isDigit())
+        if(qInputName.at(i).isDigit()||!qInputName.at(i).isLetter())
             return false;
         else
             return true;
