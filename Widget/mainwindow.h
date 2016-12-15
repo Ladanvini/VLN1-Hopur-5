@@ -10,6 +10,7 @@
 #include "editlink.h"
 #include "displaylist.h"
 #include "funmenu.h"
+#include "trashbin.h"
 
 static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
@@ -30,6 +31,8 @@ private slots:
     void on_pBDisplay_clicked();
     void on_pBExit_clicked();
     void on_pBFunMenu_clicked();
+    void on_pBTrash_clicked();
+
 private:
     Ui::MainWindow *ui;
 

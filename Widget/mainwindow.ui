@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>564</width>
-    <height>206</height>
+    <height>276</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,6 +90,19 @@
     </property>
     <property name="text">
      <string>End the programs run.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pBTrash">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Back</string>
     </property>
    </widget>
   </widget>

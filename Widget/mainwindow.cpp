@@ -37,3 +37,9 @@ void MainWindow::on_pBFunMenu_clicked() {
     fm.exec();
     //this->show();
 }
+
+void MainWindow::on_pBTrash_clicked()
+{
+    TrashBin tb(this);
+    tb.exec();
+}
