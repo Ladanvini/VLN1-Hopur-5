@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "trashservice.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class TrashBin;
@@ -18,6 +19,19 @@ public:
     vector<Person> currentlyDisplayedPerson;
     vector<Comps> currentlyDisplayedComps;
     vector<Links> currentlyDisplayedLink;
+
+private slots:
+    void on_pBLRestore_clicked();
+
+    void on_pBCRestore_clicked();
+
+    void on_pBPRestore_clicked();
+
+    void on_pBPTBack_clicked();
+
+    void on_pBCTBack_clicked();
+
+    void on_pBLTBack_clicked();
 
 private:
     Ui::TrashBin *ui;

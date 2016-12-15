@@ -123,10 +123,14 @@ vector<Person> appservice::searchBySex(string _sex) {
     return result;
 }
 vector<Person> appservice::searchByDeath(string death) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     vector<Person> result;
     int _death;
     if(death == "")
-        return result;
+        return db.getList();
 
     int deathDig = stoi(death);
     for(size_t i = 0; i < people.size(); i++) {
@@ -139,11 +143,15 @@ vector<Person> appservice::searchByDeath(string death) {
     return result;
 }
 vector<Person> appservice::searchByBirth(string birth) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     vector<Person> result;
     int _birth;
 
     if(birth == "")
-        return result;
+        return db.getList();
 
     int bDig = stoi(birth);
     for(size_t i = 0; i < people.size(); i++) {
@@ -156,8 +164,14 @@ vector<Person> appservice::searchByBirth(string birth) {
     return result;
 }
 vector<Person> appservice::searchByContribution(string contribution) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     vector<Person> result;
     string _cont;
+    if(contribution == "")
+        return db.getList();
     for(size_t i = 0; i < people.size(); i++) {
         _cont = people.at(i).getContribution();
         transform(_cont.begin(), _cont.end(), _cont.begin(), ::tolower);
@@ -168,7 +182,13 @@ vector<Person> appservice::searchByContribution(string contribution) {
     return result;
 }
 vector<Person> appservice::searchByTuring(string _flag) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     vector<Person> result;
+    if(_flag == "")
+        return db.getList();
     bool flag;
     if(_flag.find("yes") != std::string::npos) {
         flag = true;

@@ -96,13 +96,13 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>130</y>
-      <width>80</width>
+      <y>140</y>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Back</string>
+     <string>Trash</string>
     </property>
    </widget>
   </widget>
@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>564</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

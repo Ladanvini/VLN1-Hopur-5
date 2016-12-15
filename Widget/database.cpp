@@ -635,7 +635,7 @@ vector<Links> Database::getTrashLinks()
 
     QSqlQuery queryL(_db);
 
-    queryL.exec("SELECT * FROM P_C_con");
+    queryL.exec("SELECT * FROM TrashLink");
 
     int pidL;
     int cidL;
@@ -644,7 +644,7 @@ vector<Links> Database::getTrashLinks()
 
     while(queryL.next()) {
 
-        pidL = queryL.value("PID").toInt();
+        pidL = queryL.value("tPID").toInt();
         cidL = queryL.value("CID").toInt();
 
         for(unsigned int i = 0; i < _computers.size(); i++) {

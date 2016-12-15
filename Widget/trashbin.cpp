@@ -152,3 +152,51 @@ void TrashBin::displayPeople()
     currentlyDisplayedPerson = people;
 
 }
+
+void TrashBin::on_pBLRestore_clicked()
+{
+    int currentIndex = ui->ListLinks->currentIndex().row();
+
+    _ts.restoreLink(currentlyDisplayedLink.at(currentIndex));
+
+    displayLinks();
+}
+
+void TrashBin::on_pBCRestore_clicked()
+{
+    int currentIndex = ui->ListComputers->currentIndex().row();
+
+    _ts.restoreComp(currentlyDisplayedComps.at(currentIndex));
+
+    displayComps();
+}
+
+void TrashBin::on_pBPRestore_clicked()
+{
+    int currentIndex = ui->ListPersons->currentIndex().row();
+
+    _ts.restorePers(currentlyDisplayedPerson.at(currentIndex));
+
+    displayPeople();
+}
+
+void TrashBin::on_pBPTBack_clicked()
+{
+    DisplayList dl;
+    this->hide();
+    dl.exec();
+}
+
+void TrashBin::on_pBCTBack_clicked()
+{
+    DisplayList dl;
+    this->hide();
+    dl.exec();
+}
+
+void TrashBin::on_pBLTBack_clicked()
+{
+    DisplayList dl;
+    this->hide();
+    dl.exec();
+}
