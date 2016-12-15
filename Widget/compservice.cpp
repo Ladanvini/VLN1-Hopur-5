@@ -257,6 +257,12 @@ string CompService::editComputer(string id) {
     if(!checkIDExists(id))
         return "Computer ID: " + id + "does not exist!\n";
 }
+void CompService::editComputerWith(int id, string name, string type, int yearBuilt) {
+    bool built = true;
+    if(yearBuilt == 0)
+        built = false;
+    _db.editCompDB(Comps(id, name, type, yearBuilt, built));
+}
 
 // Showing
 string CompService::showComputers(vector<Comps> results) {
