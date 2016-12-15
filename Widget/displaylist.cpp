@@ -308,3 +308,21 @@ void DisplayList::on_input_SearchPers_clicked()
     else if(PersonCB == "Contribution")
         _ps.searchByContribution(ui->input_SearchPers->text().toStdString());
 }
+
+void DisplayList::on_pBLEdit_clicked()
+{
+    int currentlySelectedPID;
+    int currentlySelectedCID;
+
+    int currentlySelectedLinksIndex = ui->ListLinks->currentIndex().row();
+    Links currentlySelectedLinks = currentlyDisplayedLink.at(currentlySelectedLinksIndex);
+
+    currentlySelectedPID = currentlySelectedLinks.getPID();
+    currentlySelectedCID = currentlySelectedLinks.getCID();
+
+    EditLink el;
+
+
+    el.exec();
+    displayLinks();
+}

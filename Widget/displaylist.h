@@ -40,6 +40,8 @@ private slots:
 
     void on_input_SearchPers_clicked();
 
+    void on_pBLEdit_clicked();
+
 private:
     Ui::DisplayList *ui;
 

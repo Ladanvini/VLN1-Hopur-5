@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     dialogunicorn.cpp \
     editperson.cpp \
     editcomputer.cpp \
-    dialogtictactoe.cpp
+    dialogtictactoe.cpp \
+    editlink.cpp
 
 HEADERS  += mainwindow.h \
     appservice.h \
@@ -53,7 +54,8 @@ HEADERS  += mainwindow.h \
     dialogunicorn.h \
     editperson.h \
     editcomputer.h \
-    dialogtictactoe.h
+    dialogtictactoe.h \
+    editlink.h
 
 FORMS    += mainwindow.ui \
     displaylist.ui \
@@ -65,7 +67,8 @@ FORMS    += mainwindow.ui \
     dialogunicorn.ui \
     editperson.ui \
     editcomputer.ui \
-    dialogtictactoe.ui
+    dialogtictactoe.ui \
+    editlink.ui
 
 RESOURCES += \
     markers.qrc
