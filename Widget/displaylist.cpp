@@ -416,10 +416,15 @@ void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
 {
     if(ui->cB_SearchForPers->currentText() == "Gender")
     {
-        ui->le_SearchPers->setText("Input 'F'or 'M' ");
+        ui->le_SearchPers->setPlaceholderText("Input 'F'or 'M' ");
 
     }
-
+    else if(ui->cB_SearchForPers->currentText() == "Turing")
+    {
+        ui->le_SearchPers->setPlaceholderText("Input 'Yes' or 'No'");
+    }
+    else
+        ui->le_SearchPers->setText("");
 }
 
 void DisplayList::displayLinks(vector<Links> links){

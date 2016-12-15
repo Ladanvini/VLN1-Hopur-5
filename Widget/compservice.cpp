@@ -63,6 +63,8 @@ vector<Comps> CompService::searchByName(string name) {
     _db = Database(_dbpath);
 
     computers = _db.getComputerList();
+    if(name == "")
+        return computers;
 
     transform(name.begin(), name.end(), name.begin(), ::tolower);
     string _name = "";
@@ -105,6 +107,10 @@ vector<Comps> CompService::searchByType(string type) {
     _db = Database(_dbpath);
 
     computers = _db.getComputerList();
+
+    if(type == "")
+        return computers;
+
     vector<Comps> result;
 
     string _type;
