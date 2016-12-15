@@ -275,32 +275,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="l_comps">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>270</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="text">
-    <string>Computers</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="list_comps">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>260</y>
-     <width>351</width>
-     <height>91</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="l_turing">
    <property name="geometry">
     <rect>
