@@ -5,7 +5,16 @@ AddLinksMenu::AddLinksMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddLinksMenu) {
 
+    _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _cs = CompService(Database(_dbpath));
+    _ps = appservice(Database(_dbpath));
+    _ls = LinkService(Database(_dbpath));
+
     ui->setupUi(this);
+
+    displayPeople();
+    displayComps();
 }
 
 AddLinksMenu::~AddLinksMenu() {
@@ -53,4 +62,44 @@ void AddLinksMenu::on_pLBack_clicked() {
     DisplayList dl;
     dl.show();
     this->close();
+}
+
+void AddLinksMenu::displayPeople() {
+    vector<Person> people = _ps.getList();
+
+    ui->table_person->setColumnWidth(0, 10);
+    ui->table_person->setColumnWidth(1, 31);
+
+     ui->table_person->setRowCount(people.size());
+
+     QString PID;
+     QString PName;
+
+     for(unsigned int i = 0; i < people.size(); i++) {
+         PID = QString::number(people.at(i).getId());
+         PName = QString::fromStdString(people.at(i).getName());
+
+         ui->table_person->setItem(i, 0, new QTableWidgetItem(PID));
+         ui->table_person->setItem(i, 1, new QTableWidgetItem(PName));
+     }
+}
+
+void AddLinksMenu::displayComps() {
+    ui->table_comps->setColumnWidth(0, 10);
+    ui->table_comps->setColumnWidth(1, 31);
+
+    vector<Comps> comps = _cs.getList();
+
+    ui->table_comps->setRowCount(comps.size());
+
+    QString ID;
+    QString Name;
+
+    for(unsigned int i = 0; i < comps.size(); i++) {
+        ID = QString::number(comps.at(i).getId());
+        Name = QString::fromStdString(comps.at(i).getName());
+
+        ui->table_comps->setItem(i, 0, new QTableWidgetItem(ID));
+        ui->table_comps->setItem(i, 1, new QTableWidgetItem(Name));
+    }
 }

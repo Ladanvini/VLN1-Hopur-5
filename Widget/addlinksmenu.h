@@ -18,8 +18,12 @@ public:
 private slots:
     void on_pLAdd_clicked();
     void on_pLBack_clicked();
+
 private:
     Ui::AddLinksMenu *ui;
+
+    void displayPeople();
+    void displayComps();
 
 };
 

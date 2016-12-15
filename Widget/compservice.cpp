@@ -11,6 +11,10 @@ CompService::CompService(Database db) {
 }
 
 vector<Comps> CompService::getList() {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+    computers = _db.getComputerList();
     return computers;
 }
 
