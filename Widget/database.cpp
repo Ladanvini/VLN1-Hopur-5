@@ -455,3 +455,272 @@ void Database::editCompDB(Comps c) {
     //cout << _db.commit() << endl;
     _db.close();
 }
+
+void Database::trashComp(Comps c){
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "INSERT INTO TrashComputers( ctId, ctName, ctType, ctBuilt, ctBuiltYear )"
+            " VALUES ( "
+                    + std::to_string(c.getId()) + ",  '"
+                    + c.getName() + "' , '" + c.getType()
+                    + "', " + std::to_string(c.getBuilt()) + ", " + std::to_string(c.getYearBuilt()) + " )";
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+
+    cout << _db.commit() << endl;
+    _db.close();
+    _db.open();
+
+    QSqlQuery queryC(_db);
+
+    stmnt = "";
+    stmnt = "SELECT cID FROM Computers WHERE cName = '"
+            + c.getName() + "' AND cType = '" + c.getType() + "'";
+    if(!queryC.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << queryC.lastError();
+    }
+    int compId = queryC.value("cID").toInt();
+    c.setId(compId);
+    _computers.push_back(c);
+
+    cout << _db.commit() << endl;
+    _db.close();
+}
+void Database::trashLink(Links l){
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    //cerr<< "CID: " << std::to_string(l.getCID()) << endl;
+    //cerr << "PID: " << std::to_string(l.getPID()) << endl;
+
+    string stmnt =
+    "INSERT INTO TrashLink ( CID, tPID)"
+                "\n VALUES ( " + std::to_string(l.getCID()) + ", "
+                        +  std::to_string(l.getPID()) + ") ";
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+    cout << _db.commit() << endl;
+    _db.close();
+
+}
+void Database::trashPers(Person p){
+    _db.open();
+
+    QSqlQuery query(_db);
+    string turingB;
+    if(p.getTuring())
+        turingB = "TRUE";
+    else
+        turingB = "FALSE";
+
+    string stmnt;
+    stmnt = "INSERT INTO TrashPeople ( ptID, ptName, ptBirthYear, ptDeathYear, ptSex, ptContribution,"
+            " ptTuringYear, ptTuring )"
+            " VALUES ( "
+                    + std::to_string(p.getId()) + ",   '" + p.getName() + "' , " + std::to_string(p.getBirth())
+                    + ", " + std::to_string(p.getDeath()) + ", '" + p.getSex()
+                    + "', '" + p.getContribution() + "', " + std::to_string(p.getTuringYear()) + ", '"
+                    + turingB + "' )";
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+    cout << _db.commit() << endl;
+    _db.close();
+
+}
+
+vector<Person> Database::getTrashPeople()
+{
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+    vector<Person> trash;
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+
+    QSqlQuery query(_db);
+
+    query.exec("SELECT * FROM TrashPeople");
+
+    int id;
+    QString name;
+    int age;
+    int birthYear;
+    int deathYear;
+    QString sex;
+    QString contribution;
+    int turingYear;
+    bool turing;
+
+    while(query.next()) {
+        id = query.value("PtID").toInt();
+        name = query.value("ptName").toString();
+        birthYear = query.value("ptBirthYear").toInt();
+        deathYear = query.value("ptDeathYear").toInt();
+        sex = query.value("ptSex").toString();
+        contribution = query.value("ptContribution").toString();
+        turingYear = query.value("ptTuringYear").toInt();
+        turing = query.value("ptTuring").toBool();
+
+        trash.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
+    }
+
+    return trash;
+}
+
+vector<Comps> Database::getTrashComps()
+{
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+
+    vector<Comps> trash;
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+    QSqlQuery queryC(_db);
+
+    queryC.exec("SELECT * FROM TrashComputers");
+
+    int idC;
+    QString nameC;
+    QString typeC;
+    bool builtC;
+    int builtYearC;
+
+    while(queryC.next()) {
+        idC = queryC.value("ctID").toInt();
+        nameC = queryC.value("ctName").toString();
+        typeC = queryC.value("ctType").toString();
+        builtC = queryC.value("ctBuilt").toBool();
+        builtYearC = queryC.value("ctBuiltYear").toInt();
+
+        trash.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
+    }
+
+    return trash;
+
+}
+
+vector<Links> Database::getTrashLinks()
+{
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+
+    vector<Links> trash;
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+
+    QSqlQuery queryL(_db);
+
+    queryL.exec("SELECT * FROM P_C_con");
+
+    int pidL;
+    int cidL;
+    Comps c;
+    Person p;
+
+    while(queryL.next()) {
+
+        pidL = queryL.value("PID").toInt();
+        cidL = queryL.value("CID").toInt();
+
+        for(unsigned int i = 0; i < _computers.size(); i++) {
+            if(_computers.at(i).getId() == cidL)
+                c = _computers.at(i);
+        }
+        for(unsigned int i = 0; i < _people.size(); i++) {
+            if(_people.at(i).getId() == pidL)
+                p = _people.at(i);
+        }
+        trash.push_back(Links(c, p));
+    }
+    return trash;
+
+}
+
+void Database::restoreComp(Comps c)
+{
+   writeToCompDB(c);
+   _db.open();
+
+   QSqlQuery query(_db);
+
+   string stmnt;
+   stmnt = "DELETE FROM TrashComputers WHERE ctID = "
+           + std::to_string(c.getId());
+
+   if(!query.exec(QString::fromStdString(stmnt))) {
+       qDebug() << "Could not execute query" << endl;
+       qDebug() << query.lastError();
+   }
+
+   _db.close();
+
+}
+
+void Database::restoreLink(Links l)
+{
+    addToConsDB(l);
+
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "DELETE FROM TrashLinks"
+            " WHERE CID = "
+            + std::to_string(l.getCID())
+            + " AND tPID = "
+            + std::to_string(l.getPID());
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+
+}
+
+void Database::restorePers(Person p)
+{
+    writeToDB(p);
+    _db.open();
+
+    QSqlQuery query(_db);
+
+    string stmnt;
+    stmnt = "DELETE FROM TrashPeople WHERE PtID = "
+            + std::to_string(p.getId());
+
+    if(!query.exec(QString::fromStdString(stmnt))) {
+        qDebug() << "Could not execute query" << endl;
+        qDebug() << query.lastError();
+    }
+
+    cout << _db.commit() << endl;
+    _db.close();
+
+
+}

@@ -69,7 +69,7 @@ void DialogTicTacToe::on_pBExit_clicked(){
 
 
 }
-void DialogTicTacToe::TicTacToeSource(){
+//void DialogTicTacToe::TicTacToeSource(){
 
 
 
@@ -104,3 +104,4 @@ if(false){
 }
 
 
+*/

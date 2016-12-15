@@ -55,6 +55,8 @@ private slots:
 
     void on_input_SearchLink_clicked();
 
+    void on_ListPersons_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::DisplayList *ui;
 

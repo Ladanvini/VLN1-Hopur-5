@@ -11,6 +11,7 @@ appservice::appservice() {
 appservice::appservice(Database _db) {
    db = _db;
    people = _db.getList();
+
 }
 
 vector<Person> appservice::getList() {
@@ -353,6 +354,8 @@ string appservice::deletePerson(string _name, int birth) {
 
     if(flag) {
         db.update(people);
+        trash.push_back(result);
+        db.trashPers(result);
         db.delFromDB(result);
         return result.showPerson() +
                 "Erased successfully\n";

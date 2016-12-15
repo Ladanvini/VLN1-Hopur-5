@@ -11,6 +11,7 @@
 #include "displaylist.h"
 #include "funmenu.h"
 #include "trashbin.h"
+#include "profile.h"
 
 static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
