@@ -75,7 +75,6 @@ void DisplayList::on_pBPAdd_clicked() {
 }
 
 void DisplayList::on_ListLinks_clicked(const QModelIndex &index) {
-    ui->pBLEdit->setEnabled(true);
     ui->pBLDelete->setEnabled(true);
 }
 
@@ -403,20 +402,4 @@ void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
 
 }
 
-void DisplayList::on_pBLEdit_clicked()
-{
-    int currentlySelectedPID;
-    int currentlySelectedCID;
 
-    int currentlySelectedLinksIndex = ui->ListLinks->currentIndex().row();
-    Links currentlySelectedLinks = currentlyDisplayedLink.at(currentlySelectedLinksIndex);
-
-    currentlySelectedPID = currentlySelectedLinks.getPID();
-    currentlySelectedCID = currentlySelectedLinks.getCID();
-
-    EditLink el;
-
-
-    el.exec();
-    displayLinks();
-}
