@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include <ctime>
 #include <iostream>
-#include "appservice.h"
-#include "compservice.h"
 #include "linkservice.h"
 #include "editperson.h"
 #include "editcomputer.h"

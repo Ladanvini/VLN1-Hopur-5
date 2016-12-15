@@ -2,6 +2,8 @@
 #define LINKSERVICE_H
 
 #include "database.h"
+#include "appservice.h"
+#include "compservice.h"
 
 class LinkService {
 private:
@@ -28,6 +30,9 @@ public:
     void updateLinkc(int cid);
     //Updates Links after computer has been deleted
     void updateLinkp(int pid);
+    //Searching
+    vector<Links> searchByName(string name);
+    vector<Links> searchById(string id);
 
 };
 
