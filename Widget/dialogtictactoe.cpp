@@ -87,13 +87,13 @@ void DialogTicTacToe::TicTacToeSource(){
 //TicTacToe::InsertIntoBoard();
 
 // I am trying to figgure this out.
-TicTacToe::CheckIfWinner();
+/*TicTacToe::CheckIfWinner();
 if(false){
 
     QMessageBox::StandardButton reply;
     replay = QMessageBox::question(this, "The Game is over. Do you want to play new game",
             QMessageBox::Yes|QMessageBox::No);
-
+*/
 
 
 
