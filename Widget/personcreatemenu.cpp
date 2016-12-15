@@ -26,6 +26,12 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     string contribution = ui->input_Contribution->toPlainText().toStdString();
     int turing = ui->cB_TuringYear->currentData().toInt();
 
+//Setting death = 0 if empty
+    if(deathstr.empty()) {
+        death = 0;
+        isOk_d = true;
+    }
+
 //Calculating age:
     time_t t = time(0);   // get time now
     struct tm * now = localtime( & t);
@@ -47,7 +53,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     ui->l_error_name->setText("");
     ui->l_error_birth->setText("");
     ui->l_error_death->setText("");
-
+    ui->l_error_turing->setText("");
 
 //Error check
     if(name.empty() || name.at(0) == ' '||!isNumb(name)) {
@@ -57,8 +63,16 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                     ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
                 }
 
-                if(deathstr.empty() ||!isOk_d || (death != 0 && death < birth) || death > currYear){
+                if(!isOk_d || (death != 0 && death < birth) || death > currYear){
                     ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
+                }
+
+                if((turing != 0 && turing < birth) || turing > currYear) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+                }
+
+                if(turing > death) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 }
                 return;
             }
@@ -66,16 +80,43 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
             if(birthstr.empty() || !isOk_b || birth < 1000 || birth > currYear){
                 ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
 
-                if(deathstr.empty() ||!isOk_d || (death != 0 && death < birth) || death > currYear){
+                if(!isOk_d || (death != 0 && death < birth) || death > currYear){
                     ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
+                }
+
+                if((turing != 0 && turing < birth) || turing > currYear) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+                }
+
+                if(turing > death) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
                 }
                 return;
             }
 
-            if(deathstr.empty() ||!isOk_d || (death != 0 && death < birth) || death > currYear){
+            if(!isOk_d || (death != 0 && death < birth) || death > currYear){
                 ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
+
+                if((turing != 0 && turing < birth) || turing > currYear) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+                }
+
+                if(turing > death) {
+                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+                }
                 return;
             }
+
+            if((turing < birth && turing != 0) || turing > currYear) {
+                ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+                return;
+            }
+
+            if(turing > death) {
+                ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+                return;
+            }
+
 //creating the person
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
     DisplayList dlp;
