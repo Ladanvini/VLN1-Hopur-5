@@ -402,4 +402,48 @@ void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
 
 }
 
+void DisplayList::displayLinks(vector<Links> links){
 
+
+    ui->ListLinks->setColumnWidth(0, 50);
+    ui->ListLinks->setColumnWidth(1, 150);
+    ui->ListLinks->setColumnWidth(2, 50);
+    ui->ListLinks->setColumnWidth(3, 150);
+
+    ui->ListLinks->setRowCount(links.size());
+
+    QString LPID;
+    QString LCID;
+    QString LName;
+    QString LComp;
+
+    for(unsigned int i = 0; i < links.size(); i++) {
+
+        LPID = QString::number(links.at(i).getPID());
+        LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
+        LCID = QString::number(links.at(i).getCID());
+        LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
+
+        ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LPID));
+        ui->ListLinks->setItem(i, 1, new QTableWidgetItem(LName));
+        ui->ListLinks->setItem(i, 2, new QTableWidgetItem(LCID));
+        ui->ListLinks->setItem(i, 3, new QTableWidgetItem(LComp));
+    }
+    currentlyDisplayedLink = links;
+
+}
+
+void DisplayList::on_input_SearchLink_clicked()
+{
+    string CompsCB = ui->cB_SearchForLinks->currentText().toStdString();
+
+    if(CompsCB == "Name")
+    {
+        displayLinks(_ls.searchByName(ui->le_Searchlink->text().toStdString()));
+    }
+    else if (CompsCB == "ID")
+    {
+        displayLinks(_ls.searchById(ui->le_Searchlink->text().toStdString()));
+    }
+
+}

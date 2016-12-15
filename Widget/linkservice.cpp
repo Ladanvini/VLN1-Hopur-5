@@ -149,3 +149,75 @@ void LinkService::updateLinkp(int pid) {
     }
     _db.updateLinkDB(_linkList);
 }
+
+vector<Links> LinkService::searchById(string id){
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+    _linkList = _db.getConnectionList();
+
+
+    if(id == "")
+        return _linkList;
+    int _id = stoi(id);
+
+    vector<Links> result;
+
+    for(unsigned int i=0; i<_linkList.size(); i++){
+        if((_linkList.at(i)).getPID() == _id)
+            result.push_back(_linkList.at(i));
+        if(_linkList.at(i).getCID() == _id)
+            result.push_back(_linkList.at(i));
+    }
+
+    return result;
+
+}
+
+vector<Links> LinkService::searchByName(string name)
+{
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
+    _linkList = _db.getConnectionList();
+    _persList = _db.getList();
+    _compList = _db.getComputerList();
+
+    if(name == "")
+        return _linkList;
+
+    transform(name.begin(), name.end(), name.begin(), ::tolower);
+    //string _name = "";
+
+
+    vector<Links> result;
+    vector<Person> people;
+    vector<Comps> comps;
+
+
+    appservice ps(_db);
+    CompService cs(_db);
+
+    people = ps.searchByName(name);
+    comps = cs.searchByName(name);
+
+
+    for(unsigned int i=0; i<people.size(); i++){
+        for(unsigned int j=0; j<_linkList.size(); j++){
+            if(people.at(i).getId() == _linkList.at(j).getPID())
+                result.push_back(_linkList.at(j));
+        }
+    }
+    for(unsigned int i=0; i<comps.size(); i++){
+        for(unsigned int j=0; j<_linkList.size(); j++){
+            if(comps.at(i).getId() == _linkList.at(j).getCID())
+                result.push_back(_linkList.at(j));
+        }
+    }
+
+    return result;
+
+
+}
