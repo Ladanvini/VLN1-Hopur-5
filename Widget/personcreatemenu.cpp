@@ -65,11 +65,11 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     if(name.empty() || name.at(0) == ' '||!isNumb(name)) {
                 ui->l_error_name->setText("<span style='color: #ff0000'>Name not accepted!</span>");
 
-                if(birthstr.empty() || !isOk_b || birth < 1000 || birth > currYear){
+                if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear){
                     ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
                 }
 
-                if(!isOk_d || (death != 0 && death < birth) || death > currYear){
+                if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
                     ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
                 }
 
@@ -83,10 +83,10 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                 return;
             }
 
-            if(birthstr.empty() || !isOk_b || birth < 1000 || birth > currYear){
+            if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear){
                 ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
 
-                if(!isOk_d || (death != 0 && death < birth) || death > currYear){
+                if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
                     ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
                 }
 
@@ -100,7 +100,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
                 return;
             }
 
-            if(!isOk_d || (death != 0 && death < birth) || death > currYear){
+            if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
                 ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
 
                 if((turing != 0 && turing < birth) || turing > currYear) {
