@@ -182,21 +182,17 @@ void TrashBin::on_pBPRestore_clicked()
 
 void TrashBin::on_pBPTBack_clicked()
 {
-    DisplayList dl;
-    this->hide();
-    dl.exec();
+    MainWindow mw;
+    mw.show();
+    this ->close();
 }
 
 void TrashBin::on_pBCTBack_clicked()
 {
-    DisplayList dl;
-    this->hide();
-    dl.exec();
+    on_pBPTBack_clicked();
 }
 
 void TrashBin::on_pBLTBack_clicked()
 {
-    DisplayList dl;
-    this->hide();
-    dl.exec();
+    on_pBPTBack_clicked();
 }
