@@ -66,3 +66,6 @@ FORMS    += mainwindow.ui \
     editperson.ui \
     editcomputer.ui \
     dialogtictactoe.ui
+
+RESOURCES += \
+    markers.qrc
