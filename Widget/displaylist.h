@@ -36,6 +36,10 @@ private slots:
     void on_pBLDelete_clicked();
     void on_pBPEdit_clicked();
     void on_pBCEdit_clicked();
+    void on_input_SearchComp_clicked();
+
+    void on_input_SearchPers_clicked();
+
 private:
     Ui::DisplayList *ui;
 

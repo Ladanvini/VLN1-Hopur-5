@@ -252,3 +252,39 @@ void DisplayList::on_pBCEdit_clicked() {
     editComputer ec;
     ec.exec();
 }
+/*************************SEARCH****************************/
+//Checks what the combo box is set to and searches it
+void DisplayList::on_input_SearchComp_clicked()
+{
+    string CompsCB = ui->cB_SearchForComp->currentText().toStdString();
+
+    if(CompsCB == "Name")
+        _cs.searchByName(ui->input_SearchComp->text().toStdString());
+    else if(CompsCB == "Type")
+        _cs.searchByType(ui->input_SearchComp->text().toStdString());
+    else if(CompsCB == "Built")
+        _cs.searchByBuilt(ui->input_SearchComp->text().toInt());
+    else if(CompsCB == "ID")
+        _cs.searchById(ui->input_SearchComp->text().toInt());
+
+}
+
+void DisplayList::on_input_SearchPers_clicked()
+{
+    string PersonCB = ui->cB_SearchForPers->currentText().toStdString();
+
+    if(PersonCB == "Name")
+        _ps.searchByName(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Gender")
+        _ps.searchBySex(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Age")
+        _ps.searchByAge(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Birth")
+        _ps.searchByBirth(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Death")
+        _ps.searchByDeath(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Turing")
+        _ps.searchByTuring(ui->input_SearchPers->text().toStdString());
+    else if(PersonCB == "Contribution")
+        _ps.searchByContribution(ui->input_SearchPers->text().toStdString());
+}

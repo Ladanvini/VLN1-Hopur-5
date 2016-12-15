@@ -42,5 +42,8 @@ void editPerson::on_pBEdit_clicked() {
 }
 
 void editPerson::on_pBCancel_clicked() {
+    DisplayList dl;
+    dl.show();
+    this->close();
 
 }

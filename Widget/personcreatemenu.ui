@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
+    <width>524</width>
     <height>315</height>
    </rect>
   </property>
@@ -1254,6 +1254,9 @@
    <property name="text">
     <string>Male</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QRadioButton" name="rBFemale">
    <property name="geometry">
@@ -1286,7 +1289,33 @@
     <rect>
      <x>380</x>
      <y>20</y>
-     <width>91</width>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_error_birth">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>50</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_error_death">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>110</y>
+     <width>121</width>
      <height>21</height>
     </rect>
    </property>
