@@ -74,8 +74,11 @@ void AddComputerMenu::on_pBAdd_clicked() {
     }
 
 //creating the computer
-    _cs.create(id, name, type, yearBuilt, built);
-
+    string msg = _cs.create(id, name, type, yearBuilt, built);
+    QMessageBox m(this);
+    m.setText(QString::fromStdString(msg));
+    m.setButtonText(0, "OK");
+    m.exec();
     DisplayList dlc;
     this->close();
     dlc.displayComps();

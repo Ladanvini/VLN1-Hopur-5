@@ -1,6 +1,7 @@
 #include "personcreatemenu.h"
 #include "ui_personcreatemenu.h"
 
+
 PersonCreateMenu::PersonCreateMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PersonCreateMenu) {
@@ -128,7 +129,13 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     }
 
 //creating the person
-    _ps.create(id, name, age, sex, birth, death, contribution, turing);
+    string msg = _ps.create(id, name, age, sex, birth, death, contribution, turing);
+    //if(msg == "Person already exists\n")
+    QMessageBox m(this);
+    m.setText(QString::fromStdString(msg));
+    m.setButtonText(0, "OK");
+    m.exec();
+
     DisplayList dlp;
     this->close();
     dlp.displayPeople();

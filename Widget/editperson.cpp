@@ -51,6 +51,13 @@ void editPerson::on_pBEdit_clicked() {
     else if(ui->rbFemale->isChecked())
         sex = 'f';
 
+    string msg = _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
+    if(msg != "")
+    {
+        QMessageBox mb(this);
+        mb.setText(QString::fromStdString(msg));
+        mb.exec();
+    }
     ui->l_error_name->setText("");
     ui->l_error_birth->setText("");
     ui->l_error_death->setText("");
@@ -123,6 +130,7 @@ void editPerson::on_pBEdit_clicked() {
     }
 
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
+
 
     DisplayList dl;
     dl.show();

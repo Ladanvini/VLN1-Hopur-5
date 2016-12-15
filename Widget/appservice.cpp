@@ -24,6 +24,10 @@ string appservice::create(int id, string name, int age, char sex, int birth, int
     Person* p = new Person(id, name, sex, birth, death, contribution, turingYear);
     bool flag = false;
 
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
     time_t t = time(0);   // get time now
     struct tm * now = localtime( & t );
     int currYear = (now->tm_year + 1900);
@@ -479,13 +483,18 @@ string appservice::editPerson(int id) {
         return "Person of ID: " + std::to_string(id) + " does not exist!\n";
     return "Person found, you can input info now\n";
 }
-void appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear) {
+string appservice::editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     db = Database(_dbpath);
+    if(death < birth && death != 0)
+       return "The dates do not match\n";
+    if(sex != 'm' && sex != 'f' && sex != 'M' && sex != 'F')
+        return "Unacceptable Gender\n";
 
     Person p(id, name, sex, birth, death, contribution, turingYear);
     db.editDB(p);
+    return "";
 }
 Person appservice::getPersonFromId(int id) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
