@@ -51,13 +51,6 @@ void editPerson::on_pBEdit_clicked() {
     else if(ui->rbFemale->isChecked())
         sex = 'f';
 
-    string msg = _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
-    if(msg != "")
-    {
-        QMessageBox mb(this);
-        mb.setText(QString::fromStdString(msg));
-        mb.exec();
-    }
     ui->l_error_name->setText("");
     ui->l_error_birth->setText("");
     ui->l_error_death->setText("");
@@ -131,6 +124,13 @@ void editPerson::on_pBEdit_clicked() {
 
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
 
+    string msg = _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
+    if(msg != "")
+    {
+        QMessageBox mb(this);
+        mb.setText(QString::fromStdString(msg));
+        mb.exec();
+    }
 
     DisplayList dl;
     dl.show();
@@ -175,7 +175,7 @@ bool editPerson:: isNumb(string inputname){
     QString qInputName = QString::fromStdString(inputname);
     for(unsigned int i = 0; i < inputname.length();i++)
     {
-        if(!qInputName.at(i).isDigit())
+        if(qInputName.at(i).isDigit()|| !qInputName.at(i).isLetter())
             return false;
     }
     return true;
