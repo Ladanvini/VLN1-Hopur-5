@@ -17,6 +17,7 @@ public:
     explicit editPerson(QWidget *parent = 0);
     ~editPerson();
     void _editPersonWithId(int id);
+    bool isNumb(string inputname);
 private slots:
     void on_pBEdit_clicked();
     void on_pBCancel_clicked();

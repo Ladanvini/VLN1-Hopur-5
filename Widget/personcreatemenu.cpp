@@ -111,12 +111,20 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
         }
         return;
     }
+
     if((turing < birth && turing != 0) || turing > currYear) {
         ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
         return;
     }
+
     if(death != 0 && turing > death) {
         ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        return;
+    }
+
+    if(age >=150) {
+        ui->l_error_birth->setText("<span style='color: #ff0000'>This age is not possible!</span>");
+        ui->l_error_death->setText("<span style='color: #ff0000'>This age is not possible!</span>");
         return;
     }
 
