@@ -3,6 +3,9 @@
 
 #include <QDialog>
 
+#include "displaylist.h"
+#include "mainwindow.h"
+
 namespace Ui {
 class Profile;
 }
@@ -15,8 +18,14 @@ public:
     explicit Profile(QWidget *parent = 0);
     ~Profile();
 
+      void showPersonWithID(int id);
+
+private slots:
+    void on_pProBack_clicked();
+
 private:
     Ui::Profile *ui;
+
 };
 
 #endif // PROFILE_H

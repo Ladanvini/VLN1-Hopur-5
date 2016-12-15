@@ -10,6 +10,7 @@
 #include "editlink.h"
 #include "displaylist.h"
 #include "funmenu.h"
+#include "profile.h"
 
 static QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
