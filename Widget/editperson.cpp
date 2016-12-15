@@ -80,7 +80,7 @@ void editPerson::on_pBEdit_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you're dead!</span>");
         }
         return;
     }

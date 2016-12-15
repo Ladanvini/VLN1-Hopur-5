@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Enter year of death (if Dead):</string>
+    <string>Enter year of death (if dead):</string>
    </property>
   </widget>
   <widget class="QLabel" name="l_Contribution">
@@ -458,7 +458,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>20</y>
+     <y>25</y>
      <width>121</width>
      <height>21</height>
     </rect>
@@ -471,7 +471,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>50</y>
+     <y>55</y>
      <width>191</width>
      <height>21</height>
     </rect>
@@ -483,8 +483,8 @@
   <widget class="QLabel" name="l_error_death">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>110</y>
+     <x>340</x>
+     <y>115</y>
      <width>171</width>
      <height>21</height>
     </rect>
