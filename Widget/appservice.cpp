@@ -75,6 +75,9 @@ vector<Person> appservice::searchByName(string name) {
 }
 vector<Person> appservice::searchByAge(string age) {
     vector<Person> result;
+        if(age == "")
+            return result;
+
     int agedig = stoi(age);
     int _age;
     for(size_t i = 0; i < people.size(); i++) {
@@ -99,6 +102,9 @@ vector<Person> appservice::searchBySex(string _sex) {
 vector<Person> appservice::searchByDeath(string death) {
     vector<Person> result;
     int _death;
+    if(death == "")
+        return result;
+
     int deathDig = stoi(death);
     for(size_t i = 0; i < people.size(); i++) {
         _death = people.at(i).getDeath();
@@ -112,6 +118,10 @@ vector<Person> appservice::searchByDeath(string death) {
 vector<Person> appservice::searchByBirth(string birth) {
     vector<Person> result;
     int _birth;
+
+    if(birth == "")
+        return result;
+
     int bDig = stoi(birth);
     for(size_t i = 0; i < people.size(); i++) {
         _birth = people.at(i).getBirth();
@@ -382,12 +392,23 @@ bool appservice::containsID(vector<int> ids, int id) {
 }
 bool appservice::checkIDExists(string id) {
 
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    db = Database(_dbpath);
+
+    people = db.getList();
+
+    if(id == "")
+        return false;
+
+
     int ID = stoi(id);
 
     for(unsigned int i = 0; i < people.size(); i++) {
         if(people.at(i).getId() == ID) {
             return true;
         }
+
     }
     return false;
 }

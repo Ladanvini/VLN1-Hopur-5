@@ -312,16 +312,31 @@ bool CompService::containsID(vector<int> ids, int id) {
 }
 bool CompService::checkIDExists(string id) {
 
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+    computers = _db.getComputerList();
+
+    bool flag = false;
+    if(id == "")
+        return false;
+
     int ID = stoi(id);
 
     for(unsigned int i = 0; i < computers.size(); i++) {
-        if(computers.at(i).getId() == ID) {
-            return true;
+
+        if((computers.at(i)).getId() == ID) {
+            flag = true;
         }
     }
-    return false;
+    return flag;
 }
 Comps CompService::getCompFromId(int id) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+    computers = _db.getComputerList();
+
     for(unsigned int i=0; i<computers.size(); i++) {
         if(computers.at(i).getId() == id)
             return computers.at(i);
