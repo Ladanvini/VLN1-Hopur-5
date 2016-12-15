@@ -5,7 +5,7 @@
 #include "mainwindow.h"
 #include "dialogunicorn.h"
 #include "dialogmoonwalk.h"
-//#include "dialogtictactoe.h"
+#include "dialogtictactoe.h"
 
 namespace Ui {
 class FunMenu;
@@ -19,6 +19,7 @@ public:
 private slots:
     void on_pBUnicorn_clicked();
     void on_pBBack_clicked();
+    void on_pBTicTacToe_clicked();
 private:
     Ui::FunMenu *ui;
 

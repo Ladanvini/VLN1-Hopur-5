@@ -9,9 +9,9 @@ DisplayList::DisplayList(QWidget *parent) :
     ui(new Ui::DisplayList) {
     _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
-    _cs = CompService(_dbpath);
-    _ps = appservice(_dbpath);
-    _ls = LinkService(_dbpath);
+    _cs = CompService(Database(_dbpath));
+    _ps = appservice(Database(_dbpath));
+    _ls = LinkService(Database(_dbpath));
 
     ui->setupUi(this);
 
