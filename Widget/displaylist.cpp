@@ -459,3 +459,18 @@ void DisplayList::on_input_SearchLink_clicked()
     }
 
 }
+
+void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index)
+{
+    int currentlySelectedID;
+
+    int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
+    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
+
+    currentlySelectedID = currentlySelectedPerson.getId();
+
+    Profile pro;
+    pro.showPersonWithID(currentlySelectedID);
+    pro.exec();
+    displayPeople();
+}

@@ -69,7 +69,7 @@ void DialogTicTacToe::on_pBExit_clicked(){
 
 
 }
-void DialogTicTacToe::TicTacToeSource(){
+//void DialogTicTacToe::TicTacToeSource(){
 
 
 
@@ -87,7 +87,7 @@ void DialogTicTacToe::TicTacToeSource(){
 //TicTacToe::InsertIntoBoard();
 
 // I am trying to figgure this out.
-TicTacToe::CheckIfWinner();
+/*TicTacToe::CheckIfWinner();
 if(false){
 
     QMessageBox::StandardButton reply;
@@ -104,3 +104,4 @@ if(false){
 }
 
 
+*/
