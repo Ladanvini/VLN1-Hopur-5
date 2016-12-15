@@ -306,12 +306,14 @@ int CompService::getCompID(string name, string type) {
             return computers.at(i).getId();
          }
     }
+    return 0;
 }
 
 // Edit
 string CompService::editComputer(string id) {
     if(!checkIDExists(id))
         return "Computer ID: " + id + "does not exist!\n";
+    return "";
 }
 
 void CompService::editComputerWith(int id, string name, string type, int yearBuilt){
@@ -409,4 +411,5 @@ Comps CompService::getCompFromId(int id) {
         if(computers.at(i).getId() == id)
             return computers.at(i);
     }
+    return Comps();
 }

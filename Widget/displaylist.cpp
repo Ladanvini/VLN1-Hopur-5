@@ -46,12 +46,14 @@ void DisplayList::on_pBCAdd_clicked() {
 }
 
 void DisplayList::on_tableWidget_activated(const QModelIndex &index) {
+    cerr << index.isValid();
     QTableWidgetItem* item = new QTableWidgetItem("YO");
     //QTableWidgetItem* item = new QTableWidgetItem(QString::fromStdString(_cs.getList().at(0).getName()), 0);
     ui->ListComputers->setItem(0, 0, item);
 }
 
 void DisplayList::on_ListComputers_clicked(const QModelIndex &index) {
+    cerr << index.isValid();
     ui->pBCEdit->setEnabled(true);
     ui->pBCDelete->setEnabled(true);
 }
@@ -75,10 +77,12 @@ void DisplayList::on_pBPAdd_clicked() {
 }
 
 void DisplayList::on_ListLinks_clicked(const QModelIndex &index) {
+    cerr << index.isValid() << endl;
     ui->pBLDelete->setEnabled(true);
 }
 
 void DisplayList::on_ListPersons_clicked(const QModelIndex &index) {
+    cerr << index.isValid() << endl;
     ui->pBPEdit->setEnabled(true);
     ui->pBPDelete->setEnabled(true);
 }
@@ -416,6 +420,8 @@ void DisplayList::displayComps(vector<Comps> comps){
 
 void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
 {
+    cerr << arg1.toStdString() << endl;
+
     if(ui->cB_SearchForPers->currentText() == "Gender")
     {
         ui->le_SearchPers->setPlaceholderText("Input 'F'or 'M' ");
@@ -485,7 +491,7 @@ void DisplayList::on_input_SearchLink_clicked()
 void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index)
 {
     int currentlySelectedID;
-
+    cerr << index.isValid() << endl;
     int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
     Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
 

@@ -35,7 +35,6 @@ Database::Database(QString dbName) {
     QString sex;
     QString contribution;
     int turingYear;
-    bool turing;
 
     while(query.next()) {
         id = query.value("PID").toInt();
@@ -45,7 +44,6 @@ Database::Database(QString dbName) {
         sex = query.value("pSex").toString();
         contribution = query.value("pContribution").toString();
         turingYear = query.value("pTuringYear").toInt();
-        turing = query.value("pTuring").toBool();
 
         _people.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
@@ -565,13 +563,11 @@ vector<Person> Database::getTrashPeople()
 
     int id;
     QString name;
-    int age;
     int birthYear;
     int deathYear;
     QString sex;
     QString contribution;
     int turingYear;
-    bool turing;
 
     while(query.next()) {
         id = query.value("PtID").toInt();
@@ -581,7 +577,6 @@ vector<Person> Database::getTrashPeople()
         sex = query.value("ptSex").toString();
         contribution = query.value("ptContribution").toString();
         turingYear = query.value("ptTuringYear").toInt();
-        turing = query.value("ptTuring").toBool();
 
         trash.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
