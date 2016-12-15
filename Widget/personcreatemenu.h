@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDialog>
+#include <locale>
 #include "displaylist.h"
 
 namespace Ui {
@@ -14,6 +15,7 @@ class PersonCreateMenu : public QDialog {
 public:
     explicit PersonCreateMenu(QWidget *parent = 0);
     ~PersonCreateMenu();
+    bool isNumb(string inputname);
 private slots:
     void on_pBAddPerson_clicked();
     void on_pBBack_clicked();

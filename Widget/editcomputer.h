@@ -2,6 +2,7 @@
 #define EDITCOMPUTER_H
 
 #include <QDialog>
+#include "mainwindow.h"
 
 namespace Ui {
 class editComputer;
@@ -12,6 +13,11 @@ class editComputer : public QDialog {
 public:
     explicit editComputer(QWidget *parent = 0);
     ~editComputer();
+private slots:
+    void on_pBBack_clicked();
+
+    void on_pBAdd_clicked();
+
 private:
     Ui::editComputer *ui;
 
