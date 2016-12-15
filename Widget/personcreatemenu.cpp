@@ -63,65 +63,61 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
 
 //Error check
     if(name.empty() || name.at(0) == ' '||!isNumb(name)) {
-                ui->l_error_name->setText("<span style='color: #ff0000'>Name not accepted!</span>");
+        ui->l_error_name->setText("<span style='color: #ff0000'>Name not accepted!</span>");
 
-                if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear){
-                    ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
-                }
+        if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear) {
+            ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
+        }
 
-                if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
-                    ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
-                }
+        if(!isOk_d || (death != 0 && death < birth) || death >= currYear) {
+            ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
+        }
 
-                if((turing != 0 && turing < birth) || turing > currYear) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
-                }
+        if((turing != 0 && turing < birth) || turing > currYear) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+        }
 
-                if(death != 0 && turing > death) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
-                }
-                return;
-            }
+        if(death != 0 && turing > death) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        }
+        return;
+    }
+    if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear) {
+        ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
 
-            if(birthstr.empty() || !isOk_b || birth < 1000 || birth >= currYear){
-                ui->l_error_birth->setText("<span style='color: #ff0000'>Birth year not accepted!</span>");
+        if(!isOk_d || (death != 0 && death < birth) || death >= currYear) {
+            ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
+        }
 
-                if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
-                    ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
-                }
+        if((turing != 0 && turing < birth) || turing > currYear) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+        }
 
-                if((turing != 0 && turing < birth) || turing > currYear) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
-                }
+        if(death != 0 && turing > death) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        }
+        return;
+    }
+    if(!isOk_d || (death != 0 && death < birth) || death >= currYear) {
+        ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
 
-                if(death != 0 && turing > death) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
-                }
-                return;
-            }
+        if((turing != 0 && turing < birth) || turing > currYear) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+        }
 
-            if(!isOk_d || (death != 0 && death < birth) || death >= currYear){
-                ui->l_error_death->setText("<span style='color: #ff0000'>Death year not accepted!</span>");
-
-                if((turing != 0 && turing < birth) || turing > currYear) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
-                }
-
-                if(death != 0 && turing > death) {
-                    ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
-                }
-                return;
-            }
-
-            if((turing < birth && turing != 0) || turing > currYear) {
-                ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
-                return;
-            }
-
-            if(death != 0 && turing > death) {
-                ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
-                return;
-            }
+        if(death != 0 && turing > death) {
+            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        }
+        return;
+    }
+    if((turing < birth && turing != 0) || turing > currYear) {
+        ui->l_error_turing->setText("<span style='color: #ff0000'>Turing year not accepted!</span>");
+        return;
+    }
+    if(death != 0 && turing > death) {
+        ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        return;
+    }
 
 //creating the person
     _ps.create(id, name, age, sex, birth, death, contribution, turing);
