@@ -67,8 +67,8 @@ void AddLinksMenu::on_pLBack_clicked() {
 void AddLinksMenu::displayPeople() {
     vector<Person> people = _ps.getList();
 
-    ui->table_person->setColumnWidth(0, 10);
-    ui->table_person->setColumnWidth(1, 31);
+    ui->table_person->setColumnWidth(0, 25);
+    //ui->table_person->setColumnWidth(1, 31);
 
      ui->table_person->setRowCount(people.size());
 
@@ -85,8 +85,8 @@ void AddLinksMenu::displayPeople() {
 }
 
 void AddLinksMenu::displayComps() {
-    ui->table_comps->setColumnWidth(0, 10);
-    ui->table_comps->setColumnWidth(1, 31);
+    ui->table_comps->setColumnWidth(0, 25);
+    //ui->table_comps->setColumnWidth(1, 31);
 
     vector<Comps> comps = _cs.getList();
 
