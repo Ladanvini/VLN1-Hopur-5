@@ -79,7 +79,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -95,7 +95,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -107,7 +107,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -118,7 +118,7 @@ void PersonCreateMenu::on_pBAddPerson_clicked() {
     }
 
     if(death != 0 && turing > death) {
-        ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         return;
     }
 
@@ -149,15 +149,13 @@ void PersonCreateMenu::on_pBBack_clicked() {
 
 //In: String
 //Out: True if the string contains no numbers or symbols
-bool PersonCreateMenu:: isNumb(string inputname){
-
+bool PersonCreateMenu:: isNumb(string inputname) {
     QString qInputName = QString::fromStdString(inputname);
-    for(int i = 0; i < inputname.length();i++)
+    for(unsigned int i = 0; i < inputname.length();i++)
     {
         if(qInputName.at(i).isDigit()||!qInputName.at(i).isLetter())
             return false;
         else
             return true;
     }
-
 }

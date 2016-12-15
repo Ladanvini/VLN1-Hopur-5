@@ -25,7 +25,7 @@ void editPerson::on_pBEdit_clicked() {
     char sex;
     string name = ui->input_name->text().toStdString();
     string contribution = ui->input_contribution->toPlainText().toStdString();
-    int turing = ui->cB_TuringYear->currentData().toInt();
+    int turing = ui->cB_TuringYear->currentText().toInt();
 
 //Setting death = 0 if empty
     if(deathstr.empty()) {
@@ -80,7 +80,7 @@ void editPerson::on_pBEdit_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you're dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -96,7 +96,7 @@ void editPerson::on_pBEdit_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -108,7 +108,7 @@ void editPerson::on_pBEdit_clicked() {
         }
 
         if(death != 0 && turing > death) {
-            ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+            ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         }
         return;
     }
@@ -119,7 +119,7 @@ void editPerson::on_pBEdit_clicked() {
     }
 
     if(death != 0 && turing > death) {
-        ui->l_error_turing->setText("<span style='color: #ff0000'>You cannot win a Turing award after you'r dead!</span>");
+        ui->l_error_turing->setText("<span style='color: #ff0000'>Turing award after death not accepted!</span>");
         return;
     }
 
