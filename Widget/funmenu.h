@@ -19,6 +19,7 @@ public:
 private slots:
     void on_pBUnicorn_clicked();
     void on_pBBack_clicked();
+    void on_pBTicTacToe_clicked();
 private:
     Ui::FunMenu *ui;
 
