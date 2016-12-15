@@ -15,6 +15,8 @@ private:
     Database db;
     vector<Person> people;
     Person person;
+    vector<Person> trash;
+
 public:
     appservice();
     appservice(Database _db);

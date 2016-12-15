@@ -12,6 +12,8 @@ private:
     vector<Links> _linkList;
     vector<Comps> _compList;
     vector<Person> _persList;
+    vector<Links> trash;
+
 public:
     LinkService();
     LinkService(Database db);

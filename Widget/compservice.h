@@ -9,6 +9,8 @@ private:
     Comps _comp;
     Database _db;
     vector<Comps> computers;
+    vector<Comps> trash;
+
 public:
     CompService();
     CompService(Database db);

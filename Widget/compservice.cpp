@@ -274,6 +274,8 @@ string CompService::deleteComputers(string name, string type) {
 
     if(flag) {
         _db.updateCompDB(computers);
+        trash.push_back(result);
+        _db.trashComp(result);
         _db.delFromCompDB(result);
         clearScreen();
         return result.showComputer() +

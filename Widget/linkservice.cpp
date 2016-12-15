@@ -116,16 +116,20 @@ string LinkService::showLinksTable(vector<Links> display) {
 string LinkService::deleteLink(int cid, int pid) {
     if(!exists(cid, pid))
         return "Link does not exist\n";
+    Links result;
 
     bool flag = false;
     for(unsigned int i = 0; i < _linkList.size() && !flag; i++) {
         if(cid == (_linkList.at(i)).getCID()
                 && pid == (_linkList.at(i)).getPID()) {
             flag = true;
+            result = _linkList.at(i);
             _linkList.erase(_linkList.begin() + i);
         }
     }
     _db.updateLinkDB(_linkList);
+    trash.push_back(result);
+    _db.trashLink(result);
     _db.deleteCons(cid, pid);
 
     return "Link deleted successfully\n";

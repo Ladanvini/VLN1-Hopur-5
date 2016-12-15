@@ -78,6 +78,20 @@ public:
     //Edit Computers
     void editCompDB(Comps c);
 
+    //Add to trash
+
+    void trashComp(Comps c);
+    void trashPers(Person p);
+    void trashLink(Links l);
+
+    vector<Comps> getTrashComps();
+    vector<Person> getTrashPeople();
+    vector<Links> getTrashLinks();
+
+    void restoreComp(Comps c);
+    void restorePers(Person p);
+    void restoreLink(Links l);
+
 };
 
 #endif // DATABASE_H
