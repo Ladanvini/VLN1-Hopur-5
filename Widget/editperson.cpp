@@ -173,12 +173,11 @@ void editPerson::_editPersonWithId(int id){
 bool editPerson:: isNumb(string inputname){
 
     QString qInputName = QString::fromStdString(inputname);
-    for(int i = 0; i < inputname.length();i++)
+    for(unsigned int i = 0; i < inputname.length();i++)
     {
-        if(qInputName.at(i).isDigit()||!qInputName.at(i).isLetter())
+        if(!qInputName.at(i).isDigit())
             return false;
-        else
-            return true;
     }
+    return true;
 
 }

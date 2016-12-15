@@ -110,6 +110,8 @@ void AddLinksMenu::displayComps() {
 
 void AddLinksMenu::on_table_person_clicked(const QModelIndex &index)
 {
+    cerr << index.isValid() << endl;
+
     int currentlySelectedPersIndex =
             ui->table_person->currentIndex().row();
     int pid = (currentlyDisplayedPeople.at(currentlySelectedPersIndex)).getId();
@@ -120,6 +122,7 @@ void AddLinksMenu::on_table_person_clicked(const QModelIndex &index)
 
 void AddLinksMenu::on_table_comps_clicked(const QModelIndex &index)
 {
+    cerr << index.isValid() << endl;
     int currentlySelectedCompIndex =
             ui->table_comps->currentIndex().row();
     int cid = (currentlyDisplayedComps.at(currentlySelectedCompIndex)).getId();

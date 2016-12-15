@@ -155,7 +155,6 @@ bool PersonCreateMenu:: isNumb(string inputname) {
     {
         if(qInputName.at(i).isDigit()||!qInputName.at(i).isLetter())
             return false;
-        else
-            return true;
     }
+    return true;
 }
