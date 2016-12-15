@@ -26,9 +26,6 @@ void AddLinksMenu::on_pLAdd_clicked() {
     string PID = ui->input_PID->text().toStdString();
     string CID = ui->input_CID->text().toStdString();
 
-    cout << "PID : " << PID << endl;
-    cout << "CID : " << CID << endl;
-
     //Check if person id exists
 
     if(!(_ps.checkIDExists(PID)))

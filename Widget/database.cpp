@@ -29,7 +29,7 @@ Database::Database(QString dbName) {
 
     int id;
     QString name;
-    int age;
+    //int age;
     int birthYear;
     int deathYear;
     QString sex;
@@ -177,7 +177,7 @@ void Database::writeToDB(Person p) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -198,7 +198,7 @@ void Database::writeToCompDB(Comps c) {
         qDebug() << query.lastError();
     }
 
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
     _db.open();
 
@@ -215,7 +215,7 @@ void Database::writeToCompDB(Comps c) {
     c.setId(compId);
     _computers.push_back(c);
 
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -290,7 +290,7 @@ void Database::delFromDB(Person p) {
         qDebug() << query.lastError();
     }
 
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 
     for(unsigned int i = 0; i < _people.size(); i++) {
@@ -329,7 +329,7 @@ void Database::delFromCompDB(Comps c) {
         qDebug() << query.lastError();
     }
 
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 
     for(unsigned int i = 0; i < _computers.size(); i++) {
@@ -369,7 +369,7 @@ void Database::deleteCons(int cId, int pId) {
              _connections.erase(_connections.begin()+i);
      }
 
-     cout << _db.commit() << endl;
+     //cout << _db.commit() << endl;
      _db.close();
  }
 
@@ -392,7 +392,7 @@ void Database::addToConsDB(Links l) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -424,7 +424,7 @@ void Database::editDB(Person p) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -452,6 +452,6 @@ void Database::editCompDB(Comps c) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
 }
