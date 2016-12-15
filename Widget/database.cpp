@@ -440,7 +440,7 @@ void Database::editCompDB(Comps c) {
         built = "'FALSE'";
 
     string stmnt =
-    "UPDATE People   "
+    "UPDATE Computers   "
                 "SET cName = '" + c.getName() +
             "'  ,  cType = '" + c.getType() +
             "'  ,  cBuilt = " + built +

@@ -267,8 +267,10 @@ void DisplayList::on_pBCEdit_clicked() {
     currentlySelectedID = currentlySelectedComps.getId();
 
     editComputer ec;
+
     ec._editWithId(currentlySelectedID);
     ec.exec();
+    displayComps();
 }
 /*************************SEARCH****************************/
 //Checks what the combo box is set to and searches it

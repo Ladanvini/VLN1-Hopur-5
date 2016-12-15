@@ -242,7 +242,10 @@ string CompService::deleteComputers(string name, string type) {
 
 // Get ID
 int CompService::getCompID(string name, string type) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
+    _db = Database(_dbpath);
+    computers = _db.getComputerList();
     for(unsigned int i = 0; i < computers.size(); i++) {
         string c_name = computers.at(i).getName();
 
@@ -259,10 +262,15 @@ string CompService::editComputer(string id) {
 }
 
 void CompService::editComputerWith(int id, string name, string type, int yearBuilt){
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
      bool built = true;
      if(yearBuilt == 0)
          built = false;
-    _db.editCompDB(Comps(id, name, type, yearBuilt, built));
+
+     _db.editCompDB(Comps(id, name, type, yearBuilt, built));
 }
 
 // Showing

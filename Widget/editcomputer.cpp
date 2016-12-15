@@ -83,6 +83,7 @@ void editComputer::on_editComp_clicked()
      }
 
 //editing the computer
+
     _cs.editComputerWith(id, name, type, yearBuilt);
 
     DisplayList dlc;
@@ -92,7 +93,10 @@ void editComputer::on_editComp_clicked()
 
 void editComputer::_editWithId(int ID) {
     _id = ID;
+
+
     Comps c = _cs.getCompFromId(ID);
+
     ui->input_Name->setText(QString::fromStdString(c.getName()));
     ui->input_Type->setText(QString::fromStdString(c.getType()));
     ui->input_YearBuilt->setText(QString::number(c.getYearBuilt()));
