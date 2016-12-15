@@ -54,7 +54,7 @@ public:
      */
 
     string editPerson(int id);
-    void editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear);
+    string editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear);
     // Showing
     string showPeople(vector<Person> results);
     string showPeopleTable(vector<Person> results);

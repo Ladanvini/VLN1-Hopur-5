@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <locale>
 #include "displaylist.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class PersonCreateMenu;

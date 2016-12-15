@@ -40,8 +40,13 @@ void editPerson::on_pBEdit_clicked() {
     else if(ui->rbFemale->isChecked())
         sex = 'f';
 
-    _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
-
+    string msg = _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
+    if(msg != "")
+    {
+        QMessageBox mb(this);
+        mb.setText(QString::fromStdString(msg));
+        mb.exec();
+    }
     DisplayList dl;
     dl.show();
     this->close();

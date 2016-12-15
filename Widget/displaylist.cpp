@@ -96,6 +96,7 @@ void DisplayList::on_pBPDelete_clicked() {
     _ps.deletePerson(currentlySelectedName, currentlySelectedBirth);
 
     displayPeople();
+    displayLinks();
 
     ui->pBPEdit->setEnabled(false);
     ui->pBPDelete->setEnabled(false);
@@ -114,6 +115,7 @@ void DisplayList::on_pBCDelete_clicked() {
     _cs.deleteComputers(currentlySelectedName, currentlySelectedType);
 
     displayComps();
+    displayLinks();
 
     ui->pBCEdit->setEnabled(false);
     ui->pBCDelete->setEnabled(false);
@@ -449,7 +451,11 @@ void DisplayList::displayLinks(vector<Links> links){
         else
             LPID = QString::number(links.at(i).getPID());
         LName = QString::fromStdString(_ps.getPersonFromId(links.at(i).getPID()).getName());
-        LCID = QString::number(links.at(i).getCID());
+        if(links.at(i).getCID() < 10)
+            LCID = "0" + QString::number(links.at(i).getCID());
+        else
+            LCID = QString::number(links.at(i).getCID());
+
         LComp = QString::fromStdString(_cs.getCompFromId(links.at(i).getCID()).getName());
 
         ui->ListLinks->setItem(i, 0, new QTableWidgetItem(LPID));

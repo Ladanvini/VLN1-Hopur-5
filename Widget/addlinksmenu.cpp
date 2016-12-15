@@ -49,7 +49,11 @@ void AddLinksMenu::on_pLAdd_clicked() {
 
 //creating the person
 
-    _ls.create(CID, PID);
+    string msg = _ls.create(CID, PID);
+    QMessageBox m(this);
+    m.setText(QString::fromStdString(msg));
+    m.setButtonText(0, "OK");
+    m.exec();
     DisplayList dll;
     //this->close();
     dll.displayLinks();

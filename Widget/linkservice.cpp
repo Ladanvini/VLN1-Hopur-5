@@ -16,6 +16,11 @@ LinkService::LinkService(Database db) {
 
 //Getters
 vector<Links> LinkService::getLinkList() {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+    _linkList = _db.getConnectionList();
+
     return _linkList;
 }
 vector<Comps> LinkService::getCompList() {
@@ -114,6 +119,10 @@ string LinkService::showLinksTable(vector<Links> display) {
 
 //Deleting links
 string LinkService::deleteLink(int cid, int pid) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
+
     if(!exists(cid, pid))
         return "Link does not exist\n";
     Links result;
@@ -139,7 +148,7 @@ void LinkService::updateLinkc(int cid) {
     for(unsigned int i = 0; i < _linkList.size(); i++) {
         if(_linkList.at(i).getCID() == cid) {
             _linkList.erase(_linkList.begin() + i );
-            cerr<< "SURPRISE BITCHEEES" << endl;
+            //cerr<< "SURPRISE BITCHEEES" << endl;
         }
     }
     _db.updateLinkDB(_linkList);

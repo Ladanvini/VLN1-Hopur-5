@@ -229,7 +229,8 @@ bool Database::exists(Person p) {
         p2name = _people.at(i).getName();
         transform(p2name.begin(), p2name.end(), p2name.begin(), ::tolower);
 
-        if(pname.find(p2name) != std::string::npos
+        if((pname.find(p2name) != std::string::npos
+            || p2name.find(pname) != std::string::npos)
            && p.getBirth() == _people.at(i).getBirth())
             return true;
     }
@@ -253,15 +254,19 @@ bool Database::existsInCompDB(Comps c) {
     string c2type;
 
     transform(cname.begin(), cname.end(), cname.begin(), ::tolower);
-
+    transform(ctype.begin(), ctype.end(), ctype.begin(), ::tolower);
     for (unsigned int i = 0 ; i < _computers.size(); i++) {
+
         c2type = _computers.at(i).getType();
         c2name = _computers.at(i).getName();
+
         transform(c2name.begin(), c2name.end(), c2name.begin(), ::tolower);
         transform(c2type.begin(), c2type.end(), c2type.begin(), ::tolower);
 
-        if (c2name.find(cname) != std::string::npos
-                && c2type.find(ctype) != std::string::npos
+        if ((c2name.find(cname) != std::string::npos
+             || cname.find(c2name) != std::string::npos)
+                && (c2type.find(ctype) != std::string::npos
+                    || ctype.find(c2type) != std::string::npos)
                 && _computers.at(i).getYearBuilt() == c.getYearBuilt())
             return true;
     }

@@ -20,6 +20,9 @@ vector<Comps> CompService::getList() {
 
 // Create
 string CompService::create(int id, string name, string type, int yearBuilt, bool built) {
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    _db = Database(_dbpath);
 
     Comps* newComputer = new Comps(id, name, type, yearBuilt, built);
     bool flag = false;
