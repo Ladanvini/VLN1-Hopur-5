@@ -257,6 +257,7 @@ string CompService::editComputer(string id) {
     if(!checkIDExists(id))
         return "Computer ID: " + id + "does not exist!\n";
 }
+
 void CompService::editComputerWith(int id, string name, string type, int yearBuilt){
      bool built = true;
      if(yearBuilt == 0)

@@ -27,7 +27,7 @@ void editComputer::on_editComp_clicked()
      string name = ui->input_Name->text().toStdString();
      _cs.editComputerWith(id, name, type, year);*/
 
-     int id = 0;
+     int id = _id;
      bool isOK = false;
      string name = ui->input_Name->text().toStdString();
      string type = ui->input_Type->text().toStdString();
@@ -39,7 +39,7 @@ void editComputer::on_editComp_clicked()
      struct tm * now = localtime( & t);
      int currYear = (now->tm_year + 1900);
 
- //Checking if built
+//Checking if built
      if(yearBuilt != 0) {
          built = true;
      }
@@ -82,12 +82,16 @@ void editComputer::on_editComp_clicked()
          return;
      }
 
-     //DisplayList dl;
-     //dl.show();
-     //this->close();
+//editing the computer
+    _cs.editComputerWith(id, name, type, yearBuilt);
+
+    DisplayList dlc;
+    this->close();
+    dlc.displayComps();
 }
 
 void editComputer::_editWithId(int ID) {
+    _id = ID;
     Comps c = _cs.getCompFromId(ID);
     ui->input_Name->setText(QString::fromStdString(c.getName()));
     ui->input_Type->setText(QString::fromStdString(c.getType()));

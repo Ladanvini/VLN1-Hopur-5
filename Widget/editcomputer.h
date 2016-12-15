@@ -11,6 +11,7 @@ class editComputer;
 class editComputer : public QDialog {
     Q_OBJECT
 public:
+    int _id;
     explicit editComputer(QWidget *parent = 0);
     ~editComputer();
     void _editWithId(int ID);
