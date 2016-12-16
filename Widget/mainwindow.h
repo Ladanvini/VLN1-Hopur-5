@@ -10,7 +10,6 @@
 #include "editcomputer.h"
 #include "editlink.h"
 #include "displaylist.h"
-#include "funmenu.h"
 #include "trashbin.h"
 #include "profile.h"
 
@@ -32,7 +31,6 @@ public:
 private slots:
     void on_pBDisplay_clicked();
     void on_pBExit_clicked();
-    void on_pBFunMenu_clicked();
     void on_pBTrash_clicked();
 private:
     Ui::MainWindow *ui;
