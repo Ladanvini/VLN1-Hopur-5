@@ -24,6 +24,12 @@ private slots:
     void on_pBPTBack_clicked();
     void on_pBCTBack_clicked();
     void on_pBLTBack_clicked();
+    void on_ListPersons_clicked(const QModelIndex &index);
+
+    void on_ListComputers_clicked(const QModelIndex &index);
+
+    void on_ListLinks_clicked(const QModelIndex &index);
+
 private:
     Ui::TrashBin *ui;
     TrashService _ts;

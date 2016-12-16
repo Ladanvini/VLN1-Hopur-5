@@ -149,6 +149,8 @@ void TrashBin::on_pBLRestore_clicked() {
     _ts.restoreLink(currentlyDisplayedLink.at(currentIndex));
 
     displayLinks();
+
+    ui->pBLRestore->setEnabled(false);
 }
 
 void TrashBin::on_pBCRestore_clicked() {
@@ -157,6 +159,8 @@ void TrashBin::on_pBCRestore_clicked() {
     _ts.restoreComp(currentlyDisplayedComps.at(currentIndex));
 
     displayComps();
+
+    ui->pBCRestore->setEnabled(false);
 }
 
 void TrashBin::on_pBPRestore_clicked() {
@@ -165,6 +169,8 @@ void TrashBin::on_pBPRestore_clicked() {
     _ts.restorePers(currentlyDisplayedPerson.at(currentIndex));
 
     displayPeople();
+
+    ui->pBPRestore->setEnabled(false);
 }
 
 void TrashBin::on_pBPTBack_clicked() {
@@ -179,4 +185,19 @@ void TrashBin::on_pBCTBack_clicked() {
 
 void TrashBin::on_pBLTBack_clicked() {
     on_pBPTBack_clicked();
+}
+
+void TrashBin::on_ListPersons_clicked(const QModelIndex &index)
+{
+    ui->pBPRestore->setEnabled(true);
+}
+
+void TrashBin::on_ListComputers_clicked(const QModelIndex &index)
+{
+    ui->pBCRestore->setEnabled(true);
+}
+
+void TrashBin::on_ListLinks_clicked(const QModelIndex &index)
+{
+    ui->pBLRestore->setEnabled(true);
 }
