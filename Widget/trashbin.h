@@ -32,6 +32,10 @@ private slots:
 
     void on_pBPEmpty_clicked();
 
+    void on_pBCEmpty_clicked();
+
+    void on_pBLEmpty_clicked();
+
 private:
     Ui::TrashBin *ui;
     TrashService _ts;

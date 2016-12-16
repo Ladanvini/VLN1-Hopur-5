@@ -212,3 +212,17 @@ void TrashBin::on_pBPEmpty_clicked()
     displayPeople();
 
 }
+
+void TrashBin::on_pBCEmpty_clicked()
+{
+    _ts.emptyCompTrash();
+
+    displayComps();
+}
+
+void TrashBin::on_pBLEmpty_clicked()
+{
+    _ts.emptyLinkTrash();
+
+    displayLinks();
+}
