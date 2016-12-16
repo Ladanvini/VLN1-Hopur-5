@@ -27,19 +27,6 @@
      <string>Display</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pBFunMenu">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>60</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Fun Menu</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pBExit">
     <property name="geometry">
      <rect>
@@ -66,19 +53,6 @@
      <string>Displays the list of famous computer scientists or famous computers.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="l_FunMenu">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>60</y>
-      <width>191</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Games and other extra features</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="l_Exit">
     <property name="geometry">
      <rect>
@@ -96,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>100</y>
+      <y>60</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -109,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>100</y>
+      <y>60</y>
       <width>141</width>
       <height>16</height>
      </rect>

@@ -28,11 +28,6 @@ void MainWindow::on_pBExit_clicked() {
     qApp->exit();
 }
 
-void MainWindow::on_pBFunMenu_clicked() {
-    FunMenu fm;
-    fm.exec();
-}
-
 void MainWindow::on_pBTrash_clicked() {
     TrashBin tb(this);
     tb.exec();
