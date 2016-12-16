@@ -92,6 +92,12 @@ public:
     void restorePers(Person p);
     void restoreLink(Links l);
 
+    //empty trash can
+
+    void emptyCompsTrash();
+    void emptyPeopleTrash();
+    void emptyLinksTrash();
+
 };
 
 #endif // DATABASE_H

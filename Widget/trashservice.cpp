@@ -43,3 +43,29 @@ void TrashService::restorePers(Person p) {
     Database db(_dbpath);
     db.restorePers(p);
 }
+void TrashService::emptyCompTrash()
+{
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    Database db(_dbpath);
+
+    db.emptyCompsTrash();
+}
+void TrashService::emptyLinkTrash()
+{
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    Database db(_dbpath);
+
+    db.emptyLinksTrash();
+
+}
+void TrashService::emptyPersTrash()
+{
+
+    QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+
+    Database db(_dbpath);
+
+    db.emptyPeopleTrash();
+}

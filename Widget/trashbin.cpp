@@ -156,7 +156,8 @@ void TrashBin::on_pBLRestore_clicked() {
 void TrashBin::on_pBCRestore_clicked() {
     int currentIndex = ui->ListComputers->currentIndex().row();
 
-    _ts.restoreComp(currentlyDisplayedComps.at(currentIndex));
+    _ts.restoreComp(_cs.getCompFromId(
+                        ui->ListComputers->item(currentIndex, 0)->text().toInt()));
 
     displayComps();
 
@@ -166,7 +167,9 @@ void TrashBin::on_pBCRestore_clicked() {
 void TrashBin::on_pBPRestore_clicked() {
     int currentIndex = ui->ListPersons->currentIndex().row();
 
-    _ts.restorePers(currentlyDisplayedPerson.at(currentIndex));
+    _ts.restorePers(
+                _ps.getPersonFromId(
+                    ui->ListPersons->item(currentIndex, 0)->text().toInt()));
 
     displayPeople();
 

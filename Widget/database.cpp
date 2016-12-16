@@ -691,3 +691,46 @@ void Database::restorePers(Person p) {
     cout << _db.commit() << endl;
     _db.close();
 }
+
+void Database::emptyCompsTrash(){
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+    QSqlQuery queryC(_db);
+
+    queryC.exec("DELETE * FROM TrashComputers");
+
+}
+void Database::emptyLinksTrash(){
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+    QSqlQuery queryC(_db);
+
+    queryC.exec("DELETE * FROM TrashLink");
+
+}
+void Database::emptyPeopleTrash() {
+    _db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
+    _db.setDatabaseName(dbName);
+
+
+    if (!_db.open()) {
+        qDebug() << "Error: connection with database fail";
+    }
+    QSqlQuery queryC(_db);
+
+    queryC.exec("DELETE * FROM TrashPeople");
+
+}

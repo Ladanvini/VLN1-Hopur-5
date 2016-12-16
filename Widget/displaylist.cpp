@@ -471,12 +471,12 @@ void DisplayList::on_input_SearchLink_clicked() {
 void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index) {
     int currentlySelectedID;
     cerr << index.isValid() << endl;
-    cout << "NOOOOOOOOOOOOOOOOO" << index.data().toInt() << endl;
 
     int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
-    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
-    currentlySelectedID = currentlySelectedPerson.getId();
-cout << "HEREEEEEEEEE" << currentlySelectedPersonIndex << endl;
+
+    currentlySelectedID = ui->ListPersons->item(currentlySelectedPersonIndex, 0)->text().toInt();
+
+
     Profile pro;
     pro.showPersonWithID(currentlySelectedID);
     pro.exec();
