@@ -204,3 +204,11 @@ void TrashBin::on_ListLinks_clicked(const QModelIndex &index)
 {
     ui->pBLRestore->setEnabled(true);
 }
+
+void TrashBin::on_pBPEmpty_clicked()
+{
+    _ts.emptyPersTrash();
+
+    displayPeople();
+
+}

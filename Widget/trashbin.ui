@@ -19,8 +19,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>0</x>
+     <y>30</y>
      <width>651</width>
      <height>541</height>
     </rect>
@@ -29,7 +29,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tPerson">
     <attribute name="title">
@@ -126,6 +126,19 @@
       <string>Restore</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pBPEmpty">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>470</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Empty</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tComputer">
     <attribute name="title">
@@ -202,6 +215,19 @@
       <string>Restore</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pBCEmpty">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>470</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Empty</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tLinks">
     <attribute name="title">
@@ -249,7 +275,7 @@
     <widget class="QPushButton" name="pBLTBack">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>340</x>
        <y>470</y>
        <width>80</width>
        <height>24</height>
@@ -265,7 +291,7 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>110</x>
        <y>470</y>
        <width>80</width>
        <height>24</height>
@@ -273,6 +299,19 @@
      </property>
      <property name="text">
       <string>Restore</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pBLEmpty">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>470</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Empty</string>
      </property>
     </widget>
    </widget>

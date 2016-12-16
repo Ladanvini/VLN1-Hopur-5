@@ -30,6 +30,8 @@ private slots:
 
     void on_ListLinks_clicked(const QModelIndex &index);
 
+    void on_pBPEmpty_clicked();
+
 private:
     Ui::TrashBin *ui;
     TrashService _ts;
