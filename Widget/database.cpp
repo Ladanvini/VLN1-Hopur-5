@@ -703,7 +703,12 @@ void Database::emptyCompsTrash(){
     }
     QSqlQuery queryC(_db);
 
-    queryC.exec("DELETE * FROM TrashComputers");
+    queryC.exec("DELETE FROM TrashComputers");
+
+    cout << "IN HEEEEEEEEEERE" << endl;
+    _db.commit();
+    _db.close();
+
 
 }
 void Database::emptyLinksTrash(){
@@ -717,7 +722,9 @@ void Database::emptyLinksTrash(){
     }
     QSqlQuery queryC(_db);
 
-    queryC.exec("DELETE * FROM TrashLink");
+    queryC.exec("DELETE FROM TrashLink");
+    _db.commit();
+    _db.close();
 
 }
 void Database::emptyPeopleTrash() {
@@ -731,6 +738,7 @@ void Database::emptyPeopleTrash() {
     }
     QSqlQuery queryC(_db);
 
-    queryC.exec("DELETE * FROM TrashPeople");
-
+    queryC.exec("DELETE FROM TrashPeople");
+    cout << _db.commit() << endl;
+    _db.close();
 }
