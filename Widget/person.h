@@ -15,7 +15,6 @@ private:
     char _sex;
     int _birth;
     int _death;
-
     string _contribution;
     int _turingYear;
     bool _turing;

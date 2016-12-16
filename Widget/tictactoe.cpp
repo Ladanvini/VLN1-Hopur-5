@@ -92,12 +92,12 @@ int TicTacToe::playTicTacToe () {
         if(!isValid) {
             cout << "Illegal move!" << endl;
         }
-        else if(player == 'X'){
+        else if(player == 'X') {
             printBoard ();
             player = 'O';
             draw++;
         }
-        else{
+        else {
             printBoard ();
             player = 'X';
             draw++;

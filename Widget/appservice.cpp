@@ -11,7 +11,6 @@ appservice::appservice() {
 appservice::appservice(Database _db) {
    db = _db;
    people = _db.getList();
-
 }
 
 vector<Person> appservice::getList() {
@@ -77,7 +76,6 @@ vector<Person> appservice::searchByName(string name) {
     vector<Person> result;
     transform(name.begin(), name.end(), name.begin(), ::tolower);
     for(size_t i = 0; i < people.size(); i++) {
-
         _name = people.at(i).getName();
 
         transform(_name.begin(), _name.end(), _name.begin(), ::tolower);
@@ -440,7 +438,6 @@ bool appservice::containsID(vector<int> ids, int id) {
     return false;
 }
 bool appservice::checkIDExists(string id) {
-
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     db = Database(_dbpath);
@@ -450,14 +447,12 @@ bool appservice::checkIDExists(string id) {
     if(id == "")
         return false;
 
-
     int ID = stoi(id);
 
     for(unsigned int i = 0; i < people.size(); i++) {
         if(people.at(i).getId() == ID) {
             return true;
         }
-
     }
     return false;
 }

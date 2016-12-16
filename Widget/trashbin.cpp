@@ -3,8 +3,7 @@
 
 TrashBin::TrashBin(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::TrashBin)
-{
+    ui(new Ui::TrashBin) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _cs = CompService(Database(_dbpath));
@@ -15,15 +14,12 @@ TrashBin::TrashBin(QWidget *parent) :
     displayPeople();
     displayComps();
     displayLinks();
-
 }
 
-TrashBin::~TrashBin()
-{
+TrashBin::~TrashBin() {
     delete ui;
 }
-void TrashBin::displayComps(){
-
+void TrashBin::displayComps() {
     ui->ListComputers->setColumnWidth(0, 50);
     ui->ListComputers->setColumnWidth(3, 150);
 
@@ -51,11 +47,8 @@ void TrashBin::displayComps(){
         ui->ListComputers->setItem(i, 3, new QTableWidgetItem(YearBuilt));
     }
     currentlyDisplayedComps = comps;
-
-
 }
-void TrashBin::displayLinks()
-{
+void TrashBin::displayLinks() {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     CompService _cs = CompService(Database(_dbpath));
@@ -94,10 +87,8 @@ void TrashBin::displayLinks()
         ui->ListLinks->setItem(i, 3, new QTableWidgetItem(LComp));
     }
     currentlyDisplayedLink = links;
-
 }
-void TrashBin::displayPeople()
-{
+void TrashBin::displayPeople() {
     vector<Person> people = _ts.getTrashPeople();
 
     ui->ListPersons->setColumnWidth(0, 50);
@@ -150,11 +141,9 @@ void TrashBin::displayPeople()
         ui->ListPersons->setItem(i, 7, new QTableWidgetItem(PContribution));
     }
     currentlyDisplayedPerson = people;
-
 }
 
-void TrashBin::on_pBLRestore_clicked()
-{
+void TrashBin::on_pBLRestore_clicked() {
     int currentIndex = ui->ListLinks->currentIndex().row();
 
     _ts.restoreLink(currentlyDisplayedLink.at(currentIndex));
@@ -162,8 +151,7 @@ void TrashBin::on_pBLRestore_clicked()
     displayLinks();
 }
 
-void TrashBin::on_pBCRestore_clicked()
-{
+void TrashBin::on_pBCRestore_clicked() {
     int currentIndex = ui->ListComputers->currentIndex().row();
 
     _ts.restoreComp(currentlyDisplayedComps.at(currentIndex));
@@ -171,8 +159,7 @@ void TrashBin::on_pBCRestore_clicked()
     displayComps();
 }
 
-void TrashBin::on_pBPRestore_clicked()
-{
+void TrashBin::on_pBPRestore_clicked() {
     int currentIndex = ui->ListPersons->currentIndex().row();
 
     _ts.restorePers(currentlyDisplayedPerson.at(currentIndex));
@@ -180,19 +167,16 @@ void TrashBin::on_pBPRestore_clicked()
     displayPeople();
 }
 
-void TrashBin::on_pBPTBack_clicked()
-{
+void TrashBin::on_pBPTBack_clicked() {
     MainWindow mw;
     mw.show();
     this ->close();
 }
 
-void TrashBin::on_pBCTBack_clicked()
-{
+void TrashBin::on_pBCTBack_clicked() {
     on_pBPTBack_clicked();
 }
 
-void TrashBin::on_pBLTBack_clicked()
-{
+void TrashBin::on_pBLTBack_clicked() {
     on_pBPTBack_clicked();
 }

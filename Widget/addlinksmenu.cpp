@@ -22,40 +22,29 @@ AddLinksMenu::~AddLinksMenu() {
 }
 
 void AddLinksMenu::on_pLAdd_clicked() {
-
     string PID = ui->input_PID->text().toStdString();
     string CID = ui->input_CID->text().toStdString();
 
-    //Check if person id exists
-
+//Check if person id exists
     if(!(_ps.checkIDExists(PID)))
         ui->p_error->setText("<span style='color: #ff0000'>ID not found!</span>");
     else
         ui->p_error->setText("<span style='color: #00ff00'>" + QString::fromStdString(_ps.getPersonFromId(stoi(PID)).getName()) + "</span>");
-
 //Check if computer id exists
-
-    if(!(_cs.checkIDExists(CID)))
-    {
-
+    if(!(_cs.checkIDExists(CID))) {
         ui->c_error->setText("<span style='color: #ff0000'>ID not found!</span>");
     }
-    else
-    {
-
+    else {
         ui->c_error->setText("<span style='color: #00ff00'>" +  QString::fromStdString((_cs.getCompFromId(stoi(CID)).getName())) + "</span>");
-
     }
 
 //creating the person
-
     string msg = _ls.create(CID, PID);
     QMessageBox m(this);
     m.setText(QString::fromStdString(msg));
     m.setButtonText(0, "OK");
     m.exec();
     DisplayList dll;
-    //this->close();
     dll.displayLinks();
 }
 
@@ -70,30 +59,25 @@ void AddLinksMenu::displayPeople() {
 
     ui->table_person->setColumnWidth(0, 25);
     //ui->table_person->setColumnWidth(1, 31);
+    ui->table_person->setRowCount(people.size());
 
-     ui->table_person->setRowCount(people.size());
+    QString PID;
+    QString PName;
 
-     QString PID;
-     QString PName;
+    for(unsigned int i = 0; i < people.size(); i++) {
+        PID = QString::number(people.at(i).getId());
+        PName = QString::fromStdString(people.at(i).getName());
 
-     for(unsigned int i = 0; i < people.size(); i++) {
-         PID = QString::number(people.at(i).getId());
-         PName = QString::fromStdString(people.at(i).getName());
-
-         ui->table_person->setItem(i, 0, new QTableWidgetItem(PID));
-         ui->table_person->setItem(i, 1, new QTableWidgetItem(PName));
-     }
-
-
-
+        ui->table_person->setItem(i, 0, new QTableWidgetItem(PID));
+        ui->table_person->setItem(i, 1, new QTableWidgetItem(PName));
+    }
 }
 
 void AddLinksMenu::displayComps() {
-    ui->table_comps->setColumnWidth(0, 25);
-    //ui->table_comps->setColumnWidth(1, 31);
-
     vector<Comps> comps = _cs.getList();
 
+    ui->table_comps->setColumnWidth(0, 25);
+    //ui->table_comps->setColumnWidth(1, 31);
     ui->table_comps->setRowCount(comps.size());
 
     QString ID;
@@ -108,20 +92,16 @@ void AddLinksMenu::displayComps() {
     }
 }
 
-void AddLinksMenu::on_table_person_clicked(const QModelIndex &index)
-{
+void AddLinksMenu::on_table_person_clicked(const QModelIndex &index) {
     cerr << index.isValid() << endl;
 
     int currentlySelectedPersIndex =
             ui->table_person->currentIndex().row();
     int pid = (currentlyDisplayedPeople.at(currentlySelectedPersIndex)).getId();
     ui->input_PID->setText(QString::number(pid));
-
-
 }
 
-void AddLinksMenu::on_table_comps_clicked(const QModelIndex &index)
-{
+void AddLinksMenu::on_table_comps_clicked(const QModelIndex &index) {
     cerr << index.isValid() << endl;
     int currentlySelectedCompIndex =
             ui->table_comps->currentIndex().row();

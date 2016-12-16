@@ -23,9 +23,8 @@ void FunMenu::on_pBBack_clicked() {
     this ->close();
 }
 
-void FunMenu::on_pBTicTacToe_clicked(){
+void FunMenu::on_pBTicTacToe_clicked() {
     DialogTicTacToe TicTac;
     TicTac.exec();
     this ->close();
-
 }

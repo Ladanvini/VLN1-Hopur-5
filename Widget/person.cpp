@@ -68,7 +68,6 @@ string Person::showPerson() {
     return temp;
 }
 string Person::showPersonTable() {
-
     string temp = "";
     int cellsize = 15;
     string spTemp;
@@ -93,7 +92,6 @@ string Person::showPersonTable() {
 
 //Tools and misc.
 string Person::spaceCalc(int cellsize, string value) {
-
     string idTemp = "";
     int idSize = value.size();
 

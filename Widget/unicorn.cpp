@@ -10,7 +10,6 @@ string Unicorn::slimShady() {
 "   |_|_   |_|_   |_|_   |_|_ \n"
 "     \\ \\    \\ \\    \\ \\    \\ \\ \n";
     return temp;
-
 }
 string Unicorn::standUp() {
     string temp = ""

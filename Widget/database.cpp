@@ -175,7 +175,6 @@ void Database::writeToDB(Person p) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -196,7 +195,6 @@ void Database::writeToCompDB(Comps c) {
         qDebug() << query.lastError();
     }
 
-    //cout << _db.commit() << endl;
     _db.close();
     _db.open();
 
@@ -205,15 +203,16 @@ void Database::writeToCompDB(Comps c) {
     stmnt = "";
     stmnt = "SELECT cID FROM Computers WHERE cName = '"
             + c.getName() + "' AND cType = '" + c.getType() + "'";
+
     if(!queryC.exec(QString::fromStdString(stmnt))) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << queryC.lastError();
     }
+
     int compId = queryC.value("cID").toInt();
     c.setId(compId);
     _computers.push_back(c);
 
-    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -254,7 +253,6 @@ bool Database::existsInCompDB(Comps c) {
     transform(cname.begin(), cname.end(), cname.begin(), ::tolower);
     transform(ctype.begin(), ctype.end(), ctype.begin(), ::tolower);
     for (unsigned int i = 0 ; i < _computers.size(); i++) {
-
         c2type = _computers.at(i).getType();
         c2name = _computers.at(i).getName();
 
@@ -293,7 +291,6 @@ void Database::delFromDB(Person p) {
         qDebug() << query.lastError();
     }
 
-    //cout << _db.commit() << endl;
     _db.close();
 
     for(unsigned int i = 0; i < _people.size(); i++) {
@@ -332,7 +329,6 @@ void Database::delFromCompDB(Comps c) {
         qDebug() << query.lastError();
     }
 
-    //cout << _db.commit() << endl;
     _db.close();
 
     for(unsigned int i = 0; i < _computers.size(); i++) {
@@ -372,9 +368,8 @@ void Database::deleteCons(int cId, int pId) {
              _connections.erase(_connections.begin()+i);
      }
 
-     //cout << _db.commit() << endl;
      _db.close();
- }
+}
 
 // Add a connection with the given computer and person.
 void Database::addToConsDB(Links l) {
@@ -395,12 +390,10 @@ void Database::addToConsDB(Links l) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    //cout << _db.commit() << endl;
     _db.close();
 }
 
 //Edit person
-
 void Database::editDB(Person p) {
     _db.open();
 
@@ -427,7 +420,6 @@ void Database::editDB(Person p) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    //cout << _db.commit() << endl;
     _db.close();
 }
 
@@ -455,11 +447,10 @@ void Database::editCompDB(Comps c) {
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    //cout << _db.commit() << endl;
     _db.close();
 }
 
-void Database::trashComp(Comps c){
+void Database::trashComp(Comps c) {
     _db.open();
 
     QSqlQuery query(_db);
@@ -496,7 +487,7 @@ void Database::trashComp(Comps c){
     cout << _db.commit() << endl;
     _db.close();
 }
-void Database::trashLink(Links l){
+void Database::trashLink(Links l) {
     _db.open();
 
     QSqlQuery query(_db);
@@ -513,11 +504,10 @@ void Database::trashLink(Links l){
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-    cout << _db.commit() << endl;
+    //cout << _db.commit() << endl;
     _db.close();
-
 }
-void Database::trashPers(Person p){
+void Database::trashPers(Person p) {
     _db.open();
 
     QSqlQuery query(_db);
@@ -542,11 +532,9 @@ void Database::trashPers(Person p){
     }
     cout << _db.commit() << endl;
     _db.close();
-
 }
 
-vector<Person> Database::getTrashPeople()
-{
+vector<Person> Database::getTrashPeople() {
     _db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
     _db.setDatabaseName(dbName);
@@ -580,16 +568,12 @@ vector<Person> Database::getTrashPeople()
 
         trash.push_back(Person(id, name.toStdString(), sex.toStdString().at(0), birthYear, deathYear, contribution.toStdString(), turingYear));
     }
-
     return trash;
 }
-
-vector<Comps> Database::getTrashComps()
-{
+vector<Comps> Database::getTrashComps() {
     _db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
     _db.setDatabaseName(dbName);
-
 
     vector<Comps> trash;
 
@@ -615,17 +599,12 @@ vector<Comps> Database::getTrashComps()
 
         trash.push_back(Comps(idC, nameC.toStdString(), typeC.toStdString(), builtYearC, builtC));
     }
-
     return trash;
-
 }
-
-vector<Links> Database::getTrashLinks()
-{
+vector<Links> Database::getTrashLinks() {
     _db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName =  QCoreApplication::applicationDirPath() + "/create.sqlite";
     _db.setDatabaseName(dbName);
-
 
     vector<Links> trash;
 
@@ -643,7 +622,6 @@ vector<Links> Database::getTrashLinks()
     Person p;
 
     while(queryL.next()) {
-
         pidL = queryL.value("tPID").toInt();
         cidL = queryL.value("CID").toInt();
 
@@ -658,11 +636,9 @@ vector<Links> Database::getTrashLinks()
         trash.push_back(Links(c, p));
     }
     return trash;
-
 }
 
-void Database::restoreComp(Comps c)
-{
+void Database::restoreComp(Comps c) {
    writeToCompDB(c);
    _db.open();
 
@@ -676,13 +652,9 @@ void Database::restoreComp(Comps c)
        qDebug() << "Could not execute query" << endl;
        qDebug() << query.lastError();
    }
-
    _db.close();
-
 }
-
-void Database::restoreLink(Links l)
-{
+void Database::restoreLink(Links l) {
     addToConsDB(l);
 
     _db.open();
@@ -700,11 +672,8 @@ void Database::restoreLink(Links l)
         qDebug() << "Could not execute query" << endl;
         qDebug() << query.lastError();
     }
-
 }
-
-void Database::restorePers(Person p)
-{
+void Database::restorePers(Person p) {
     writeToDB(p);
     _db.open();
 
@@ -721,6 +690,4 @@ void Database::restorePers(Person p)
 
     cout << _db.commit() << endl;
     _db.close();
-
-
 }

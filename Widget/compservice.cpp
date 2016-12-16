@@ -58,9 +58,6 @@ string CompService::create(int id, string name, string type, int yearBuilt, bool
 
 //Search
 vector<Comps> CompService::searchByName(string name) {
-
-    //cout << "NAME: " << name << endl;
-
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
@@ -104,7 +101,6 @@ vector<Comps> CompService::searchById(string _id) {
     return result;
 }
 vector<Comps> CompService::searchByType(string type) {
-
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
@@ -122,8 +118,7 @@ vector<Comps> CompService::searchByType(string type) {
         _type = computers.at(i).getType();
         transform(_type.begin(), _type.end(), _type.begin(), ::tolower);
         if(type.find(_type) != std::string::npos
-                ||
-                _type.find(type) != std::string::npos) {
+                || _type.find(type) != std::string::npos) {
             result.push_back(computers.at(i));
         }
     }
@@ -141,10 +136,10 @@ vector<Comps> CompService::searchByBuilt(string _yearBuilt) {
         return computers;
     else
         yearBuilt = stoi(_yearBuilt);
+
     vector<Comps> result;
 
     for(size_t i = 0; i < computers.size(); i++) {
-
         if(yearBuilt == computers.at(i).getYearBuilt()) {
             result.push_back(computers.at(i));
         }
@@ -154,7 +149,6 @@ vector<Comps> CompService::searchByBuilt(string _yearBuilt) {
 
 // Sort
 vector<Comps> CompService::sortByName() {
-
     vector<int> IDs;
     vector<string> names;
     vector<Comps> sorted;
@@ -210,7 +204,6 @@ vector<Comps> CompService::sortByTypeDec() {
     return Resaults;
 }
 vector<Comps> CompService::sortByBuilt() {
-
     int yearBuilt;
     vector<int> builtComps;
     vector<Comps> sorted;
@@ -242,7 +235,6 @@ vector<Comps> CompService::sortByBuiltDec() {
     return Resaults;
 }
 vector<Comps> CompService::sortByID() {
-
     vector<int> IDComps;
     vector<Comps> sorted;
     for(unsigned int i = 0; i < computers.size(); i++)
@@ -316,7 +308,7 @@ string CompService::editComputer(string id) {
     return "";
 }
 
-void CompService::editComputerWith(int id, string name, string type, int yearBuilt){
+void CompService::editComputerWith(int id, string name, string type, int yearBuilt) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
@@ -330,7 +322,6 @@ void CompService::editComputerWith(int id, string name, string type, int yearBui
 
 // Showing
 string CompService::showComputers(vector<Comps> results) {
-
     string temp = "";
 
     for(unsigned int i = 0; i < results.size(); i++) {
@@ -381,7 +372,6 @@ bool CompService::containsID(vector<int> ids, int id) {
     return false;
 }
 bool CompService::checkIDExists(string id) {
-
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
@@ -394,7 +384,6 @@ bool CompService::checkIDExists(string id) {
     int ID = stoi(id);
 
     for(unsigned int i = 0; i < computers.size(); i++) {
-
         if((computers.at(i)).getId() == ID) {
             flag = true;
         }

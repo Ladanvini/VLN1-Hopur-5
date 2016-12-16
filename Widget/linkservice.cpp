@@ -66,19 +66,13 @@ string LinkService::create(string computerID, string personID) {
             flagp = true;
         }
     }
-    if(!flagc)
-    {
-
+    if(!flagc) {
         return "Computer " + computerID + " Not Found\n";
     }
-    if(!flagp)
-    {
-
+    if(!flagp) {
         return "Person " + personID + " Not Found\n";
     }
-    if(exists(stoi(computerID), stoi(personID)))
-    {
-
+    if(exists(stoi(computerID), stoi(personID))) {
         return "Link already exists\n";
     }
 
@@ -148,7 +142,6 @@ void LinkService::updateLinkc(int cid) {
     for(unsigned int i = 0; i < _linkList.size(); i++) {
         if(_linkList.at(i).getCID() == cid) {
             _linkList.erase(_linkList.begin() + i );
-            //cerr<< "SURPRISE BITCHEEES" << endl;
         }
     }
     _db.updateLinkDB(_linkList);
@@ -163,13 +156,12 @@ void LinkService::updateLinkp(int pid) {
     _db.updateLinkDB(_linkList);
 }
 
-vector<Links> LinkService::searchById(string id){
+vector<Links> LinkService::searchById(string id) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
 
     _linkList = _db.getConnectionList();
-
 
     if(id == "")
         return _linkList;
@@ -177,19 +169,16 @@ vector<Links> LinkService::searchById(string id){
 
     vector<Links> result;
 
-    for(unsigned int i=0; i<_linkList.size(); i++){
+    for(unsigned int i=0; i<_linkList.size(); i++) {
         if((_linkList.at(i)).getPID() == _id)
             result.push_back(_linkList.at(i));
         if(_linkList.at(i).getCID() == _id)
             result.push_back(_linkList.at(i));
     }
-
     return result;
-
 }
 
-vector<Links> LinkService::searchByName(string name)
-{
+vector<Links> LinkService::searchByName(string name) {
     QString _dbpath =  QCoreApplication::applicationDirPath() + "/create.sqlite";
 
     _db = Database(_dbpath);
@@ -202,8 +191,6 @@ vector<Links> LinkService::searchByName(string name)
         return _linkList;
 
     transform(name.begin(), name.end(), name.begin(), ::tolower);
-    //string _name = "";
-
 
     vector<Links> result;
     vector<Person> people;
@@ -216,20 +203,17 @@ vector<Links> LinkService::searchByName(string name)
     people = ps.searchByName(name);
     comps = cs.searchByName(name);
 
-
-    for(unsigned int i=0; i<people.size(); i++){
-        for(unsigned int j=0; j<_linkList.size(); j++){
+    for(unsigned int i = 0; i < people.size(); i++) {
+        for(unsigned int j = 0; j < _linkList.size(); j++) {
             if(people.at(i).getId() == _linkList.at(j).getPID())
                 result.push_back(_linkList.at(j));
         }
     }
-    for(unsigned int i=0; i<comps.size(); i++){
-        for(unsigned int j=0; j<_linkList.size(); j++){
+    for(unsigned int i = 0; i < comps.size(); i++) {
+        for(unsigned int j = 0; j < _linkList.size(); j++) {
             if(comps.at(i).getId() == _linkList.at(j).getCID())
                 result.push_back(_linkList.at(j));
         }
     }
-
     return result;
-
 }

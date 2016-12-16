@@ -12,8 +12,6 @@ editPerson::~editPerson() {
 }
 
 void editPerson::on_pBEdit_clicked() {
-
-
     bool isOk_b = false;
     bool isOk_d = false;
     int id = _id;
@@ -33,8 +31,7 @@ void editPerson::on_pBEdit_clicked() {
         isOk_d = true;
     }
 
-
-    //Calculating age:
+//Calculating age:
     time_t t = time(0);   // get time now
     struct tm * now = localtime( & t );
     int currYear = (now->tm_year + 1900);
@@ -125,8 +122,7 @@ void editPerson::on_pBEdit_clicked() {
     _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
 
     string msg = _ps.editPersonWith(id, name, sex, birth,death, contribution, turing);
-    if(msg != "")
-    {
+    if(msg != "") {
         QMessageBox mb(this);
         mb.setText(QString::fromStdString(msg));
         mb.exec();
@@ -141,11 +137,9 @@ void editPerson::on_pBCancel_clicked() {
     DisplayList dl;
     dl.show();
     this->close();
-
 }
 
-void editPerson::_editPersonWithId(int id){
-
+void editPerson::_editPersonWithId(int id) {
     _id = id;
 
     Person p = _ps.getPersonFromId(id);
@@ -156,13 +150,11 @@ void editPerson::_editPersonWithId(int id){
     ui->input_deathYear->setText(QString::number(p.getDeath()));
     ui->input_name->setText(QString::fromStdString(p.getName()));
 
-    if(p.getSex() == 'f')
-    {
+    if(p.getSex() == 'f') {
         ui->rbMale->setChecked(false);
         ui->rbFemale->setChecked(true);
     }
-    else
-    {
+    else {
         ui->rbMale->setChecked(true);
         ui->rbFemale->setChecked(false);
     }
@@ -170,14 +162,11 @@ void editPerson::_editPersonWithId(int id){
 
 //In: String
 //Out: True if the string contains no numbers or symbols
-bool editPerson:: isNumb(string inputname){
-
+bool editPerson:: isNumb(string inputname) {
     QString qInputName = QString::fromStdString(inputname);
-    for(unsigned int i = 0; i < inputname.length();i++)
-    {
+    for(unsigned int i = 0; i < inputname.length();i++) {
         if(qInputName.at(i).isDigit()|| !qInputName.at(i).isLetter())
             return false;
     }
     return true;
-
 }

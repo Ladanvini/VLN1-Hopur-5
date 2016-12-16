@@ -16,7 +16,6 @@ private:
     vector<Person> people;
     Person person;
     vector<Person> trash;
-
 public:
     appservice();
     appservice(Database _db);
@@ -52,9 +51,9 @@ public:
      * then call the editPersonWith function with the information of the person
      * along with the previously inputted id
      */
-
     string editPerson(int id);
     string editPersonWith(int id, string name, char sex, int birth, int death, string contribution, int turingYear);
+
     // Showing
     string showPeople(vector<Person> results);
     string showPeopleTable(vector<Person> results);
@@ -70,7 +69,6 @@ public:
     //Tools and misc.
     bool containsID(vector<int> ids, int id);
     bool checkIDExists(string id);
-
     int getPersonID(string name, int birth);
     Person getPersonFromId(int id);
 

@@ -11,16 +11,13 @@ editComputer::~editComputer() {
     delete ui;
 }
 
-
-void editComputer::on_pBBack_clicked()
-{
+void editComputer::on_pBBack_clicked() {
     DisplayList dl;
     dl.show();
     this->close();
 }
 
-void editComputer::on_editComp_clicked()
-{
+void editComputer::on_editComp_clicked() {
     /* int id = 0;
      int year = ui->input_YearBuilt->text().toInt();
      string type = ui->input_Type->text().toStdString();
@@ -38,9 +35,7 @@ void editComputer::on_editComp_clicked()
      struct tm * now = localtime( & t);
      int currYear = (now->tm_year + 1900);
 
-
      if(yearBuiltstr.empty()) {
-
          yearBuilt = 0;
          isOK = true;
      }
@@ -78,7 +73,6 @@ void editComputer::on_editComp_clicked()
      }
 
 //editing the computer
-
     _cs.editComputerWith(id, name, type, yearBuilt);
 
     DisplayList dlc;
@@ -88,7 +82,6 @@ void editComputer::on_editComp_clicked()
 
 void editComputer::_editWithId(int ID) {
     _id = ID;
-
 
     Comps c = _cs.getCompFromId(ID);
 

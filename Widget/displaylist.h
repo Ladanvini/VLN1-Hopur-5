@@ -27,7 +27,6 @@ public:
     vector<Person> currentlyDisplayedPerson;
     vector<Comps> currentlyDisplayedComps;
     vector<Links> currentlyDisplayedLink;
-
 private slots:
     void on_pBPBack_clicked();
     void on_pBLBack_clicked();
@@ -45,21 +44,12 @@ private slots:
     void on_pBPEdit_clicked();
     void on_pBCEdit_clicked();
     void on_input_SearchComp_clicked();
-
     void on_input_SearchPers_clicked();
-
-
     void on_cB_SearchForPers_currentTextChanged(const QString &arg1);
-
-
-
     void on_input_SearchLink_clicked();
-
     void on_ListPersons_doubleClicked(const QModelIndex &index);
-
 private:
     Ui::DisplayList *ui;
-
 
 };
 

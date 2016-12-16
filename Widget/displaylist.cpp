@@ -39,9 +39,7 @@ void DisplayList::on_pBCBack_clicked() {
 
 void DisplayList::on_pBCAdd_clicked() {
     AddComputerMenu adcm;
-//    this->hide();
     adcm.exec();
-//    this->show();
     displayComps();
 }
 
@@ -70,9 +68,7 @@ void DisplayList::on_pBLAdd_clicked() {
 
 void DisplayList::on_pBPAdd_clicked() {
     PersonCreateMenu pcm;
-    //this->hide();
     pcm.exec();
-    //this->show();
     displayPeople();
 }
 
@@ -275,7 +271,6 @@ void DisplayList::on_pBPEdit_clicked() {
     ep._editPersonWithId(currentlySelectedID);
     ep.exec();
     displayPeople();
-
 }
 
 void DisplayList::on_pBCEdit_clicked() {
@@ -292,10 +287,10 @@ void DisplayList::on_pBCEdit_clicked() {
     ec.exec();
     displayComps();
 }
+
 /*************************SEARCH****************************/
 //Checks what the combo box is set to and searches it
-void DisplayList::on_input_SearchComp_clicked()
-{
+void DisplayList::on_input_SearchComp_clicked() {
     string CompsCB = ui->cB_SearchForComp->currentText().toStdString();
 
     if(CompsCB == "Name")
@@ -306,19 +301,15 @@ void DisplayList::on_input_SearchComp_clicked()
         displayComps(_cs.searchByBuilt(ui->le_SearchComp->text().toStdString()));
     else if(CompsCB == "ID")
         displayComps(_cs.searchById(ui->le_SearchComp->text().toStdString()));
-
 }
 
-void DisplayList::on_input_SearchPers_clicked()
-{
+void DisplayList::on_input_SearchPers_clicked() {
     string PersonCB = ui->cB_SearchForPers->currentText().toStdString();
 
     if(PersonCB == "Name")
         displayPeople(_ps.searchByName(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Gender")
-    {
         displayPeople(_ps.searchBySex(ui->le_SearchPers->text().toStdString()));
-    }
     else if(PersonCB == "Age")
         displayPeople(_ps.searchByAge(ui->le_SearchPers->text().toStdString()));
     else if(PersonCB == "Birth")
@@ -331,10 +322,7 @@ void DisplayList::on_input_SearchPers_clicked()
         displayPeople(_ps.searchByContribution(ui->le_SearchPers->text().toStdString()));
 }
 
-void DisplayList::displayPeople(vector<Person> people)
-{
-
-
+void DisplayList::displayPeople(vector<Person> people) {
     ui->ListPersons->setColumnWidth(0, 50);
     ui->ListPersons->setColumnWidth(1, 100);
     ui->ListPersons->setColumnWidth(2, 50);
@@ -391,8 +379,6 @@ void DisplayList::displayComps(vector<Comps> comps){
     ui->ListComputers->setColumnWidth(0, 50);
     ui->ListComputers->setColumnWidth(3, 150);
 
-
-
     ui->ListComputers->setRowCount(comps.size());
 
     QString ID;
@@ -417,27 +403,7 @@ void DisplayList::displayComps(vector<Comps> comps){
     }
     currentlyDisplayedComps = comps;
 }
-
-void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1)
-{
-    cerr << arg1.toStdString() << endl;
-
-    if(ui->cB_SearchForPers->currentText() == "Gender")
-    {
-        ui->le_SearchPers->setPlaceholderText("Input 'F'or 'M' ");
-
-    }
-    else if(ui->cB_SearchForPers->currentText() == "Turing")
-    {
-        ui->le_SearchPers->setPlaceholderText("Input 'Yes' or 'No'");
-    }
-    else
-        ui->le_SearchPers->setText("");
-}
-
-void DisplayList::displayLinks(vector<Links> links){
-
-
+void DisplayList::displayLinks(vector<Links> links) {
     ui->ListLinks->setColumnWidth(0, 50);
     ui->ListLinks->setColumnWidth(1, 150);
     ui->ListLinks->setColumnWidth(2, 50);
@@ -470,26 +436,33 @@ void DisplayList::displayLinks(vector<Links> links){
         ui->ListLinks->setItem(i, 3, new QTableWidgetItem(LComp));
     }
     currentlyDisplayedLink = links;
-
 }
 
-void DisplayList::on_input_SearchLink_clicked()
-{
+void DisplayList::on_cB_SearchForPers_currentTextChanged(const QString &arg1) {
+    cerr << arg1.toStdString() << endl;
+
+    if(ui->cB_SearchForPers->currentText() == "Gender") {
+        ui->le_SearchPers->setPlaceholderText("Input 'F'or 'M' ");
+    }
+    else if(ui->cB_SearchForPers->currentText() == "Turing") {
+        ui->le_SearchPers->setPlaceholderText("Input 'Yes' or 'No'");
+    }
+    else
+        ui->le_SearchPers->setText("");
+}
+
+void DisplayList::on_input_SearchLink_clicked() {
     string CompsCB = ui->cB_SearchForLinks->currentText().toStdString();
 
-    if(CompsCB == "Name")
-    {
+    if(CompsCB == "Name") {
         displayLinks(_ls.searchByName(ui->le_Searchlink->text().toStdString()));
     }
-    else if (CompsCB == "ID")
-    {
+    else if (CompsCB == "ID") {
         displayLinks(_ls.searchById(ui->le_Searchlink->text().toStdString()));
     }
-
 }
 
-void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index)
-{
+void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index) {
     int currentlySelectedID;
     cerr << index.isValid() << endl;
     int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();

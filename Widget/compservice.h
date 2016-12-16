@@ -10,7 +10,6 @@ private:
     Database _db;
     vector<Comps> computers;
     vector<Comps> trash;
-
 public:
     CompService();
     CompService(Database db);
@@ -41,7 +40,6 @@ public:
     string deleteComputers(string name, string type);
 
     // Edit
-
     /*
      * First we check if the computer exists with editComputer function,
      * then we open the edit page and have the user input the information
@@ -61,7 +59,6 @@ public:
 
     //geet comp ID
     int getCompID(string name, string type);
-
     Comps getCompFromId(int id);
 
 };

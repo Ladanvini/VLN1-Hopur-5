@@ -34,7 +34,6 @@ private slots:
     void on_pBExit_clicked();
     void on_pBFunMenu_clicked();
     void on_pBTrash_clicked();
-
 private:
     Ui::MainWindow *ui;
 

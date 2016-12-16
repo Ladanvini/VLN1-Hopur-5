@@ -79,7 +79,6 @@ public:
     void editCompDB(Comps c);
 
     //Add to trash
-
     void trashComp(Comps c);
     void trashPers(Person p);
     void trashLink(Links l);
@@ -88,6 +87,7 @@ public:
     vector<Person> getTrashPeople();
     vector<Links> getTrashLinks();
 
+    //Restore from trash
     void restoreComp(Comps c);
     void restorePers(Person p);
     void restoreLink(Links l);

@@ -8,7 +8,6 @@ private:
     appservice _ps;
     CompService _cs;
     LinkService _ls;
-
 public:
     TrashService();
     vector<Comps> getTrashComp();
