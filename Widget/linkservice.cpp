@@ -132,9 +132,9 @@ string LinkService::deleteLink(int cid, int pid) {
     }
     _db.updateLinkDB(_linkList);
     trash.push_back(result);
-    _db.trashLink(result);
-    _db.deleteCons(cid, pid);
 
+    _db.deleteCons(cid, pid);
+    _db.trashLink(result);
     return "Link deleted successfully\n";
 }
 
