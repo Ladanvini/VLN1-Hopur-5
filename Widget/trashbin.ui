@@ -14,6 +14,9 @@
    <string>Dialog</string>
   </property>
   <widget class="QTabWidget" name="DisplaytapsT">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -26,7 +29,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tPerson">
     <attribute name="title">
@@ -108,6 +111,9 @@
      </column>
     </widget>
     <widget class="QPushButton" name="pBPRestore">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -181,6 +187,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBCRestore">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -251,6 +260,9 @@
      </property>
     </widget>
     <widget class="QPushButton" name="pBLRestore">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>190</x>
