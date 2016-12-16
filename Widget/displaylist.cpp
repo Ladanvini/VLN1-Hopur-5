@@ -87,8 +87,10 @@ void DisplayList::on_pBPDelete_clicked() {
     string currentlySelectedName;
     int currentlySelectedBirth;
 
-    int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
-    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
+    int index = ui->ListPersons->currentIndex().row();
+    int currentlySelectedID = ui->ListPersons->item(index, 0)->text().toInt();
+
+    Person currentlySelectedPerson = _ps.getPersonFromId(currentlySelectedID);
 
     currentlySelectedName = currentlySelectedPerson.getName();
     currentlySelectedBirth = currentlySelectedPerson.getBirth();
@@ -106,8 +108,9 @@ void DisplayList::on_pBCDelete_clicked() {
     string currentlySelectedName;
     string currentlySelectedType;
 
-    int currentlySelectedCompsIndex = ui->ListComputers->currentIndex().row();
-    Comps currentlySelectedComps = currentlyDisplayedComps.at(currentlySelectedCompsIndex);
+    int index = ui->ListComputers->currentIndex().row();
+    int selId = ui->ListComputers->item(index, 0)->text().toInt();
+    Comps currentlySelectedComps = _cs.getCompFromId(selId);
 
     currentlySelectedName = currentlySelectedComps.getName();
     currentlySelectedType = currentlySelectedComps.getType();
@@ -124,12 +127,13 @@ void DisplayList::on_pBCDelete_clicked() {
 void DisplayList::on_pBLDelete_clicked() {
     int currentlySelectedPerson;
     int currentlySelectedComps;
-    int currentlySelectedLinkIndex = ui->ListLinks->currentIndex().row();
+    int index = ui->ListLinks->currentIndex().row();
+    int selCompId = ui->ListLinks->item(index, 2)->text().toInt();
+    int selPerId = ui->ListLinks->item(index, 0)->text().toInt();
 
-    Links currentlySelectedLink = currentlyDisplayedLink.at(currentlySelectedLinkIndex);
 
-    currentlySelectedPerson = currentlySelectedLink.getPID();
-    currentlySelectedComps = currentlySelectedLink.getCID();
+    currentlySelectedPerson = _ps.getPersonFromId(selPerId).getId();
+    currentlySelectedComps = _cs.getCompFromId(selCompId).getId();
 
     _ls.deleteLink(currentlySelectedComps, currentlySelectedPerson);
 
@@ -220,8 +224,11 @@ void DisplayList::displayPeople() {
         ui->ListPersons->setItem(i, 5, new QTableWidgetItem(PDeath));
         ui->ListPersons->setItem(i, 6, new QTableWidgetItem(PTuring));
         ui->ListPersons->setItem(i, 7, new QTableWidgetItem(PContribution));
+
+        cout << people.at(i).getName() << endl;
+        currentlyDisplayedPerson.push_back(people.at(i));
     }
-    currentlyDisplayedPerson = people;
+
 }
 
 void DisplayList::displayLinks() {
@@ -263,9 +270,9 @@ void DisplayList::on_pBPEdit_clicked() {
     int currentlySelectedID;
 
     int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
-    Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
 
-    currentlySelectedID = currentlySelectedPerson.getId();
+    currentlySelectedID = ui->ListPersons->item(currentlySelectedPersonIndex, 0)->text().toInt();
+
 
     editPerson ep;
     ep._editPersonWithId(currentlySelectedID);
@@ -277,9 +284,8 @@ void DisplayList::on_pBCEdit_clicked() {
     int currentlySelectedID;
 
     int currentlySelectedCompsIndex = ui->ListComputers->currentIndex().row();
-    Comps currentlySelectedComps = currentlyDisplayedComps.at(currentlySelectedCompsIndex);
 
-    currentlySelectedID = currentlySelectedComps.getId();
+    currentlySelectedID = ui->ListComputers->item(currentlySelectedCompsIndex, 0)->text().toInt();
 
     editComputer ec;
 
@@ -465,11 +471,12 @@ void DisplayList::on_input_SearchLink_clicked() {
 void DisplayList::on_ListPersons_doubleClicked(const QModelIndex &index) {
     int currentlySelectedID;
     cerr << index.isValid() << endl;
+    cout << "NOOOOOOOOOOOOOOOOO" << index.data().toInt() << endl;
+
     int currentlySelectedPersonIndex = ui->ListPersons->currentIndex().row();
     Person currentlySelectedPerson = currentlyDisplayedPerson.at(currentlySelectedPersonIndex);
-
     currentlySelectedID = currentlySelectedPerson.getId();
-
+cout << "HEREEEEEEEEE" << currentlySelectedPersonIndex << endl;
     Profile pro;
     pro.showPersonWithID(currentlySelectedID);
     pro.exec();
